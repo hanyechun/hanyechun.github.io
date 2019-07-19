@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>hyc&#39;s blog</title>
+  
+  <subtitle>write less, do more</subtitle>
+  <link href="/iblog/atom.xml" rel="self"/>
+  
+  <link href="http://hyc7.coding.me/iblog/"/>
+  <updated>2019-07-19T07:22:05.452Z</updated>
+  <id>http://hyc7.coding.me/iblog/</id>
+  
+  <author>
+    <name>叶寒</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac生成SSH Key</title>
+    <link href="http://hyc7.coding.me/iblog/2019/07/19/Mac%E7%94%9F%E6%88%90SSH-Key/"/>
+    <id>http://hyc7.coding.me/iblog/2019/07/19/Mac生成SSH-Key/</id>
+    <published>2019-07-19T07:16:51.000Z</published>
+    <updated>2019-07-19T07:22:05.452Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="打开vim（terminal-app）查看本地是否存在SSH-Key"><a href="#打开vim（terminal-app）查看本地是否存在SSH-Key" class="headerlink" title="打开vim（terminal.app）查看本地是否存在SSH-Key"></a>打开vim（terminal.app）查看本地是否存在SSH-Key</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -al ~/.ssh</span><br></pre></td></tr></table></figure><p>如果vim输出的是如下内容：证明本地没有生成的SSH Key，请执行第二步。</p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">No such file or directory</span><br></pre></td></tr></table></figure><p>如果vim输出的是如下内容： 证明本地已经存在SSH Key 文件，请执行第四步。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id_rsa    id_rsa.pub</span><br></pre></td></tr></table></figure><h4 id="如果没有，生成新的SSH-Key"><a href="#如果没有，生成新的SSH-Key" class="headerlink" title="如果没有，生成新的SSH Key"></a>如果没有，生成新的SSH Key</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C&quot;you_email&quot;</span><br></pre></td></tr></table></figure><p>your_email：这里填写你在GitLab或者GitHub注册时的邮箱。<br>后面的提示直接敲回车，一路完成。</p><h4 id="生成并添加SSH-Key"><a href="#生成并添加SSH-Key" class="headerlink" title="生成并添加SSH Key"></a>生成并添加SSH Key</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure><h4 id="查看SSH-Key"><a href="#查看SSH-Key" class="headerlink" title="查看SSH Key"></a>查看SSH Key</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /Users/xxx/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure><p>xxx是你的电脑用户名，例如：howieMacBook-Pro:~ howie$中的howie关键字。<br>复制生成好的SSH Key 添加到 GitLab 或者GitHub中的SSH Key中即可。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;打开vim（terminal-app）查看本地是否存在SSH-Key&quot;&gt;&lt;a href=&quot;#打开vim（terminal-app）查看本地是否存在SSH-Key&quot; class=&quot;headerlink&quot; title=&quot;打开vim（terminal.app）查看本地是否存在SSH-Key&quot;&gt;&lt;/a&gt;打开vim（terminal.app）查看本地是否存在SSH-Key&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ls -al ~/.ssh&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;如果vim输出的是如下内容：证明本地没有生成的SSH Key，请执行第二步。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://hyc7.coding.me/iblog/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="git" scheme="http://hyc7.coding.me/iblog/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac adb install apk</title>
+    <link href="http://hyc7.coding.me/iblog/2019/07/19/Mac-adb-install-apk/"/>
+    <id>http://hyc7.coding.me/iblog/2019/07/19/Mac-adb-install-apk/</id>
+    <published>2019-07-19T06:28:00.000Z</published>
+    <updated>2019-07-19T07:02:26.275Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Mac配置adb"><a href="#Mac配置adb" class="headerlink" title="Mac配置adb"></a>Mac配置adb</h4><ol><li>在AS界面上，打开Preferences界面（快捷键： command + , 键），然后复制sdk路径<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/Library/Android/sdk/platform-tools</span><br></pre></td></tr></table></figure></li></ol><a id="more"></a><ol start="2"><li><p>打开finder，按快捷键：shift + command + g，前往文件夹<br>查看adb文件是否在该目录下</p></li><li><p>打开终端，输入</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch .bash_profile</span><br><span class="line">open -e .bash_profile</span><br></pre></td></tr></table></figure><p> 修改弹出的.bash_profile的文件，增加以下语句</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$&#123;PATH&#125;:~/Library/Android/sdk/platform-tools</span><br></pre></td></tr></table></figure></li><li><p>执行如下命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source .bash_profile</span><br></pre></td></tr></table></figure></li><li><p>验证：输入adb回车，即可生效</p></li></ol><h4 id="验证adb是否生效"><a href="#验证adb是否生效" class="headerlink" title="验证adb是否生效"></a>验证adb是否生效</h4><p>在终端输入:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb install apk路径</span><br></pre></td></tr></table></figure><p>出现success表示安装成功</p><h4 id="常见的Android开发命令"><a href="#常见的Android开发命令" class="headerlink" title="常见的Android开发命令"></a>常见的Android开发命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">adb shell：来到手机终端中。</span><br><span class="line">adb divices</span><br><span class="line">adb kill-server</span><br><span class="line">adb start-server</span><br><span class="line">adb install XXX.apk：安装应用程序</span><br><span class="line">abd uninstall （应用程序的包名）</span><br><span class="line">adb -s 设备名字 XXX.apk可以选择哪个模拟器，安装程序</span><br><span class="line">adb pull：（pull拉去，拿取）：把手机中的文件导出去</span><br><span class="line">adb push</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Mac配置adb&quot;&gt;&lt;a href=&quot;#Mac配置adb&quot; class=&quot;headerlink&quot; title=&quot;Mac配置adb&quot;&gt;&lt;/a&gt;Mac配置adb&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;在AS界面上，打开Preferences界面（快捷键： command + , 键），然后复制sdk路径&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;~/Library/Android/sdk/platform-tools&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="android" scheme="http://hyc7.coding.me/iblog/categories/android/"/>
+    
+    
+      <category term="mac" scheme="http://hyc7.coding.me/iblog/tags/mac/"/>
+    
+      <category term="adb" scheme="http://hyc7.coding.me/iblog/tags/adb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://hyc7.coding.me/iblog/2019/07/05/hello-world/"/>
+    <id>http://hyc7.coding.me/iblog/2019/07/05/hello-world/</id>
+    <published>2019-07-05T09:35:50.832Z</published>
+    <updated>2019-07-19T03:14:48.037Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><a id="more"></a><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
