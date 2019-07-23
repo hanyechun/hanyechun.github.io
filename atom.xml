@@ -3,11 +3,11 @@
   <title>hyc&#39;s blog</title>
   
   <subtitle>write less, do more</subtitle>
-  <link href="/hanyechun.github.io/atom.xml" rel="self"/>
+  <link href="/iblog/atom.xml" rel="self"/>
   
-  <link href="https://hanyechun.github.io/"/>
-  <updated>2019-07-19T07:22:05.452Z</updated>
-  <id>https://hanyechun.github.io/</id>
+  <link href="http://hyc7.coding.me/iblog/"/>
+  <updated>2019-07-23T09:38:05.163Z</updated>
+  <id>http://hyc7.coding.me/iblog/</id>
   
   <author>
     <name>叶寒</name>
@@ -17,9 +17,32 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>时光很长 莫要慌张</title>
+    <link href="http://hyc7.coding.me/iblog/2019/07/23/%E6%97%B6%E5%85%89%E5%BE%88%E9%95%BF-%E8%8E%AB%E8%A6%81%E6%85%8C%E5%BC%A0/"/>
+    <id>http://hyc7.coding.me/iblog/2019/07/23/时光很长-莫要慌张/</id>
+    <published>2019-07-23T09:32:07.000Z</published>
+    <updated>2019-07-23T09:38:05.163Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>未曾开言我先笑场，笑场完了听我诉一诉衷肠。        –《笑场》</p></blockquote><p>近来，年岁愈涨，愈感到焦虑，总想一下子把所有的事情做完。都说，人生最好的际遇，就是在适合的年纪做适合的事。年少时，好好学习；成年后，结婚生子。</p><a id="more"></a><p>刚毕业，总是心高气傲，想着做一个优秀的工程师、找一个可以红袖添香、慢慢变老的人。理想很丰满、现实很骨感。这句话真的很现实。</p><p>时光如白驹过隙，转瞬而逝，never say goodbye to u。</p><p>或许到了年纪，工作上不顺心，想转型却又难找到机会，父母也催促着你成家。瞬间，感觉自己过了年纪，该做的事什么都没有做，既没有遇到合适的人、自己也没有成长成自己期望的样子。于是，一事无成。开始迷茫和焦虑，想赶紧把该做的事情都做了，找个人结婚、生子、平平凡凡、庸庸碌碌就好。再难以静下心来，去学习和充实，总是找些喜剧以自娱，甚至开始二倍速看世界。既想改变，又在不停的浪费时间，兜兜转转，还在原地。</p><p>《笑场》序言，李诞说过一句话：</p><blockquote><p>我一直以来是个沮丧的人，认为人生没有丝毫意义，梦幻泡影。<br>近来因机缘获得一点儿开悟，找到了活下去的理由——人生确实没有意义，但人生有美。<br>梦幻泡影嘛，本来就是美的。</p></blockquote><p>我想说的是，时光还很长，不必焦虑。不妨出去走走看看，世间的繁华，热闹之后，总会归于平静。给自己点时间，找回本心。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;未曾开言我先笑场，笑场完了听我诉一诉衷肠。        –《笑场》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;近来，年岁愈涨，愈感到焦虑，总想一下子把所有的事情做完。都说，人生最好的际遇，就是在适合的年纪做适合的事。年少时，好好学习；成年后，结婚生子。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://hyc7.coding.me/iblog/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Mac生成SSH Key</title>
-    <link href="https://hanyechun.github.io/2019/07/19/Mac%E7%94%9F%E6%88%90SSH-Key/"/>
-    <id>https://hanyechun.github.io/2019/07/19/Mac生成SSH-Key/</id>
+    <link href="http://hyc7.coding.me/iblog/2019/07/19/Mac%E7%94%9F%E6%88%90SSH-Key/"/>
+    <id>http://hyc7.coding.me/iblog/2019/07/19/Mac生成SSH-Key/</id>
     <published>2019-07-19T07:16:51.000Z</published>
     <updated>2019-07-19T07:22:05.452Z</updated>
     
@@ -33,17 +56,17 @@
     
     </summary>
     
-      <category term="随笔" scheme="https://hanyechun.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="http://hyc7.coding.me/iblog/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="git" scheme="https://hanyechun.github.io/tags/git/"/>
+      <category term="git" scheme="http://hyc7.coding.me/iblog/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>Mac adb install apk</title>
-    <link href="https://hanyechun.github.io/2019/07/19/Mac-adb-install-apk/"/>
-    <id>https://hanyechun.github.io/2019/07/19/Mac-adb-install-apk/</id>
+    <link href="http://hyc7.coding.me/iblog/2019/07/19/Mac-adb-install-apk/"/>
+    <id>http://hyc7.coding.me/iblog/2019/07/19/Mac-adb-install-apk/</id>
     <published>2019-07-19T06:28:00.000Z</published>
     <updated>2019-07-19T07:02:26.275Z</updated>
     
@@ -59,19 +82,19 @@
     
     </summary>
     
-      <category term="android" scheme="https://hanyechun.github.io/categories/android/"/>
+      <category term="android" scheme="http://hyc7.coding.me/iblog/categories/android/"/>
     
     
-      <category term="mac" scheme="https://hanyechun.github.io/tags/mac/"/>
+      <category term="mac" scheme="http://hyc7.coding.me/iblog/tags/mac/"/>
     
-      <category term="adb" scheme="https://hanyechun.github.io/tags/adb/"/>
+      <category term="adb" scheme="http://hyc7.coding.me/iblog/tags/adb/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://hanyechun.github.io/2019/07/05/hello-world/"/>
-    <id>https://hanyechun.github.io/2019/07/05/hello-world/</id>
+    <link href="http://hyc7.coding.me/iblog/2019/07/05/hello-world/"/>
+    <id>http://hyc7.coding.me/iblog/2019/07/05/hello-world/</id>
     <published>2019-07-05T09:35:50.832Z</published>
     <updated>2019-07-19T03:14:48.037Z</updated>
     
