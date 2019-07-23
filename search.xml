@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title><![CDATA[Mac生成SSH Key]]></title>
-    <url>%2Fiblog%2F2019%2F07%2F19%2FMac%E7%94%9F%E6%88%90SSH-Key%2F</url>
+    <url>%2Fhanyechun.github.io%2F2019%2F07%2F19%2FMac%E7%94%9F%E6%88%90SSH-Key%2F</url>
     <content type="text"><![CDATA[打开vim（terminal.app）查看本地是否存在SSH-Key1ls -al ~/.ssh 如果vim输出的是如下内容：证明本地没有生成的SSH Key，请执行第二步。 1No such file or directory 如果vim输出的是如下内容： 证明本地已经存在SSH Key 文件，请执行第四步。 1id_rsa id_rsa.pub 如果没有，生成新的SSH Key1ssh-keygen -t rsa -C&quot;you_email&quot; your_email：这里填写你在GitLab或者GitHub注册时的邮箱。后面的提示直接敲回车，一路完成。 生成并添加SSH Key1ssh-add ~/.ssh/id_rsa 查看SSH Key1cat /Users/xxx/.ssh/id_rsa.pub xxx是你的电脑用户名，例如：howieMacBook-Pro:~ howie$中的howie关键字。复制生成好的SSH Key 添加到 GitLab 或者GitHub中的SSH Key中即可。]]></content>
       <categories>
         <category>随笔</category>
@@ -13,7 +13,7 @@
   </entry>
   <entry>
     <title><![CDATA[Mac adb install apk]]></title>
-    <url>%2Fiblog%2F2019%2F07%2F19%2FMac-adb-install-apk%2F</url>
+    <url>%2Fhanyechun.github.io%2F2019%2F07%2F19%2FMac-adb-install-apk%2F</url>
     <content type="text"><![CDATA[Mac配置adb 在AS界面上，打开Preferences界面（快捷键： command + , 键），然后复制sdk路径1~/Library/Android/sdk/platform-tools 打开finder，按快捷键：shift + command + g，前往文件夹查看adb文件是否在该目录下 打开终端，输入 12touch .bash_profileopen -e .bash_profile 修改弹出的.bash_profile的文件，增加以下语句 1export PATH=$&#123;PATH&#125;:~/Library/Android/sdk/platform-tools 执行如下命令 1source .bash_profile 验证：输入adb回车，即可生效 验证adb是否生效在终端输入: 1adb install apk路径 出现success表示安装成功 常见的Android开发命令123456789adb shell：来到手机终端中。adb divicesadb kill-serveradb start-serveradb install XXX.apk：安装应用程序abd uninstall （应用程序的包名）adb -s 设备名字 XXX.apk可以选择哪个模拟器，安装程序adb pull：（pull拉去，拿取）：把手机中的文件导出去adb push]]></content>
       <categories>
         <category>android</category>
@@ -25,7 +25,7 @@
   </entry>
   <entry>
     <title><![CDATA[Hello World]]></title>
-    <url>%2Fiblog%2F2019%2F07%2F05%2Fhello-world%2F</url>
+    <url>%2Fhanyechun.github.io%2F2019%2F07%2F05%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
 </search>
