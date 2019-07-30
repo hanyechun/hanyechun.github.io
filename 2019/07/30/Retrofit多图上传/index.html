@@ -138,18 +138,18 @@
 
 
 
-  <meta name="description" content="首先是定义接口部分： 12345public interface MyApi&amp;#123; 	@Multipart    @POST(&amp;quot;renovation/uploadImg&amp;quot;)    Observable&amp;lt;HttpResult&amp;gt; upLoadsImg(@PartMap Map&amp;lt;String, RequestBody&amp;gt; params,  @Part(&amp;q">
+  <meta name="description" content="首先是定义接口部分： 12345public interface MyApi&amp;#123;    @Multipart    @POST(&amp;quot;renovation/uploadImg&amp;quot;)    Observable&amp;lt;HttpResult&amp;gt; upLoadsImg(@PartMap Map&amp;lt;String, RequestBody&amp;gt; params,  @Part(">
 <meta name="keywords" content="retrofit">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Retrofit多图上传">
 <meta property="og:url" content="http://hyc7.coding.me/iblog/2019/07/30/Retrofit多图上传/index.html">
 <meta property="og:site_name" content="hyc&#39;s blog">
-<meta property="og:description" content="首先是定义接口部分： 12345public interface MyApi&amp;#123; 	@Multipart    @POST(&amp;quot;renovation/uploadImg&amp;quot;)    Observable&amp;lt;HttpResult&amp;gt; upLoadsImg(@PartMap Map&amp;lt;String, RequestBody&amp;gt; params,  @Part(&amp;q">
+<meta property="og:description" content="首先是定义接口部分： 12345public interface MyApi&amp;#123;    @Multipart    @POST(&amp;quot;renovation/uploadImg&amp;quot;)    Observable&amp;lt;HttpResult&amp;gt; upLoadsImg(@PartMap Map&amp;lt;String, RequestBody&amp;gt; params,  @Part(">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-30T09:44:25.706Z">
+<meta property="og:updated_time" content="2019-07-30T09:48:00.194Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Retrofit多图上传">
-<meta name="twitter:description" content="首先是定义接口部分： 12345public interface MyApi&amp;#123; 	@Multipart    @POST(&amp;quot;renovation/uploadImg&amp;quot;)    Observable&amp;lt;HttpResult&amp;gt; upLoadsImg(@PartMap Map&amp;lt;String, RequestBody&amp;gt; params,  @Part(&amp;q">
+<meta name="twitter:description" content="首先是定义接口部分： 12345public interface MyApi&amp;#123;    @Multipart    @POST(&amp;quot;renovation/uploadImg&amp;quot;)    Observable&amp;lt;HttpResult&amp;gt; upLoadsImg(@PartMap Map&amp;lt;String, RequestBody&amp;gt; params,  @Part(">
 
 
 
@@ -472,7 +472,7 @@
                 
               
 
-              <time title="创建时间：2019-07-30 17:36:04 / 修改时间：17:44:25" itemprop="dateCreated datePublished" datetime="2019-07-30T17:36:04+08:00">2019-07-30</time>
+              <time title="创建时间：2019-07-30 17:36:04 / 修改时间：17:48:00" itemprop="dateCreated datePublished" datetime="2019-07-30T17:36:04+08:00">2019-07-30</time>
             </span>
           
 
@@ -570,7 +570,7 @@
 
       
         <p>首先是定义接口部分：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public interface MyApi&#123;</span><br><span class="line"> 	@Multipart</span><br><span class="line">    @POST(&quot;renovation/uploadImg&quot;)</span><br><span class="line">    Observable&lt;HttpResult&gt; upLoadsImg(@PartMap Map&lt;String, RequestBody&gt; params,  @Part(&quot;content&quot;)RequestBody content);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public interface MyApi&#123;</span><br><span class="line">    @Multipart</span><br><span class="line">    @POST(&quot;renovation/uploadImg&quot;)</span><br><span class="line">    Observable&lt;HttpResult&gt; upLoadsImg(@PartMap Map&lt;String, RequestBody&gt; params,  @Part(&quot;content&quot;)RequestBody content);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p><strong>注意</strong> 这里使用<code>@Multipart</code>注解，参数这里使用<code>@PartMap</code>和<code>@Part</code>，他们是用来上传文件用的。 这里需要注意的是，使用了<code>@Multipart</code>注解，参数的类型都应该是<code>RequestBody</code>，不然上传的图片的时候会报<code>JSON must start with an array or an object</code>错误。上传多张图片就使用<code>@PartMap Map&lt;String, RequestBody&gt;</code></p>
