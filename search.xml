@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Retrofit多图上传]]></title>
+    <url>%2Fiblog%2F2019%2F07%2F30%2FRetrofit%E5%A4%9A%E5%9B%BE%E4%B8%8A%E4%BC%A0%2F</url>
+    <content type="text"><![CDATA[首先是定义接口部分： 12345public interface MyApi&#123; @Multipart @POST(&quot;renovation/uploadImg&quot;) Observable&lt;HttpResult&gt; upLoadsImg(@PartMap Map&lt;String, RequestBody&gt; params, @Part(&quot;content&quot;)RequestBody content);&#125; 注意 这里使用@Multipart注解，参数这里使用@PartMap和@Part，他们是用来上传文件用的。 这里需要注意的是，使用了@Multipart注解，参数的类型都应该是RequestBody，不然上传的图片的时候会报JSON must start with an array or an object错误。上传多张图片就使用@PartMap Map&lt;String, RequestBody&gt; 12345public interface MyApi&#123; @Multipart @POST(&quot;renovation/uploadSingleImg&quot;) Observable&lt;HttpResult&gt; upLoadsImg(@Part MultipartBody.Part photo);&#125; 单图上传就用 @Part MultipartBody.Part 其次就是具体实现部分（以多图上传为例）: 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051Observer&lt;HttpResult&gt; observer = new Observer&lt;HttpResult&gt;() &#123; @Override public void onCompleted() &#123; &#125; @Override public void onError(Throwable e) &#123; progressUtils.dismiss(); e.printStackTrace(); &#125; @Override public void onNext(HttpResult httpResult) &#123; //处理返回结果 if (httpResult.isStatus()) &#123; Toast.makeText(mContext, &quot;上传成功&quot;, Toast.LENGTH_SHORT).show(); &#125; else &#123; Toast.makeText(mContext, &quot;上传失败&quot;, Toast.LENGTH_SHORT).show(); &#125; progressUtils.dismiss(); &#125; &#125;;private void submitData() &#123; //图片压缩 compressUtils(); Map&lt;String, RequestBody&gt; photos = new HashMap&lt;&gt;(); //mPhotoList是选择图片后的返回路径 if (mPhotoList.size() &gt; 0) &#123; for (int i = 0; i &lt; mPhotoList.size(); i++) &#123; File file = new File(mPhotoList.get(i).getPhotoPath()); RequestBody requestFile = RequestBody.create(MediaType.parse(&quot;multipart/form-data&quot;), file); //RequestBody requestFile = RequestBody.create(MediaType.parse(&quot;image/jpg&quot;), file); //这里前面一部分是服务器要求你传的key，加上一个i,就可以动态设置key的长度 photos.put(&quot;AttachmentKey&quot;+i+&quot;\&quot;; filename=\&quot;&quot;+file.getName(),requestFile); &#125; &#125; subscription = Network.getMyApi().upLoadsImg(photos,RequestBody.create(null,content)) .subscribeOn(Schedulers.io()) .unsubscribeOn(Schedulers.io()) .observeOn(AndroidSchedulers.mainThread()) .subscribe(observer); &#125; 这里详细解释已经在代码中有注释说明，我按照这个方法上传是没有问题的。相册选机器我推荐使用 GalleryFinal里面的功能很详细，实现了拍照、图片选择（单选/多选）、 裁剪（单/多裁剪）、旋转等功能，具体链接里面有介绍。 MediaType.parse(“multipart/form-data”)传MediaType.parse(“image/jpg”)也可以，原因还不知道。]]></content>
+      <categories>
+        <category>android</category>
+      </categories>
+      <tags>
+        <tag>retrofit</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[时光很长 莫要慌张]]></title>
     <url>%2Fiblog%2F2019%2F07%2F23%2F%E6%97%B6%E5%85%89%E5%BE%88%E9%95%BF-%E8%8E%AB%E8%A6%81%E6%85%8C%E5%BC%A0%2F</url>
     <content type="text"><![CDATA[未曾开言我先笑场，笑场完了听我诉一诉衷肠。 –《笑场》 近来，年岁愈涨，愈感到焦虑，总想一下子把所有的事情做完。都说，人生最好的际遇，就是在适合的年纪做适合的事。年少时，好好学习；成年后，结婚生子。 刚毕业，总是心高气傲，想着做一个优秀的工程师、找一个可以红袖添香、慢慢变老的人。理想很丰满、现实很骨感。这句话真的很现实。 时光如白驹过隙，转瞬而逝，never say goodbye to u。 或许到了年纪，工作上不顺心，想转型却又难找到机会，父母也催促着你成家。瞬间，感觉自己过了年纪，该做的事什么都没有做，既没有遇到合适的人、自己也没有成长成自己期望的样子。于是，一事无成。开始迷茫和焦虑，想赶紧把该做的事情都做了，找个人结婚、生子、平平凡凡、庸庸碌碌就好。再难以静下心来，去学习和充实，总是找些喜剧以自娱，甚至开始二倍速看世界。既想改变，又在不停的浪费时间，兜兜转转，还在原地。 《笑场》序言，李诞说过一句话： 我一直以来是个沮丧的人，认为人生没有丝毫意义，梦幻泡影。近来因机缘获得一点儿开悟，找到了活下去的理由——人生确实没有意义，但人生有美。梦幻泡影嘛，本来就是美的。 我想说的是，时光还很长，不必焦虑。不妨出去走走看看，世间的繁华，热闹之后，总会归于平静。给自己点时间，找回本心。]]></content>
