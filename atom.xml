@@ -3,11 +3,11 @@
   <title>hyc&#39;s blog</title>
   
   <subtitle>write less, do more</subtitle>
-  <link href="/iblog/atom.xml" rel="self"/>
+  <link href="/hanyechun.github.io/atom.xml" rel="self"/>
   
-  <link href="http://hyc7.coding.me/iblog/"/>
+  <link href="https://hanyechun.github.io/"/>
   <updated>2019-10-14T15:57:15.002Z</updated>
-  <id>http://hyc7.coding.me/iblog/</id>
+  <id>https://hanyechun.github.io/</id>
   
   <author>
     <name>叶寒</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Mac使用oh-my-zsh + autosuggestions搭建个性化Terminal</title>
-    <link href="http://hyc7.coding.me/iblog/2019/10/14/Mac%E4%BD%BF%E7%94%A8oh-my-zsh-autosuggestions%E6%90%AD%E5%BB%BA%E4%B8%AA%E6%80%A7%E5%8C%96Terminal/"/>
-    <id>http://hyc7.coding.me/iblog/2019/10/14/Mac使用oh-my-zsh-autosuggestions搭建个性化Terminal/</id>
+    <link href="https://hanyechun.github.io/2019/10/14/Mac%E4%BD%BF%E7%94%A8oh-my-zsh-autosuggestions%E6%90%AD%E5%BB%BA%E4%B8%AA%E6%80%A7%E5%8C%96Terminal/"/>
+    <id>https://hanyechun.github.io/2019/10/14/Mac使用oh-my-zsh-autosuggestions搭建个性化Terminal/</id>
     <published>2019-10-14T13:13:13.000Z</published>
     <updated>2019-10-14T15:57:15.002Z</updated>
     
@@ -35,17 +35,17 @@
     
     </summary>
     
-      <category term="mac" scheme="http://hyc7.coding.me/iblog/categories/mac/"/>
+      <category term="mac" scheme="https://hanyechun.github.io/categories/mac/"/>
     
     
-      <category term="terminal" scheme="http://hyc7.coding.me/iblog/tags/terminal/"/>
+      <category term="terminal" scheme="https://hanyechun.github.io/tags/terminal/"/>
     
   </entry>
   
   <entry>
     <title>Retrofit多图上传</title>
-    <link href="http://hyc7.coding.me/iblog/2019/07/30/Retrofit%E5%A4%9A%E5%9B%BE%E4%B8%8A%E4%BC%A0/"/>
-    <id>http://hyc7.coding.me/iblog/2019/07/30/Retrofit多图上传/</id>
+    <link href="https://hanyechun.github.io/2019/07/30/Retrofit%E5%A4%9A%E5%9B%BE%E4%B8%8A%E4%BC%A0/"/>
+    <id>https://hanyechun.github.io/2019/07/30/Retrofit多图上传/</id>
     <published>2019-07-30T09:36:04.000Z</published>
     <updated>2019-07-30T09:48:00.194Z</updated>
     
@@ -62,17 +62,17 @@
     
     </summary>
     
-      <category term="android" scheme="http://hyc7.coding.me/iblog/categories/android/"/>
+      <category term="android" scheme="https://hanyechun.github.io/categories/android/"/>
     
     
-      <category term="retrofit" scheme="http://hyc7.coding.me/iblog/tags/retrofit/"/>
+      <category term="retrofit" scheme="https://hanyechun.github.io/tags/retrofit/"/>
     
   </entry>
   
   <entry>
     <title>时光很长 莫要慌张</title>
-    <link href="http://hyc7.coding.me/iblog/2019/07/23/%E6%97%B6%E5%85%89%E5%BE%88%E9%95%BF-%E8%8E%AB%E8%A6%81%E6%85%8C%E5%BC%A0/"/>
-    <id>http://hyc7.coding.me/iblog/2019/07/23/时光很长-莫要慌张/</id>
+    <link href="https://hanyechun.github.io/2019/07/23/%E6%97%B6%E5%85%89%E5%BE%88%E9%95%BF-%E8%8E%AB%E8%A6%81%E6%85%8C%E5%BC%A0/"/>
+    <id>https://hanyechun.github.io/2019/07/23/时光很长-莫要慌张/</id>
     <published>2019-07-23T09:32:07.000Z</published>
     <updated>2019-07-23T09:38:05.163Z</updated>
     
@@ -87,15 +87,15 @@
     
     </summary>
     
-      <category term="随笔" scheme="http://hyc7.coding.me/iblog/categories/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://hanyechun.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
   </entry>
   
   <entry>
     <title>Mac生成SSH Key</title>
-    <link href="http://hyc7.coding.me/iblog/2019/07/19/Mac%E7%94%9F%E6%88%90SSH-Key/"/>
-    <id>http://hyc7.coding.me/iblog/2019/07/19/Mac生成SSH-Key/</id>
+    <link href="https://hanyechun.github.io/2019/07/19/Mac%E7%94%9F%E6%88%90SSH-Key/"/>
+    <id>https://hanyechun.github.io/2019/07/19/Mac生成SSH-Key/</id>
     <published>2019-07-19T07:16:51.000Z</published>
     <updated>2019-07-19T07:22:05.452Z</updated>
     
@@ -109,17 +109,17 @@
     
     </summary>
     
-      <category term="随笔" scheme="http://hyc7.coding.me/iblog/categories/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://hanyechun.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="git" scheme="http://hyc7.coding.me/iblog/tags/git/"/>
+      <category term="git" scheme="https://hanyechun.github.io/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>Mac adb install apk</title>
-    <link href="http://hyc7.coding.me/iblog/2019/07/19/Mac-adb-install-apk/"/>
-    <id>http://hyc7.coding.me/iblog/2019/07/19/Mac-adb-install-apk/</id>
+    <link href="https://hanyechun.github.io/2019/07/19/Mac-adb-install-apk/"/>
+    <id>https://hanyechun.github.io/2019/07/19/Mac-adb-install-apk/</id>
     <published>2019-07-19T06:28:00.000Z</published>
     <updated>2019-07-19T07:02:26.275Z</updated>
     
@@ -135,19 +135,19 @@
     
     </summary>
     
-      <category term="android" scheme="http://hyc7.coding.me/iblog/categories/android/"/>
+      <category term="android" scheme="https://hanyechun.github.io/categories/android/"/>
     
     
-      <category term="mac" scheme="http://hyc7.coding.me/iblog/tags/mac/"/>
+      <category term="mac" scheme="https://hanyechun.github.io/tags/mac/"/>
     
-      <category term="adb" scheme="http://hyc7.coding.me/iblog/tags/adb/"/>
+      <category term="adb" scheme="https://hanyechun.github.io/tags/adb/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://hyc7.coding.me/iblog/2019/07/05/hello-world/"/>
-    <id>http://hyc7.coding.me/iblog/2019/07/05/hello-world/</id>
+    <link href="https://hanyechun.github.io/2019/07/05/hello-world/"/>
+    <id>https://hanyechun.github.io/2019/07/05/hello-world/</id>
     <published>2019-07-05T09:35:50.832Z</published>
     <updated>2019-07-19T03:14:48.037Z</updated>
     
