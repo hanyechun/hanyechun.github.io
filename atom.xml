@@ -6,7 +6,7 @@
   <link href="/hanyechun.github.io/atom.xml" rel="self"/>
   
   <link href="https://hanyechun.github.io/"/>
-  <updated>2019-10-14T15:57:15.002Z</updated>
+  <updated>2019-12-26T01:47:43.800Z</updated>
   <id>https://hanyechun.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>oh-my-zsh ，zsh: command not found: adb</title>
+    <link href="https://hanyechun.github.io/2019/12/26/oh-my-zsh-%EF%BC%8Czsh-command-not-found-adb/"/>
+    <id>https://hanyechun.github.io/2019/12/26/oh-my-zsh-，zsh-command-not-found-adb/</id>
+    <published>2019-12-26T01:37:38.000Z</published>
+    <updated>2019-12-26T01:47:43.800Z</updated>
+    
+    <content type="html"><![CDATA[<p>安装完zsh，在使用相关shell命令，出现了”zsh: command not found adb:adb”,”zsh: command not found: git” 等一系列error</p><blockquote><p>其实就是bash shell 以及zsh shell 是两种读取系统环境变量（使用adb的前提是你肯定已经在bash的 .bash_profile 已经配置相关android tool的环境变量了，从而才能使用adb命令）<br>然而在使用zsh shell的时候，你并没有把相关的环境变量的配置设置到 .zshrc 中（功能上类似bash 的.bash_profile）</p></blockquote><a id="more"></a><h5 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h5><p>既然是.zshrc 没有配置相关环境变量设置，把 bash 中.bash_profile 全部环境变量加入就好</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open .zshrc</span><br></pre></td></tr></table></figure><p>然后找到# User configuration部分，添加</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure><p>执行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source .zshrc</span><br></pre></td></tr></table></figure><p>最后再运行adb命令即可</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;安装完zsh，在使用相关shell命令，出现了”zsh: command not found adb:adb”,”zsh: command not found: git” 等一系列error&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;其实就是bash shell 以及zsh shell 是两种读取系统环境变量（使用adb的前提是你肯定已经在bash的 .bash_profile 已经配置相关android tool的环境变量了，从而才能使用adb命令）&lt;br&gt;然而在使用zsh shell的时候，你并没有把相关的环境变量的配置设置到 .zshrc 中（功能上类似bash 的.bash_profile）&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="mac" scheme="https://hanyechun.github.io/categories/mac/"/>
+    
+    
+      <category term="terminal" scheme="https://hanyechun.github.io/tags/terminal/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac使用oh-my-zsh + autosuggestions搭建个性化Terminal</title>

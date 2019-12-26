@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[oh-my-zsh ，zsh: command not found: adb]]></title>
+    <url>%2Fhanyechun.github.io%2F2019%2F12%2F26%2Foh-my-zsh-%EF%BC%8Czsh-command-not-found-adb%2F</url>
+    <content type="text"><![CDATA[安装完zsh，在使用相关shell命令，出现了”zsh: command not found adb:adb”,”zsh: command not found: git” 等一系列error 其实就是bash shell 以及zsh shell 是两种读取系统环境变量（使用adb的前提是你肯定已经在bash的 .bash_profile 已经配置相关android tool的环境变量了，从而才能使用adb命令）然而在使用zsh shell的时候，你并没有把相关的环境变量的配置设置到 .zshrc 中（功能上类似bash 的.bash_profile） 解决办法既然是.zshrc 没有配置相关环境变量设置，把 bash 中.bash_profile 全部环境变量加入就好 1open .zshrc 然后找到# User configuration部分，添加 1source ~/.bash_profile 执行 1source .zshrc 最后再运行adb命令即可]]></content>
+      <categories>
+        <category>mac</category>
+      </categories>
+      <tags>
+        <tag>terminal</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Mac使用oh-my-zsh + autosuggestions搭建个性化Terminal]]></title>
     <url>%2Fhanyechun.github.io%2F2019%2F10%2F14%2FMac%E4%BD%BF%E7%94%A8oh-my-zsh-autosuggestions%E6%90%AD%E5%BB%BA%E4%B8%AA%E6%80%A7%E5%8C%96Terminal%2F</url>
     <content type="text"><![CDATA[查看Mac上已有的shell 12345678cat /etc/shells/bin/bash/bin/csh/bin/ksh/bin/sh/bin/tcsh/bin/zsh 将默认 shell 改成 zsh 1chsh -s /bin/zsh 安装 oh my zsh 12git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zshcp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc shell solarized 配色 12git clone git://github.com/altercation/solarized.git# 然后打开 solarized/osx-terminal.app-colors-solarized/Solarized Dark ansi.terminal 配置文件 安装 autojump 插件 1brew install autojump # 确保有 brew 命令 安装 zsh-autosuggestions 插件 1git clone https://github.com/zsh-users/zsh-autosuggestions $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-autosuggestions 安装 zsh-syntax-highlighting 插件 1git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting 编辑～/.zshrc 文件 1234vim ~/.zshrcZSH_THEME=&quot;agnoster&quot; # 默认主题主题plugins=(git brew laravel5 autojump zsh-autosuggestions zsh-syntax-highlighting) # 配置插件 使用如下命令使控制台窗口生效 1source ~/.zshrc oh-my-zsh主题选择]]></content>
