@@ -6,7 +6,7 @@
   <link href="/hanyechun.github.io/atom.xml" rel="self"/>
   
   <link href="https://hanyechun.github.io/"/>
-  <updated>2020-12-29T13:35:24.654Z</updated>
+  <updated>2021-04-30T02:57:33.726Z</updated>
   <id>https://hanyechun.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ViewPager2与SwipeRefreshLayout滑动冲突问题的解决</title>
+    <link href="https://hanyechun.github.io/2021/04/30/ViewPager2%E4%B8%8ESwipeRefreshLayout%E6%BB%91%E5%8A%A8%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/"/>
+    <id>https://hanyechun.github.io/2021/04/30/ViewPager2与SwipeRefreshLayout滑动冲突问题的解决/</id>
+    <published>2021-04-30T02:51:23.000Z</published>
+    <updated>2021-04-30T02:57:33.726Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>我们是在ViewPager2中的Fragment使用了SwipeRefreshLayout。当向下滑动时只要稍微偏左或右都会触发ViewPager2的移动，造成SwipeRefreshLayout卡在页面上不消失。</p></blockquote><ul><li>解决方案一：重写SwipeRefreshLayout</li></ul><p>我们首先准备修改ViewPager2，可是它没法继承。那么目光只好投向SwipeRefreshLayout。</p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">class MySwipeRefreshLayout : SwipeRefreshLayout &#123;</span><br><span class="line">    constructor(context: Context, attes: AttributeSet) : super(context, attes) &#123;&#125;</span><br><span class="line">    constructor(context: Context) : super(context)</span><br><span class="line"></span><br><span class="line">    private var startX = 0</span><br><span class="line">    private var beginScrolll = false //是否开始滑动</span><br><span class="line">    private var startY: Int = 0</span><br><span class="line">    override fun dispatchTouchEvent(ev: MotionEvent): Boolean &#123;</span><br><span class="line">        when (ev.action) &#123;</span><br><span class="line">            MotionEvent.ACTION_DOWN -&gt; &#123;</span><br><span class="line">                startX = ev.x.toInt()</span><br><span class="line">                startY = ev.y.toInt()</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_MOVE -&gt; &#123;</span><br><span class="line">                val endX = ev.x.toInt()</span><br><span class="line">                val endY = ev.y.toInt()</span><br><span class="line">                val disX = Math.abs(endX - startX)</span><br><span class="line">                val disY: Int = Math.abs(endY - startY)</span><br><span class="line">                if (disX &gt; disY) &#123;</span><br><span class="line">                    if (!beginScrolll)</span><br><span class="line">                        parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    beginScrolll = true</span><br><span class="line">                    parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -&gt; &#123;</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                beginScrolll=false</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return super.dispatchTouchEvent(ev)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>解决方案二：使用SmartRefreshLayout替代SwipeRefreshLayout即可。</li></ul><p><a href="https://blog.csdn.net/qq_15046309/article/details/106005736" target="_blank" rel="noopener">参考原文地址</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;我们是在ViewPager2中的Fragment使用了SwipeRefreshLayout。当向下滑动时只要稍微偏左或右都会触发ViewPager2的移动，造成SwipeRefreshLayout卡在页面上不消失。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;解决方案一：重写SwipeRefreshLayout&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我们首先准备修改ViewPager2，可是它没法继承。那么目光只好投向SwipeRefreshLayout。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="android" scheme="https://hanyechun.github.io/categories/android/"/>
+    
+    
+      <category term="jetpack" scheme="https://hanyechun.github.io/tags/jetpack/"/>
+    
+  </entry>
   
   <entry>
     <title>Paging3 LoadStateAdapter显示已加载完所有数据</title>

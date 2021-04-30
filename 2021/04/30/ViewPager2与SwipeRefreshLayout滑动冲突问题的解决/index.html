@@ -138,18 +138,18 @@
 
 
 
-  <meta name="description" content="问题描述：使用paging3的过程中，本想通过为PagingDataAdaper添加页脚LoadStateAdapter方法onBindViewHolder(holder: LoadStateViewHolder, loadState: LoadState)中的loadState显示loading、error、no more,但是处理no more的时候发现loadState.endOfPagin">
-<meta name="keywords" content="paging,android">
+  <meta name="description" content="我们是在ViewPager2中的Fragment使用了SwipeRefreshLayout。当向下滑动时只要稍微偏左或右都会触发ViewPager2的移动，造成SwipeRefreshLayout卡在页面上不消失。   解决方案一：重写SwipeRefreshLayout  我们首先准备修改ViewPager2，可是它没法继承。那么目光只好投向SwipeRefreshLayout。">
+<meta name="keywords" content="jetpack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Paging3 LoadStateAdapter显示已加载完所有数据">
-<meta property="og:url" content="https://hanyechun.github.io/2020/12/29/Paging3-LoadStateAdapter显示已加载完所有数据/index.html">
+<meta property="og:title" content="ViewPager2与SwipeRefreshLayout滑动冲突问题的解决">
+<meta property="og:url" content="https://hanyechun.github.io/2021/04/30/ViewPager2与SwipeRefreshLayout滑动冲突问题的解决/index.html">
 <meta property="og:site_name" content="hyc&#39;s blog">
-<meta property="og:description" content="问题描述：使用paging3的过程中，本想通过为PagingDataAdaper添加页脚LoadStateAdapter方法onBindViewHolder(holder: LoadStateViewHolder, loadState: LoadState)中的loadState显示loading、error、no more,但是处理no more的时候发现loadState.endOfPagin">
+<meta property="og:description" content="我们是在ViewPager2中的Fragment使用了SwipeRefreshLayout。当向下滑动时只要稍微偏左或右都会触发ViewPager2的移动，造成SwipeRefreshLayout卡在页面上不消失。   解决方案一：重写SwipeRefreshLayout  我们首先准备修改ViewPager2，可是它没法继承。那么目光只好投向SwipeRefreshLayout。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-12-29T13:35:24.654Z">
+<meta property="og:updated_time" content="2021-04-30T02:57:33.726Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Paging3 LoadStateAdapter显示已加载完所有数据">
-<meta name="twitter:description" content="问题描述：使用paging3的过程中，本想通过为PagingDataAdaper添加页脚LoadStateAdapter方法onBindViewHolder(holder: LoadStateViewHolder, loadState: LoadState)中的loadState显示loading、error、no more,但是处理no more的时候发现loadState.endOfPagin">
+<meta name="twitter:title" content="ViewPager2与SwipeRefreshLayout滑动冲突问题的解决">
+<meta name="twitter:description" content="我们是在ViewPager2中的Fragment使用了SwipeRefreshLayout。当向下滑动时只要稍微偏左或右都会触发ViewPager2的移动，造成SwipeRefreshLayout卡在页面上不消失。   解决方案一：重写SwipeRefreshLayout  我们首先准备修改ViewPager2，可是它没法继承。那么目光只好投向SwipeRefreshLayout。">
 
 
 
@@ -159,7 +159,7 @@
 
   
   
-  <link rel="canonical" href="https://hanyechun.github.io/2020/12/29/Paging3-LoadStateAdapter显示已加载完所有数据/">
+  <link rel="canonical" href="https://hanyechun.github.io/2021/04/30/ViewPager2与SwipeRefreshLayout滑动冲突问题的解决/">
 
 
 
@@ -169,7 +169,7 @@
   };
 </script>
 
-  <title>Paging3 LoadStateAdapter显示已加载完所有数据 | hyc's blog</title>
+  <title>ViewPager2与SwipeRefreshLayout滑动冲突问题的解决 | hyc's blog</title>
   
 
 
@@ -429,7 +429,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hanyechun.github.io/hanyechun.github.io/2020/12/29/Paging3-LoadStateAdapter显示已加载完所有数据/">
+    <link itemprop="mainEntityOfPage" href="https://hanyechun.github.io/hanyechun.github.io/2021/04/30/ViewPager2与SwipeRefreshLayout滑动冲突问题的解决/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="叶寒">
@@ -446,7 +446,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Paging3 LoadStateAdapter显示已加载完所有数据
+          <h1 class="post-title" itemprop="name headline">ViewPager2与SwipeRefreshLayout滑动冲突问题的解决
 
               
             
@@ -472,7 +472,7 @@
                 
               
 
-              <time title="创建时间：2020-12-29 21:26:40 / 修改时间：21:35:24" itemprop="dateCreated datePublished" datetime="2020-12-29T21:26:40+08:00">2020-12-29</time>
+              <time title="创建时间：2021-04-30 10:51:23 / 修改时间：10:57:33" itemprop="dateCreated datePublished" datetime="2021-04-30T10:51:23+08:00">2021-04-30</time>
             </span>
           
 
@@ -509,8 +509,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/hanyechun.github.io/2020/12/29/Paging3-LoadStateAdapter显示已加载完所有数据/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/12/29/Paging3-LoadStateAdapter显示已加载完所有数据/" itemprop="commentCount"></span>
+                <a href="/hanyechun.github.io/2021/04/30/ViewPager2与SwipeRefreshLayout滑动冲突问题的解决/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/30/ViewPager2与SwipeRefreshLayout滑动冲突问题的解决/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -538,7 +538,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2.1k</span>
+              <span title="本文字数">1.7k</span>
             </span>
           
 
@@ -569,20 +569,20 @@
       
 
       
-        <h4 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h4><p>使用paging3的过程中，本想通过为PagingDataAdaper添加页脚LoadStateAdapter方法onBindViewHolder(holder: LoadStateViewHolder, loadState: LoadState)中的<code>loadState</code>显示<code>loading</code>、<code>error</code>、<code>no more</code>,但是处理no more的时候发现<code>loadState.endOfPaginationReached</code>一直是<code>false</code>，且loadState只有<code>LoadState.Loading</code>、<code>LoadState.Error</code>两种状态</p>
+        <blockquote>
+<p>我们是在ViewPager2中的Fragment使用了SwipeRefreshLayout。当向下滑动时只要稍微偏左或右都会触发ViewPager2的移动，造成SwipeRefreshLayout卡在页面上不消失。</p>
+</blockquote>
+<ul>
+<li>解决方案一：重写SwipeRefreshLayout</li>
+</ul>
+<p>我们首先准备修改ViewPager2，可是它没法继承。那么目光只好投向SwipeRefreshLayout。</p>
 <a id="more"></a>
-<h4 id="查看源码："><a href="#查看源码：" class="headerlink" title="查看源码："></a>查看源码：</h4><p>PagingDataAdapter.kt</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fun withLoadStateFooter(</span><br><span class="line">    footer: LoadStateAdapter&lt;*&gt;</span><br><span class="line">): MergeAdapter &#123;</span><br><span class="line">    addLoadStateListener &#123; loadStates -&gt;</span><br><span class="line">        footer.loadState = loadStates.append</span><br><span class="line">    &#125;</span><br><span class="line">    return MergeAdapter(this, footer)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">class MySwipeRefreshLayout : SwipeRefreshLayout &#123;</span><br><span class="line">    constructor(context: Context, attes: AttributeSet) : super(context, attes) &#123;&#125;</span><br><span class="line">    constructor(context: Context) : super(context)</span><br><span class="line"></span><br><span class="line">    private var startX = 0</span><br><span class="line">    private var beginScrolll = false //是否开始滑动</span><br><span class="line">    private var startY: Int = 0</span><br><span class="line">    override fun dispatchTouchEvent(ev: MotionEvent): Boolean &#123;</span><br><span class="line">        when (ev.action) &#123;</span><br><span class="line">            MotionEvent.ACTION_DOWN -&gt; &#123;</span><br><span class="line">                startX = ev.x.toInt()</span><br><span class="line">                startY = ev.y.toInt()</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_MOVE -&gt; &#123;</span><br><span class="line">                val endX = ev.x.toInt()</span><br><span class="line">                val endY = ev.y.toInt()</span><br><span class="line">                val disX = Math.abs(endX - startX)</span><br><span class="line">                val disY: Int = Math.abs(endY - startY)</span><br><span class="line">                if (disX &gt; disY) &#123;</span><br><span class="line">                    if (!beginScrolll)</span><br><span class="line">                        parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    beginScrolll = true</span><br><span class="line">                    parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -&gt; &#123;</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                beginScrolll=false</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return super.dispatchTouchEvent(ev)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>LoadStateAdapter.kt</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var loadState: LoadState = LoadState.NotLoading(endOfPaginationReached = false)</span><br><span class="line">    set(loadState) &#123;</span><br><span class="line">        if (field != loadState) &#123;</span><br><span class="line">            val oldItem = displayLoadStateAsItem(field)</span><br><span class="line">            val newItem = displayLoadStateAsItem(loadState)</span><br><span class="line"></span><br><span class="line">            if (oldItem &amp;&amp; !newItem) &#123;</span><br><span class="line">                notifyItemRemoved(0)</span><br><span class="line">            &#125; else if (newItem &amp;&amp; !oldItem) &#123;</span><br><span class="line">                notifyItemInserted(0)</span><br><span class="line">            &#125; else if (oldItem &amp;&amp; newItem) &#123;</span><br><span class="line">                notifyItemChanged(0)</span><br><span class="line">            &#125;</span><br><span class="line">            field = loadState</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Returns true if the LoadState should be displayed as a list item when active.</span><br><span class="line"> *</span><br><span class="line"> * By default, [LoadState.Loading] and [LoadState.Error] present as list items, others do not.</span><br><span class="line"> */</span><br><span class="line">open fun displayLoadStateAsItem(loadState: LoadState): Boolean &#123;</span><br><span class="line">    return loadState is LoadState.Loading || loadState is LoadState.Error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>通过查看源码可知，只有<code>newItem</code>为<code>true</code>才显示布局UI，若要newItem为true，则loadState的状态只有LoadState.Loading、LoadState.Error，故LoadStateAdapter只有loading、error两个状态。</p>
-<h4 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h4><p>监听PagingDataAdapter.addLoadStateListener可知，列表加载到底部会触发loadState.append的<code>NotLoading(endOfPaginationReached=true)</code>状态。</p>
-<p>以上，想要通过<code>loadState.endOfPaginationReached</code>属性判断是否到底部，只有拿到loadState的<code>NotLoading</code>状态，通过重写<code>displayLoadStateAsItem</code>方法返回<code>true</code>即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">override fun displayLoadStateAsItem(loadState: LoadState): Boolean &#123;</span><br><span class="line">    return true</span><br><span class="line">//    return loadState is LoadState.Loading || loadState is LoadState.Error || loadState is LoadState.NotLoading</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>上面两种返回值效果一样，loadState的loading、error、notLoading三种状态都会触发。</p>
+<ul>
+<li>解决方案二：使用SmartRefreshLayout替代SwipeRefreshLayout即可。</li>
+</ul>
+<p><a href="https://blog.csdn.net/qq_15046309/article/details/106005736" target="_blank" rel="noopener">参考原文地址</a></p>
 
       
     </div>
@@ -617,7 +617,7 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="https://hanyechun.github.io/2020/12/29/Paging3-LoadStateAdapter显示已加载完所有数据/" title="Paging3 LoadStateAdapter显示已加载完所有数据">https://hanyechun.github.io/2020/12/29/Paging3-LoadStateAdapter显示已加载完所有数据/</a>
+    <a href="https://hanyechun.github.io/2021/04/30/ViewPager2与SwipeRefreshLayout滑动冲突问题的解决/" title="ViewPager2与SwipeRefreshLayout滑动冲突问题的解决">https://hanyechun.github.io/2021/04/30/ViewPager2与SwipeRefreshLayout滑动冲突问题的解决/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -633,9 +633,7 @@
         
         <div class="post-tags">
           
-            <a href="/hanyechun.github.io/tags/paging/" rel="tag"># paging</a>
-          
-            <a href="/hanyechun.github.io/tags/android/" rel="tag"># android</a>
+            <a href="/hanyechun.github.io/tags/jetpack/" rel="tag"># jetpack</a>
           
         </div>
       
@@ -648,8 +646,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/hanyechun.github.io/2020/03/16/Android面试题/" rel="next" title="Android面试题">
-                <i class="fa fa-chevron-left"></i> Android面试题
+              <a href="/hanyechun.github.io/2020/12/29/Paging3-LoadStateAdapter显示已加载完所有数据/" rel="next" title="Paging3 LoadStateAdapter显示已加载完所有数据">
+                <i class="fa fa-chevron-left"></i> Paging3 LoadStateAdapter显示已加载完所有数据
               </a>
             
           </div>
@@ -657,10 +655,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/hanyechun.github.io/2021/04/30/ViewPager2与SwipeRefreshLayout滑动冲突问题的解决/" rel="prev" title="ViewPager2与SwipeRefreshLayout滑动冲突问题的解决">
-                ViewPager2与SwipeRefreshLayout滑动冲突问题的解决 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -711,17 +705,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -845,23 +830,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题描述："><span class="nav-number">1.</span> <span class="nav-text">问题描述：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看源码："><span class="nav-number">2.</span> <span class="nav-text">查看源码：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方案："><span class="nav-number">3.</span> <span class="nav-text">解决方案：</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
@@ -1045,9 +1013,9 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "https://hanyechun.github.io/2020/12/29/Paging3-LoadStateAdapter显示已加载完所有数据/";
-    this.page.identifier = "2020/12/29/Paging3-LoadStateAdapter显示已加载完所有数据/";
-    this.page.title = 'Paging3 LoadStateAdapter显示已加载完所有数据';
+    this.page.url = "https://hanyechun.github.io/2021/04/30/ViewPager2与SwipeRefreshLayout滑动冲突问题的解决/";
+    this.page.identifier = "2021/04/30/ViewPager2与SwipeRefreshLayout滑动冲突问题的解决/";
+    this.page.title = 'ViewPager2与SwipeRefreshLayout滑动冲突问题的解决';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');
