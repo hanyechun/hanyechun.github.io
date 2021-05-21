@@ -5,9 +5,9 @@
   <subtitle>write less, do more</subtitle>
   <link href="/hanyechun.github.io/atom.xml" rel="self"/>
   
-  <link href="https://github.com/hanyechun/hanyechun.github.io.git/"/>
+  <link href="https://hanyechun.github.io/"/>
   <updated>2021-04-30T02:57:33.726Z</updated>
-  <id>https://github.com/hanyechun/hanyechun.github.io.git/</id>
+  <id>https://hanyechun.github.io/</id>
   
   <author>
     <name>叶寒</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>ViewPager2与SwipeRefreshLayout滑动冲突问题的解决</title>
-    <link href="https://github.com/hanyechun/hanyechun.github.io.git/2021/04/30/ViewPager2%E4%B8%8ESwipeRefreshLayout%E6%BB%91%E5%8A%A8%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/"/>
-    <id>https://github.com/hanyechun/hanyechun.github.io.git/2021/04/30/ViewPager2与SwipeRefreshLayout滑动冲突问题的解决/</id>
+    <link href="https://hanyechun.github.io/2021/04/30/ViewPager2%E4%B8%8ESwipeRefreshLayout%E6%BB%91%E5%8A%A8%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/"/>
+    <id>https://hanyechun.github.io/2021/04/30/ViewPager2与SwipeRefreshLayout滑动冲突问题的解决/</id>
     <published>2021-04-30T02:51:23.000Z</published>
     <updated>2021-04-30T02:57:33.726Z</updated>
     
@@ -37,17 +37,17 @@
     
     </summary>
     
-      <category term="android" scheme="https://github.com/hanyechun/hanyechun.github.io.git/categories/android/"/>
+      <category term="android" scheme="https://hanyechun.github.io/categories/android/"/>
     
     
-      <category term="jetpack" scheme="https://github.com/hanyechun/hanyechun.github.io.git/tags/jetpack/"/>
+      <category term="jetpack" scheme="https://hanyechun.github.io/tags/jetpack/"/>
     
   </entry>
   
   <entry>
     <title>Paging3 LoadStateAdapter显示已加载完所有数据</title>
-    <link href="https://github.com/hanyechun/hanyechun.github.io.git/2020/12/29/Paging3-LoadStateAdapter%E6%98%BE%E7%A4%BA%E5%B7%B2%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE/"/>
-    <id>https://github.com/hanyechun/hanyechun.github.io.git/2020/12/29/Paging3-LoadStateAdapter显示已加载完所有数据/</id>
+    <link href="https://hanyechun.github.io/2020/12/29/Paging3-LoadStateAdapter%E6%98%BE%E7%A4%BA%E5%B7%B2%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE/"/>
+    <id>https://hanyechun.github.io/2020/12/29/Paging3-LoadStateAdapter显示已加载完所有数据/</id>
     <published>2020-12-29T13:26:40.000Z</published>
     <updated>2020-12-29T13:35:24.654Z</updated>
     
@@ -59,19 +59,19 @@
     
     </summary>
     
-      <category term="android" scheme="https://github.com/hanyechun/hanyechun.github.io.git/categories/android/"/>
+      <category term="android" scheme="https://hanyechun.github.io/categories/android/"/>
     
     
-      <category term="paging" scheme="https://github.com/hanyechun/hanyechun.github.io.git/tags/paging/"/>
+      <category term="paging" scheme="https://hanyechun.github.io/tags/paging/"/>
     
-      <category term="android" scheme="https://github.com/hanyechun/hanyechun.github.io.git/tags/android/"/>
+      <category term="android" scheme="https://hanyechun.github.io/tags/android/"/>
     
   </entry>
   
   <entry>
     <title>Android面试题</title>
-    <link href="https://github.com/hanyechun/hanyechun.github.io.git/2020/03/16/Android%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    <id>https://github.com/hanyechun/hanyechun.github.io.git/2020/03/16/Android面试题/</id>
+    <link href="https://hanyechun.github.io/2020/03/16/Android%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <id>https://hanyechun.github.io/2020/03/16/Android面试题/</id>
     <published>2020-03-16T08:39:36.000Z</published>
     <updated>2020-03-16T09:00:39.914Z</updated>
     
@@ -83,15 +83,15 @@
     
     </summary>
     
-      <category term="android" scheme="https://github.com/hanyechun/hanyechun.github.io.git/categories/android/"/>
+      <category term="android" scheme="https://hanyechun.github.io/categories/android/"/>
     
     
   </entry>
   
   <entry>
     <title>oh-my-zsh ，zsh: command not found: adb</title>
-    <link href="https://github.com/hanyechun/hanyechun.github.io.git/2019/12/26/oh-my-zsh-%EF%BC%8Czsh-command-not-found-adb/"/>
-    <id>https://github.com/hanyechun/hanyechun.github.io.git/2019/12/26/oh-my-zsh-，zsh-command-not-found-adb/</id>
+    <link href="https://hanyechun.github.io/2019/12/26/oh-my-zsh-%EF%BC%8Czsh-command-not-found-adb/"/>
+    <id>https://hanyechun.github.io/2019/12/26/oh-my-zsh-，zsh-command-not-found-adb/</id>
     <published>2019-12-26T01:37:38.000Z</published>
     <updated>2019-12-26T02:14:30.234Z</updated>
     
@@ -106,21 +106,21 @@
     
     </summary>
     
-      <category term="tools" scheme="https://github.com/hanyechun/hanyechun.github.io.git/categories/tools/"/>
+      <category term="tools" scheme="https://hanyechun.github.io/categories/tools/"/>
     
     
-      <category term="terminal" scheme="https://github.com/hanyechun/hanyechun.github.io.git/tags/terminal/"/>
+      <category term="terminal" scheme="https://hanyechun.github.io/tags/terminal/"/>
     
   </entry>
   
   <entry>
     <title>Mac使用oh-my-zsh + autosuggestions搭建个性化Terminal</title>
-    <link href="https://github.com/hanyechun/hanyechun.github.io.git/2019/10/14/Mac%E4%BD%BF%E7%94%A8oh-my-zsh-autosuggestions%E6%90%AD%E5%BB%BA%E4%B8%AA%E6%80%A7%E5%8C%96Terminal/"/>
-    <id>https://github.com/hanyechun/hanyechun.github.io.git/2019/10/14/Mac使用oh-my-zsh-autosuggestions搭建个性化Terminal/</id>
+    <link href="https://hanyechun.github.io/2019/10/14/Mac%E4%BD%BF%E7%94%A8oh-my-zsh-autosuggestions%E6%90%AD%E5%BB%BA%E4%B8%AA%E6%80%A7%E5%8C%96Terminal/"/>
+    <id>https://hanyechun.github.io/2019/10/14/Mac使用oh-my-zsh-autosuggestions搭建个性化Terminal/</id>
     <published>2019-10-14T13:13:13.000Z</published>
     <updated>2020-12-29T13:38:54.278Z</updated>
     
-    <content type="html"><![CDATA[<p>查看Mac上已有的shell</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/shells</span><br><span class="line"></span><br><span class="line">/bin/bash</span><br><span class="line">/bin/csh</span><br><span class="line">/bin/ksh</span><br><span class="line">/bin/sh</span><br><span class="line">/bin/tcsh</span><br><span class="line">/bin/zsh</span><br></pre></td></tr></table></figure><p>将默认 shell 改成 zsh</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure><a id="more"></a><p>安装 oh my zsh</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</span><br><span class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</span><br></pre></td></tr></table></figure><p>shell solarized 配色</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone git://github.com/altercation/solarized.git</span><br><span class="line"># 然后打开 solarized/osx-terminal.app-colors-solarized/Solarized Dark ansi.terminal 配置文件</span><br></pre></td></tr></table></figure><p>安装 autojump 插件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install autojump # 确保有 brew 命令</span><br></pre></td></tr></table></figure><p>安装 zsh-autosuggestions 插件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-autosuggestions $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure><p>安装 zsh-syntax-highlighting 插件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure><p>编辑～/.zshrc 文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.zshrc</span><br><span class="line"></span><br><span class="line">ZSH_THEME=&quot;agnoster&quot; # 默认主题主题</span><br><span class="line">plugins=(git brew laravel5 autojump zsh-autosuggestions zsh-syntax-highlighting) # 配置插件</span><br></pre></td></tr></table></figure><p>使用如下命令使控制台窗口生效</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure><p><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes">oh-my-zsh主题选择</a></p>]]></content>
+    <content type="html"><![CDATA[<p>查看Mac上已有的shell</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/shells</span><br><span class="line"></span><br><span class="line">/bin/bash</span><br><span class="line">/bin/csh</span><br><span class="line">/bin/ksh</span><br><span class="line">/bin/sh</span><br><span class="line">/bin/tcsh</span><br><span class="line">/bin/zsh</span><br></pre></td></tr></table></figure><p>将默认 shell 改成 zsh</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure><a id="more"></a><p>安装 oh my zsh</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</span><br><span class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</span><br></pre></td></tr></table></figure><p>shell solarized 配色</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone git://github.com/altercation/solarized.git</span><br><span class="line"># 然后打开 solarized/osx-terminal.app-colors-solarized/Solarized Dark ansi.terminal 配置文件</span><br></pre></td></tr></table></figure><p>安装 autojump 插件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install autojump # 确保有 brew 命令</span><br></pre></td></tr></table></figure><p>安装 zsh-autosuggestions 插件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-autosuggestions $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure><p>安装 zsh-syntax-highlighting 插件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure><p>编辑～/.zshrc 文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.zshrc</span><br><span class="line"></span><br><span class="line">ZSH_THEME=&quot;agnoster&quot; # 默认主题主题</span><br><span class="line">plugins=(git brew laravel5 autojump zsh-autosuggestions zsh-syntax-highlighting) # 配置插件</span><br></pre></td></tr></table></figure><p>使用如下命令使控制台窗口生效</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure><p><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes" target="_blank" rel="noopener">oh-my-zsh主题选择</a></p>]]></content>
     
     <summary type="html">
     
@@ -132,21 +132,21 @@
     
     </summary>
     
-      <category term="mac" scheme="https://github.com/hanyechun/hanyechun.github.io.git/categories/mac/"/>
+      <category term="mac" scheme="https://hanyechun.github.io/categories/mac/"/>
     
     
-      <category term="terminal" scheme="https://github.com/hanyechun/hanyechun.github.io.git/tags/terminal/"/>
+      <category term="terminal" scheme="https://hanyechun.github.io/tags/terminal/"/>
     
   </entry>
   
   <entry>
     <title>Retrofit多图上传</title>
-    <link href="https://github.com/hanyechun/hanyechun.github.io.git/2019/07/30/Retrofit%E5%A4%9A%E5%9B%BE%E4%B8%8A%E4%BC%A0/"/>
-    <id>https://github.com/hanyechun/hanyechun.github.io.git/2019/07/30/Retrofit多图上传/</id>
+    <link href="https://hanyechun.github.io/2019/07/30/Retrofit%E5%A4%9A%E5%9B%BE%E4%B8%8A%E4%BC%A0/"/>
+    <id>https://hanyechun.github.io/2019/07/30/Retrofit多图上传/</id>
     <published>2019-07-30T09:36:04.000Z</published>
     <updated>2019-07-30T09:48:00.194Z</updated>
     
-    <content type="html"><![CDATA[<p>首先是定义接口部分：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public interface MyApi&#123;</span><br><span class="line">    @Multipart</span><br><span class="line">    @POST(&quot;renovation/uploadImg&quot;)</span><br><span class="line">    Observable&lt;HttpResult&gt; upLoadsImg(@PartMap Map&lt;String, RequestBody&gt; params,  @Part(&quot;content&quot;)RequestBody content);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p><strong>注意</strong> 这里使用<code>@Multipart</code>注解，参数这里使用<code>@PartMap</code>和<code>@Part</code>，他们是用来上传文件用的。 这里需要注意的是，使用了<code>@Multipart</code>注解，参数的类型都应该是<code>RequestBody</code>，不然上传的图片的时候会报<code>JSON must start with an array or an object</code>错误。上传多张图片就使用<code>@PartMap Map&lt;String, RequestBody&gt;</code></p></blockquote><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public interface MyApi&#123;</span><br><span class="line">   @Multipart</span><br><span class="line">   @POST(&quot;renovation/uploadSingleImg&quot;)</span><br><span class="line">   Observable&lt;HttpResult&gt; upLoadsImg(@Part MultipartBody.Part photo);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>单图上传就用 <code>@Part MultipartBody.Part</code></p></blockquote><p>其次就是具体实现部分（以多图上传为例）:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">Observer&lt;HttpResult&gt; observer = new Observer&lt;HttpResult&gt;() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void onCompleted() &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void onError(Throwable e) &#123;</span><br><span class="line">        progressUtils.dismiss();</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void onNext(HttpResult httpResult) &#123;</span><br><span class="line">        //处理返回结果</span><br><span class="line">            if (httpResult.isStatus()) &#123;</span><br><span class="line">                Toast.makeText(mContext, &quot;上传成功&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                Toast.makeText(mContext, &quot;上传失败&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">            &#125;</span><br><span class="line">            progressUtils.dismiss();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">private void submitData() &#123;</span><br><span class="line"></span><br><span class="line">        //图片压缩</span><br><span class="line">        compressUtils();</span><br><span class="line"></span><br><span class="line">        Map&lt;String, RequestBody&gt;  photos = new HashMap&lt;&gt;();</span><br><span class="line">        //mPhotoList是选择图片后的返回路径</span><br><span class="line">        if (mPhotoList.size() &gt; 0) &#123;</span><br><span class="line">            for (int i = 0; i &lt; mPhotoList.size(); i++) &#123;</span><br><span class="line">                File  file = new File(mPhotoList.get(i).getPhotoPath());</span><br><span class="line">                RequestBody  requestFile = RequestBody.create(MediaType.parse(&quot;multipart/form-data&quot;), file);</span><br><span class="line">                //RequestBody  requestFile = RequestBody.create(MediaType.parse(&quot;image/jpg&quot;), file);</span><br><span class="line"></span><br><span class="line">             //这里前面一部分是服务器要求你传的key，加上一个i,就可以动态设置key的长度</span><br><span class="line">                photos.put(&quot;AttachmentKey&quot;+i+&quot;\&quot;; filename=\&quot;&quot;+file.getName(),requestFile);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        subscription  = Network.getMyApi().upLoadsImg(photos,RequestBody.create(null,content))</span><br><span class="line">                .subscribeOn(Schedulers.io())</span><br><span class="line">                .unsubscribeOn(Schedulers.io())</span><br><span class="line">                .observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">                .subscribe(observer);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><blockquote><p>这里详细解释已经在代码中有注释说明，我按照这个方法上传是没有问题的。相册选机器我推荐使用 <a href="https://github.com/pengjianbo/GalleryFinal">GalleryFinal</a>里面的功能很详细，实现了拍照、图片选择（单选/多选）、 裁剪（单/多裁剪）、旋转等功能，具体链接里面有介绍。</p></blockquote><p><strong>MediaType.parse(“multipart/form-data”)传MediaType.parse(“image/jpg”)也可以，原因还不知道。</strong></p>]]></content>
+    <content type="html"><![CDATA[<p>首先是定义接口部分：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public interface MyApi&#123;</span><br><span class="line">    @Multipart</span><br><span class="line">    @POST(&quot;renovation/uploadImg&quot;)</span><br><span class="line">    Observable&lt;HttpResult&gt; upLoadsImg(@PartMap Map&lt;String, RequestBody&gt; params,  @Part(&quot;content&quot;)RequestBody content);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p><strong>注意</strong> 这里使用<code>@Multipart</code>注解，参数这里使用<code>@PartMap</code>和<code>@Part</code>，他们是用来上传文件用的。 这里需要注意的是，使用了<code>@Multipart</code>注解，参数的类型都应该是<code>RequestBody</code>，不然上传的图片的时候会报<code>JSON must start with an array or an object</code>错误。上传多张图片就使用<code>@PartMap Map&lt;String, RequestBody&gt;</code></p></blockquote><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public interface MyApi&#123;</span><br><span class="line">   @Multipart</span><br><span class="line">   @POST(&quot;renovation/uploadSingleImg&quot;)</span><br><span class="line">   Observable&lt;HttpResult&gt; upLoadsImg(@Part MultipartBody.Part photo);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>单图上传就用 <code>@Part MultipartBody.Part</code></p></blockquote><p>其次就是具体实现部分（以多图上传为例）:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">Observer&lt;HttpResult&gt; observer = new Observer&lt;HttpResult&gt;() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void onCompleted() &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void onError(Throwable e) &#123;</span><br><span class="line">        progressUtils.dismiss();</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void onNext(HttpResult httpResult) &#123;</span><br><span class="line">        //处理返回结果</span><br><span class="line">            if (httpResult.isStatus()) &#123;</span><br><span class="line">                Toast.makeText(mContext, &quot;上传成功&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                Toast.makeText(mContext, &quot;上传失败&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">            &#125;</span><br><span class="line">            progressUtils.dismiss();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">private void submitData() &#123;</span><br><span class="line"></span><br><span class="line">        //图片压缩</span><br><span class="line">        compressUtils();</span><br><span class="line"></span><br><span class="line">        Map&lt;String, RequestBody&gt;  photos = new HashMap&lt;&gt;();</span><br><span class="line">        //mPhotoList是选择图片后的返回路径</span><br><span class="line">        if (mPhotoList.size() &gt; 0) &#123;</span><br><span class="line">            for (int i = 0; i &lt; mPhotoList.size(); i++) &#123;</span><br><span class="line">                File  file = new File(mPhotoList.get(i).getPhotoPath());</span><br><span class="line">                RequestBody  requestFile = RequestBody.create(MediaType.parse(&quot;multipart/form-data&quot;), file);</span><br><span class="line">                //RequestBody  requestFile = RequestBody.create(MediaType.parse(&quot;image/jpg&quot;), file);</span><br><span class="line"></span><br><span class="line">             //这里前面一部分是服务器要求你传的key，加上一个i,就可以动态设置key的长度</span><br><span class="line">                photos.put(&quot;AttachmentKey&quot;+i+&quot;\&quot;; filename=\&quot;&quot;+file.getName(),requestFile);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        subscription  = Network.getMyApi().upLoadsImg(photos,RequestBody.create(null,content))</span><br><span class="line">                .subscribeOn(Schedulers.io())</span><br><span class="line">                .unsubscribeOn(Schedulers.io())</span><br><span class="line">                .observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">                .subscribe(observer);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><blockquote><p>这里详细解释已经在代码中有注释说明，我按照这个方法上传是没有问题的。相册选机器我推荐使用 <a href="https://github.com/pengjianbo/GalleryFinal" target="_blank" rel="noopener">GalleryFinal</a>里面的功能很详细，实现了拍照、图片选择（单选/多选）、 裁剪（单/多裁剪）、旋转等功能，具体链接里面有介绍。</p></blockquote><p><strong>MediaType.parse(“multipart/form-data”)传MediaType.parse(“image/jpg”)也可以，原因还不知道。</strong></p>]]></content>
     
     <summary type="html">
     
@@ -159,17 +159,17 @@
     
     </summary>
     
-      <category term="android" scheme="https://github.com/hanyechun/hanyechun.github.io.git/categories/android/"/>
+      <category term="android" scheme="https://hanyechun.github.io/categories/android/"/>
     
     
-      <category term="retrofit" scheme="https://github.com/hanyechun/hanyechun.github.io.git/tags/retrofit/"/>
+      <category term="retrofit" scheme="https://hanyechun.github.io/tags/retrofit/"/>
     
   </entry>
   
   <entry>
     <title>时光很长 莫要慌张</title>
-    <link href="https://github.com/hanyechun/hanyechun.github.io.git/2019/07/23/%E6%97%B6%E5%85%89%E5%BE%88%E9%95%BF-%E8%8E%AB%E8%A6%81%E6%85%8C%E5%BC%A0/"/>
-    <id>https://github.com/hanyechun/hanyechun.github.io.git/2019/07/23/时光很长-莫要慌张/</id>
+    <link href="https://hanyechun.github.io/2019/07/23/%E6%97%B6%E5%85%89%E5%BE%88%E9%95%BF-%E8%8E%AB%E8%A6%81%E6%85%8C%E5%BC%A0/"/>
+    <id>https://hanyechun.github.io/2019/07/23/时光很长-莫要慌张/</id>
     <published>2019-07-23T09:32:07.000Z</published>
     <updated>2019-07-23T09:38:05.163Z</updated>
     
@@ -184,15 +184,15 @@
     
     </summary>
     
-      <category term="随笔" scheme="https://github.com/hanyechun/hanyechun.github.io.git/categories/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://hanyechun.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
   </entry>
   
   <entry>
     <title>Mac生成SSH Key</title>
-    <link href="https://github.com/hanyechun/hanyechun.github.io.git/2019/07/19/Mac%E7%94%9F%E6%88%90SSH-Key/"/>
-    <id>https://github.com/hanyechun/hanyechun.github.io.git/2019/07/19/Mac生成SSH-Key/</id>
+    <link href="https://hanyechun.github.io/2019/07/19/Mac%E7%94%9F%E6%88%90SSH-Key/"/>
+    <id>https://hanyechun.github.io/2019/07/19/Mac生成SSH-Key/</id>
     <published>2019-07-19T07:16:51.000Z</published>
     <updated>2020-12-29T13:37:29.849Z</updated>
     
@@ -206,19 +206,19 @@
     
     </summary>
     
-      <category term="mac" scheme="https://github.com/hanyechun/hanyechun.github.io.git/categories/mac/"/>
+      <category term="mac" scheme="https://hanyechun.github.io/categories/mac/"/>
     
     
-      <category term="mac" scheme="https://github.com/hanyechun/hanyechun.github.io.git/tags/mac/"/>
+      <category term="mac" scheme="https://hanyechun.github.io/tags/mac/"/>
     
-      <category term="ssh" scheme="https://github.com/hanyechun/hanyechun.github.io.git/tags/ssh/"/>
+      <category term="ssh" scheme="https://hanyechun.github.io/tags/ssh/"/>
     
   </entry>
   
   <entry>
     <title>Mac adb install apk</title>
-    <link href="https://github.com/hanyechun/hanyechun.github.io.git/2019/07/19/Mac-adb-install-apk/"/>
-    <id>https://github.com/hanyechun/hanyechun.github.io.git/2019/07/19/Mac-adb-install-apk/</id>
+    <link href="https://hanyechun.github.io/2019/07/19/Mac-adb-install-apk/"/>
+    <id>https://hanyechun.github.io/2019/07/19/Mac-adb-install-apk/</id>
     <published>2019-07-19T06:28:00.000Z</published>
     <updated>2019-07-19T07:02:26.275Z</updated>
     
@@ -234,27 +234,27 @@
     
     </summary>
     
-      <category term="android" scheme="https://github.com/hanyechun/hanyechun.github.io.git/categories/android/"/>
+      <category term="android" scheme="https://hanyechun.github.io/categories/android/"/>
     
     
-      <category term="mac" scheme="https://github.com/hanyechun/hanyechun.github.io.git/tags/mac/"/>
+      <category term="mac" scheme="https://hanyechun.github.io/tags/mac/"/>
     
-      <category term="adb" scheme="https://github.com/hanyechun/hanyechun.github.io.git/tags/adb/"/>
+      <category term="adb" scheme="https://hanyechun.github.io/tags/adb/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://github.com/hanyechun/hanyechun.github.io.git/2019/07/05/hello-world/"/>
-    <id>https://github.com/hanyechun/hanyechun.github.io.git/2019/07/05/hello-world/</id>
+    <link href="https://hanyechun.github.io/2019/07/05/hello-world/"/>
+    <id>https://hanyechun.github.io/2019/07/05/hello-world/</id>
     <published>2019-07-05T09:35:50.832Z</published>
     <updated>2019-07-19T03:14:48.037Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><a id="more"></a><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><a id="more"></a><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
     
     </summary>
     
