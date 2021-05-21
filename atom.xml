@@ -5,9 +5,9 @@
   <subtitle>write less, do more</subtitle>
   <link href="/hanyechun.github.io/atom.xml" rel="self"/>
   
-  <link href="https://github.com/WjmNightingale/wjmBlog.github.io.git/"/>
+  <link href="https://github.com/hanyechun/hanyechun.github.io.git/"/>
   <updated>2021-04-30T02:57:33.726Z</updated>
-  <id>https://github.com/WjmNightingale/wjmBlog.github.io.git/</id>
+  <id>https://github.com/hanyechun/hanyechun.github.io.git/</id>
   
   <author>
     <name>叶寒</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>ViewPager2与SwipeRefreshLayout滑动冲突问题的解决</title>
-    <link href="https://github.com/WjmNightingale/wjmBlog.github.io.git/2021/04/30/ViewPager2%E4%B8%8ESwipeRefreshLayout%E6%BB%91%E5%8A%A8%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/"/>
-    <id>https://github.com/WjmNightingale/wjmBlog.github.io.git/2021/04/30/ViewPager2与SwipeRefreshLayout滑动冲突问题的解决/</id>
+    <link href="https://github.com/hanyechun/hanyechun.github.io.git/2021/04/30/ViewPager2%E4%B8%8ESwipeRefreshLayout%E6%BB%91%E5%8A%A8%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/"/>
+    <id>https://github.com/hanyechun/hanyechun.github.io.git/2021/04/30/ViewPager2与SwipeRefreshLayout滑动冲突问题的解决/</id>
     <published>2021-04-30T02:51:23.000Z</published>
     <updated>2021-04-30T02:57:33.726Z</updated>
     
@@ -37,17 +37,17 @@
     
     </summary>
     
-      <category term="android" scheme="https://github.com/WjmNightingale/wjmBlog.github.io.git/categories/android/"/>
+      <category term="android" scheme="https://github.com/hanyechun/hanyechun.github.io.git/categories/android/"/>
     
     
-      <category term="jetpack" scheme="https://github.com/WjmNightingale/wjmBlog.github.io.git/tags/jetpack/"/>
+      <category term="jetpack" scheme="https://github.com/hanyechun/hanyechun.github.io.git/tags/jetpack/"/>
     
   </entry>
   
   <entry>
     <title>Paging3 LoadStateAdapter显示已加载完所有数据</title>
-    <link href="https://github.com/WjmNightingale/wjmBlog.github.io.git/2020/12/29/Paging3-LoadStateAdapter%E6%98%BE%E7%A4%BA%E5%B7%B2%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE/"/>
-    <id>https://github.com/WjmNightingale/wjmBlog.github.io.git/2020/12/29/Paging3-LoadStateAdapter显示已加载完所有数据/</id>
+    <link href="https://github.com/hanyechun/hanyechun.github.io.git/2020/12/29/Paging3-LoadStateAdapter%E6%98%BE%E7%A4%BA%E5%B7%B2%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE/"/>
+    <id>https://github.com/hanyechun/hanyechun.github.io.git/2020/12/29/Paging3-LoadStateAdapter显示已加载完所有数据/</id>
     <published>2020-12-29T13:26:40.000Z</published>
     <updated>2020-12-29T13:35:24.654Z</updated>
     
@@ -59,19 +59,19 @@
     
     </summary>
     
-      <category term="android" scheme="https://github.com/WjmNightingale/wjmBlog.github.io.git/categories/android/"/>
+      <category term="android" scheme="https://github.com/hanyechun/hanyechun.github.io.git/categories/android/"/>
     
     
-      <category term="paging" scheme="https://github.com/WjmNightingale/wjmBlog.github.io.git/tags/paging/"/>
+      <category term="paging" scheme="https://github.com/hanyechun/hanyechun.github.io.git/tags/paging/"/>
     
-      <category term="android" scheme="https://github.com/WjmNightingale/wjmBlog.github.io.git/tags/android/"/>
+      <category term="android" scheme="https://github.com/hanyechun/hanyechun.github.io.git/tags/android/"/>
     
   </entry>
   
   <entry>
     <title>Android面试题</title>
-    <link href="https://github.com/WjmNightingale/wjmBlog.github.io.git/2020/03/16/Android%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    <id>https://github.com/WjmNightingale/wjmBlog.github.io.git/2020/03/16/Android面试题/</id>
+    <link href="https://github.com/hanyechun/hanyechun.github.io.git/2020/03/16/Android%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <id>https://github.com/hanyechun/hanyechun.github.io.git/2020/03/16/Android面试题/</id>
     <published>2020-03-16T08:39:36.000Z</published>
     <updated>2020-03-16T09:00:39.914Z</updated>
     
@@ -83,15 +83,15 @@
     
     </summary>
     
-      <category term="android" scheme="https://github.com/WjmNightingale/wjmBlog.github.io.git/categories/android/"/>
+      <category term="android" scheme="https://github.com/hanyechun/hanyechun.github.io.git/categories/android/"/>
     
     
   </entry>
   
   <entry>
     <title>oh-my-zsh ，zsh: command not found: adb</title>
-    <link href="https://github.com/WjmNightingale/wjmBlog.github.io.git/2019/12/26/oh-my-zsh-%EF%BC%8Czsh-command-not-found-adb/"/>
-    <id>https://github.com/WjmNightingale/wjmBlog.github.io.git/2019/12/26/oh-my-zsh-，zsh-command-not-found-adb/</id>
+    <link href="https://github.com/hanyechun/hanyechun.github.io.git/2019/12/26/oh-my-zsh-%EF%BC%8Czsh-command-not-found-adb/"/>
+    <id>https://github.com/hanyechun/hanyechun.github.io.git/2019/12/26/oh-my-zsh-，zsh-command-not-found-adb/</id>
     <published>2019-12-26T01:37:38.000Z</published>
     <updated>2019-12-26T02:14:30.234Z</updated>
     
@@ -106,17 +106,17 @@
     
     </summary>
     
-      <category term="tools" scheme="https://github.com/WjmNightingale/wjmBlog.github.io.git/categories/tools/"/>
+      <category term="tools" scheme="https://github.com/hanyechun/hanyechun.github.io.git/categories/tools/"/>
     
     
-      <category term="terminal" scheme="https://github.com/WjmNightingale/wjmBlog.github.io.git/tags/terminal/"/>
+      <category term="terminal" scheme="https://github.com/hanyechun/hanyechun.github.io.git/tags/terminal/"/>
     
   </entry>
   
   <entry>
     <title>Mac使用oh-my-zsh + autosuggestions搭建个性化Terminal</title>
-    <link href="https://github.com/WjmNightingale/wjmBlog.github.io.git/2019/10/14/Mac%E4%BD%BF%E7%94%A8oh-my-zsh-autosuggestions%E6%90%AD%E5%BB%BA%E4%B8%AA%E6%80%A7%E5%8C%96Terminal/"/>
-    <id>https://github.com/WjmNightingale/wjmBlog.github.io.git/2019/10/14/Mac使用oh-my-zsh-autosuggestions搭建个性化Terminal/</id>
+    <link href="https://github.com/hanyechun/hanyechun.github.io.git/2019/10/14/Mac%E4%BD%BF%E7%94%A8oh-my-zsh-autosuggestions%E6%90%AD%E5%BB%BA%E4%B8%AA%E6%80%A7%E5%8C%96Terminal/"/>
+    <id>https://github.com/hanyechun/hanyechun.github.io.git/2019/10/14/Mac使用oh-my-zsh-autosuggestions搭建个性化Terminal/</id>
     <published>2019-10-14T13:13:13.000Z</published>
     <updated>2020-12-29T13:38:54.278Z</updated>
     
@@ -132,17 +132,17 @@
     
     </summary>
     
-      <category term="mac" scheme="https://github.com/WjmNightingale/wjmBlog.github.io.git/categories/mac/"/>
+      <category term="mac" scheme="https://github.com/hanyechun/hanyechun.github.io.git/categories/mac/"/>
     
     
-      <category term="terminal" scheme="https://github.com/WjmNightingale/wjmBlog.github.io.git/tags/terminal/"/>
+      <category term="terminal" scheme="https://github.com/hanyechun/hanyechun.github.io.git/tags/terminal/"/>
     
   </entry>
   
   <entry>
     <title>Retrofit多图上传</title>
-    <link href="https://github.com/WjmNightingale/wjmBlog.github.io.git/2019/07/30/Retrofit%E5%A4%9A%E5%9B%BE%E4%B8%8A%E4%BC%A0/"/>
-    <id>https://github.com/WjmNightingale/wjmBlog.github.io.git/2019/07/30/Retrofit多图上传/</id>
+    <link href="https://github.com/hanyechun/hanyechun.github.io.git/2019/07/30/Retrofit%E5%A4%9A%E5%9B%BE%E4%B8%8A%E4%BC%A0/"/>
+    <id>https://github.com/hanyechun/hanyechun.github.io.git/2019/07/30/Retrofit多图上传/</id>
     <published>2019-07-30T09:36:04.000Z</published>
     <updated>2019-07-30T09:48:00.194Z</updated>
     
@@ -159,17 +159,17 @@
     
     </summary>
     
-      <category term="android" scheme="https://github.com/WjmNightingale/wjmBlog.github.io.git/categories/android/"/>
+      <category term="android" scheme="https://github.com/hanyechun/hanyechun.github.io.git/categories/android/"/>
     
     
-      <category term="retrofit" scheme="https://github.com/WjmNightingale/wjmBlog.github.io.git/tags/retrofit/"/>
+      <category term="retrofit" scheme="https://github.com/hanyechun/hanyechun.github.io.git/tags/retrofit/"/>
     
   </entry>
   
   <entry>
     <title>时光很长 莫要慌张</title>
-    <link href="https://github.com/WjmNightingale/wjmBlog.github.io.git/2019/07/23/%E6%97%B6%E5%85%89%E5%BE%88%E9%95%BF-%E8%8E%AB%E8%A6%81%E6%85%8C%E5%BC%A0/"/>
-    <id>https://github.com/WjmNightingale/wjmBlog.github.io.git/2019/07/23/时光很长-莫要慌张/</id>
+    <link href="https://github.com/hanyechun/hanyechun.github.io.git/2019/07/23/%E6%97%B6%E5%85%89%E5%BE%88%E9%95%BF-%E8%8E%AB%E8%A6%81%E6%85%8C%E5%BC%A0/"/>
+    <id>https://github.com/hanyechun/hanyechun.github.io.git/2019/07/23/时光很长-莫要慌张/</id>
     <published>2019-07-23T09:32:07.000Z</published>
     <updated>2019-07-23T09:38:05.163Z</updated>
     
@@ -184,15 +184,15 @@
     
     </summary>
     
-      <category term="随笔" scheme="https://github.com/WjmNightingale/wjmBlog.github.io.git/categories/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://github.com/hanyechun/hanyechun.github.io.git/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
   </entry>
   
   <entry>
     <title>Mac生成SSH Key</title>
-    <link href="https://github.com/WjmNightingale/wjmBlog.github.io.git/2019/07/19/Mac%E7%94%9F%E6%88%90SSH-Key/"/>
-    <id>https://github.com/WjmNightingale/wjmBlog.github.io.git/2019/07/19/Mac生成SSH-Key/</id>
+    <link href="https://github.com/hanyechun/hanyechun.github.io.git/2019/07/19/Mac%E7%94%9F%E6%88%90SSH-Key/"/>
+    <id>https://github.com/hanyechun/hanyechun.github.io.git/2019/07/19/Mac生成SSH-Key/</id>
     <published>2019-07-19T07:16:51.000Z</published>
     <updated>2020-12-29T13:37:29.849Z</updated>
     
@@ -206,19 +206,19 @@
     
     </summary>
     
-      <category term="mac" scheme="https://github.com/WjmNightingale/wjmBlog.github.io.git/categories/mac/"/>
+      <category term="mac" scheme="https://github.com/hanyechun/hanyechun.github.io.git/categories/mac/"/>
     
     
-      <category term="mac" scheme="https://github.com/WjmNightingale/wjmBlog.github.io.git/tags/mac/"/>
+      <category term="mac" scheme="https://github.com/hanyechun/hanyechun.github.io.git/tags/mac/"/>
     
-      <category term="ssh" scheme="https://github.com/WjmNightingale/wjmBlog.github.io.git/tags/ssh/"/>
+      <category term="ssh" scheme="https://github.com/hanyechun/hanyechun.github.io.git/tags/ssh/"/>
     
   </entry>
   
   <entry>
     <title>Mac adb install apk</title>
-    <link href="https://github.com/WjmNightingale/wjmBlog.github.io.git/2019/07/19/Mac-adb-install-apk/"/>
-    <id>https://github.com/WjmNightingale/wjmBlog.github.io.git/2019/07/19/Mac-adb-install-apk/</id>
+    <link href="https://github.com/hanyechun/hanyechun.github.io.git/2019/07/19/Mac-adb-install-apk/"/>
+    <id>https://github.com/hanyechun/hanyechun.github.io.git/2019/07/19/Mac-adb-install-apk/</id>
     <published>2019-07-19T06:28:00.000Z</published>
     <updated>2019-07-19T07:02:26.275Z</updated>
     
@@ -234,19 +234,19 @@
     
     </summary>
     
-      <category term="android" scheme="https://github.com/WjmNightingale/wjmBlog.github.io.git/categories/android/"/>
+      <category term="android" scheme="https://github.com/hanyechun/hanyechun.github.io.git/categories/android/"/>
     
     
-      <category term="mac" scheme="https://github.com/WjmNightingale/wjmBlog.github.io.git/tags/mac/"/>
+      <category term="mac" scheme="https://github.com/hanyechun/hanyechun.github.io.git/tags/mac/"/>
     
-      <category term="adb" scheme="https://github.com/WjmNightingale/wjmBlog.github.io.git/tags/adb/"/>
+      <category term="adb" scheme="https://github.com/hanyechun/hanyechun.github.io.git/tags/adb/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://github.com/WjmNightingale/wjmBlog.github.io.git/2019/07/05/hello-world/"/>
-    <id>https://github.com/WjmNightingale/wjmBlog.github.io.git/2019/07/05/hello-world/</id>
+    <link href="https://github.com/hanyechun/hanyechun.github.io.git/2019/07/05/hello-world/"/>
+    <id>https://github.com/hanyechun/hanyechun.github.io.git/2019/07/05/hello-world/</id>
     <published>2019-07-05T09:35:50.832Z</published>
     <updated>2019-07-19T03:14:48.037Z</updated>
     
