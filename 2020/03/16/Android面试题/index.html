@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Java部分1.GC是什么? 为什么要有GC?GC是垃圾收集的意思（Gabage Collection）,内存处理是编程人员容易出现问题的地方，忘记或者错误的内存回收会导致程序或系统的不稳定甚至崩溃，Java 提供的GC功能可以自动监测对象是否超过作用域从而达到自动回收内存的目的，Java语言没有提供释放已分配内存的显示操作方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android面试题">
+<meta property="og:url" content="https://hanyechun.github.io/2020/03/16/Android面试题/index.html">
+<meta property="og:site_name" content="hyc&#39;s blog">
+<meta property="og:description" content="Java部分1.GC是什么? 为什么要有GC?GC是垃圾收集的意思（Gabage Collection）,内存处理是编程人员容易出现问题的地方，忘记或者错误的内存回收会导致程序或系统的不稳定甚至崩溃，Java 提供的GC功能可以自动监测对象是否超过作用域从而达到自动回收内存的目的，Java语言没有提供释放已分配内存的显示操作方法。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-03-16T09:00:39.914Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android面试题">
+<meta name="twitter:description" content="Java部分1.GC是什么? 为什么要有GC?GC是垃圾收集的意思（Gabage Collection）,内存处理是编程人员容易出现问题的地方，忘记或者错误的内存回收会导致程序或系统的不稳定甚至崩溃，Java 提供的GC功能可以自动监测对象是否超过作用域从而达到自动回收内存的目的，Java语言没有提供释放已分配内存的显示操作方法。">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="hyc's blog" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://hanyechun.github.io/2020/03/16/Android面试题/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Android面试题 | hyc's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hyc's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">write less, do more</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/404.html" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hanyechun.github.io/2020/03/16/Android面试题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="叶寒">
+      <meta itemprop="description" content="iblog">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hyc's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android面试题
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-16 16:39:36 / 修改时间：17:00:39" itemprop="dateCreated datePublished" datetime="2020-03-16T16:39:36+08:00">2020-03-16</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2020/03/16/Android面试题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/16/Android面试题/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 阅读次数： 
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">14k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">13 分钟</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Java部分"><a href="#Java部分" class="headerlink" title="Java部分"></a>Java部分</h4><h5 id="1-GC是什么-为什么要有GC"><a href="#1-GC是什么-为什么要有GC" class="headerlink" title="1.GC是什么? 为什么要有GC?"></a>1.GC是什么? 为什么要有GC?</h5><p>GC是垃圾收集的意思（Gabage Collection）,内存处理是编程人员容易出现问题的地方，忘记或者错误的内存回收会导致程序或系统的不稳定甚至崩溃，Java 提供的GC功能可以自动监测对象是否超过作用域从而达到自动回收内存的目的，Java语言没有提供释放已分配内存的显示操作方法。</p>
+<a id="more"></a>
+
+<h5 id="2-XML包括哪些解析技术，区别是什么？"><a href="#2-XML包括哪些解析技术，区别是什么？" class="headerlink" title="2.XML包括哪些解析技术，区别是什么？"></a>2.XML包括哪些解析技术，区别是什么？</h5><p>DOM和SAX<br>DOM将文档解析成一颗文档树，可在节点上进行遍历、增加、修改和删除。一次性读入内存，对内存消耗大。<br>SAX至上而下解析文档，以事件进行驱动。不会一次性读入内存，对内存消耗小，不能任意读取节点，并且不能对节点进行增加、修改和删除。</p>
+<h5 id="3-switch语句能否作用在byte上，能否作用在long上，能否作用在String上"><a href="#3-switch语句能否作用在byte上，能否作用在long上，能否作用在String上" class="headerlink" title="3.switch语句能否作用在byte上，能否作用在long上，能否作用在String上?"></a>3.switch语句能否作用在byte上，能否作用在long上，能否作用在String上?</h5><p>switch能作用在byte、char、short和int上，JDK1.7后可以作用在String上。</p>
+<h5 id="4-”-”和equals方法究竟有什么区别？"><a href="#4-”-”和equals方法究竟有什么区别？" class="headerlink" title="4.”==”和equals方法究竟有什么区别？"></a>4.”==”和equals方法究竟有什么区别？</h5><p>==和equals都可以比较地址。==是运算符，equals是方法，方法可以通过重写改变其行为，如String的equals就是比较字符串内容。</p>
+<h5 id="5-构造方法能否被重写和重载？"><a href="#5-构造方法能否被重写和重载？" class="headerlink" title="5.构造方法能否被重写和重载？"></a>5.构造方法能否被重写和重载？</h5><p>构造方法不能被重写但是能被重载。</p>
+<h5 id="6-面向对象的特征有哪些？"><a href="#6-面向对象的特征有哪些？" class="headerlink" title="6.面向对象的特征有哪些？"></a>6.面向对象的特征有哪些？</h5><p>封装、继承、多态和抽象。</p>
+<h5 id="7-抽象类和接口的区别？"><a href="#7-抽象类和接口的区别？" class="headerlink" title="7.抽象类和接口的区别？"></a>7.抽象类和接口的区别？</h5><p>1).抽象类是abstract class修饰，接口是interface修饰。<br>2).抽象类可以有任意类型的属性，接口只能有静态常量修饰的属性。<br>3).抽象类可以有普通方法和抽象法方法，接口的方法都是抽象方法。<br>4).抽象类和接口都不能实例化，但是抽象类有构造方法，接口没有构造方法。<br>5).抽象类只能单根继承，接口可以多重实现。</p>
+<h5 id="8-内部类可以引用它的包含类的成员吗？有没有什么限制？"><a href="#8-内部类可以引用它的包含类的成员吗？有没有什么限制？" class="headerlink" title="8.内部类可以引用它的包含类的成员吗？有没有什么限制？"></a>8.内部类可以引用它的包含类的成员吗？有没有什么限制？</h5><p>可以引用。如果需要指定当前类时要用外部类.this来引用。如果引用局部变量，需要将局部变量指定为final。</p>
+<h5 id="9-String-s-new-String-“xyz”-创建了几个String-Object-二者之间有什么区别？"><a href="#9-String-s-new-String-“xyz”-创建了几个String-Object-二者之间有什么区别？" class="headerlink" title="9.String s = new String(“xyz”);创建了几个String Object? 二者之间有什么区别？"></a>9.String s = new String(“xyz”);创建了几个String Object? 二者之间有什么区别？</h5><p>2个对象。”xyz”创建在字符串常量池中，new String()创建在堆中。</p>
+<h5 id="10-try-里有一个return语句，那么紧跟在这个try后的finally-里的code会不会被执行，什么时候被执行，在return前还是后"><a href="#10-try-里有一个return语句，那么紧跟在这个try后的finally-里的code会不会被执行，什么时候被执行，在return前还是后" class="headerlink" title="10.try {}里有一个return语句，那么紧跟在这个try后的finally {}里的code会不会被执行，什么时候被执行，在return前还是后?"></a>10.try {}里有一个return语句，那么紧跟在这个try后的finally {}里的code会不会被执行，什么时候被执行，在return前还是后?</h5><p>会在return前执行。</p>
+<h5 id="11-Integer与int的区别"><a href="#11-Integer与int的区别" class="headerlink" title="11.Integer与int的区别"></a>11.Integer与int的区别</h5><p>Integer为包装类，int是基本数据类型。包装类拥有方法和属性，基本数据类型不具备。包装类可以通过intValue来转换成基本数据类型，也可以通过new Integer()将基本数据类型转换为包装类。在JDK1.5后，包装类和基本数据类型可以实现自动转换。</p>
+<h5 id="12-sleep-和wait-有什么区别"><a href="#12-sleep-和wait-有什么区别" class="headerlink" title="12.sleep()和wait()有什么区别?"></a>12.sleep()和wait()有什么区别?</h5><p>sleep是Thread类的方法，wait是Object类的方法。<br>sleep是自动唤醒，wait需要其他线程来唤醒。<br>sleep不会释放同步锁，wait会释放同步锁。<br>sleep可以用在任意方法中，wait只能用在同步方法或同步块中。<br>Sleep（）不会释放对象锁到时自动恢复， wait（）会释放对象锁 进入等待此对象的等待锁定池 发出notify（）方法后 才进入等待锁定池准备对象锁的获 取进入运行状态</p>
+<h5 id="13-同步和异步有何异同，在什么情况下分别使用他们？"><a href="#13-同步和异步有何异同，在什么情况下分别使用他们？" class="headerlink" title="13.同步和异步有何异同，在什么情况下分别使用他们？"></a>13.同步和异步有何异同，在什么情况下分别使用他们？</h5><p>同步指同一时间只能一个线程执行该方法，其他线程需要等待。异步指多个线程可以同时执行某个方法，并共享同一资源。<br>同步可以让访问的资源具有安全性，因为同一时间只能一个线程对其进行访问。但是效率不高。<br>异步对访问的资源会造成不稳定性，比如多个线程同时访问一个资源，一个在修改、一个在删除、一个在读取，这样可能会造成资源的混乱。但是由于同时运行， 执行效率得到提高。</p>
+<h5 id="14-启动一个线程是用run-还是start"><a href="#14-启动一个线程是用run-还是start" class="headerlink" title="14.启动一个线程是用run()还是start()?"></a>14.启动一个线程是用run()还是start()?</h5><p>start()方法启动线程，run方法是线程执行的主方法。</p>
+<h5 id="15-java中有几种类型的流？JDK为每种类型的流提供了一些抽象类以供继承，请说出他们分别是哪些类？"><a href="#15-java中有几种类型的流？JDK为每种类型的流提供了一些抽象类以供继承，请说出他们分别是哪些类？" class="headerlink" title="15.java中有几种类型的流？JDK为每种类型的流提供了一些抽象类以供继承，请说出他们分别是哪些类？"></a>15.java中有几种类型的流？JDK为每种类型的流提供了一些抽象类以供继承，请说出他们分别是哪些类？</h5><p>java中有三种流，分别是字节流（InputStream、OutputStream）、字符流（Reader、Writer）、对象流（ObjectInputStream、 ObjectOutputStream）。</p>
+<h5 id="16-字节流与字符流的区别？"><a href="#16-字节流与字符流的区别？" class="headerlink" title="16.字节流与字符流的区别？"></a>16.字节流与字符流的区别？</h5><p>字节流用于读取或写出二进制数据，比如图片、影像等数据。<br>字符流用于读取或写出字符数据，比如传输字符串。<br>所有的数据都可以通过字节流来进行处理，不过如果是字符数据，用字节流还需要进行转换后传输，如果使用字符流可以方便数据的转换。</p>
+<h5 id="17-error和exception有什么区别"><a href="#17-error和exception有什么区别" class="headerlink" title="17.error和exception有什么区别?"></a>17.error和exception有什么区别?</h5><p>error是系统错误，代码不能处理的错误，比如内存溢出、堆栈溢出等。<br>exception是程序异常，可以通过代码try-catch进行处理，比如空指针异常，数组越界等。</p>
+<h5 id="18-谈谈final-finally-finalize的区别？"><a href="#18-谈谈final-finally-finalize的区别？" class="headerlink" title="18.谈谈final,finally,finalize的区别？"></a>18.谈谈final,finally,finalize的区别？</h5><p>final是修饰符，可以修饰类（不能被继承）、属性（常量）、和方法（不能被重写）。<br>finally是异常处理块中的代码块，表示无论如何都会执行的代码块。<br>finalize是Object类的方法，该方法在对象被垃圾回收之前执行的方法。</p>
+<h5 id="19-当一个线程进入一个对象的一个synchronized方法后，其它线程是否可进入此对象的其它方法"><a href="#19-当一个线程进入一个对象的一个synchronized方法后，其它线程是否可进入此对象的其它方法" class="headerlink" title="19.当一个线程进入一个对象的一个synchronized方法后，其它线程是否可进入此对象的其它方法?"></a>19.当一个线程进入一个对象的一个synchronized方法后，其它线程是否可进入此对象的其它方法?</h5><p>如果其他方法没有加synchronized的话是可以进入的。</p>
+<h5 id="20-当一个对象被当作参数传递到一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递"><a href="#20-当一个对象被当作参数传递到一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递" class="headerlink" title="20.当一个对象被当作参数传递到一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递?"></a>20.当一个对象被当作参数传递到一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递?</h5><p>java中只有值传递，如果传递的对象，实际也是传递该对象的地址。</p>
+<h5 id="21-作用域public-private-protected-以及不写时的区别"><a href="#21-作用域public-private-protected-以及不写时的区别" class="headerlink" title="21.作用域public,private,protected,以及不写时的区别"></a>21.作用域public,private,protected,以及不写时的区别</h5><p>public公共修饰符，表示任意类都可以访问。<br>protected为受保护的修饰符，表示同类、同包以及不同包但是父子关系的是可以访问。<br>不写表示默认修饰符，或者称为package修饰符，该修饰符表示只有同类或同包下的类可以访问，出了这个包就不能访问了。<br>private为私有修饰符，表示只有同类中可以访问，出了这个类就不能访问了。</p>
+<h5 id="22-用最有效率的方法算出2乘以8等於几-2《-3"><a href="#22-用最有效率的方法算出2乘以8等於几-2《-3" class="headerlink" title="22.用最有效率的方法算出2乘以8等於几 2《 3"></a>22.用最有效率的方法算出2乘以8等於几 2《 3</h5><p>将2的二进制向左移3位。java中用&lt;&lt;来移位。</p>
+<h5 id="23-heap和stack有什么区别。"><a href="#23-heap和stack有什么区别。" class="headerlink" title="23.heap和stack有什么区别。"></a>23.heap和stack有什么区别。</h5><p>heap表示堆，stack表示栈。堆中放对象，栈中放引用变量。<br>堆空间是一个无序的空间，栈是先进后出的结构。</p>
+<h5 id="24-运行时异常与一般异常有何异"><a href="#24-运行时异常与一般异常有何异" class="headerlink" title="24.运行时异常与一般异常有何异"></a>24.运行时异常与一般异常有何异</h5><p>运行时异常是指继承于RuntimeException的异常，这些异常在编译时可以不进行处理，当运行时如果出现问题才会抛出。如NullPointException、 ArrayIndexOutOfBoundsException<br>一般异常也称为编译时异常，这些异常是继承Exception但又不属于RuntimeException的子类，如果程序中出现这些异常，在编译时必须进行捕获或抛出，否 则编译无法通过。如IOException、FileNotFoundException</p>
+<h5 id="25-垃圾回收的优点和原理。并考虑2种回收机制"><a href="#25-垃圾回收的优点和原理。并考虑2种回收机制" class="headerlink" title="25.垃圾回收的优点和原理。并考虑2种回收机制"></a>25.垃圾回收的优点和原理。并考虑2种回收机制</h5><p>Java语言中一个显著的特点就是引入了垃圾回收机制，使c++程序员最头疼的内存管理的问题迎刃而解，它使得Java程序员在编写程序的时候不再需要考虑内存 管理。由于有个垃圾回收机制，Java中的对象不再有”作用域”的概念，只有对象的引用才有”作用域”。垃圾回收可以有效的防止内存泄露，有效的使用可以使用 的内存。垃圾回收器通常是作为一个单独的低级别的线程运行，不可预知的情况下对内存堆中已经死亡的或者长时间没有使用的对象进行清楚和回收，程序员不能 实时的调用垃圾回收器对某个对象或所有对象进行垃圾回收。回收机制有分代复制垃圾回收和标记垃圾回收，增量垃圾回收。</p>
+<h5 id="26-描述一下JVM加载class文件的原理机制"><a href="#26-描述一下JVM加载class文件的原理机制" class="headerlink" title="26.描述一下JVM加载class文件的原理机制?"></a>26.描述一下JVM加载class文件的原理机制?</h5><p>JVM中类的装载是由ClassLoader和它的子类来实现的,Java ClassLoader 是一个重要的Java运行时系统组件。它负责在运行时查找和装入类文件的类。</p>
+<h5 id="27-是否可以从一个static方法内部发出对非static方法的调用？"><a href="#27-是否可以从一个static方法内部发出对非static方法的调用？" class="headerlink" title="27.是否可以从一个static方法内部发出对非static方法的调用？"></a>27.是否可以从一个static方法内部发出对非static方法的调用？</h5><p>不能，除非先创建非static方法所在类的对象。</p>
+<h5 id="28-什么是java序列化，如何实现java序列化？"><a href="#28-什么是java序列化，如何实现java序列化？" class="headerlink" title="28.什么是java序列化，如何实现java序列化？"></a>28.什么是java序列化，如何实现java序列化？</h5><p>序列化就是一种用来处理对象流的机制，所谓对象流也就是将对象的内容进行流化。可以对流化后的对象进行读写操作，也可将流化后的对象传输于网络之间。序 列化是为了解决在对对象流进行读写操作时所引发的问题。<br>序列化的实现：将需要被序列化的类实现Serializable接口，该接口没有需要实现的方法，implements Serializable只是为了标注该对象是可被序列化 的，然后使用一个输出流(如：FileOutputStream)来构造一个ObjectOutputStream(对象流)对象，接着，使用ObjectOutputStream对象的 writeObject(Object obj)方法就可以将参数为obj的对象写出(即保存其状态)，要恢复的话则用输入流。</p>
+<h5 id="29-Anonymous-Inner-Class-匿名内部类-是否可以extends-继承-其它类，是否可以implements-实现-interface-接口-？"><a href="#29-Anonymous-Inner-Class-匿名内部类-是否可以extends-继承-其它类，是否可以implements-实现-interface-接口-？" class="headerlink" title="29.Anonymous Inner Class(匿名内部类)是否可以extends(继承)其它类，是否可以implements(实现)interface(接口)？"></a>29.Anonymous Inner Class(匿名内部类)是否可以extends(继承)其它类，是否可以implements(实现)interface(接口)？</h5><p>匿名内部类可以继承类或实现接口，但不是显示的使用extends或implements来继承或实现。</p>
+<h5 id="30-ArrayList和Vector的区别-HashMap和Hashtable的区别？"><a href="#30-ArrayList和Vector的区别-HashMap和Hashtable的区别？" class="headerlink" title="30.ArrayList和Vector的区别,HashMap和Hashtable的区别？"></a>30.ArrayList和Vector的区别,HashMap和Hashtable的区别？</h5><p>ArrayList是JDK1.2的集合类并且线程不安全，Vector是1.0的集合类并且线程安全，二者用法类似。<br>HashMap线程不安全且能放空键或空值，Hashtable线程安全且不能放空键或空值。</p>
+<h5 id="31-String-和StringBuffer有什么差别？在什么情况下使用它们？"><a href="#31-String-和StringBuffer有什么差别？在什么情况下使用它们？" class="headerlink" title="31.String 和StringBuffer有什么差别？在什么情况下使用它们？"></a>31.String 和StringBuffer有什么差别？在什么情况下使用它们？</h5><p>String字符串的基本类，该字符串是不可变的。StringBuffer是利用堆来存储字符串，并且可以对字符串的内容进行改变。</p>
+<h5 id="32-new一个类对象和使用类名创建一个对象有什么区别？二者使用时应该注意什么？"><a href="#32-new一个类对象和使用类名创建一个对象有什么区别？二者使用时应该注意什么？" class="headerlink" title="32.new一个类对象和使用类名创建一个对象有什么区别？二者使用时应该注意什么？"></a>32.new一个类对象和使用类名创建一个对象有什么区别？二者使用时应该注意什么？</h5><p>new对象是最常见的创建对象的方式，利用类模板是通过反射来创建对象。虽然new对象时在底层也会通过类模板来创建对象，但是new对象的效率要比直接通过类 模板创建对象的方式要高。<br>但是使用类模板的方式可以让程序的灵活性提高。</p>
+<h5 id="33-LinkedList和ArrayList的区别？"><a href="#33-LinkedList和ArrayList的区别？" class="headerlink" title="33.LinkedList和ArrayList的区别？"></a>33.LinkedList和ArrayList的区别？</h5><p>1）LinkedList是链表结构的集合，ArrayList数组结构的集合。<br>2）LinkedList在中间或前面增加或删除数据时效率比ArrayList高。<br>3）LinkedList在最后添加或删除数据时效率比ArrayList低。<br>4）遍历数据时ArrayList效率高于LinkedList。</p>
+<h5 id="34-介绍JAVA开发中常用的Collection-FrameWork（集合框架）"><a href="#34-介绍JAVA开发中常用的Collection-FrameWork（集合框架）" class="headerlink" title="34.介绍JAVA开发中常用的Collection FrameWork（集合框架）?"></a>34.介绍JAVA开发中常用的Collection FrameWork（集合框架）?</h5><p>Java中集合框架分为Collection和Map接口，Collection接口下的集合每个元素都由一个值组成，Map接口下的集合类每个元素都是由键值对组成。<br>Collection接口下面有List和Set接口，List接口下常见的类有ArrayList、LinkedList、Vector。它们中的元素可以重复，并且是有序的。Set接口下常 见的类有HashSet、TreeSet。它们中的元素不能重复，并且是无序的。</p>
+<h5 id="35-在异常当中-throw和throws-有什么区别和联系？"><a href="#35-在异常当中-throw和throws-有什么区别和联系？" class="headerlink" title="35.在异常当中 throw和throws 有什么区别和联系？"></a>35.在异常当中 throw和throws 有什么区别和联系？</h5><p>throw是在代码中抛出一个异常，后面跟的是异常对象，虚拟机运行到这里时会立即引发一个异常。<br>throws是写在方法声明上的，表示声明该方法可能会抛出异常，后面跟的是异常类型。调用该方法的时候可以选择处理它或继续往外抛。</p>
+<h5 id="36-重载和重写的区别"><a href="#36-重载和重写的区别" class="headerlink" title="36.重载和重写的区别"></a>36.重载和重写的区别</h5><p>重载是指在一个类中，两个或两个以上的方法具有相同方法名和不同参数列表，则表示这些方法为重载方法。<br>重写是指在父类和子类中，子类的方法和父类的方法具有相同方法名、相同参数列表、相同返回类型、子类的访问修饰符范围不小于父类的访问修饰符范围，异常 的类型和个数不大于或多于父类的异常类型和个数，则表示该方法为重写方法。换句话说重载方法是区分同一个类中相同方法名的方法，重写方法是找到父类相同 方法名的方法并重新改变方法的行为。</p>
+<h5 id="37-Java中try-catch-finally的执行顺序"><a href="#37-Java中try-catch-finally的执行顺序" class="headerlink" title="37.Java中try catch finally的执行顺序"></a>37.Java中try catch finally的执行顺序</h5><p>先执行try中代码发生异常执行catch中代码，最后一定会执行finally中代码</p>
+<h5 id="38-内存泄露的原因："><a href="#38-内存泄露的原因：" class="headerlink" title="38.内存泄露的原因："></a>38.内存泄露的原因：</h5><ul>
+<li>资源对象没关闭。<br>如Cursor、File等资源。他们会在finalize中关闭，但这样效率太低。容易造成内存泄露。<br>SQLiteCursor，当数据量大的时候容易泄露</li>
+<li>使用Adapter时，没有使用系统缓存的converView。</li>
+<li>即时调用recycle（）释放不再使用的Bitmap。<br>适当降低Bitmap的采样率，如：<br>BitmapFactory.Options options = newBitmapFactory.Options();<br>options.inSampleSize = 2;//图片宽高都为原来的二分之一，即图片为原来的四分之一<br>Bitmap bitmap =BitmapFactory.decodeStream(cr.openInputStream(uri), null, options); preview.setImageBitmap(bitmap);</li>
+<li>使用application的context来替代activity相关的context。<br>尽量避免activity的context在自己的范围外被使用，这样会导致activity无法释放。</li>
+<li>注册没取消造成内存泄露<br>如：广播<br>集合中的对象没清理造成的内存泄露我们通常把一些对象的引用加入到了集合中，当我们不需要该对象时，并没有把它的引用从集合中清理掉，这样这个集合就会 越来越大。如果这个集合是static的话，那情况就更严重了。</li>
+<li>Handler应该申明为静态对象， 并在其内部类中保存一个对外部类的弱引用。如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">static class MyHandler extends Handler</span><br><span class="line">&#123;</span><br><span class="line">    WeakReference&lt;Activity &gt; mActivityReference;</span><br><span class="line">    MyHandler(Activity activity)</span><br><span class="line">    &#123; </span><br><span class="line">      mActivityReference= new WeakReference&lt;Activity&gt;(activity);</span><br><span class="line">    &#125;   </span><br><span class="line">    @Override</span><br><span class="line">    public void handleMessage(Message msg)</span><br><span class="line">    &#123;</span><br><span class="line">        final Activity activity = mActivityReference.get();</span><br><span class="line">        if (activity != null)</span><br><span class="line">        &#123;</span><br><span class="line">            mImageView.setImageBitmap(mBitmap);</span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="39-Iterator和Enumeration的不同"><a href="#39-Iterator和Enumeration的不同" class="headerlink" title="39.Iterator和Enumeration的不同"></a>39.Iterator和Enumeration的不同</h5><ul>
+<li>函数接口不同<br>Enumeration只有2个函数接口。通过Enumeration，我们只能读取集合的数据，而不能对数据进行修改。 Iterator只有3个函数接口。Iterator除了能读 取集合的数据之外，也能数据进行删除操作。</li>
+<li>Iterator支持fail-fast机制，而Enumeration不支持。 Enumeration 是JDK 1.0添加的接口。使用到它的函数包括Vector、Hashtable等类，这些类 都是JDK 1.0中加入的，Enumeration存在的目的就是为它们提供遍历接口。Enumeration本身并没有支持同步，而在Vector、Hashtable实现 Enumeration时，添加了同步。而Iterator 是JDK 1.2才添加的接口，它也是为了HashMap、ArrayList等集合提供遍历接口。<br>Iterator是支持fail-fast 机制的：当多个线程对同一个集合的内容进行操作时，就可能会产生fail-fast事件。<br>ail-fast 机制是java集合(Collection)中的一种错误机制。当多个线程对同一个集合的内容进行操作时，就可能会产生fail-fast事件。例如：当某一个线 程A通过iterator去遍历某集合的过程中，若该集合的内容被其他线程所改变了；那么线程A访问集合时，就会抛出ConcurrentModificationException异 常，产生fail-fast事件。</li>
+</ul>
+<h5 id="40-接口的注意点"><a href="#40-接口的注意点" class="headerlink" title="40.接口的注意点"></a>40.接口的注意点</h5><ul>
+<li>接口中的字段全部默认为 public static类型。</li>
+<li>接口中的方法全部默认为 public类型。</li>
+<li>接口中可以申明内部类，而默认为public static，正因为是static，只是命名空间属于接口，代码逻辑不属于接口。所以不违法接口定义。</li>
+<li>接口本身可以申明为public或者缺省。</li>
+<li>抽象类继承自某接口。如果在抽象类中实现了父类（接口）中的方法，在其子类可以不用实现，否则在子类必须实现。</li>
+</ul>
+<h5 id="41-final方法"><a href="#41-final方法" class="headerlink" title="41.final方法"></a>41.final方法</h5><p>将方法声明为final那有两个原因，第一就是说明你已经知道这个方法提供的功能已经满足你要求，不需要进行扩展，并且也不允许任何从此类继承的类来覆写这个方法，但是继承仍然可以继承这个方法，也就是说可以直接使用。第二就是允许编译器将所有对此方法的调用转化为inline调用的机制，它会使你在调用final方法时，直接将方法主体插入到调用处，而不是进行例行的方法调用，例如保存断点，压栈等，这样可能会使你的程序效率有所提高，然而当你的方法主体非常庞大时，或你在多处调用此方法，那么你的调用主体代码便会迅速膨胀，可能反而会影响效率，所以你要慎用final进行方法定义。</p>
+<h4 id="ANDROID部分"><a href="#ANDROID部分" class="headerlink" title="ANDROID部分"></a>ANDROID部分</h4><h5 id="1-activity、Service、BroadcastReceiver的作用（android）"><a href="#1-activity、Service、BroadcastReceiver的作用（android）" class="headerlink" title="1.activity、Service、BroadcastReceiver的作用（android）"></a>1.activity、Service、BroadcastReceiver的作用（android）</h5><p>Activity：Activity是Android程序与用户交互的窗口，是Android构造块中最基本的一种，它需要为保持各界面的状态，做很多持久化的事情，妥善管理生命周期以及一些跳转逻辑<br>service：后台服务于Activity，封装有一个完整的功能逻辑实现，接受上层指令，完成相关的指令，定义好需要接受的Intent提供同步和异步的接口<br>BroadCast Receiver：接受一种或者多种Intent作触发事件，接受相关消息，做一些简单处理，转换成一条Notification，统一了Android的事件广播模型</p>
+<h5 id="2-描述一个完整的Android-activity-lifecycle"><a href="#2-描述一个完整的Android-activity-lifecycle" class="headerlink" title="2.描述一个完整的Android activity lifecycle"></a>2.描述一个完整的Android activity lifecycle</h5><p>activity的生命周期方法有：onCreate()、onStart()、onReStart()、onResume()、onPause()、onStop()、onDestory()；</p>
+<h5 id="3-显式intent和隐式intent的区别是什么（android）"><a href="#3-显式intent和隐式intent的区别是什么（android）" class="headerlink" title="3.显式intent和隐式intent的区别是什么（android）"></a>3.显式intent和隐式intent的区别是什么（android）</h5><p>Intent定义：Intent是一种在不同组件之间传递的请求消息，是应用程序发出的请求和意图。作为一个完整的消息传递机制，Intent不仅需要发送端，还需要接收端。<br>显式Intent定义：对于明确指出了目标组件名称的Intent，我们称之为显式Intent。<br>隐式Intent定义：对于没有明确指出目标组件名称的Intent，则称之为隐式Intent。<br>说明：Android系统使用IntentFilter 来寻找与隐式Intent相关的对象。</p>
+<h5 id="4-Android中线程同步的方法"><a href="#4-Android中线程同步的方法" class="headerlink" title="4.Android中线程同步的方法"></a>4.Android中线程同步的方法</h5><p>线程同步的方法可以采用同步方法和同步块。</p>
+<h5 id="5-怎么将一个Activity封装成对话框的样子-怎样将Activity封装成长按Menu菜单的样子？"><a href="#5-怎么将一个Activity封装成对话框的样子-怎样将Activity封装成长按Menu菜单的样子？" class="headerlink" title="5.怎么将一个Activity封装成对话框的样子? 怎样将Activity封装成长按Menu菜单的样子？"></a>5.怎么将一个Activity封装成对话框的样子? 怎样将Activity封装成长按Menu菜单的样子？</h5><p>简单你只需要设置 一下Activity的主题就可以了在AndroidManifest.xml 中定义 Activity的地方一句话：<br>Xml代码<br>android :theme=”@android:style/Theme.Dialog”<br>android:theme=”@android:style/Theme.Dialog”<br>这就使你的应用程序变成对话框的形式弹出来了，或者<br>Xml代码<br>android:theme=”@android:style/Theme.Translucent”<br>android:theme=”@android:style/Theme.Translucent”<br>就变成半透明的。<br>重写OnCreateOptionMenu方法来处理按下menu后的行为，然后再该方法中弹出对话框形式的Activity。<br>也可以利用事件监听来监听menu按键，并在该按钮按下后弹出对话框形式的Activity。</p>
+<h5 id="6-介绍一下Android系统的体系结构"><a href="#6-介绍一下Android系统的体系结构" class="headerlink" title="6.介绍一下Android系统的体系结构"></a>6.介绍一下Android系统的体系结构</h5><p>应用层：android的应用程序通常涉及用户界面和交互。<br>应用框架层：UI组件、各种管理器等。<br>函数库层：系统C库、媒体库、webkit、SQLite等。<br>linux核心库：linux系统运行的组件。</p>
+<h5 id="7-描述下横竖屏切换时候-activity-的生命周期"><a href="#7-描述下横竖屏切换时候-activity-的生命周期" class="headerlink" title="7.描述下横竖屏切换时候 activity 的生命周期"></a>7.描述下横竖屏切换时候 activity 的生命周期</h5><p>不设置Activity的android:configChanges时,切屏会重新调用各个生命周期,切横屏时会执行一次,切竖屏时会执行两次.<br>设置Activity的android:configChanges=”orientation”时,切屏还是会重新调用各个生命周期,切横、竖屏时只会执行一次.<br>设置Activity的android:configChanges=”orientation|keyboardHidden”时,切屏不会重新调用各个生命周期,只会执行onConfigurationChanged方法.</p>
+<h5 id="8-android-中的动画有哪几种，它们的特点和区别是什么"><a href="#8-android-中的动画有哪几种，它们的特点和区别是什么" class="headerlink" title="8.android 中的动画有哪几种，它们的特点和区别是什么 ?"></a>8.android 中的动画有哪几种，它们的特点和区别是什么 ?</h5><p>两种，一种是补间动画（Tween）动画、还有一种是帧动画（Frame）动画。Tween动画，这种实现方式可以使视图组件移动、放大、缩小以及产生透明度的变化;另一种Frame动画，传统的动画方法，通过顺序的播放排列好的图片来实现，类似电影。</p>
+<h5 id="9-一条最长的短信息约占多少-byte"><a href="#9-一条最长的短信息约占多少-byte" class="headerlink" title="9.一条最长的短信息约占多少 byte?"></a>9.一条最长的短信息约占多少 byte?</h5><p>140byte，70个汉字。</p>
+<h5 id="10-描述handler-机制的原理"><a href="#10-描述handler-机制的原理" class="headerlink" title="10.描述handler 机制的原理"></a>10.描述handler 机制的原理</h5><p>andriod提供了 Handler 和 Looper 来满足线程间的通信。<br>Handler 先进先出原则。<br>Looper类用来管理特定线程内对象之间的消息交换(Message Exchange)。<br>1)Looper: 一个线程可以产生一个Looper对象，由它来管理此线程里的Message Queue(消息队列)。<br>2)Handler: 你可以构造Handler对象来与Looper沟通，以便push新消息到Message Queue里;或者接收Looper从Message Queue取出)所送来的消息。<br>3) Message Queue(消息队列):用来存放线程放入的消息。<br>4)线程：UI thread 通常就是main thread，而Android启动程序时会替它建立一个Message Queue。</p>
+<h5 id="11-如何将-SQLite-数据库-dictionary-db-文件-与-apk-文件一起发布"><a href="#11-如何将-SQLite-数据库-dictionary-db-文件-与-apk-文件一起发布" class="headerlink" title="11.如何将 SQLite 数据库 (dictionary.db 文件 ) 与 apk 文件一起发布 ?"></a>11.如何将 SQLite 数据库 (dictionary.db 文件 ) 与 apk 文件一起发布 ?</h5><p>可以将dictionary.db文件复制到Eclipse Android工程中的res\raw目录中。所有在res\raw目录中的文件不会被压缩，这样可以直接提取该目录中的文件。<br>使用openDatabase方法来打开数据库文件，如果该文件不存在，系统会自动创建/sdcard/dictionary目录，并将res\raw目录中的 dictionary.db文件复制到/sdcard/dictionary目录中</p>
+<h5 id="12-说说-android-中-mvc-的具体体现"><a href="#12-说说-android-中-mvc-的具体体现" class="headerlink" title="12.说说 android 中 mvc 的具体体现"></a>12.说说 android 中 mvc 的具体体现</h5><p>mvc是model,view,controller的缩写，mvc包含三个部分：<br>模型（model）对象：是应用程序的主体部分，所有的业务逻辑都应该写在该层。<br>视图（view）对象：是应用程序中负责生成用户界面的部分。也是在整个mvc架构中用户唯一可以看到的一层，接收用户的输入，显示处理结果。<br>控制器（control）对象：是根据用户的输入，控制用户界面数据显示及更新model对象状态的部分，控制器更重要的一种导航功能，响应用户出发的相关事件，交给m层处理。<br>android鼓励弱耦合和组件的重用，在android中mvc的具体体现如下：<br>1)视图（view）：一般采用xml文件进行界面的描述，使用的时候可以非常方便的引入。<br>2)控制层（controller）：android的控制层的重任通常落在了众多的acitvity的肩上，这句话也就暗含了不要在acitivity中写过多的代码，要通过activity交割model业务逻辑层处理，这样做的另外一个原因是android中的acitivity的响应时间是5s，如果耗时的操作放在这里，程序就很容易被回收掉。<br>3)模型层（model）：对数据库的操作、对网络等的操作都应该在model里面处理，当然对业务计算等操作也是必须放在的该层的。</p>
+<h5 id="13-请介绍下-Android-中常用的五种布局"><a href="#13-请介绍下-Android-中常用的五种布局" class="headerlink" title="13.请介绍下 Android 中常用的五种布局"></a>13.请介绍下 Android 中常用的五种布局</h5><p>帧布局（FrameLayout）<br>线性布局(LinearLayout)<br>表格布局(TableLayout)<br>相对布局(RelativeLayout)<br>绝对布局(AbsoluteLayout)</p>
+<h5 id="14-如何启用-Service-，如何停用-Service"><a href="#14-如何启用-Service-，如何停用-Service" class="headerlink" title="14.如何启用 Service ，如何停用 Service"></a>14.如何启用 Service ，如何停用 Service</h5><p>1)startService用于启动Service、stopService停止Service。<br>2)bindService绑定Service，unbindService解除Service的绑定。</p>
+<h5 id="15-如何优化ListView"><a href="#15-如何优化ListView" class="headerlink" title="15.如何优化ListView"></a>15.如何优化ListView</h5><p>1、如果自定义适配器，那么在getView方法中要考虑方法传进来的参数contentView是否为null，如果为null就创建contentView并返回，如果不为null则直接使用。在这个方法中尽可能少创建view。<br>2、给contentView设置tag（setTag（）），传入一个viewHolder对象，用于缓存要显示的数据，可以达到图像数据异步加载的效果。<br>3、如果listview需要显示的item很多，就要考虑分页加载。比如一共要显示100条或者更多的时候，我们可以考虑先加载20条，等用户拉到列表底部的时候再去加载接下来的20条。</p>
+<h5 id="16-描述4-种-activity-的启动模式"><a href="#16-描述4-种-activity-的启动模式" class="headerlink" title="16.描述4 种 activity 的启动模式"></a>16.描述4 种 activity 的启动模式</h5><p>1)standard ：系统的默认模式，一次跳转即会生成一个新的实例。假设有一个activity命名为MainActivity，执行语句：<br>startActivity(new Intent(MainActivity.this, MainActivity.class))后，MainActivity将跳转到另外一个MainActivity，也就是现在的Task栈里面有MainActivity的两个实例。按返回键后你会发现仍然是在MainActivity（第一个）里面。<br>2)singleTop：singleTop 跟standard 模式比较类似。如果已经有一个实例位于Activity栈的顶部时，就不产生新的实例，而只是调用Activity中的newInstance()方法。如果不位于栈顶，会产生一个新的实例。例：当MainActivity为 singleTop 模式时，执行跳转后栈里面依旧只有一个实例，如果现在按返回键程序将直接退出。<br>3)singleTask： singleTask模式和后面的singleInstance模式都是只创建一个实例的。在这种模式下，无论跳转的对象是不是位于栈顶的activity，程序都不会生成一个新的实例（当然前提是栈里面已经有这个实例）。这种模式相当有用，在以后的多activity开发中，经常会因为跳转的关系导致同个页面生成多个实例，这个在用户体验上始终有点不好，而如果你将对应的activity声明为 singleTask 模式，这种问题将不复存在。<br>4)singleInstance: 设置为 singleInstance 模式的 activity 将独占一个task（感觉task可以理解为进程），独占一个task的activity与其说是activity，倒不如说是一个应用，这个应用与其他activity是独立的，它有自己的上下文activity。</p>
+<h5 id="17-什么是Intent，如何使用？"><a href="#17-什么是Intent，如何使用？" class="headerlink" title="17.什么是Intent，如何使用？"></a>17.什么是Intent，如何使用？</h5><p>Android基本的设计理念是鼓励减少组件间的耦合，因此Android提供了Intent (意图) ，Intent提供了一种通用的消息系统，它允许在你的应用程序与其它的应用程序间传递Intent来执行动作和产生事件。使用Intent可以激活Android应用的三个核心组件：活动、服务和广播接收器。<br>通过startActivity() orstartActivityForResult()启动一个Activity；<br>过 startService() 启动一个服务，或者通过bindService() 和后台服务交互；<br>通过广播方法(比如 sendBroadcast(),sendOrderedBroadcast(),sendStickyBroadcast())发给broadcast receivers</p>
+<h5 id="18-Android用的数据库是什么样的？它和sql有什么区别？为什么要用ContentProvide？它和sql的实现上有什么差别？"><a href="#18-Android用的数据库是什么样的？它和sql有什么区别？为什么要用ContentProvide？它和sql的实现上有什么差别？" class="headerlink" title="18.Android用的数据库是什么样的？它和sql有什么区别？为什么要用ContentProvide？它和sql的实现上有什么差别？"></a>18.Android用的数据库是什么样的？它和sql有什么区别？为什么要用ContentProvide？它和sql的实现上有什么差别？</h5><p>Adnroid用的是SQLite数据库。它和其他网络数据库类似，也是通过SQL对数据进行管理。SQLite的操作非常简单，包括数据类型在建表时也可以不指定。<br>使用ContentProvider 可以将数据共享给其他应用，让除本应用之外的应用也可以访问本应用的数据。它的底层是用SQLite 数据库实现的，所以其对数据做的各种操作都是以Sql实现，只是在上层提供的是Uri。</p>
+<h5 id="19-通过Intent传递一些二进制数据的方法有哪些"><a href="#19-通过Intent传递一些二进制数据的方法有哪些" class="headerlink" title="19.通过Intent传递一些二进制数据的方法有哪些?"></a>19.通过Intent传递一些二进制数据的方法有哪些?</h5><p>1)使用Serializable接口实现序列化，这是Java常用的方法。<br>2)实现Parcelable接口，这里Android的部分类比如Bitmap类就已经实现了，同时Parcelable在Android AIDL中交换数据也很常见的。</p>
+<h5 id="20-对一些资源以及状态的操作保存，最好是保存在生命周期的哪个函数中进行？"><a href="#20-对一些资源以及状态的操作保存，最好是保存在生命周期的哪个函数中进行？" class="headerlink" title="20.对一些资源以及状态的操作保存，最好是保存在生命周期的哪个函数中进行？"></a>20.对一些资源以及状态的操作保存，最好是保存在生命周期的哪个函数中进行？</h5><p>onResume()恢复数据、onPause()保存数据。</p>
+<h5 id="21-如何一次性退出所有打开的Activity"><a href="#21-如何一次性退出所有打开的Activity" class="headerlink" title="21.如何一次性退出所有打开的Activity"></a>21.如何一次性退出所有打开的Activity</h5><p>编写一个Activity作为入口，当需要关闭程序时，可以利用Activity的SingleTop模式跳转该Activity，它上面的所有Activity都会被销毁掉。然后再将该Activity关闭。<br>或者再跳转时，设置intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);这样也能将上面的Activity销毁掉。</p>
+<h5 id="22-说说Service的生命周期？"><a href="#22-说说Service的生命周期？" class="headerlink" title="22.说说Service的生命周期？"></a>22.说说Service的生命周期？</h5><p>启动Service的方式有两种，各自的生命周期也有所不同。<br>一、通过startService启动Service：onCreate、onStartCommand、onDestory。<br>二、通过bindService绑定Service：onCreate、onBind、onUnbind、onDestory。</p>
+<h5 id="23-什么是AIDL？AIDL是如何工作的？"><a href="#23-什么是AIDL？AIDL是如何工作的？" class="headerlink" title="23.什么是AIDL？AIDL是如何工作的？"></a>23.什么是AIDL？AIDL是如何工作的？</h5><p>AIDL(Android接口描述语言)是一种接口描述语言; 编译器可以通过aidl文件生成一段代码，通过预先定义的接口达到两个进程内部通信进程的目的. 如果需要在一个Activity中, 访问另一个Service中的某个对象, 需要先将对象转化成AIDL可识别的参数(可能是多个参数), 然后使用AIDL来传递这些参数, 在消息的接收端, 使用这些参数组装成自己需要的对象。AIDL是基于接口的，但它是轻量级的。它使用代理类在客户端和实现层间传递值.。</p>
+<h5 id="24-Android如何把文件存放在SDCard上？"><a href="#24-Android如何把文件存放在SDCard上？" class="headerlink" title="24.Android如何把文件存放在SDCard上？"></a>24.Android如何把文件存放在SDCard上？</h5><p>在AndroidManifest.xml中加入访问SDCard的权限如下:<br>&lt;!– 在SDCard中创建与删除文件权限 –&gt;</p>
+<p>&lt;!– 往SDCard写入数据权限 –&gt;</p>
+<p>要往SDCard存放文件，程序必须先判断手机是否装有SDCard，并且可以进行读写。<br>注意：访问SDCard必须在AndroidManifest.xml中加入访问SDCard的权限。<br>Environment.getExternalStorageState()方法用于获取SDCard的状态，如果手机装有SDCard，并且可以进行读写，那么方法返回的状态等于Environment.MEDIA_MOUNTED。<br>Environment.getExternalStorageDirectory()方法用于获取SDCard的目录。</p>
+<h5 id="25-注册广播有几种方式，这些方式有何优缺点？"><a href="#25-注册广播有几种方式，这些方式有何优缺点？" class="headerlink" title="25.注册广播有几种方式，这些方式有何优缺点？"></a>25.注册广播有几种方式，这些方式有何优缺点？</h5><p>两种。一种是通过代码注册，这种方式注册的广播会跟随程序的生命周期。二种是在AndroidManifest.xml中配置广播，这种常驻型广播当应用程序关闭后，如果有信息广播来，程序也会被系统调用自动运行。</p>
+<h5 id="26-什么是ANR-如何避免它"><a href="#26-什么是ANR-如何避免它" class="headerlink" title="26.什么是ANR 如何避免它?"></a>26.什么是ANR 如何避免它?</h5><p>在Android上，如果你的应用程序有一段时间响应不够灵敏，系统会向用户显示一个对话框，这个对话框称作应用程序无响应（ANR：Application Not Responding）对话框。用户可以选择让程序继续运行，但是，他们在使用你的应用程序时，并不希望每次都要处理这个对话框。因此，在程序里对响应性能的设计很重要，这样，系统不会显示ANR给用户。要避免它，应该尽量少在主线程做耗时太长的操作，应该将这些操作放在线程当中去做。</p>
+<h5 id="27-Android本身的api并未声明会抛出异常，则其在运行时有无可能抛出runtime异常，你遇到过吗-诺有的话会导致什么问题-如何解决"><a href="#27-Android本身的api并未声明会抛出异常，则其在运行时有无可能抛出runtime异常，你遇到过吗-诺有的话会导致什么问题-如何解决" class="headerlink" title="27.Android本身的api并未声明会抛出异常，则其在运行时有无可能抛出runtime异常，你遇到过吗?诺有的话会导致什么问题?如何解决?"></a>27.Android本身的api并未声明会抛出异常，则其在运行时有无可能抛出runtime异常，你遇到过吗?诺有的话会导致什么问题?如何解决?</h5><p>有可能，比如空指针异常、数组下表越界等异常，这些异常抛出后可能会导致程序FC。在编写代码时应该做好检测，多考虑可能会发生错误的情况，从代码层次解决这些问题。</p>
+<h5 id="28-为什么要用-ContentProvider-它和-sql-的实现上有什么差别"><a href="#28-为什么要用-ContentProvider-它和-sql-的实现上有什么差别" class="headerlink" title="28.为什么要用 ContentProvider?它和 sql 的实现上有什么差别?"></a>28.为什么要用 ContentProvider?它和 sql 的实现上有什么差别?</h5><p>使用ContentProvider 可以将数据共享给其他应用，让除本应用之外的应用也可以访问本应用的数据。它的底层是用SQLite 数据库实现的，所以其对数据做的各种操作都是以Sql实现，只是在上层提供的是Uri。</p>
+<h5 id="29-谈谈-UI-中-Padding-和-Margin-有什么区别"><a href="#29-谈谈-UI-中-Padding-和-Margin-有什么区别" class="headerlink" title="29.谈谈 UI 中, Padding 和 Margin 有什么区别?"></a>29.谈谈 UI 中, Padding 和 Margin 有什么区别?</h5><p>padding指内边距，表示组件内部元素距离组件边框的距离。<br>marin指外边距，表示组件与组件之间的距离。</p>
+<h5 id="30-请介绍下-Android-的数据存储方式。"><a href="#30-请介绍下-Android-的数据存储方式。" class="headerlink" title="30.请介绍下 Android 的数据存储方式。"></a>30.请介绍下 Android 的数据存储方式。</h5><p>Android 提供了5种方式存储数据：<br>1)使用SharedPreferences存储数据；<br>2)文件存储数据；<br>3)SQLite数据库存储数据；<br>4)使用ContentProvider存储数据；<br>5)网络存储数据；</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>叶寒</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="https://hanyechun.github.io/2020/03/16/Android面试题/" title="Android面试题">https://hanyechun.github.io/2020/03/16/Android面试题/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/26/oh-my-zsh-，zsh-command-not-found-adb/" rel="next" title="oh-my-zsh ，zsh: command not found: adb">
+                <i class="fa fa-chevron-left"></i> oh-my-zsh ，zsh: command not found: adb
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/12/29/Paging3-LoadStateAdapter显示已加载完所有数据/" rel="prev" title="Paging3 LoadStateAdapter显示已加载完所有数据">
+                Paging3 LoadStateAdapter显示已加载完所有数据 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.JPG" alt="叶寒">
+            
+              <p class="site-author-name" itemprop="name">叶寒</p>
+              <div class="site-description motion-element" itemprop="description">iblog</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/hanyechun" title="GitHub &rarr; https://github.com/hanyechun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java部分"><span class="nav-number">1.</span> <span class="nav-text">Java部分</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-GC是什么-为什么要有GC"><span class="nav-number">1.1.</span> <span class="nav-text">1.GC是什么? 为什么要有GC?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-XML包括哪些解析技术，区别是什么？"><span class="nav-number">1.2.</span> <span class="nav-text">2.XML包括哪些解析技术，区别是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-switch语句能否作用在byte上，能否作用在long上，能否作用在String上"><span class="nav-number">1.3.</span> <span class="nav-text">3.switch语句能否作用在byte上，能否作用在long上，能否作用在String上?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-”-”和equals方法究竟有什么区别？"><span class="nav-number">1.4.</span> <span class="nav-text">4.”==”和equals方法究竟有什么区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-构造方法能否被重写和重载？"><span class="nav-number">1.5.</span> <span class="nav-text">5.构造方法能否被重写和重载？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-面向对象的特征有哪些？"><span class="nav-number">1.6.</span> <span class="nav-text">6.面向对象的特征有哪些？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-抽象类和接口的区别？"><span class="nav-number">1.7.</span> <span class="nav-text">7.抽象类和接口的区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-内部类可以引用它的包含类的成员吗？有没有什么限制？"><span class="nav-number">1.8.</span> <span class="nav-text">8.内部类可以引用它的包含类的成员吗？有没有什么限制？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-String-s-new-String-“xyz”-创建了几个String-Object-二者之间有什么区别？"><span class="nav-number">1.9.</span> <span class="nav-text">9.String s = new String(“xyz”);创建了几个String Object? 二者之间有什么区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-try-里有一个return语句，那么紧跟在这个try后的finally-里的code会不会被执行，什么时候被执行，在return前还是后"><span class="nav-number">1.10.</span> <span class="nav-text">10.try {}里有一个return语句，那么紧跟在这个try后的finally {}里的code会不会被执行，什么时候被执行，在return前还是后?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#11-Integer与int的区别"><span class="nav-number">1.11.</span> <span class="nav-text">11.Integer与int的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#12-sleep-和wait-有什么区别"><span class="nav-number">1.12.</span> <span class="nav-text">12.sleep()和wait()有什么区别?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-同步和异步有何异同，在什么情况下分别使用他们？"><span class="nav-number">1.13.</span> <span class="nav-text">13.同步和异步有何异同，在什么情况下分别使用他们？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#14-启动一个线程是用run-还是start"><span class="nav-number">1.14.</span> <span class="nav-text">14.启动一个线程是用run()还是start()?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#15-java中有几种类型的流？JDK为每种类型的流提供了一些抽象类以供继承，请说出他们分别是哪些类？"><span class="nav-number">1.15.</span> <span class="nav-text">15.java中有几种类型的流？JDK为每种类型的流提供了一些抽象类以供继承，请说出他们分别是哪些类？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#16-字节流与字符流的区别？"><span class="nav-number">1.16.</span> <span class="nav-text">16.字节流与字符流的区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#17-error和exception有什么区别"><span class="nav-number">1.17.</span> <span class="nav-text">17.error和exception有什么区别?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#18-谈谈final-finally-finalize的区别？"><span class="nav-number">1.18.</span> <span class="nav-text">18.谈谈final,finally,finalize的区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#19-当一个线程进入一个对象的一个synchronized方法后，其它线程是否可进入此对象的其它方法"><span class="nav-number">1.19.</span> <span class="nav-text">19.当一个线程进入一个对象的一个synchronized方法后，其它线程是否可进入此对象的其它方法?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#20-当一个对象被当作参数传递到一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递"><span class="nav-number">1.20.</span> <span class="nav-text">20.当一个对象被当作参数传递到一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#21-作用域public-private-protected-以及不写时的区别"><span class="nav-number">1.21.</span> <span class="nav-text">21.作用域public,private,protected,以及不写时的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#22-用最有效率的方法算出2乘以8等於几-2《-3"><span class="nav-number">1.22.</span> <span class="nav-text">22.用最有效率的方法算出2乘以8等於几 2《 3</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#23-heap和stack有什么区别。"><span class="nav-number">1.23.</span> <span class="nav-text">23.heap和stack有什么区别。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#24-运行时异常与一般异常有何异"><span class="nav-number">1.24.</span> <span class="nav-text">24.运行时异常与一般异常有何异</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#25-垃圾回收的优点和原理。并考虑2种回收机制"><span class="nav-number">1.25.</span> <span class="nav-text">25.垃圾回收的优点和原理。并考虑2种回收机制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#26-描述一下JVM加载class文件的原理机制"><span class="nav-number">1.26.</span> <span class="nav-text">26.描述一下JVM加载class文件的原理机制?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#27-是否可以从一个static方法内部发出对非static方法的调用？"><span class="nav-number">1.27.</span> <span class="nav-text">27.是否可以从一个static方法内部发出对非static方法的调用？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#28-什么是java序列化，如何实现java序列化？"><span class="nav-number">1.28.</span> <span class="nav-text">28.什么是java序列化，如何实现java序列化？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#29-Anonymous-Inner-Class-匿名内部类-是否可以extends-继承-其它类，是否可以implements-实现-interface-接口-？"><span class="nav-number">1.29.</span> <span class="nav-text">29.Anonymous Inner Class(匿名内部类)是否可以extends(继承)其它类，是否可以implements(实现)interface(接口)？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#30-ArrayList和Vector的区别-HashMap和Hashtable的区别？"><span class="nav-number">1.30.</span> <span class="nav-text">30.ArrayList和Vector的区别,HashMap和Hashtable的区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#31-String-和StringBuffer有什么差别？在什么情况下使用它们？"><span class="nav-number">1.31.</span> <span class="nav-text">31.String 和StringBuffer有什么差别？在什么情况下使用它们？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#32-new一个类对象和使用类名创建一个对象有什么区别？二者使用时应该注意什么？"><span class="nav-number">1.32.</span> <span class="nav-text">32.new一个类对象和使用类名创建一个对象有什么区别？二者使用时应该注意什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#33-LinkedList和ArrayList的区别？"><span class="nav-number">1.33.</span> <span class="nav-text">33.LinkedList和ArrayList的区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#34-介绍JAVA开发中常用的Collection-FrameWork（集合框架）"><span class="nav-number">1.34.</span> <span class="nav-text">34.介绍JAVA开发中常用的Collection FrameWork（集合框架）?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#35-在异常当中-throw和throws-有什么区别和联系？"><span class="nav-number">1.35.</span> <span class="nav-text">35.在异常当中 throw和throws 有什么区别和联系？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#36-重载和重写的区别"><span class="nav-number">1.36.</span> <span class="nav-text">36.重载和重写的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#37-Java中try-catch-finally的执行顺序"><span class="nav-number">1.37.</span> <span class="nav-text">37.Java中try catch finally的执行顺序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#38-内存泄露的原因："><span class="nav-number">1.38.</span> <span class="nav-text">38.内存泄露的原因：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#39-Iterator和Enumeration的不同"><span class="nav-number">1.39.</span> <span class="nav-text">39.Iterator和Enumeration的不同</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#40-接口的注意点"><span class="nav-number">1.40.</span> <span class="nav-text">40.接口的注意点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#41-final方法"><span class="nav-number">1.41.</span> <span class="nav-text">41.final方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ANDROID部分"><span class="nav-number">2.</span> <span class="nav-text">ANDROID部分</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-activity、Service、BroadcastReceiver的作用（android）"><span class="nav-number">2.1.</span> <span class="nav-text">1.activity、Service、BroadcastReceiver的作用（android）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-描述一个完整的Android-activity-lifecycle"><span class="nav-number">2.2.</span> <span class="nav-text">2.描述一个完整的Android activity lifecycle</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-显式intent和隐式intent的区别是什么（android）"><span class="nav-number">2.3.</span> <span class="nav-text">3.显式intent和隐式intent的区别是什么（android）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Android中线程同步的方法"><span class="nav-number">2.4.</span> <span class="nav-text">4.Android中线程同步的方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-怎么将一个Activity封装成对话框的样子-怎样将Activity封装成长按Menu菜单的样子？"><span class="nav-number">2.5.</span> <span class="nav-text">5.怎么将一个Activity封装成对话框的样子? 怎样将Activity封装成长按Menu菜单的样子？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-介绍一下Android系统的体系结构"><span class="nav-number">2.6.</span> <span class="nav-text">6.介绍一下Android系统的体系结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-描述下横竖屏切换时候-activity-的生命周期"><span class="nav-number">2.7.</span> <span class="nav-text">7.描述下横竖屏切换时候 activity 的生命周期</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-android-中的动画有哪几种，它们的特点和区别是什么"><span class="nav-number">2.8.</span> <span class="nav-text">8.android 中的动画有哪几种，它们的特点和区别是什么 ?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-一条最长的短信息约占多少-byte"><span class="nav-number">2.9.</span> <span class="nav-text">9.一条最长的短信息约占多少 byte?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-描述handler-机制的原理"><span class="nav-number">2.10.</span> <span class="nav-text">10.描述handler 机制的原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#11-如何将-SQLite-数据库-dictionary-db-文件-与-apk-文件一起发布"><span class="nav-number">2.11.</span> <span class="nav-text">11.如何将 SQLite 数据库 (dictionary.db 文件 ) 与 apk 文件一起发布 ?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#12-说说-android-中-mvc-的具体体现"><span class="nav-number">2.12.</span> <span class="nav-text">12.说说 android 中 mvc 的具体体现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-请介绍下-Android-中常用的五种布局"><span class="nav-number">2.13.</span> <span class="nav-text">13.请介绍下 Android 中常用的五种布局</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#14-如何启用-Service-，如何停用-Service"><span class="nav-number">2.14.</span> <span class="nav-text">14.如何启用 Service ，如何停用 Service</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#15-如何优化ListView"><span class="nav-number">2.15.</span> <span class="nav-text">15.如何优化ListView</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#16-描述4-种-activity-的启动模式"><span class="nav-number">2.16.</span> <span class="nav-text">16.描述4 种 activity 的启动模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#17-什么是Intent，如何使用？"><span class="nav-number">2.17.</span> <span class="nav-text">17.什么是Intent，如何使用？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#18-Android用的数据库是什么样的？它和sql有什么区别？为什么要用ContentProvide？它和sql的实现上有什么差别？"><span class="nav-number">2.18.</span> <span class="nav-text">18.Android用的数据库是什么样的？它和sql有什么区别？为什么要用ContentProvide？它和sql的实现上有什么差别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#19-通过Intent传递一些二进制数据的方法有哪些"><span class="nav-number">2.19.</span> <span class="nav-text">19.通过Intent传递一些二进制数据的方法有哪些?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#20-对一些资源以及状态的操作保存，最好是保存在生命周期的哪个函数中进行？"><span class="nav-number">2.20.</span> <span class="nav-text">20.对一些资源以及状态的操作保存，最好是保存在生命周期的哪个函数中进行？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#21-如何一次性退出所有打开的Activity"><span class="nav-number">2.21.</span> <span class="nav-text">21.如何一次性退出所有打开的Activity</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#22-说说Service的生命周期？"><span class="nav-number">2.22.</span> <span class="nav-text">22.说说Service的生命周期？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#23-什么是AIDL？AIDL是如何工作的？"><span class="nav-number">2.23.</span> <span class="nav-text">23.什么是AIDL？AIDL是如何工作的？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#24-Android如何把文件存放在SDCard上？"><span class="nav-number">2.24.</span> <span class="nav-text">24.Android如何把文件存放在SDCard上？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#25-注册广播有几种方式，这些方式有何优缺点？"><span class="nav-number">2.25.</span> <span class="nav-text">25.注册广播有几种方式，这些方式有何优缺点？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#26-什么是ANR-如何避免它"><span class="nav-number">2.26.</span> <span class="nav-text">26.什么是ANR 如何避免它?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#27-Android本身的api并未声明会抛出异常，则其在运行时有无可能抛出runtime异常，你遇到过吗-诺有的话会导致什么问题-如何解决"><span class="nav-number">2.27.</span> <span class="nav-text">27.Android本身的api并未声明会抛出异常，则其在运行时有无可能抛出runtime异常，你遇到过吗?诺有的话会导致什么问题?如何解决?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#28-为什么要用-ContentProvider-它和-sql-的实现上有什么差别"><span class="nav-number">2.28.</span> <span class="nav-text">28.为什么要用 ContentProvider?它和 sql 的实现上有什么差别?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#29-谈谈-UI-中-Padding-和-Margin-有什么区别"><span class="nav-number">2.29.</span> <span class="nav-text">29.谈谈 UI 中, Padding 和 Margin 有什么区别?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#30-请介绍下-Android-的数据存储方式。"><span class="nav-number">2.30.</span> <span class="nav-text">30.请介绍下 Android 的数据存储方式。</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">叶寒</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.2.0</div>
+
+
+
+  <div class="footer-custom">Hosted by <a href="https://pages.coding.me" class="theme-link" rel="noopener" target="_blank">Coding Pages</a></div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://hanyechun.github.io/2020/03/16/Android面试题/";
+    this.page.identifier = "2020/03/16/Android面试题/";
+    this.page.title = 'Android面试题';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    window.addEventListener('load', loadComments, false);
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
