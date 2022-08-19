@@ -1,6 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo NexT主题</title>
+    <url>/2022/08/18/Hexo-NexT%E4%B8%BB%E9%A2%98/</url>
+    <content><![CDATA[<p><a href="http://theme-next.iissnan.com/theme-settings.html#volunteer-404" target="_blank" rel="noopener">官方文档</a></p>
+<h4 id="一、设置文章底部版权信息"><a href="#一、设置文章底部版权信息" class="headerlink" title="一、设置文章底部版权信息"></a>一、设置文章底部版权信息</h4><p>打开主题配置文件<code>_config.yml</code>，找到<code>creative_commons</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">creative_commons:</span><br><span class="line">  license: by-nc-sa</span><br><span class="line">  sidebar: false</span><br><span class="line">  post: true #设置为true</span><br><span class="line">  language:</span><br></pre></td></tr></table></figure>
+
+<p><a href="http://creativecommons.org/" target="_blank" rel="noopener">Creative commons协议</a>，这个就是设置版权声明</p>
+<a id="more"></a>
+
+<h4 id="二、添加标签页"><a href="#二、添加标签页" class="headerlink" title="二、添加标签页"></a>二、添加标签页</h4><ul>
+<li>新建页面：<br>前面通过修改next主题下的_config.yml文件中的menu选项，可以在主页面的菜单栏添加标签选项，但是此时点击标签，跳转的页面会显示page not found。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page tags    #新建标签页面</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>输入命令后，在<code>根目录/source</code>会生成一个tags文件夹，其中有个index.md文件。</p>
+<ul>
+<li><p>设置页面类型：<br>修改index.md，添加type：tags</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2016-11-15 19:10:05</span><br><span class="line">type:  tags</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置文章的标签：<br>当要为某篇文章添加标签时，只需在文章开头设置相应标签即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: test1    #文章标签</span><br><span class="line">date: 2017-09-20 13:29:11</span><br><span class="line">tags:         #标签</span><br><span class="line">  - test1</span><br><span class="line">  - one</span><br><span class="line">  - two</span><br><span class="line">categories: 测试     #分类</span><br><span class="line">---   </span><br><span class="line">ps：注意这是在新建文章里添加标签</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="三、添加分类、关于页面"><a href="#三、添加分类、关于页面" class="headerlink" title="三、添加分类、关于页面"></a>三、添加分类、关于页面</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page categories/about</span><br></pre></td></tr></table></figure>
+
+<p>在<code>根目录/source</code>生成文件夹的中修改<code>index.md</code>文件中type类型分别为categories和about即可 </p>
+<ul>
+<li><p>文章添加分类</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: test1</span><br><span class="line">date: 2017-09-20 13:29:11</span><br><span class="line">tags:</span><br><span class="line">  - test1</span><br><span class="line">  - one</span><br><span class="line">  - two</span><br><span class="line">categories: 测试     #添加为测试类</span><br><span class="line">---  </span><br><span class="line">ps：注意这是在新建文章里添加分类</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加关于我</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 关于我</span><br><span class="line">date: 2017-09-17 10:22:54  </span><br><span class="line">type: about </span><br><span class="line">comments: false</span><br><span class="line">---</span><br><span class="line">一只快乐的小菜鸟，欢迎分享知识。</span><br><span class="line">ps：注意这是在about文件夹里修改index.md文件</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="四、添加公益404"><a href="#四、添加公益404" class="headerlink" title="四、添加公益404"></a>四、添加公益404</h4><p>新建 404.html 页面，放到主题的 source 目录下，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html;charset=utf-8;&quot;/&gt;</span><br><span class="line">  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt;</span><br><span class="line">  &lt;meta name=&quot;robots&quot; content=&quot;all&quot; /&gt;</span><br><span class="line">  &lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot;/&gt;</span><br><span class="line">  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://qzone.qq.com/gy/404/style/404style.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;script type=&quot;text/plain&quot; src=&quot;http://www.qq.com/404/search_children.js&quot;</span><br><span class="line">          charset=&quot;utf-8&quot; homePageUrl=&quot;/&quot;</span><br><span class="line">          homePageName=&quot;回到我的主页&quot;&gt;</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">  &lt;script src=&quot;https://qzone.qq.com/gy/404/data.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script src=&quot;https://qzone.qq.com/gy/404/page.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下 <a href="http://www.ixirong.com/404.html" target="_blank" rel="noopener">http://www.ixirong.com/404.html</a></p>
+<h4 id="五、添加搜索"><a href="#五、添加搜索" class="headerlink" title="五、添加搜索"></a>五、添加搜索</h4><ul>
+<li><p>安装 hexo-generator-searchdb，在站点的根目录下执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑 站点配置文件，新增以下内容到任意位置：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑 主题配置文件，启用本地搜索功能：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Local search</span><br><span class="line">local_search:</span><br><span class="line">  enable: true    #true开启</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="六、添加文章字数统计和阅读时长"><a href="#六、添加文章字数统计和阅读时长" class="headerlink" title="六、添加文章字数统计和阅读时长"></a>六、添加文章字数统计和阅读时长</h4><ul>
+<li><p>根目录命令运行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-symbols-count-time --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>根目录配置文件<code>_config.yml</code>底部添加如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  #文章内是否显示</span><br><span class="line">  symbols: true</span><br><span class="line">  time: true</span><br><span class="line">  #网页底部是否显示</span><br><span class="line">  total_symbols: true</span><br><span class="line">  total_time: true</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>更多主题配置，点击<a href="https://www.lixint.me/hexo-theme-diy.html" target="_blank" rel="noopener">这里</a><br>博客搭建高级应用，点击<a href="https://blog.annieyu.com/posts/3333782006.html" target="_blank" rel="noopener">这里</a><br>官方主题文档，点击<a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="noopener">这里</a><br>官方三方服务文档，点击<a href="https://theme-next.org/docs/third-party-services/comments-and-widgets" target="_blank" rel="noopener">这里</a></p>
+<p><strong><em>多看官方文档、多看官方文档、多看官方文档</em></strong></p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hexo 高级应用</title>
+    <url>/2022/08/18/Hexo-%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h4 id="一、Hexo图片引用"><a href="#一、Hexo图片引用" class="headerlink" title="一、Hexo图片引用"></a>一、Hexo图片引用</h4><ol>
+<li><p>本地图片<br>开启<code>_config.yml</code>中的<code>post_asset_folder: true</code> 参数，然后再你的博文生成一个同名的目录，把图片放进去，然后以如下方式引用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![](博文目录/图片.jpg)</span><br></pre></td></tr></table></figure>
+
+<p> 若不想每次生成一个同名目录，直接在resource目录下添加一个images目录，引用如下</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![](/博文目录/images/图片.jpg)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用github存储图片<br>github创建一个项目，上传图片，点击图片 -&gt; download，查看路径</p>
+</li>
+<li><p>使用七牛云<br>点击<a href="https://github.com/gyk001/hexo-qiniu-sync" target="_blank" rel="noopener">这里</a>，查看说明</p>
+</li>
+</ol>
+<a id="more"></a>]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Android面试题</title>
     <url>/2020/03/16/Android%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
     <content><![CDATA[<h4 id="Java部分"><a href="#Java部分" class="headerlink" title="Java部分"></a>Java部分</h4><h5 id="1-GC是什么-为什么要有GC"><a href="#1-GC是什么-为什么要有GC" class="headerlink" title="1.GC是什么? 为什么要有GC?"></a>1.GC是什么? 为什么要有GC?</h5><p>GC是垃圾收集的意思（Gabage Collection）,内存处理是编程人员容易出现问题的地方，忘记或者错误的内存回收会导致程序或系统的不稳定甚至崩溃，Java 提供的GC功能可以自动监测对象是否超过作用域从而达到自动回收内存的目的，Java语言没有提供释放已分配内存的显示操作方法。</p>
@@ -102,92 +191,24 @@
       </categories>
   </entry>
   <entry>
-    <title>Hexo NexT主题</title>
-    <url>/2022/08/18/Hexo-NexT%E4%B8%BB%E9%A2%98/</url>
-    <content><![CDATA[<p><a href="http://theme-next.iissnan.com/theme-settings.html#volunteer-404" target="_blank" rel="noopener">官方文档</a></p>
-<h4 id="一、设置文章底部版权信息"><a href="#一、设置文章底部版权信息" class="headerlink" title="一、设置文章底部版权信息"></a>一、设置文章底部版权信息</h4><p>打开主题配置文件<code>_config.yml</code>，找到<code>creative_commons</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">creative_commons:</span><br><span class="line">  license: by-nc-sa</span><br><span class="line">  sidebar: false</span><br><span class="line">  post: true #设置为true</span><br><span class="line">  language:</span><br></pre></td></tr></table></figure>
+    <title>MPAndroidChart使用</title>
+    <url>/2022/08/18/MPAndroidChart%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h4 id="Y轴-YAxis"><a href="#Y轴-YAxis" class="headerlink" title="Y轴 YAxis"></a>Y轴 YAxis</h4><p>YAxis是AxisBase的子类。YAxis类（在早于2.0.0 版本中叫做YLabels）是数据和一切与垂直轴相关的信息容器。每个Line-，Bar-，Scatter或CandleStickChart都有一个左右YAxis对象，分别负责左轴或右轴。RadarChart只有一个YAxis。默认情况下，图表的两个轴都已启用并将被绘制。</p>
+<p>为了获得一个实例中的YAxis类，请调用以下方法之一：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">YAxis leftAxis = chart.getAxisLeft();</span><br><span class="line">YAxis rightAxis = chart.getAxisRight();</span><br><span class="line"></span><br><span class="line">YAxis leftAxis = chart.getAxis(AxisDependency.LEFT);</span><br><span class="line"></span><br><span class="line">YAxis yAxis = radarChart.getYAxis(); // this method radarchart only</span><br></pre></td></tr></table></figure>
 
-<p><a href="http://creativecommons.org/" target="_blank" rel="noopener">Creative commons协议</a>，这个就是设置版权声明</p>
+<p>在运行时，用public AxisDependency getAxisDependency()确定此轴表示的图表的一侧。</p>
+<p>在为图表设置数据之前，需要应用影响轴值范围的自定义。</p>
 <a id="more"></a>
 
-<h4 id="二、添加标签页"><a href="#二、添加标签页" class="headerlink" title="二、添加标签页"></a>二、添加标签页</h4><ul>
-<li>新建页面：<br>前面通过修改next主题下的_config.yml文件中的menu选项，可以在主页面的菜单栏添加标签选项，但是此时点击标签，跳转的页面会显示page not found。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page tags    #新建标签页面</span><br></pre></td></tr></table></figure>
+<h5 id="轴依赖性"><a href="#轴依赖性" class="headerlink" title="轴依赖性"></a>轴依赖性</h5><p>默认情况下，添加到图表的所有数据都会绘制在图表左侧YAxis。如果未进一步指定和启用，YAxis则调整右侧以表示与左轴相同的比例。</p>
+<p>如果您的图表需要支持不同的轴刻度，您可以通过设置应绘制数据的轴来实现。这可以通过更改DataSet对象的AxisDependency来完成：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LineDataSet dataSet = ...; // get a dataset</span><br><span class="line">dataSet.setAxisDependency(AxisDependency.RIGHT);</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<p>输入命令后，在<code>根目录/source</code>会生成一个tags文件夹，其中有个index.md文件。</p>
-<ul>
-<li><p>设置页面类型：<br>修改index.md，添加type：tags</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2016-11-15 19:10:05</span><br><span class="line">type:  tags</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置文章的标签：<br>当要为某篇文章添加标签时，只需在文章开头设置相应标签即可。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: test1    #文章标签</span><br><span class="line">date: 2017-09-20 13:29:11</span><br><span class="line">tags:         #标签</span><br><span class="line">  - test1</span><br><span class="line">  - one</span><br><span class="line">  - two</span><br><span class="line">categories: 测试     #分类</span><br><span class="line">---   </span><br><span class="line">ps：注意这是在新建文章里添加标签</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="三、添加分类、关于页面"><a href="#三、添加分类、关于页面" class="headerlink" title="三、添加分类、关于页面"></a>三、添加分类、关于页面</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page categories/about</span><br></pre></td></tr></table></figure>
-
-<p>在<code>根目录/source</code>生成文件夹的中修改<code>index.md</code>文件中type类型分别为categories和about即可 </p>
-<ul>
-<li><p>文章添加分类</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: test1</span><br><span class="line">date: 2017-09-20 13:29:11</span><br><span class="line">tags:</span><br><span class="line">  - test1</span><br><span class="line">  - one</span><br><span class="line">  - two</span><br><span class="line">categories: 测试     #添加为测试类</span><br><span class="line">---  </span><br><span class="line">ps：注意这是在新建文章里添加分类</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加关于我</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 关于我</span><br><span class="line">date: 2017-09-17 10:22:54  </span><br><span class="line">type: about </span><br><span class="line">comments: false</span><br><span class="line">---</span><br><span class="line">一只快乐的小菜鸟，欢迎分享知识。</span><br><span class="line">ps：注意这是在about文件夹里修改index.md文件</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="四、添加公益404"><a href="#四、添加公益404" class="headerlink" title="四、添加公益404"></a>四、添加公益404</h4><p>新建 404.html 页面，放到主题的 source 目录下，内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html;charset=utf-8;&quot;/&gt;</span><br><span class="line">  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt;</span><br><span class="line">  &lt;meta name=&quot;robots&quot; content=&quot;all&quot; /&gt;</span><br><span class="line">  &lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot;/&gt;</span><br><span class="line">  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://qzone.qq.com/gy/404/style/404style.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;script type=&quot;text/plain&quot; src=&quot;http://www.qq.com/404/search_children.js&quot;</span><br><span class="line">          charset=&quot;utf-8&quot; homePageUrl=&quot;/&quot;</span><br><span class="line">          homePageName=&quot;回到我的主页&quot;&gt;</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">  &lt;script src=&quot;https://qzone.qq.com/gy/404/data.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script src=&quot;https://qzone.qq.com/gy/404/page.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>效果如下 <a href="http://www.ixirong.com/404.html" target="_blank" rel="noopener">http://www.ixirong.com/404.html</a></p>
-<h4 id="五、添加搜索"><a href="#五、添加搜索" class="headerlink" title="五、添加搜索"></a>五、添加搜索</h4><ul>
-<li><p>安装 hexo-generator-searchdb，在站点的根目录下执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编辑 站点配置文件，新增以下内容到任意位置：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编辑 主题配置文件，启用本地搜索功能：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Local search</span><br><span class="line">local_search:</span><br><span class="line">  enable: true    #true开启</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="六、添加文章字数统计和阅读时长"><a href="#六、添加文章字数统计和阅读时长" class="headerlink" title="六、添加文章字数统计和阅读时长"></a>六、添加文章字数统计和阅读时长</h4><ul>
-<li><p>根目录命令运行</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-symbols-count-time --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>根目录配置文件<code>_config.yml</code>底部添加如下内容：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  #文章内是否显示</span><br><span class="line">  symbols: true</span><br><span class="line">  time: true</span><br><span class="line">  #网页底部是否显示</span><br><span class="line">  total_symbols: true</span><br><span class="line">  total_time: true</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>更多主题配置，点击<a href="https://www.lixint.me/hexo-theme-diy.html" target="_blank" rel="noopener">这里</a><br>博客搭建高级应用，点击<a href="https://blog.annieyu.com/posts/3333782006.html" target="_blank" rel="noopener">这里</a><br>官方主题文档，点击<a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="noopener">这里</a><br>官方三方服务文档，点击<a href="https://theme-next.org/docs/third-party-services/comments-and-widgets" target="_blank" rel="noopener">这里</a></p>
-<p><strong><em>多看官方文档、多看官方文档、多看官方文档</em></strong></p>
+<p><a href="https://developer.aliyun.com/article/680371" target="_blank" rel="noopener">设置此项将更改绘制数据的轴。</a></p>
 ]]></content>
       <categories>
-        <category>hexo</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hexo 高级应用</title>
-    <url>/2022/08/18/Hexo-%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<h4 id="一、Hexo图片引用"><a href="#一、Hexo图片引用" class="headerlink" title="一、Hexo图片引用"></a>一、Hexo图片引用</h4><ol>
-<li><p>本地图片<br>开启<code>_config.yml</code>中的<code>post_asset_folder: true</code> 参数，然后再你的博文生成一个同名的目录，把图片放进去，然后以如下方式引用</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![](博文目录/图片.jpg)</span><br></pre></td></tr></table></figure>
-
-<p> 若不想每次生成一个同名目录，直接在resource目录下添加一个images目录，引用如下</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![](/博文目录/images/图片.jpg)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用github存储图片<br>github创建一个项目，上传图片，点击图片 -&gt; download，查看路径</p>
-</li>
-<li><p>使用七牛云<br>点击<a href="https://github.com/gyk001/hexo-qiniu-sync" target="_blank" rel="noopener">这里</a>，查看说明</p>
-</li>
-</ol>
-<a id="more"></a>]]></content>
-      <categories>
-        <category>hexo</category>
+        <category>android</category>
       </categories>
   </entry>
   <entry>
@@ -211,73 +232,6 @@
       <categories>
         <category>hexo</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Mac adb install apk</title>
-    <url>/2019/07/19/Mac-adb-install-apk/</url>
-    <content><![CDATA[<h4 id="Mac配置adb"><a href="#Mac配置adb" class="headerlink" title="Mac配置adb"></a>Mac配置adb</h4><ol>
-<li>在AS界面上，打开Preferences界面（快捷键： command + , 键），然后复制sdk路径<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">~/Library/Android/sdk/platform-tools</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<a id="more"></a>
-
-<ol start="2">
-<li><p>打开finder，按快捷键：shift + command + g，前往文件夹<br>查看adb文件是否在该目录下</p>
-</li>
-<li><p>打开终端，输入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">touch .bash_profile</span><br><span class="line">open -e .bash_profile</span><br></pre></td></tr></table></figure>
-
-<p> 修改弹出的.bash_profile的文件，增加以下语句</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export PATH=$&#123;PATH&#125;:~/Library/Android/sdk/platform-tools</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行如下命令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source .bash_profile</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>验证：输入adb回车，即可生效</p>
-</li>
-</ol>
-<h4 id="验证adb是否生效"><a href="#验证adb是否生效" class="headerlink" title="验证adb是否生效"></a>验证adb是否生效</h4><p>在终端输入:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">adb install apk路径</span><br></pre></td></tr></table></figure>
-
-<p>出现success表示安装成功</p>
-<h4 id="常见的Android开发命令"><a href="#常见的Android开发命令" class="headerlink" title="常见的Android开发命令"></a>常见的Android开发命令</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">adb shell：来到手机终端中。</span><br><span class="line">adb divices</span><br><span class="line">adb kill-server</span><br><span class="line">adb start-server</span><br><span class="line">adb install XXX.apk：安装应用程序</span><br><span class="line">abd uninstall （应用程序的包名）</span><br><span class="line">adb -s 设备名字 XXX.apk可以选择哪个模拟器，安装程序</span><br><span class="line">adb pull：（pull拉去，拿取）：把手机中的文件导出去</span><br><span class="line">adb push</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>android</category>
-      </categories>
-      <tags>
-        <tag>mac</tag>
-        <tag>adb</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mac生成SSH Key</title>
-    <url>/2019/07/19/Mac%E7%94%9F%E6%88%90SSH-Key/</url>
-    <content><![CDATA[<h4 id="打开vim（terminal-app）查看本地是否存在SSH-Key"><a href="#打开vim（terminal-app）查看本地是否存在SSH-Key" class="headerlink" title="打开vim（terminal.app）查看本地是否存在SSH-Key"></a>打开vim（terminal.app）查看本地是否存在SSH-Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls -al ~/.ssh</span><br></pre></td></tr></table></figure>
-
-<p>如果vim输出的是如下内容：证明本地没有生成的SSH Key，请执行第二步。</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">No such file or directory</span><br></pre></td></tr></table></figure>
-
-<p>如果vim输出的是如下内容： 证明本地已经存在SSH Key 文件，请执行第四步。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">id_rsa    id_rsa.pub</span><br></pre></td></tr></table></figure>
-
-<h4 id="如果没有，生成新的SSH-Key"><a href="#如果没有，生成新的SSH-Key" class="headerlink" title="如果没有，生成新的SSH Key"></a>如果没有，生成新的SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C&quot;you_email&quot;</span><br></pre></td></tr></table></figure>
-
-<p>your_email：这里填写你在GitLab或者GitHub注册时的邮箱。<br>后面的提示直接敲回车，一路完成。</p>
-<h4 id="生成并添加SSH-Key"><a href="#生成并添加SSH-Key" class="headerlink" title="生成并添加SSH Key"></a>生成并添加SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
-
-<h4 id="查看SSH-Key"><a href="#查看SSH-Key" class="headerlink" title="查看SSH Key"></a>查看SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat /Users/xxx/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-
-<p>xxx是你的电脑用户名，例如：howieMacBook-Pro:~ howie$中的howie关键字。<br>复制生成好的SSH Key 添加到 GitLab 或者GitHub中的SSH Key中即可。</p>
-]]></content>
-      <categories>
-        <category>mac</category>
-      </categories>
-      <tags>
-        <tag>mac</tag>
-        <tag>ssh</tag>
-      </tags>
   </entry>
   <entry>
     <title>Mac使用oh-my-zsh + autosuggestions搭建个性化Terminal</title>
@@ -321,81 +275,41 @@
       </tags>
   </entry>
   <entry>
-    <title>Paging3 LoadStateAdapter显示已加载完所有数据</title>
-    <url>/2020/12/29/Paging3-LoadStateAdapter%E6%98%BE%E7%A4%BA%E5%B7%B2%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE/</url>
-    <content><![CDATA[<h4 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h4><p>使用paging3的过程中，本想通过为PagingDataAdaper添加页脚LoadStateAdapter方法onBindViewHolder(holder: LoadStateViewHolder, loadState: LoadState)中的<code>loadState</code>显示<code>loading</code>、<code>error</code>、<code>no more</code>,但是处理no more的时候发现<code>loadState.endOfPaginationReached</code>一直是<code>false</code>，且loadState只有<code>LoadState.Loading</code>、<code>LoadState.Error</code>两种状态</p>
+    <title>Mac adb install apk</title>
+    <url>/2019/07/19/Mac-adb-install-apk/</url>
+    <content><![CDATA[<h4 id="Mac配置adb"><a href="#Mac配置adb" class="headerlink" title="Mac配置adb"></a>Mac配置adb</h4><ol>
+<li>在AS界面上，打开Preferences界面（快捷键： command + , 键），然后复制sdk路径<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">~/Library/Android/sdk/platform-tools</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
 <a id="more"></a>
-<h4 id="查看源码："><a href="#查看源码：" class="headerlink" title="查看源码："></a>查看源码：</h4><p>PagingDataAdapter.kt</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fun withLoadStateFooter(</span><br><span class="line">    footer: LoadStateAdapter&lt;*&gt;</span><br><span class="line">): MergeAdapter &#123;</span><br><span class="line">    addLoadStateListener &#123; loadStates -&gt;</span><br><span class="line">        footer.loadState = loadStates.append</span><br><span class="line">    &#125;</span><br><span class="line">    return MergeAdapter(this, footer)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>LoadStateAdapter.kt</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var loadState: LoadState = LoadState.NotLoading(endOfPaginationReached = false)</span><br><span class="line">    set(loadState) &#123;</span><br><span class="line">        if (field != loadState) &#123;</span><br><span class="line">            val oldItem = displayLoadStateAsItem(field)</span><br><span class="line">            val newItem = displayLoadStateAsItem(loadState)</span><br><span class="line"></span><br><span class="line">            if (oldItem &amp;&amp; !newItem) &#123;</span><br><span class="line">                notifyItemRemoved(0)</span><br><span class="line">            &#125; else if (newItem &amp;&amp; !oldItem) &#123;</span><br><span class="line">                notifyItemInserted(0)</span><br><span class="line">            &#125; else if (oldItem &amp;&amp; newItem) &#123;</span><br><span class="line">                notifyItemChanged(0)</span><br><span class="line">            &#125;</span><br><span class="line">            field = loadState</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Returns true if the LoadState should be displayed as a list item when active.</span><br><span class="line"> *</span><br><span class="line"> * By default, [LoadState.Loading] and [LoadState.Error] present as list items, others do not.</span><br><span class="line"> */</span><br><span class="line">open fun displayLoadStateAsItem(loadState: LoadState): Boolean &#123;</span><br><span class="line">    return loadState is LoadState.Loading || loadState is LoadState.Error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>打开finder，按快捷键：shift + command + g，前往文件夹<br>查看adb文件是否在该目录下</p>
+</li>
+<li><p>打开终端，输入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">touch .bash_profile</span><br><span class="line">open -e .bash_profile</span><br></pre></td></tr></table></figure>
 
-<p>通过查看源码可知，只有<code>newItem</code>为<code>true</code>才显示布局UI，若要newItem为true，则loadState的状态只有LoadState.Loading、LoadState.Error，故LoadStateAdapter只有loading、error两个状态。</p>
-<h4 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h4><p>监听PagingDataAdapter.addLoadStateListener可知，列表加载到底部会触发loadState.append的<code>NotLoading(endOfPaginationReached=true)</code>状态。</p>
-<p>以上，想要通过<code>loadState.endOfPaginationReached</code>属性判断是否到底部，只有拿到loadState的<code>NotLoading</code>状态，通过重写<code>displayLoadStateAsItem</code>方法返回<code>true</code>即可。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">override fun displayLoadStateAsItem(loadState: LoadState): Boolean &#123;</span><br><span class="line">    return true</span><br><span class="line">//    return loadState is LoadState.Loading || loadState is LoadState.Error || loadState is LoadState.NotLoading</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 修改弹出的.bash_profile的文件，增加以下语句</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export PATH=$&#123;PATH&#125;:~/Library/Android/sdk/platform-tools</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行如下命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source .bash_profile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证：输入adb回车，即可生效</p>
+</li>
+</ol>
+<h4 id="验证adb是否生效"><a href="#验证adb是否生效" class="headerlink" title="验证adb是否生效"></a>验证adb是否生效</h4><p>在终端输入:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">adb install apk路径</span><br></pre></td></tr></table></figure>
 
-<p>上面两种返回值效果一样，loadState的loading、error、notLoading三种状态都会触发。</p>
-]]></content>
+<p>出现success表示安装成功</p>
+<h4 id="常见的Android开发命令"><a href="#常见的Android开发命令" class="headerlink" title="常见的Android开发命令"></a>常见的Android开发命令</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">adb shell：来到手机终端中。</span><br><span class="line">adb divices</span><br><span class="line">adb kill-server</span><br><span class="line">adb start-server</span><br><span class="line">adb install XXX.apk：安装应用程序</span><br><span class="line">abd uninstall （应用程序的包名）</span><br><span class="line">adb -s 设备名字 XXX.apk可以选择哪个模拟器，安装程序</span><br><span class="line">adb pull：（pull拉去，拿取）：把手机中的文件导出去</span><br><span class="line">adb push</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>android</category>
       </categories>
       <tags>
-        <tag>paging</tag>
-        <tag>android</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MPAndroidChart使用</title>
-    <url>/2022/08/18/MPAndroidChart%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h4 id="Y轴-YAxis"><a href="#Y轴-YAxis" class="headerlink" title="Y轴 YAxis"></a>Y轴 YAxis</h4><p>YAxis是AxisBase的子类。YAxis类（在早于2.0.0 版本中叫做YLabels）是数据和一切与垂直轴相关的信息容器。每个Line-，Bar-，Scatter或CandleStickChart都有一个左右YAxis对象，分别负责左轴或右轴。RadarChart只有一个YAxis。默认情况下，图表的两个轴都已启用并将被绘制。</p>
-<p>为了获得一个实例中的YAxis类，请调用以下方法之一：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">YAxis leftAxis = chart.getAxisLeft();</span><br><span class="line">YAxis rightAxis = chart.getAxisRight();</span><br><span class="line"></span><br><span class="line">YAxis leftAxis = chart.getAxis(AxisDependency.LEFT);</span><br><span class="line"></span><br><span class="line">YAxis yAxis = radarChart.getYAxis(); // this method radarchart only</span><br></pre></td></tr></table></figure>
-
-<p>在运行时，用public AxisDependency getAxisDependency()确定此轴表示的图表的一侧。</p>
-<p>在为图表设置数据之前，需要应用影响轴值范围的自定义。</p>
-<a id="more"></a>
-
-<h5 id="轴依赖性"><a href="#轴依赖性" class="headerlink" title="轴依赖性"></a>轴依赖性</h5><p>默认情况下，添加到图表的所有数据都会绘制在图表左侧YAxis。如果未进一步指定和启用，YAxis则调整右侧以表示与左轴相同的比例。</p>
-<p>如果您的图表需要支持不同的轴刻度，您可以通过设置应绘制数据的轴来实现。这可以通过更改DataSet对象的AxisDependency来完成：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LineDataSet dataSet = ...; // get a dataset</span><br><span class="line">dataSet.setAxisDependency(AxisDependency.RIGHT);</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://developer.aliyun.com/article/680371" target="_blank" rel="noopener">设置此项将更改绘制数据的轴。</a></p>
-]]></content>
-      <categories>
-        <category>android</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Retrofit多图上传</title>
-    <url>/2019/07/30/Retrofit%E5%A4%9A%E5%9B%BE%E4%B8%8A%E4%BC%A0/</url>
-    <content><![CDATA[<p>首先是定义接口部分：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public interface MyApi&#123;</span><br><span class="line">    @Multipart</span><br><span class="line">    @POST(&quot;renovation/uploadImg&quot;)</span><br><span class="line">    Observable&lt;HttpResult&gt; upLoadsImg(@PartMap Map&lt;String, RequestBody&gt; params,  @Part(&quot;content&quot;)RequestBody content);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong>注意</strong> 这里使用<code>@Multipart</code>注解，参数这里使用<code>@PartMap</code>和<code>@Part</code>，他们是用来上传文件用的。 这里需要注意的是，使用了<code>@Multipart</code>注解，参数的类型都应该是<code>RequestBody</code>，不然上传的图片的时候会报<code>JSON must start with an array or an object</code>错误。上传多张图片就使用<code>@PartMap Map&lt;String, RequestBody&gt;</code></p>
-</blockquote>
-<a id="more"></a>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public interface MyApi&#123;</span><br><span class="line">   @Multipart</span><br><span class="line">   @POST(&quot;renovation/uploadSingleImg&quot;)</span><br><span class="line">   Observable&lt;HttpResult&gt; upLoadsImg(@Part MultipartBody.Part photo);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>单图上传就用 <code>@Part MultipartBody.Part</code></p>
-</blockquote>
-<p>其次就是具体实现部分（以多图上传为例）:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Observer&lt;HttpResult&gt; observer = new Observer&lt;HttpResult&gt;() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void onCompleted() &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void onError(Throwable e) &#123;</span><br><span class="line">        	progressUtils.dismiss();</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void onNext(HttpResult httpResult) &#123;</span><br><span class="line">        	//处理返回结果</span><br><span class="line">            if (httpResult.isStatus()) &#123;</span><br><span class="line">                Toast.makeText(mContext, &quot;上传成功&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                Toast.makeText(mContext, &quot;上传失败&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">            &#125;</span><br><span class="line">            progressUtils.dismiss();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">private void submitData() &#123;</span><br><span class="line"></span><br><span class="line">        //图片压缩</span><br><span class="line">        compressUtils();</span><br><span class="line"></span><br><span class="line">        Map&lt;String, RequestBody&gt;  photos = new HashMap&lt;&gt;();</span><br><span class="line">        //mPhotoList是选择图片后的返回路径</span><br><span class="line">        if (mPhotoList.size() &gt; 0) &#123;</span><br><span class="line">            for (int i = 0; i &lt; mPhotoList.size(); i++) &#123;</span><br><span class="line">                File  file = new File(mPhotoList.get(i).getPhotoPath());</span><br><span class="line">                RequestBody  requestFile = RequestBody.create(MediaType.parse(&quot;multipart/form-data&quot;), file);</span><br><span class="line">                //RequestBody  requestFile = RequestBody.create(MediaType.parse(&quot;image/jpg&quot;), file);</span><br><span class="line"></span><br><span class="line">             	//这里前面一部分是服务器要求你传的key，加上一个i,就可以动态设置key的长度</span><br><span class="line">                photos.put(&quot;AttachmentKey&quot;+i+&quot;\&quot;; filename=\&quot;&quot;+file.getName(),requestFile);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        subscription  = Network.getMyApi().upLoadsImg(photos,RequestBody.create(null,content))</span><br><span class="line">                .subscribeOn(Schedulers.io())</span><br><span class="line">                .unsubscribeOn(Schedulers.io())</span><br><span class="line">                .observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">                .subscribe(observer);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>这里详细解释已经在代码中有注释说明，我按照这个方法上传是没有问题的。相册选机器我推荐使用 <a href="https://github.com/pengjianbo/GalleryFinal" target="_blank" rel="noopener">GalleryFinal</a>里面的功能很详细，实现了拍照、图片选择（单选/多选）、 裁剪（单/多裁剪）、旋转等功能，具体链接里面有介绍。</p>
-</blockquote>
-<p><strong>MediaType.parse(“multipart/form-data”)传MediaType.parse(“image/jpg”)也可以，原因还不知道。</strong></p>
-]]></content>
-      <categories>
-        <category>android</category>
-      </categories>
-      <tags>
-        <tag>retrofit</tag>
+        <tag>mac</tag>
+        <tag>adb</tag>
       </tags>
   </entry>
   <entry>
@@ -489,45 +403,59 @@
       </categories>
   </entry>
   <entry>
-    <title>ViewPager2与SwipeRefreshLayout滑动冲突问题的解决</title>
-    <url>/2021/04/30/ViewPager2%E4%B8%8ESwipeRefreshLayout%E6%BB%91%E5%8A%A8%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/</url>
-    <content><![CDATA[<blockquote>
-<p>我们是在ViewPager2中的Fragment使用了SwipeRefreshLayout。当向下滑动时只要稍微偏左或右都会触发ViewPager2的移动，造成SwipeRefreshLayout卡在页面上不消失。</p>
-</blockquote>
-<ul>
-<li>解决方案一：重写SwipeRefreshLayout</li>
-</ul>
-<p>我们首先准备修改ViewPager2，可是它没法继承。那么目光只好投向SwipeRefreshLayout。</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class MySwipeRefreshLayout : SwipeRefreshLayout &#123;</span><br><span class="line">    constructor(context: Context, attes: AttributeSet) : super(context, attes) &#123;&#125;</span><br><span class="line">    constructor(context: Context) : super(context)</span><br><span class="line"></span><br><span class="line">    private var startX = 0</span><br><span class="line">    private var beginScrolll = false //是否开始滑动</span><br><span class="line">    private var startY: Int = 0</span><br><span class="line">    override fun dispatchTouchEvent(ev: MotionEvent): Boolean &#123;</span><br><span class="line">        when (ev.action) &#123;</span><br><span class="line">            MotionEvent.ACTION_DOWN -&gt; &#123;</span><br><span class="line">                startX = ev.x.toInt()</span><br><span class="line">                startY = ev.y.toInt()</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_MOVE -&gt; &#123;</span><br><span class="line">                val endX = ev.x.toInt()</span><br><span class="line">                val endY = ev.y.toInt()</span><br><span class="line">                val disX = Math.abs(endX - startX)</span><br><span class="line">                val disY: Int = Math.abs(endY - startY)</span><br><span class="line">                if (disX &gt; disY) &#123;</span><br><span class="line">                    if (!beginScrolll)</span><br><span class="line">                        parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    beginScrolll = true</span><br><span class="line">                    parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -&gt; &#123;</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                beginScrolll=false</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return super.dispatchTouchEvent(ev)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>Mac生成SSH Key</title>
+    <url>/2019/07/19/Mac%E7%94%9F%E6%88%90SSH-Key/</url>
+    <content><![CDATA[<h4 id="打开vim（terminal-app）查看本地是否存在SSH-Key"><a href="#打开vim（terminal-app）查看本地是否存在SSH-Key" class="headerlink" title="打开vim（terminal.app）查看本地是否存在SSH-Key"></a>打开vim（terminal.app）查看本地是否存在SSH-Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls -al ~/.ssh</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>解决方案二：使用SmartRefreshLayout替代SwipeRefreshLayout即可。</li>
-</ul>
-<p><a href="https://blog.csdn.net/qq_15046309/article/details/106005736" target="_blank" rel="noopener">参考原文地址</a></p>
+<p>如果vim输出的是如下内容：证明本地没有生成的SSH Key，请执行第二步。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">No such file or directory</span><br></pre></td></tr></table></figure>
+
+<p>如果vim输出的是如下内容： 证明本地已经存在SSH Key 文件，请执行第四步。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">id_rsa    id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<h4 id="如果没有，生成新的SSH-Key"><a href="#如果没有，生成新的SSH-Key" class="headerlink" title="如果没有，生成新的SSH Key"></a>如果没有，生成新的SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C&quot;you_email&quot;</span><br></pre></td></tr></table></figure>
+
+<p>your_email：这里填写你在GitLab或者GitHub注册时的邮箱。<br>后面的提示直接敲回车，一路完成。</p>
+<h4 id="生成并添加SSH-Key"><a href="#生成并添加SSH-Key" class="headerlink" title="生成并添加SSH Key"></a>生成并添加SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看SSH-Key"><a href="#查看SSH-Key" class="headerlink" title="查看SSH Key"></a>查看SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat /Users/xxx/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>xxx是你的电脑用户名，例如：howieMacBook-Pro:~ howie$中的howie关键字。<br>复制生成好的SSH Key 添加到 GitLab 或者GitHub中的SSH Key中即可。</p>
+]]></content>
+      <categories>
+        <category>mac</category>
+      </categories>
+      <tags>
+        <tag>mac</tag>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Paging3 LoadStateAdapter显示已加载完所有数据</title>
+    <url>/2020/12/29/Paging3-LoadStateAdapter%E6%98%BE%E7%A4%BA%E5%B7%B2%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE/</url>
+    <content><![CDATA[<h4 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h4><p>使用paging3的过程中，本想通过为PagingDataAdaper添加页脚LoadStateAdapter方法onBindViewHolder(holder: LoadStateViewHolder, loadState: LoadState)中的<code>loadState</code>显示<code>loading</code>、<code>error</code>、<code>no more</code>,但是处理no more的时候发现<code>loadState.endOfPaginationReached</code>一直是<code>false</code>，且loadState只有<code>LoadState.Loading</code>、<code>LoadState.Error</code>两种状态</p>
+<a id="more"></a>
+<h4 id="查看源码："><a href="#查看源码：" class="headerlink" title="查看源码："></a>查看源码：</h4><p>PagingDataAdapter.kt</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fun withLoadStateFooter(</span><br><span class="line">    footer: LoadStateAdapter&lt;*&gt;</span><br><span class="line">): MergeAdapter &#123;</span><br><span class="line">    addLoadStateListener &#123; loadStates -&gt;</span><br><span class="line">        footer.loadState = loadStates.append</span><br><span class="line">    &#125;</span><br><span class="line">    return MergeAdapter(this, footer)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>LoadStateAdapter.kt</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var loadState: LoadState = LoadState.NotLoading(endOfPaginationReached = false)</span><br><span class="line">    set(loadState) &#123;</span><br><span class="line">        if (field != loadState) &#123;</span><br><span class="line">            val oldItem = displayLoadStateAsItem(field)</span><br><span class="line">            val newItem = displayLoadStateAsItem(loadState)</span><br><span class="line"></span><br><span class="line">            if (oldItem &amp;&amp; !newItem) &#123;</span><br><span class="line">                notifyItemRemoved(0)</span><br><span class="line">            &#125; else if (newItem &amp;&amp; !oldItem) &#123;</span><br><span class="line">                notifyItemInserted(0)</span><br><span class="line">            &#125; else if (oldItem &amp;&amp; newItem) &#123;</span><br><span class="line">                notifyItemChanged(0)</span><br><span class="line">            &#125;</span><br><span class="line">            field = loadState</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Returns true if the LoadState should be displayed as a list item when active.</span><br><span class="line"> *</span><br><span class="line"> * By default, [LoadState.Loading] and [LoadState.Error] present as list items, others do not.</span><br><span class="line"> */</span><br><span class="line">open fun displayLoadStateAsItem(loadState: LoadState): Boolean &#123;</span><br><span class="line">    return loadState is LoadState.Loading || loadState is LoadState.Error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过查看源码可知，只有<code>newItem</code>为<code>true</code>才显示布局UI，若要newItem为true，则loadState的状态只有LoadState.Loading、LoadState.Error，故LoadStateAdapter只有loading、error两个状态。</p>
+<h4 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h4><p>监听PagingDataAdapter.addLoadStateListener可知，列表加载到底部会触发loadState.append的<code>NotLoading(endOfPaginationReached=true)</code>状态。</p>
+<p>以上，想要通过<code>loadState.endOfPaginationReached</code>属性判断是否到底部，只有拿到loadState的<code>NotLoading</code>状态，通过重写<code>displayLoadStateAsItem</code>方法返回<code>true</code>即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">override fun displayLoadStateAsItem(loadState: LoadState): Boolean &#123;</span><br><span class="line">    return true</span><br><span class="line">//    return loadState is LoadState.Loading || loadState is LoadState.Error || loadState is LoadState.NotLoading</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面两种返回值效果一样，loadState的loading、error、notLoading三种状态都会触发。</p>
 ]]></content>
       <categories>
         <category>android</category>
       </categories>
       <tags>
-        <tag>jetpack</tag>
+        <tag>paging</tag>
+        <tag>android</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>zsh: command not found: hexo</title>
-    <url>/2022/08/18/zsh-command-not-found-hexo/</url>
-    <content><![CDATA[<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>最近打算在hexo新建一篇文章，执行终端时:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">zsh: command not found: hexo</span><br></pre></td></tr></table></figure>
-
-<h4 id="探究"><a href="#探究" class="headerlink" title="探究"></a>探究</h4><p>可能是前段时间学习vue的时候，重新安装了node，导致PATH路径<code>/usr/local/lib/node_modules/</code>目录下的<code>hexo-cli</code>丢失。</p>
-<h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><p>通过 –prefix 参数指定链接创建的目标路径。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yarn global remove hexo-cli</span><br><span class="line"></span><br><span class="line"># 重新安装</span><br><span class="line">yarn global add hexo-cli --prefix /usr/local</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.dazhuanlan.com/maple0015/topics/1070884" target="_blank" rel="noopener">重新执行hexo，成功。</a></p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
   </entry>
   <entry>
     <title>Hello World</title>
@@ -548,6 +476,22 @@
 
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>zsh: command not found: hexo</title>
+    <url>/2022/08/18/zsh-command-not-found-hexo/</url>
+    <content><![CDATA[<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>最近打算在hexo新建一篇文章，执行终端时:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">zsh: command not found: hexo</span><br></pre></td></tr></table></figure>
+
+<h4 id="探究"><a href="#探究" class="headerlink" title="探究"></a>探究</h4><p>可能是前段时间学习vue的时候，重新安装了node，导致PATH路径<code>/usr/local/lib/node_modules/</code>目录下的<code>hexo-cli</code>丢失。</p>
+<h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><p>通过 –prefix 参数指定链接创建的目标路径。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yarn global remove hexo-cli</span><br><span class="line"></span><br><span class="line"># 重新安装</span><br><span class="line">yarn global add hexo-cli --prefix /usr/local</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.dazhuanlan.com/maple0015/topics/1070884" target="_blank" rel="noopener">重新执行hexo，成功。</a></p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
   </entry>
   <entry>
     <title>oh-my-zsh ，zsh: command not found: adb</title>
@@ -574,6 +518,62 @@
       </categories>
       <tags>
         <tag>terminal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ViewPager2与SwipeRefreshLayout滑动冲突问题的解决</title>
+    <url>/2021/04/30/ViewPager2%E4%B8%8ESwipeRefreshLayout%E6%BB%91%E5%8A%A8%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/</url>
+    <content><![CDATA[<blockquote>
+<p>我们是在ViewPager2中的Fragment使用了SwipeRefreshLayout。当向下滑动时只要稍微偏左或右都会触发ViewPager2的移动，造成SwipeRefreshLayout卡在页面上不消失。</p>
+</blockquote>
+<ul>
+<li>解决方案一：重写SwipeRefreshLayout</li>
+</ul>
+<p>我们首先准备修改ViewPager2，可是它没法继承。那么目光只好投向SwipeRefreshLayout。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class MySwipeRefreshLayout : SwipeRefreshLayout &#123;</span><br><span class="line">    constructor(context: Context, attes: AttributeSet) : super(context, attes) &#123;&#125;</span><br><span class="line">    constructor(context: Context) : super(context)</span><br><span class="line"></span><br><span class="line">    private var startX = 0</span><br><span class="line">    private var beginScrolll = false //是否开始滑动</span><br><span class="line">    private var startY: Int = 0</span><br><span class="line">    override fun dispatchTouchEvent(ev: MotionEvent): Boolean &#123;</span><br><span class="line">        when (ev.action) &#123;</span><br><span class="line">            MotionEvent.ACTION_DOWN -&gt; &#123;</span><br><span class="line">                startX = ev.x.toInt()</span><br><span class="line">                startY = ev.y.toInt()</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_MOVE -&gt; &#123;</span><br><span class="line">                val endX = ev.x.toInt()</span><br><span class="line">                val endY = ev.y.toInt()</span><br><span class="line">                val disX = Math.abs(endX - startX)</span><br><span class="line">                val disY: Int = Math.abs(endY - startY)</span><br><span class="line">                if (disX &gt; disY) &#123;</span><br><span class="line">                    if (!beginScrolll)</span><br><span class="line">                        parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    beginScrolll = true</span><br><span class="line">                    parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -&gt; &#123;</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                beginScrolll=false</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return super.dispatchTouchEvent(ev)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>解决方案二：使用SmartRefreshLayout替代SwipeRefreshLayout即可。</li>
+</ul>
+<p><a href="https://blog.csdn.net/qq_15046309/article/details/106005736" target="_blank" rel="noopener">参考原文地址</a></p>
+]]></content>
+      <categories>
+        <category>android</category>
+      </categories>
+      <tags>
+        <tag>jetpack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Retrofit多图上传</title>
+    <url>/2019/07/30/Retrofit%E5%A4%9A%E5%9B%BE%E4%B8%8A%E4%BC%A0/</url>
+    <content><![CDATA[<p>首先是定义接口部分：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public interface MyApi&#123;</span><br><span class="line">    @Multipart</span><br><span class="line">    @POST(&quot;renovation/uploadImg&quot;)</span><br><span class="line">    Observable&lt;HttpResult&gt; upLoadsImg(@PartMap Map&lt;String, RequestBody&gt; params,  @Part(&quot;content&quot;)RequestBody content);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>注意</strong> 这里使用<code>@Multipart</code>注解，参数这里使用<code>@PartMap</code>和<code>@Part</code>，他们是用来上传文件用的。 这里需要注意的是，使用了<code>@Multipart</code>注解，参数的类型都应该是<code>RequestBody</code>，不然上传的图片的时候会报<code>JSON must start with an array or an object</code>错误。上传多张图片就使用<code>@PartMap Map&lt;String, RequestBody&gt;</code></p>
+</blockquote>
+<a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public interface MyApi&#123;</span><br><span class="line">   @Multipart</span><br><span class="line">   @POST(&quot;renovation/uploadSingleImg&quot;)</span><br><span class="line">   Observable&lt;HttpResult&gt; upLoadsImg(@Part MultipartBody.Part photo);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>单图上传就用 <code>@Part MultipartBody.Part</code></p>
+</blockquote>
+<p>其次就是具体实现部分（以多图上传为例）:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Observer&lt;HttpResult&gt; observer = new Observer&lt;HttpResult&gt;() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void onCompleted() &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void onError(Throwable e) &#123;</span><br><span class="line">        	progressUtils.dismiss();</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void onNext(HttpResult httpResult) &#123;</span><br><span class="line">        	//处理返回结果</span><br><span class="line">            if (httpResult.isStatus()) &#123;</span><br><span class="line">                Toast.makeText(mContext, &quot;上传成功&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                Toast.makeText(mContext, &quot;上传失败&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">            &#125;</span><br><span class="line">            progressUtils.dismiss();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">private void submitData() &#123;</span><br><span class="line"></span><br><span class="line">        //图片压缩</span><br><span class="line">        compressUtils();</span><br><span class="line"></span><br><span class="line">        Map&lt;String, RequestBody&gt;  photos = new HashMap&lt;&gt;();</span><br><span class="line">        //mPhotoList是选择图片后的返回路径</span><br><span class="line">        if (mPhotoList.size() &gt; 0) &#123;</span><br><span class="line">            for (int i = 0; i &lt; mPhotoList.size(); i++) &#123;</span><br><span class="line">                File  file = new File(mPhotoList.get(i).getPhotoPath());</span><br><span class="line">                RequestBody  requestFile = RequestBody.create(MediaType.parse(&quot;multipart/form-data&quot;), file);</span><br><span class="line">                //RequestBody  requestFile = RequestBody.create(MediaType.parse(&quot;image/jpg&quot;), file);</span><br><span class="line"></span><br><span class="line">             	//这里前面一部分是服务器要求你传的key，加上一个i,就可以动态设置key的长度</span><br><span class="line">                photos.put(&quot;AttachmentKey&quot;+i+&quot;\&quot;; filename=\&quot;&quot;+file.getName(),requestFile);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        subscription  = Network.getMyApi().upLoadsImg(photos,RequestBody.create(null,content))</span><br><span class="line">                .subscribeOn(Schedulers.io())</span><br><span class="line">                .unsubscribeOn(Schedulers.io())</span><br><span class="line">                .observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">                .subscribe(observer);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这里详细解释已经在代码中有注释说明，我按照这个方法上传是没有问题的。相册选机器我推荐使用 <a href="https://github.com/pengjianbo/GalleryFinal" target="_blank" rel="noopener">GalleryFinal</a>里面的功能很详细，实现了拍照、图片选择（单选/多选）、 裁剪（单/多裁剪）、旋转等功能，具体链接里面有介绍。</p>
+</blockquote>
+<p><strong>MediaType.parse(“multipart/form-data”)传MediaType.parse(“image/jpg”)也可以，原因还不知道。</strong></p>
+]]></content>
+      <categories>
+        <category>android</category>
+      </categories>
+      <tags>
+        <tag>retrofit</tag>
       </tags>
   </entry>
   <entry>

@@ -854,9 +854,18 @@
     avatar: 'mm',
     meta: guest,
     pageSize: '10' || 10,
+    serverURLs: 'cqp1la3n.api.lncldglobal.com',
     visitor: false,
     lang: 'zh-cn' || 'zh-cn'
   });
+
+  //增加以下六行代码去除 power by valine
+    var infoEle = document.querySelector('#comments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+      infoEle.childNodes.forEach(function(item) {
+        item.parentNode.removeChild(item);
+      });
+    }
 </script>
 
 
