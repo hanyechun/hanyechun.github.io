@@ -151,6 +151,8 @@
 <meta name="twitter:description" content="iblog">
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="hyc's blog" type="application/atom+xml">
 
@@ -510,7 +512,7 @@
               目前共计 5 个分类
             </div>
             <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac/">mac</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
+              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac/">mac</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
             </div>
           </div>
         
@@ -576,7 +578,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -634,9 +636,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -863,19 +863,28 @@
   guest = guest.split(',').filter(function(item) {
     return GUEST.indexOf(item) > -1;
   });
+
+
+  var requiredFields = '<%= theme.comment.valine.requiredFields %>';
+  requiredFields = requiredFields.split(',');
+
+
   new Valine({
     el: '#comments',
     verify: false,
     notify: true,
     appId: 'CQp1LA3nmiItGPvjdhn0g152-MdYXbMMI',
     appKey: 'HxHFMjLyzuSgVX9aJdO6BUCn',
-    placeholder: 'Just go go',
+    placeholder: '说点什么吧...',
     avatar: 'mm',
     meta: guest,
     pageSize: '10' || 10,
     serverURLs: 'https://cqp1la3n.api.lncldglobal.com',
     visitor: false,
-    lang: 'zh-cn' || 'zh-cn'
+    lang: 'zh-cn' || 'zh-cn',
+    enableQQ：enableQQ: '',
+    recordIP：recordIP: '',
+    requiredFields: requiredFields
   });
 </script>
 

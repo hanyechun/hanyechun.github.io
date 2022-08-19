@@ -141,7 +141,7 @@
   <meta name="description" content="iblog">
 <meta property="og:type" content="website">
 <meta property="og:title" content="hyc&#39;s blog">
-<meta property="og:url" content="https://hanyechun.github.io/tags/mac/index.html">
+<meta property="og:url" content="https://hanyechun.github.io/tags/node/index.html">
 <meta property="og:site_name" content="hyc&#39;s blog">
 <meta property="og:description" content="iblog">
 <meta property="og:locale" content="zh-CN">
@@ -157,7 +157,7 @@
 
   
   
-  <link rel="canonical" href="https://hanyechun.github.io/tags/mac/">
+  <link rel="canonical" href="https://hanyechun.github.io/tags/node/">
 
 
 
@@ -167,7 +167,7 @@
   };
 </script>
 
-  <title>标签: mac | hyc's blog</title>
+  <title>标签: node | hyc's blog</title>
   
 
 
@@ -462,7 +462,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>mac<small>标签</small>
+        <h1>node<small>标签</small>
         </h1>
       </div>
 
@@ -474,43 +474,17 @@
 
       <h2 class="post-title">
         
-          <a class="post-title-link" href="/2019/07/19/Mac生成SSH-Key/" itemprop="url">
+          <a class="post-title-link" href="/2022/08/19/Node切换版本、降级、升级/" itemprop="url">
             
-              <span itemprop="name">Mac生成SSH Key</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-19T15:16:51+08:00" content="2019-07-19">
-          07-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/07/19/Mac-adb-install-apk/" itemprop="url">
-            
-              <span itemprop="name">Mac adb install apk</span>
+              <span itemprop="name">Node切换版本、降级、升级</span>
             
           </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-19T14:28:00+08:00" content="2019-07-19">
-          07-19
+        <time class="post-time" itemprop="dateCreated" datetime="2022-08-19T14:01:56+08:00" content="2022-08-19">
+          08-19
         </time>
       </div>
 
@@ -569,7 +543,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -627,9 +601,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -852,19 +824,28 @@
   guest = guest.split(',').filter(function(item) {
     return GUEST.indexOf(item) > -1;
   });
+
+
+  var requiredFields = '<%= theme.comment.valine.requiredFields %>';
+  requiredFields = requiredFields.split(',');
+
+
   new Valine({
     el: '#comments',
     verify: false,
     notify: true,
     appId: 'CQp1LA3nmiItGPvjdhn0g152-MdYXbMMI',
     appKey: 'HxHFMjLyzuSgVX9aJdO6BUCn',
-    placeholder: 'Just go go',
+    placeholder: '说点什么吧...',
     avatar: 'mm',
     meta: guest,
     pageSize: '10' || 10,
     serverURLs: 'https://cqp1la3n.api.lncldglobal.com',
     visitor: false,
-    lang: 'zh-cn' || 'zh-cn'
+    lang: 'zh-cn' || 'zh-cn',
+    enableQQ：enableQQ: '',
+    recordIP：recordIP: '',
+    requiredFields: requiredFields
   });
 </script>
 

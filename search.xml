@@ -1,278 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hexo NexT主题</title>
-    <url>/2022/08/18/Hexo-NexT%E4%B8%BB%E9%A2%98/</url>
-    <content><![CDATA[<p><a href="http://theme-next.iissnan.com/theme-settings.html#volunteer-404" target="_blank" rel="noopener">官方文档</a></p>
-<h4 id="一、设置文章底部版权信息"><a href="#一、设置文章底部版权信息" class="headerlink" title="一、设置文章底部版权信息"></a>一、设置文章底部版权信息</h4><p>打开主题配置文件<code>_config.yml</code>，找到<code>creative_commons</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">creative_commons:</span><br><span class="line">  license: by-nc-sa</span><br><span class="line">  sidebar: false</span><br><span class="line">  post: true #设置为true</span><br><span class="line">  language:</span><br></pre></td></tr></table></figure>
-
-<p><a href="http://creativecommons.org/" target="_blank" rel="noopener">Creative commons协议</a>，这个就是设置版权声明</p>
-<a id="more"></a>
-
-<h4 id="二、添加标签页"><a href="#二、添加标签页" class="headerlink" title="二、添加标签页"></a>二、添加标签页</h4><ul>
-<li>新建页面：<br>前面通过修改next主题下的_config.yml文件中的menu选项，可以在主页面的菜单栏添加标签选项，但是此时点击标签，跳转的页面会显示page not found。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page tags    #新建标签页面</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>输入命令后，在<code>根目录/source</code>会生成一个tags文件夹，其中有个index.md文件。</p>
-<ul>
-<li><p>设置页面类型：<br>修改index.md，添加type：tags</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2016-11-15 19:10:05</span><br><span class="line">type:  tags</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置文章的标签：<br>当要为某篇文章添加标签时，只需在文章开头设置相应标签即可。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: test1    #文章标签</span><br><span class="line">date: 2017-09-20 13:29:11</span><br><span class="line">tags:         #标签</span><br><span class="line">  - test1</span><br><span class="line">  - one</span><br><span class="line">  - two</span><br><span class="line">categories: 测试     #分类</span><br><span class="line">---   </span><br><span class="line">ps：注意这是在新建文章里添加标签</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="三、添加分类、关于页面"><a href="#三、添加分类、关于页面" class="headerlink" title="三、添加分类、关于页面"></a>三、添加分类、关于页面</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page categories/about</span><br></pre></td></tr></table></figure>
-
-<p>在<code>根目录/source</code>生成文件夹的中修改<code>index.md</code>文件中type类型分别为categories和about即可 </p>
-<ul>
-<li><p>文章添加分类</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: test1</span><br><span class="line">date: 2017-09-20 13:29:11</span><br><span class="line">tags:</span><br><span class="line">  - test1</span><br><span class="line">  - one</span><br><span class="line">  - two</span><br><span class="line">categories: 测试     #添加为测试类</span><br><span class="line">---  </span><br><span class="line">ps：注意这是在新建文章里添加分类</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加关于我</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 关于我</span><br><span class="line">date: 2017-09-17 10:22:54  </span><br><span class="line">type: about </span><br><span class="line">comments: false</span><br><span class="line">---</span><br><span class="line">一只快乐的小菜鸟，欢迎分享知识。</span><br><span class="line">ps：注意这是在about文件夹里修改index.md文件</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="四、添加公益404"><a href="#四、添加公益404" class="headerlink" title="四、添加公益404"></a>四、添加公益404</h4><p>新建 404.html 页面，放到主题的 source 目录下，内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html;charset=utf-8;&quot;/&gt;</span><br><span class="line">  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt;</span><br><span class="line">  &lt;meta name=&quot;robots&quot; content=&quot;all&quot; /&gt;</span><br><span class="line">  &lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot;/&gt;</span><br><span class="line">  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://qzone.qq.com/gy/404/style/404style.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;script type=&quot;text/plain&quot; src=&quot;http://www.qq.com/404/search_children.js&quot;</span><br><span class="line">          charset=&quot;utf-8&quot; homePageUrl=&quot;/&quot;</span><br><span class="line">          homePageName=&quot;回到我的主页&quot;&gt;</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">  &lt;script src=&quot;https://qzone.qq.com/gy/404/data.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script src=&quot;https://qzone.qq.com/gy/404/page.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>效果如下 <a href="http://www.ixirong.com/404.html" target="_blank" rel="noopener">http://www.ixirong.com/404.html</a></p>
-<h4 id="五、添加搜索"><a href="#五、添加搜索" class="headerlink" title="五、添加搜索"></a>五、添加搜索</h4><ul>
-<li><p>安装 hexo-generator-searchdb，在站点的根目录下执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编辑 站点配置文件，新增以下内容到任意位置：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编辑 主题配置文件，启用本地搜索功能：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Local search</span><br><span class="line">local_search:</span><br><span class="line">  enable: true    #true开启</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="六、添加文章字数统计和阅读时长"><a href="#六、添加文章字数统计和阅读时长" class="headerlink" title="六、添加文章字数统计和阅读时长"></a>六、添加文章字数统计和阅读时长</h4><ul>
-<li><p>根目录命令运行</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-symbols-count-time --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>根目录配置文件<code>_config.yml</code>底部添加如下内容：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  #文章内是否显示</span><br><span class="line">  symbols: true</span><br><span class="line">  time: true</span><br><span class="line">  #网页底部是否显示</span><br><span class="line">  total_symbols: true</span><br><span class="line">  total_time: true</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>更多主题配置，点击<a href="https://www.lixint.me/hexo-theme-diy.html" target="_blank" rel="noopener">这里</a><br>博客搭建高级应用，点击<a href="https://blog.annieyu.com/posts/3333782006.html" target="_blank" rel="noopener">这里</a><br>官方主题文档，点击<a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="noopener">这里</a><br>官方三方服务文档，点击<a href="https://theme-next.org/docs/third-party-services/comments-and-widgets" target="_blank" rel="noopener">这里</a></p>
-<p><strong><em>多看官方文档、多看官方文档、多看官方文档</em></strong></p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hexo 双线部署</title>
-    <url>/2022/08/18/Hexo-%E5%8F%8C%E7%BA%BF%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<h4 id="一、coding部署"><a href="#一、coding部署" class="headerlink" title="一、coding部署"></a>一、coding部署</h4><ul>
-<li>到<a href="https://coding.net/" target="_blank" rel="noopener">Coding</a>注册账号</li>
-<li>添加ssh公钥，可参考<a href="https://www.jianshu.com/p/7431fc3e5013" target="_blank" rel="noopener">这篇文章</a></li>
-<li>创建项目、仓库名任意，配置pages服务</li>
-</ul>
-<h4 id="二、github部署"><a href="#二、github部署" class="headerlink" title="二、github部署"></a>二、github部署</h4><ul>
-<li>创建仓库，仓库名必须为<code>yourname.github.io</code>，<code>yourname</code>为用户名<br>当你的仓库名为：用户名.github.io 之后默认开启Github Pages</li>
-<li>添加ssh key</li>
-</ul>
-<a id="more"></a>
-
-<h4 id="三、-config-yml修改"><a href="#三、-config-yml修改" class="headerlink" title="三、_config.yml修改"></a>三、_config.yml修改</h4><p>修改<code>站点配置文件</code>的<code>deploy</code>信息如下</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo:</span><br><span class="line">      github: git@github.com:yourname/yourname.github.io.git</span><br><span class="line">      coding: git@git.coding.net:yourname/yourname.git</span><br></pre></td></tr></table></figure>
-
-<h4 id="四、执行部署"><a href="#四、执行部署" class="headerlink" title="四、执行部署"></a>四、执行部署</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hexo 高级应用</title>
-    <url>/2022/08/18/Hexo-%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<h4 id="一、Hexo图片引用"><a href="#一、Hexo图片引用" class="headerlink" title="一、Hexo图片引用"></a>一、Hexo图片引用</h4><ol>
-<li><p>本地图片<br>开启<code>_config.yml</code>中的<code>post_asset_folder: true</code> 参数，然后再你的博文生成一个同名的目录，把图片放进去，然后以如下方式引用</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![](博文目录/图片.jpg)</span><br></pre></td></tr></table></figure>
-
-<p> 若不想每次生成一个同名目录，直接在resource目录下添加一个images目录，引用如下</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![](/博文目录/images/图片.jpg)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用github存储图片<br>github创建一个项目，上传图片，点击图片 -&gt; download，查看路径</p>
-</li>
-<li><p>使用七牛云<br>点击<a href="https://github.com/gyk001/hexo-qiniu-sync" target="_blank" rel="noopener">这里</a>，查看说明</p>
-</li>
-</ol>
-<a id="more"></a>
-
-<h4 id="二、NexT评论系统Valine"><a href="#二、NexT评论系统Valine" class="headerlink" title="二、NexT评论系统Valine"></a>二、NexT评论系统Valine</h4><p>1.注册LeanCloud账号，推荐使用<a href="https://leancloud.app/" target="_blank" rel="noopener">国际版</a></p>
+    <title>Hexo NexT评论系统Valine</title>
+    <url>/2022/08/19/Hexo-NexT%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9FValine/</url>
+    <content><![CDATA[<p>1.注册LeanCloud账号，推荐使用<a href="https://leancloud.app/" target="_blank" rel="noopener">国际版</a></p>
 <p>2.创建应用，在设置-&gt;应用凭证-&gt;Credentials下拿到appid、appkey</p>
 <p>3.在设置-&gt;安全中心-&gt;Web安全域名下配置博客访问地址</p>
 <p>4.配置hexo<br>在next主题中配置valine<br>打开 <code>_config.yml</code>, 找到 <code>Comments and Widgets</code> 开启valine</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">valine:</span><br><span class="line">  enable: true # 设置为true，默认为false</span><br><span class="line">  appid:  # 将应用key的App ID设置在这里</span><br><span class="line">  appkey: # 将应用key的App Key设置在这里</span><br><span class="line">  notify: false# 邮箱通知 , https://github.com/xCss/Valine/wiki，默认为false</span><br><span class="line">  verify: false# 验证码 默认为false</span><br><span class="line">  placeholder: Just go go ^_^ # 初始化评论显示，根据自己修改，这里默认，</span><br><span class="line">  avatar: monsterid # 头像风格，默认为mm，可进入网址：https://valine.js.org/visitor.html查看头像设置，这里有许多头像风格，进行设置</span><br><span class="line">  guest_info: nick,mail,link # 自定义评论标题</span><br><span class="line">  pageSize: 10 # 分页大小，10页就自动分页</span><br><span class="line">  visitor: true # 是否允许游客评论 ，进入官网查看设置：https://valine.js.org/visitor.html</span><br></pre></td></tr></table></figure>
 
 <p>了解更多 Valine 配置参数信息请参考：<a href="https://valine.js.org/" target="_blank" rel="noopener">Valine 官方文档</a></p>
-<h5 id="valine使用中遇到的问题"><a href="#valine使用中遇到的问题" class="headerlink" title="valine使用中遇到的问题"></a>valine使用中遇到的问题</h5><p>1.评论失效<br>打开控制台 发现 <a href="https://us.avoscloud.com/1.1/classes/Comment?xxxxx" target="_blank" rel="noopener">https://us.avoscloud.com/1.1/classes/Comment?xxxxx</a> 已经请求失败（net::ERR_NAME_NOT_RESOLVED）<br>解决：<br>将 Valine 指定 自定义服务器URL。在主题配置里的 Valine 的 serverURLs 填入 <a href="https://xxxxxxxx.api.lncldglobal.com" target="_blank" rel="noopener">https://xxxxxxxx.api.lncldglobal.com</a> 。自定义服务器的URL需要到 LeanCloud后台 查看。</p>
-<p>2.去除 Valine的 Powered By<br>打开 <code>themes/next/source/css/_custom/custom.styl</code> 文件，添加以下内容：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 隐藏 valine 的 powered by</span><br><span class="line">.vcopy.txt-right &#123;</span><br><span class="line">  display: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+<a id="more"></a>
+
+<h4 id="valine使用中遇到的问题"><a href="#valine使用中遇到的问题" class="headerlink" title="valine使用中遇到的问题"></a>valine使用中遇到的问题</h4><p>1.评论失效<br>打开控制台 发现 <a href="https://us.avoscloud.com/1.1/classes/Comment?xxxxx" target="_blank" rel="noopener">https://us.avoscloud.com/1.1/classes/Comment?xxxxx</a> 已经请求失败（net::ERR_NAME_NOT_RESOLVED）<br>解决：<br>将 Valine 指定 自定义服务器URL。在主题配置里的 Valine 的 serverURLs 填入 <a href="https://xxxxxxxx.api.lncldglobal.com" target="_blank" rel="noopener">https://xxxxxxxx.api.lncldglobal.com</a> 。自定义服务器的URL需要到 LeanCloud后台 查看。</p>
+<p>2.去除 Valine的 Powered By<br>使用 <code>F12</code>，按 <code>ctrl + shift + c</code>，鼠标放到 Powered By 的地方，点击一下<br>这个 div 里的就是要修改的，打开 <code>themes/next/source/css/_custom/custom.styl</code> 文件，添加以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 隐藏 valine 的 powered by</span><br><span class="line">.vpower.txt-right &#123;</span><br><span class="line">  display: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>hexo</category>
       </categories>
   </entry>
   <entry>
-    <title>Mac使用oh-my-zsh + autosuggestions搭建个性化Terminal</title>
-    <url>/2019/10/14/Mac%E4%BD%BF%E7%94%A8oh-my-zsh-autosuggestions%E6%90%AD%E5%BB%BA%E4%B8%AA%E6%80%A7%E5%8C%96Terminal/</url>
-    <content><![CDATA[<p>查看Mac上已有的shell</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat /etc/shells</span><br><span class="line"></span><br><span class="line">/bin/bash</span><br><span class="line">/bin/csh</span><br><span class="line">/bin/ksh</span><br><span class="line">/bin/sh</span><br><span class="line">/bin/tcsh</span><br><span class="line">/bin/zsh</span><br></pre></td></tr></table></figure>
+    <title>Mac adb install apk</title>
+    <url>/2019/07/19/Mac-adb-install-apk/</url>
+    <content><![CDATA[<h4 id="Mac配置adb"><a href="#Mac配置adb" class="headerlink" title="Mac配置adb"></a>Mac配置adb</h4><ol>
+<li>在AS界面上，打开Preferences界面（快捷键： command + , 键），然后复制sdk路径<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">~/Library/Android/sdk/platform-tools</span><br></pre></td></tr></table></figure>
 
-<p>将默认 shell 改成 zsh</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
-
+</li>
+</ol>
 <a id="more"></a>
 
-<p>安装 oh my zsh</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</span><br><span class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>打开finder，按快捷键：shift + command + g，前往文件夹<br>查看adb文件是否在该目录下</p>
+</li>
+<li><p>打开终端，输入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">touch .bash_profile</span><br><span class="line">open -e .bash_profile</span><br></pre></td></tr></table></figure>
 
-<p>shell solarized 配色</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone git://github.com/altercation/solarized.git</span><br><span class="line"># 然后打开 solarized/osx-terminal.app-colors-solarized/Solarized Dark ansi.terminal 配置文件</span><br></pre></td></tr></table></figure>
+<p> 修改弹出的.bash_profile的文件，增加以下语句</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export PATH=$&#123;PATH&#125;:~/Library/Android/sdk/platform-tools</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行如下命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source .bash_profile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证：输入adb回车，即可生效</p>
+</li>
+</ol>
+<h4 id="验证adb是否生效"><a href="#验证adb是否生效" class="headerlink" title="验证adb是否生效"></a>验证adb是否生效</h4><p>在终端输入:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">adb install apk路径</span><br></pre></td></tr></table></figure>
 
-<p>安装 autojump 插件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew install autojump # 确保有 brew 命令</span><br></pre></td></tr></table></figure>
-
-<p>安装 zsh-autosuggestions 插件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-autosuggestions $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
-
-<p>安装 zsh-syntax-highlighting 插件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
-
-<p>编辑～/.zshrc 文件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim ~/.zshrc</span><br><span class="line"></span><br><span class="line">ZSH_THEME=&quot;agnoster&quot; # 默认主题主题</span><br><span class="line">plugins=(git brew laravel5 autojump zsh-autosuggestions zsh-syntax-highlighting) # 配置插件</span><br></pre></td></tr></table></figure>
-
-<p>使用如下命令使控制台窗口生效</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes" target="_blank" rel="noopener">oh-my-zsh主题选择</a></p>
-]]></content>
-      <categories>
-        <category>mac</category>
-      </categories>
-      <tags>
-        <tag>terminal</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MPAndroidChart使用</title>
-    <url>/2022/08/18/MPAndroidChart%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h4 id="Y轴-YAxis"><a href="#Y轴-YAxis" class="headerlink" title="Y轴 YAxis"></a>Y轴 YAxis</h4><p>YAxis是AxisBase的子类。YAxis类（在早于2.0.0 版本中叫做YLabels）是数据和一切与垂直轴相关的信息容器。每个Line-，Bar-，Scatter或CandleStickChart都有一个左右YAxis对象，分别负责左轴或右轴。RadarChart只有一个YAxis。默认情况下，图表的两个轴都已启用并将被绘制。</p>
-<p>为了获得一个实例中的YAxis类，请调用以下方法之一：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">YAxis leftAxis = chart.getAxisLeft();</span><br><span class="line">YAxis rightAxis = chart.getAxisRight();</span><br><span class="line"></span><br><span class="line">YAxis leftAxis = chart.getAxis(AxisDependency.LEFT);</span><br><span class="line"></span><br><span class="line">YAxis yAxis = radarChart.getYAxis(); // this method radarchart only</span><br></pre></td></tr></table></figure>
-
-<p>在运行时，用public AxisDependency getAxisDependency()确定此轴表示的图表的一侧。</p>
-<p>在为图表设置数据之前，需要应用影响轴值范围的自定义。</p>
-<a id="more"></a>
-
-<h5 id="轴依赖性"><a href="#轴依赖性" class="headerlink" title="轴依赖性"></a>轴依赖性</h5><p>默认情况下，添加到图表的所有数据都会绘制在图表左侧YAxis。如果未进一步指定和启用，YAxis则调整右侧以表示与左轴相同的比例。</p>
-<p>如果您的图表需要支持不同的轴刻度，您可以通过设置应绘制数据的轴来实现。这可以通过更改DataSet对象的AxisDependency来完成：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LineDataSet dataSet = ...; // get a dataset</span><br><span class="line">dataSet.setAxisDependency(AxisDependency.RIGHT);</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://developer.aliyun.com/article/680371" target="_blank" rel="noopener">设置此项将更改绘制数据的轴。</a></p>
-]]></content>
+<p>出现success表示安装成功</p>
+<h4 id="常见的Android开发命令"><a href="#常见的Android开发命令" class="headerlink" title="常见的Android开发命令"></a>常见的Android开发命令</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">adb shell：来到手机终端中。</span><br><span class="line">adb divices</span><br><span class="line">adb kill-server</span><br><span class="line">adb start-server</span><br><span class="line">adb install XXX.apk：安装应用程序</span><br><span class="line">abd uninstall （应用程序的包名）</span><br><span class="line">adb -s 设备名字 XXX.apk可以选择哪个模拟器，安装程序</span><br><span class="line">adb pull：（pull拉去，拿取）：把手机中的文件导出去</span><br><span class="line">adb push</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>android</category>
       </categories>
-  </entry>
-  <entry>
-    <title>OS X 使用 Hexo 和 Coding Pages 搭建静态博客</title>
-    <url>/2022/08/18/OS-X-%E4%BD%BF%E7%94%A8-Hexo-%E5%92%8C-Coding-Pages-%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<p><a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">Hexo</a>是一款基于 Node.js 的静态博客框架, 目前在 GitHub 上已有 9133 star 和 1499 fork。Hexo 生成的静态页面可以部署在 Github 或 Coding 上，并且能够免费绑定自己的域名，可以用来很方便地搭建个人博客。</p>
-<hr>
-<h4 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h4><p>搭建博客需要用到 git，下面这条命令可查看本机是否已安装 git，若未安装可参考<a href="https://www.liaoxuefeng.com/wiki/896043488029600/896067074338496" target="_blank" rel="noopener">这篇博文</a>进行安装。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h4 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h4><p>安装 Node.js 的最佳方式是使用 <a href="https://github.com/creationix/nvm" target="_blank" rel="noopener">nvm</a>。</p>
-<p>cURL:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ curl https://raw.github.com/creationix/nvm/v0.33.11/install.sh | sh</span><br></pre></td></tr></table></figure>
-
-<p>Wget:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ wget -qO- https://raw.github.com/creationix/nvm/v0.33.11/install.sh | sh</span><br></pre></td></tr></table></figure>
-
-<p>安装完成后，重启终端并执行下列命令即可安装 Node.js。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ nvm install stable</span><br></pre></td></tr></table></figure>
-
-<p>或者您也可以下载 <a href="http://nodejs.org/" target="_blank" rel="noopener">安装程序</a> 来安装。</p>
-<h4 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h4><p>所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<p><em>以上安装配置如有问题请参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官方文档</a></em></p>
-<h4 id="本地建立博客"><a href="#本地建立博客" class="headerlink" title="本地建立博客"></a>本地建立博客</h4><p>安装完成后，新建一个目录如 blog 用于存放博客，切换到该目录下执行以下指令，Hexo 即会在目标文件夹初步生成博客所需要的所有文件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-
-<p>然后切换到该目录下执行如下命令，安装所需要的依赖</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo npm install</span><br></pre></td></tr></table></figure>
-
-<p>生成静态页面</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-
-<p>启动本地服务</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<p>生成静态页面与启动本地服务可以结合成以下指令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo s -g</span><br></pre></td></tr></table></figure>
-
-<p>打开浏览器，输入 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> ，看到页面说明hexo环境安装成功。</p>
-<h4 id="NexT主题配置"><a href="#NexT主题配置" class="headerlink" title="NexT主题配置"></a>NexT主题配置</h4><ul>
-<li><p>安装<br>将它的 Git 仓库 Clone 以后放到博客目录下的 themes 文件夹中即可</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启用<br>与所有Hexo主题一样，把主题源码导入themes目录后，打开<code>根目录配置文件_config.yml</code>， 找到 theme 字段，并将其值更改为 next 就完成了主题的切换。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="部署到Coding-Pages"><a href="#部署到Coding-Pages" class="headerlink" title="部署到Coding Pages"></a>部署到Coding Pages</h4><p>在 Coding 新建一个项目，假设为 blog，然后修改本地博客目录下的 _config.yml 文件，根据<a href="https://hexo.io/zh-cn/docs/deployment.html" target="_blank" rel="noopener">官方文档</a>的描述，修改以下几个参数，这些参数一般在文件底部：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git               #部署方式，这里我们用的是Coding的Git</span><br><span class="line">repo: &lt;repository url&gt;  #仓库地址，例如我的是git@git.coding.net:xxx/blog.git </span><br><span class="line">branch: [branch]        #分支名，可任意填写，我填写的是master</span><br><span class="line">message: [message]      #可不填，这是显示在提交记录里的描述信息，默认为日期</span><br></pre></td></tr></table></figure>
-
-<p>参数修改完成后，我们需要在终端中切换到博客所在目录安装 deploy 组建，执行以下命令将生成的博客静态页面 push 到我们上面在 Coding 创建的 blog 仓库中：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<p>然后执行依次执行清理命令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
-
-<p>生成命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-
-<p>部署命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-<p>如果在 _config.yml 的 repo 处填写的仓库地址是 https 形式的，在部署时可能需要输入你的 Coding 账号和密码。<br>然后切换到该项目的 Pages 标签，开启 pages 服务，分支名填写为我们在_config.yml 文件中设定的分支，我的是 master。</p>
-<h4 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h4><p>pages 服务开启完成后，Coding 会提供一个类似 {user_name}.coding.me/{project_name} 的链接用于访问，例如用户名为 xxx 项目名为 blog 的链接应该是：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http://xxx.coding.me/blog</span><br></pre></td></tr></table></figure>
-
-<p><em>若资源加载失败，主题没有显示出来，查看<code>根目录配置文件_config.yml</code></em></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">url: http://xxx.coding.me/blog/ #项目地址</span><br><span class="line">root: /blog #项目名称</span><br></pre></td></tr></table></figure>
-
-<h4 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h4><p>默认提供的链接可能过长或者不便于日常使用，我们也可以绑定自己的域名。首先，需要提前准备一个域名，然后打开自己的域名控制面板，新建一个 CNAME 解析到 {user_name}.coding.me，例如我的是将 <a href="http://www.xxx.com" target="_blank" rel="noopener">www.xxx.com</a> 解析到 xxx.coding.me；  然后，打开 Coding 项目页面切换到 pages 项，填入刚才的设置解析的域名 <a href="http://www.xxx.com，点击“添加域名绑定”按钮即可，在浏览器中直接访问" target="_blank" rel="noopener">www.xxx.com，点击“添加域名绑定”按钮即可，在浏览器中直接访问</a> <a href="http://www.xxx.com" target="_blank" rel="noopener">www.xxx.com</a> 就能成功打开。 有时可能由于缓存或者解析时间的问题，稍等片刻即可。</p>
-<h4 id="撰写博客"><a href="#撰写博客" class="headerlink" title="撰写博客"></a>撰写博客</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new &quot;postName&quot; #新建文章</span><br><span class="line">hexo new page&quot;pageName&quot; #新建页面</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</span><br><span class="line">hexo deploy #将.deploy目录部署到指定空间</span><br><span class="line">hexo help # 查看帮助</span><br><span class="line">hexo version #查看Hexo的版本</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>使用命令直接创建一篇文章<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new &quot;Hello Word&quot;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>成功后我们会在source文件夹下的_posts文件夹中找到我们刚刚创建的文件Hello Word.md，编写格式为markdown, 打开文件即可直接编写</p>
-<ul>
-<li>手动在_posts文件夹下创建*.md文件的博客，但是我们自己要把头信息给补上。</li>
-</ul>
-<p><em>部署博客</em></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
+      <tags>
+        <tag>adb</tag>
+      </tags>
   </entry>
   <entry>
     <title>Android面试题</title>
@@ -376,6 +158,397 @@
       </categories>
   </entry>
   <entry>
+    <title>Hexo NexT主题</title>
+    <url>/2022/08/18/Hexo-NexT%E4%B8%BB%E9%A2%98/</url>
+    <content><![CDATA[<p><a href="http://theme-next.iissnan.com/theme-settings.html#volunteer-404" target="_blank" rel="noopener">官方文档</a></p>
+<h4 id="一、设置文章底部版权信息"><a href="#一、设置文章底部版权信息" class="headerlink" title="一、设置文章底部版权信息"></a>一、设置文章底部版权信息</h4><p>打开主题配置文件<code>_config.yml</code>，找到<code>creative_commons</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">creative_commons:</span><br><span class="line">  license: by-nc-sa</span><br><span class="line">  sidebar: false</span><br><span class="line">  post: true #设置为true</span><br><span class="line">  language:</span><br></pre></td></tr></table></figure>
+
+<p><a href="http://creativecommons.org/" target="_blank" rel="noopener">Creative commons协议</a>，这个就是设置版权声明</p>
+<a id="more"></a>
+
+<h4 id="二、添加标签页"><a href="#二、添加标签页" class="headerlink" title="二、添加标签页"></a>二、添加标签页</h4><ul>
+<li>新建页面：<br>前面通过修改next主题下的_config.yml文件中的menu选项，可以在主页面的菜单栏添加标签选项，但是此时点击标签，跳转的页面会显示page not found。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page tags    #新建标签页面</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>输入命令后，在<code>根目录/source</code>会生成一个tags文件夹，其中有个index.md文件。</p>
+<ul>
+<li><p>设置页面类型：<br>修改index.md，添加type：tags</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2016-11-15 19:10:05</span><br><span class="line">type:  tags</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置文章的标签：<br>当要为某篇文章添加标签时，只需在文章开头设置相应标签即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: test1    #文章标签</span><br><span class="line">date: 2017-09-20 13:29:11</span><br><span class="line">tags:         #标签</span><br><span class="line">  - test1</span><br><span class="line">  - one</span><br><span class="line">  - two</span><br><span class="line">categories: 测试     #分类</span><br><span class="line">---   </span><br><span class="line">ps：注意这是在新建文章里添加标签</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="三、添加分类、关于页面"><a href="#三、添加分类、关于页面" class="headerlink" title="三、添加分类、关于页面"></a>三、添加分类、关于页面</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page categories/about</span><br></pre></td></tr></table></figure>
+
+<p>在<code>根目录/source</code>生成文件夹的中修改<code>index.md</code>文件中type类型分别为categories和about即可 </p>
+<ul>
+<li><p>文章添加分类</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: test1</span><br><span class="line">date: 2017-09-20 13:29:11</span><br><span class="line">tags:</span><br><span class="line">  - test1</span><br><span class="line">  - one</span><br><span class="line">  - two</span><br><span class="line">categories: 测试     #添加为测试类</span><br><span class="line">---  </span><br><span class="line">ps：注意这是在新建文章里添加分类</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加关于我</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 关于我</span><br><span class="line">date: 2017-09-17 10:22:54  </span><br><span class="line">type: about </span><br><span class="line">comments: false</span><br><span class="line">---</span><br><span class="line">一只快乐的小菜鸟，欢迎分享知识。</span><br><span class="line">ps：注意这是在about文件夹里修改index.md文件</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="四、添加公益404"><a href="#四、添加公益404" class="headerlink" title="四、添加公益404"></a>四、添加公益404</h4><p>新建 404.html 页面，放到主题的 source 目录下，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html;charset=utf-8;&quot;/&gt;</span><br><span class="line">  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt;</span><br><span class="line">  &lt;meta name=&quot;robots&quot; content=&quot;all&quot; /&gt;</span><br><span class="line">  &lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot;/&gt;</span><br><span class="line">  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://qzone.qq.com/gy/404/style/404style.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;script type=&quot;text/plain&quot; src=&quot;http://www.qq.com/404/search_children.js&quot;</span><br><span class="line">          charset=&quot;utf-8&quot; homePageUrl=&quot;/&quot;</span><br><span class="line">          homePageName=&quot;回到我的主页&quot;&gt;</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">  &lt;script src=&quot;https://qzone.qq.com/gy/404/data.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script src=&quot;https://qzone.qq.com/gy/404/page.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下 <a href="http://www.ixirong.com/404.html" target="_blank" rel="noopener">http://www.ixirong.com/404.html</a></p>
+<h4 id="五、添加搜索"><a href="#五、添加搜索" class="headerlink" title="五、添加搜索"></a>五、添加搜索</h4><ul>
+<li><p>安装 hexo-generator-searchdb，在站点的根目录下执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑 站点配置文件，新增以下内容到任意位置：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑 主题配置文件，启用本地搜索功能：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Local search</span><br><span class="line">local_search:</span><br><span class="line">  enable: true    #true开启</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="六、添加文章字数统计和阅读时长"><a href="#六、添加文章字数统计和阅读时长" class="headerlink" title="六、添加文章字数统计和阅读时长"></a>六、添加文章字数统计和阅读时长</h4><ul>
+<li><p>根目录命令运行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-symbols-count-time --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>根目录配置文件<code>_config.yml</code>底部添加如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  #文章内是否显示</span><br><span class="line">  symbols: true</span><br><span class="line">  time: true</span><br><span class="line">  #网页底部是否显示</span><br><span class="line">  total_symbols: true</span><br><span class="line">  total_time: true</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>更多主题配置，点击<a href="https://www.lixint.me/hexo-theme-diy.html" target="_blank" rel="noopener">这里</a><br>博客搭建高级应用，点击<a href="https://blog.annieyu.com/posts/3333782006.html" target="_blank" rel="noopener">这里</a><br>官方主题文档，点击<a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="noopener">这里</a><br>官方三方服务文档，点击<a href="https://theme-next.org/docs/third-party-services/comments-and-widgets" target="_blank" rel="noopener">这里</a></p>
+<p><strong><em>多看官方文档、多看官方文档、多看官方文档</em></strong></p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>MPAndroidChart使用</title>
+    <url>/2022/08/18/MPAndroidChart%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h4 id="Y轴-YAxis"><a href="#Y轴-YAxis" class="headerlink" title="Y轴 YAxis"></a>Y轴 YAxis</h4><p>YAxis是AxisBase的子类。YAxis类（在早于2.0.0 版本中叫做YLabels）是数据和一切与垂直轴相关的信息容器。每个Line-，Bar-，Scatter或CandleStickChart都有一个左右YAxis对象，分别负责左轴或右轴。RadarChart只有一个YAxis。默认情况下，图表的两个轴都已启用并将被绘制。</p>
+<p>为了获得一个实例中的YAxis类，请调用以下方法之一：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">YAxis leftAxis = chart.getAxisLeft();</span><br><span class="line">YAxis rightAxis = chart.getAxisRight();</span><br><span class="line"></span><br><span class="line">YAxis leftAxis = chart.getAxis(AxisDependency.LEFT);</span><br><span class="line"></span><br><span class="line">YAxis yAxis = radarChart.getYAxis(); // this method radarchart only</span><br></pre></td></tr></table></figure>
+
+<p>在运行时，用public AxisDependency getAxisDependency()确定此轴表示的图表的一侧。</p>
+<p>在为图表设置数据之前，需要应用影响轴值范围的自定义。</p>
+<a id="more"></a>
+
+<h5 id="轴依赖性"><a href="#轴依赖性" class="headerlink" title="轴依赖性"></a>轴依赖性</h5><p>默认情况下，添加到图表的所有数据都会绘制在图表左侧YAxis。如果未进一步指定和启用，YAxis则调整右侧以表示与左轴相同的比例。</p>
+<p>如果您的图表需要支持不同的轴刻度，您可以通过设置应绘制数据的轴来实现。这可以通过更改DataSet对象的AxisDependency来完成：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LineDataSet dataSet = ...; // get a dataset</span><br><span class="line">dataSet.setAxisDependency(AxisDependency.RIGHT);</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://developer.aliyun.com/article/680371" target="_blank" rel="noopener">设置此项将更改绘制数据的轴。</a></p>
+]]></content>
+      <categories>
+        <category>android</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hexo 添加留言板</title>
+    <url>/2022/08/19/Hexo-%E6%B7%BB%E5%8A%A0%E7%95%99%E8%A8%80%E6%9D%BF/</url>
+    <content><![CDATA[<ol>
+<li><p>添加一个新的page</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page &quot;guestbook&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入 <code>source/guestbook/index.md</code>。加入你想显示的内容，如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 给我留言吧</span><br><span class="line">date: 2022-02-18 20:04:25</span><br><span class="line">type: &quot;guestbook&quot;</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"># 欢迎来到我的博客！</span><br><span class="line"></span><br><span class="line">&gt; 欢迎在这里留言！任何问题都可以在这里留言，我会及时回复的，添加email可以获得更快的回复速度，在呢称栏目输入QQ号可以直接获取你的QQ头像噢。</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<a id="more"></a>
+
+<ol start="3">
+<li><p>进入<code>theme/next/_config.yml</code>, 找到 <code>menu</code> , 添加留言板功能：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  guestbook: /guestbook/ || comment</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更改 <code>themes/next/languages</code> 下对应语言的翻译。例如中文的<code>zh-CN.yml</code>文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  guestbook: 留言板</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重新部署即可查看</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Mac生成SSH Key</title>
+    <url>/2019/07/19/Mac%E7%94%9F%E6%88%90SSH-Key/</url>
+    <content><![CDATA[<h4 id="打开vim（terminal-app）查看本地是否存在SSH-Key"><a href="#打开vim（terminal-app）查看本地是否存在SSH-Key" class="headerlink" title="打开vim（terminal.app）查看本地是否存在SSH-Key"></a>打开vim（terminal.app）查看本地是否存在SSH-Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls -al ~/.ssh</span><br></pre></td></tr></table></figure>
+
+<p>如果vim输出的是如下内容：证明本地没有生成的SSH Key，请执行第二步。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">No such file or directory</span><br></pre></td></tr></table></figure>
+
+<p>如果vim输出的是如下内容： 证明本地已经存在SSH Key 文件，请执行第四步。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">id_rsa    id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<h4 id="如果没有，生成新的SSH-Key"><a href="#如果没有，生成新的SSH-Key" class="headerlink" title="如果没有，生成新的SSH Key"></a>如果没有，生成新的SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C&quot;you_email&quot;</span><br></pre></td></tr></table></figure>
+
+<p>your_email：这里填写你在GitLab或者GitHub注册时的邮箱。<br>后面的提示直接敲回车，一路完成。</p>
+<h4 id="生成并添加SSH-Key"><a href="#生成并添加SSH-Key" class="headerlink" title="生成并添加SSH Key"></a>生成并添加SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看SSH-Key"><a href="#查看SSH-Key" class="headerlink" title="查看SSH Key"></a>查看SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat /Users/xxx/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>xxx是你的电脑用户名，例如：howieMacBook-Pro:~ howie$中的howie关键字。<br>复制生成好的SSH Key 添加到 GitLab 或者GitHub中的SSH Key中即可。</p>
+]]></content>
+      <categories>
+        <category>mac</category>
+      </categories>
+      <tags>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo 双线部署</title>
+    <url>/2022/08/18/Hexo-%E5%8F%8C%E7%BA%BF%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h4 id="一、coding部署"><a href="#一、coding部署" class="headerlink" title="一、coding部署"></a>一、coding部署</h4><ul>
+<li>到<a href="https://coding.net/" target="_blank" rel="noopener">Coding</a>注册账号</li>
+<li>添加ssh公钥，可参考<a href="https://www.jianshu.com/p/7431fc3e5013" target="_blank" rel="noopener">这篇文章</a></li>
+<li>创建项目、仓库名任意，配置pages服务</li>
+</ul>
+<h4 id="二、github部署"><a href="#二、github部署" class="headerlink" title="二、github部署"></a>二、github部署</h4><ul>
+<li>创建仓库，仓库名必须为<code>yourname.github.io</code>，<code>yourname</code>为用户名<br>当你的仓库名为：用户名.github.io 之后默认开启Github Pages</li>
+<li>添加ssh key</li>
+</ul>
+<a id="more"></a>
+
+<h4 id="三、-config-yml修改"><a href="#三、-config-yml修改" class="headerlink" title="三、_config.yml修改"></a>三、_config.yml修改</h4><p>修改<code>站点配置文件</code>的<code>deploy</code>信息如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo:</span><br><span class="line">      github: git@github.com:yourname/yourname.github.io.git</span><br><span class="line">      coding: git@git.coding.net:yourname/yourname.git</span><br></pre></td></tr></table></figure>
+
+<h4 id="四、执行部署"><a href="#四、执行部署" class="headerlink" title="四、执行部署"></a>四、执行部署</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>OS X 使用 Hexo 和 Coding Pages 搭建静态博客</title>
+    <url>/2022/08/18/OS-X-%E4%BD%BF%E7%94%A8-Hexo-%E5%92%8C-Coding-Pages-%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<p><a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">Hexo</a>是一款基于 Node.js 的静态博客框架, 目前在 GitHub 上已有 9133 star 和 1499 fork。Hexo 生成的静态页面可以部署在 Github 或 Coding 上，并且能够免费绑定自己的域名，可以用来很方便地搭建个人博客。</p>
+<hr>
+<h4 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h4><p>搭建博客需要用到 git，下面这条命令可查看本机是否已安装 git，若未安装可参考<a href="https://www.liaoxuefeng.com/wiki/896043488029600/896067074338496" target="_blank" rel="noopener">这篇博文</a>进行安装。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h4 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h4><p>安装 Node.js 的最佳方式是使用 <a href="https://github.com/creationix/nvm" target="_blank" rel="noopener">nvm</a>。</p>
+<p>cURL:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ curl https://raw.github.com/creationix/nvm/v0.33.11/install.sh | sh</span><br></pre></td></tr></table></figure>
+
+<p>Wget:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ wget -qO- https://raw.github.com/creationix/nvm/v0.33.11/install.sh | sh</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后，重启终端并执行下列命令即可安装 Node.js。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ nvm install stable</span><br></pre></td></tr></table></figure>
+
+<p>或者您也可以下载 <a href="http://nodejs.org/" target="_blank" rel="noopener">安装程序</a> 来安装。</p>
+<h4 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h4><p>所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p><em>以上安装配置如有问题请参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官方文档</a></em></p>
+<h4 id="本地建立博客"><a href="#本地建立博客" class="headerlink" title="本地建立博客"></a>本地建立博客</h4><p>安装完成后，新建一个目录如 blog 用于存放博客，切换到该目录下执行以下指令，Hexo 即会在目标文件夹初步生成博客所需要的所有文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+<p>然后切换到该目录下执行如下命令，安装所需要的依赖</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo npm install</span><br></pre></td></tr></table></figure>
+
+<p>生成静态页面</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+<p>启动本地服务</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>生成静态页面与启动本地服务可以结合成以下指令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo s -g</span><br></pre></td></tr></table></figure>
+
+<p>打开浏览器，输入 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> ，看到页面说明hexo环境安装成功。</p>
+<h4 id="NexT主题配置"><a href="#NexT主题配置" class="headerlink" title="NexT主题配置"></a>NexT主题配置</h4><ul>
+<li><p>安装<br>将它的 Git 仓库 Clone 以后放到博客目录下的 themes 文件夹中即可</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启用<br>与所有Hexo主题一样，把主题源码导入themes目录后，打开<code>根目录配置文件_config.yml</code>， 找到 theme 字段，并将其值更改为 next 就完成了主题的切换。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="部署到Coding-Pages"><a href="#部署到Coding-Pages" class="headerlink" title="部署到Coding Pages"></a>部署到Coding Pages</h4><p>在 Coding 新建一个项目，假设为 blog，然后修改本地博客目录下的 _config.yml 文件，根据<a href="https://hexo.io/zh-cn/docs/deployment.html" target="_blank" rel="noopener">官方文档</a>的描述，修改以下几个参数，这些参数一般在文件底部：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git               #部署方式，这里我们用的是Coding的Git</span><br><span class="line">repo: &lt;repository url&gt;  #仓库地址，例如我的是git@git.coding.net:xxx/blog.git </span><br><span class="line">branch: [branch]        #分支名，可任意填写，我填写的是master</span><br><span class="line">message: [message]      #可不填，这是显示在提交记录里的描述信息，默认为日期</span><br></pre></td></tr></table></figure>
+
+<p>参数修改完成后，我们需要在终端中切换到博客所在目录安装 deploy 组建，执行以下命令将生成的博客静态页面 push 到我们上面在 Coding 创建的 blog 仓库中：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>然后执行依次执行清理命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+
+<p>生成命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+<p>部署命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>如果在 _config.yml 的 repo 处填写的仓库地址是 https 形式的，在部署时可能需要输入你的 Coding 账号和密码。<br>然后切换到该项目的 Pages 标签，开启 pages 服务，分支名填写为我们在_config.yml 文件中设定的分支，我的是 master。</p>
+<h4 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h4><p>pages 服务开启完成后，Coding 会提供一个类似 {user_name}.coding.me/{project_name} 的链接用于访问，例如用户名为 xxx 项目名为 blog 的链接应该是：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http://xxx.coding.me/blog</span><br></pre></td></tr></table></figure>
+
+<p><em>若资源加载失败，主题没有显示出来，查看<code>根目录配置文件_config.yml</code></em></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">url: http://xxx.coding.me/blog/ #项目地址</span><br><span class="line">root: /blog #项目名称</span><br></pre></td></tr></table></figure>
+
+<h4 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h4><p>默认提供的链接可能过长或者不便于日常使用，我们也可以绑定自己的域名。首先，需要提前准备一个域名，然后打开自己的域名控制面板，新建一个 CNAME 解析到 {user_name}.coding.me，例如我的是将 <a href="http://www.xxx.com" target="_blank" rel="noopener">www.xxx.com</a> 解析到 xxx.coding.me；  然后，打开 Coding 项目页面切换到 pages 项，填入刚才的设置解析的域名 <a href="http://www.xxx.com，点击“添加域名绑定”按钮即可，在浏览器中直接访问" target="_blank" rel="noopener">www.xxx.com，点击“添加域名绑定”按钮即可，在浏览器中直接访问</a> <a href="http://www.xxx.com" target="_blank" rel="noopener">www.xxx.com</a> 就能成功打开。 有时可能由于缓存或者解析时间的问题，稍等片刻即可。</p>
+<h4 id="撰写博客"><a href="#撰写博客" class="headerlink" title="撰写博客"></a>撰写博客</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new &quot;postName&quot; #新建文章</span><br><span class="line">hexo new page&quot;pageName&quot; #新建页面</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</span><br><span class="line">hexo deploy #将.deploy目录部署到指定空间</span><br><span class="line">hexo help # 查看帮助</span><br><span class="line">hexo version #查看Hexo的版本</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用命令直接创建一篇文章<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new &quot;Hello Word&quot;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>成功后我们会在source文件夹下的_posts文件夹中找到我们刚刚创建的文件Hello Word.md，编写格式为markdown, 打开文件即可直接编写</p>
+<ul>
+<li>手动在_posts文件夹下创建*.md文件的博客，但是我们自己要把头信息给补上。</li>
+</ul>
+<p><em>部署博客</em></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>ViewPager2与SwipeRefreshLayout滑动冲突问题的解决</title>
+    <url>/2021/04/30/ViewPager2%E4%B8%8ESwipeRefreshLayout%E6%BB%91%E5%8A%A8%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/</url>
+    <content><![CDATA[<blockquote>
+<p>我们是在ViewPager2中的Fragment使用了SwipeRefreshLayout。当向下滑动时只要稍微偏左或右都会触发ViewPager2的移动，造成SwipeRefreshLayout卡在页面上不消失。</p>
+</blockquote>
+<ul>
+<li>解决方案一：重写SwipeRefreshLayout</li>
+</ul>
+<p>我们首先准备修改ViewPager2，可是它没法继承。那么目光只好投向SwipeRefreshLayout。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class MySwipeRefreshLayout : SwipeRefreshLayout &#123;</span><br><span class="line">    constructor(context: Context, attes: AttributeSet) : super(context, attes) &#123;&#125;</span><br><span class="line">    constructor(context: Context) : super(context)</span><br><span class="line"></span><br><span class="line">    private var startX = 0</span><br><span class="line">    private var beginScrolll = false //是否开始滑动</span><br><span class="line">    private var startY: Int = 0</span><br><span class="line">    override fun dispatchTouchEvent(ev: MotionEvent): Boolean &#123;</span><br><span class="line">        when (ev.action) &#123;</span><br><span class="line">            MotionEvent.ACTION_DOWN -&gt; &#123;</span><br><span class="line">                startX = ev.x.toInt()</span><br><span class="line">                startY = ev.y.toInt()</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_MOVE -&gt; &#123;</span><br><span class="line">                val endX = ev.x.toInt()</span><br><span class="line">                val endY = ev.y.toInt()</span><br><span class="line">                val disX = Math.abs(endX - startX)</span><br><span class="line">                val disY: Int = Math.abs(endY - startY)</span><br><span class="line">                if (disX &gt; disY) &#123;</span><br><span class="line">                    if (!beginScrolll)</span><br><span class="line">                        parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    beginScrolll = true</span><br><span class="line">                    parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -&gt; &#123;</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                beginScrolll=false</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return super.dispatchTouchEvent(ev)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>解决方案二：使用SmartRefreshLayout替代SwipeRefreshLayout即可。</li>
+</ul>
+<p><a href="https://blog.csdn.net/qq_15046309/article/details/106005736" target="_blank" rel="noopener">参考原文地址</a></p>
+]]></content>
+      <categories>
+        <category>android</category>
+      </categories>
+      <tags>
+        <tag>jetpack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo 高级应用</title>
+    <url>/2022/08/18/Hexo-%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h4 id="一、Hexo图片引用"><a href="#一、Hexo图片引用" class="headerlink" title="一、Hexo图片引用"></a>一、Hexo图片引用</h4><ol>
+<li><p>本地图片<br>开启<code>_config.yml</code>中的<code>post_asset_folder: true</code> 参数，然后再你的博文生成一个同名的目录，把图片放进去，然后以如下方式引用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![](博文目录/图片.jpg)</span><br></pre></td></tr></table></figure>
+
+<p> 若不想每次生成一个同名目录，直接在resource目录下添加一个images目录，引用如下</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![](/博文目录/images/图片.jpg)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用github存储图片<br>github创建一个项目，上传图片，点击图片 -&gt; download，查看路径</p>
+</li>
+<li><p>使用七牛云<br>点击<a href="https://github.com/gyk001/hexo-qiniu-sync" target="_blank" rel="noopener">这里</a>，查看说明</p>
+</li>
+</ol>
+<a id="more"></a>]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2019/07/05/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<a id="more"></a>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Mac使用oh-my-zsh + autosuggestions搭建个性化Terminal</title>
+    <url>/2019/10/14/Mac%E4%BD%BF%E7%94%A8oh-my-zsh-autosuggestions%E6%90%AD%E5%BB%BA%E4%B8%AA%E6%80%A7%E5%8C%96Terminal/</url>
+    <content><![CDATA[<p>查看Mac上已有的shell</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat /etc/shells</span><br><span class="line"></span><br><span class="line">/bin/bash</span><br><span class="line">/bin/csh</span><br><span class="line">/bin/ksh</span><br><span class="line">/bin/sh</span><br><span class="line">/bin/tcsh</span><br><span class="line">/bin/zsh</span><br></pre></td></tr></table></figure>
+
+<p>将默认 shell 改成 zsh</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p>安装 oh my zsh</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</span><br><span class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>shell solarized 配色</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone git://github.com/altercation/solarized.git</span><br><span class="line"># 然后打开 solarized/osx-terminal.app-colors-solarized/Solarized Dark ansi.terminal 配置文件</span><br></pre></td></tr></table></figure>
+
+<p>安装 autojump 插件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew install autojump # 确保有 brew 命令</span><br></pre></td></tr></table></figure>
+
+<p>安装 zsh-autosuggestions 插件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-autosuggestions $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+
+<p>安装 zsh-syntax-highlighting 插件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+
+<p>编辑～/.zshrc 文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim ~/.zshrc</span><br><span class="line"></span><br><span class="line">ZSH_THEME=&quot;agnoster&quot; # 默认主题主题</span><br><span class="line">plugins=(git brew laravel5 autojump zsh-autosuggestions zsh-syntax-highlighting) # 配置插件</span><br></pre></td></tr></table></figure>
+
+<p>使用如下命令使控制台窗口生效</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes" target="_blank" rel="noopener">oh-my-zsh主题选择</a></p>
+]]></content>
+      <categories>
+        <category>mac</category>
+      </categories>
+      <tags>
+        <tag>terminal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Paging3 LoadStateAdapter显示已加载完所有数据</title>
+    <url>/2020/12/29/Paging3-LoadStateAdapter%E6%98%BE%E7%A4%BA%E5%B7%B2%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE/</url>
+    <content><![CDATA[<h4 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h4><p>使用paging3的过程中，本想通过为PagingDataAdaper添加页脚LoadStateAdapter方法onBindViewHolder(holder: LoadStateViewHolder, loadState: LoadState)中的<code>loadState</code>显示<code>loading</code>、<code>error</code>、<code>no more</code>,但是处理no more的时候发现<code>loadState.endOfPaginationReached</code>一直是<code>false</code>，且loadState只有<code>LoadState.Loading</code>、<code>LoadState.Error</code>两种状态</p>
+<a id="more"></a>
+<h4 id="查看源码："><a href="#查看源码：" class="headerlink" title="查看源码："></a>查看源码：</h4><p>PagingDataAdapter.kt</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fun withLoadStateFooter(</span><br><span class="line">    footer: LoadStateAdapter&lt;*&gt;</span><br><span class="line">): MergeAdapter &#123;</span><br><span class="line">    addLoadStateListener &#123; loadStates -&gt;</span><br><span class="line">        footer.loadState = loadStates.append</span><br><span class="line">    &#125;</span><br><span class="line">    return MergeAdapter(this, footer)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>LoadStateAdapter.kt</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var loadState: LoadState = LoadState.NotLoading(endOfPaginationReached = false)</span><br><span class="line">    set(loadState) &#123;</span><br><span class="line">        if (field != loadState) &#123;</span><br><span class="line">            val oldItem = displayLoadStateAsItem(field)</span><br><span class="line">            val newItem = displayLoadStateAsItem(loadState)</span><br><span class="line"></span><br><span class="line">            if (oldItem &amp;&amp; !newItem) &#123;</span><br><span class="line">                notifyItemRemoved(0)</span><br><span class="line">            &#125; else if (newItem &amp;&amp; !oldItem) &#123;</span><br><span class="line">                notifyItemInserted(0)</span><br><span class="line">            &#125; else if (oldItem &amp;&amp; newItem) &#123;</span><br><span class="line">                notifyItemChanged(0)</span><br><span class="line">            &#125;</span><br><span class="line">            field = loadState</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Returns true if the LoadState should be displayed as a list item when active.</span><br><span class="line"> *</span><br><span class="line"> * By default, [LoadState.Loading] and [LoadState.Error] present as list items, others do not.</span><br><span class="line"> */</span><br><span class="line">open fun displayLoadStateAsItem(loadState: LoadState): Boolean &#123;</span><br><span class="line">    return loadState is LoadState.Loading || loadState is LoadState.Error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过查看源码可知，只有<code>newItem</code>为<code>true</code>才显示布局UI，若要newItem为true，则loadState的状态只有LoadState.Loading、LoadState.Error，故LoadStateAdapter只有loading、error两个状态。</p>
+<h4 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h4><p>监听PagingDataAdapter.addLoadStateListener可知，列表加载到底部会触发loadState.append的<code>NotLoading(endOfPaginationReached=true)</code>状态。</p>
+<p>以上，想要通过<code>loadState.endOfPaginationReached</code>属性判断是否到底部，只有拿到loadState的<code>NotLoading</code>状态，通过重写<code>displayLoadStateAsItem</code>方法返回<code>true</code>即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">override fun displayLoadStateAsItem(loadState: LoadState): Boolean &#123;</span><br><span class="line">    return true</span><br><span class="line">//    return loadState is LoadState.Loading || loadState is LoadState.Error || loadState is LoadState.NotLoading</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面两种返回值效果一样，loadState的loading、error、notLoading三种状态都会触发。</p>
+]]></content>
+      <categories>
+        <category>android</category>
+      </categories>
+      <tags>
+        <tag>jetpack</tag>
+        <tag>paging</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Retrofit多图上传</title>
     <url>/2019/07/30/Retrofit%E5%A4%9A%E5%9B%BE%E4%B8%8A%E4%BC%A0/</url>
     <content><![CDATA[<p>首先是定义接口部分：</p>
@@ -407,158 +580,54 @@
       </tags>
   </entry>
   <entry>
-    <title>Paging3 LoadStateAdapter显示已加载完所有数据</title>
-    <url>/2020/12/29/Paging3-LoadStateAdapter%E6%98%BE%E7%A4%BA%E5%B7%B2%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE/</url>
-    <content><![CDATA[<h4 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h4><p>使用paging3的过程中，本想通过为PagingDataAdaper添加页脚LoadStateAdapter方法onBindViewHolder(holder: LoadStateViewHolder, loadState: LoadState)中的<code>loadState</code>显示<code>loading</code>、<code>error</code>、<code>no more</code>,但是处理no more的时候发现<code>loadState.endOfPaginationReached</code>一直是<code>false</code>，且loadState只有<code>LoadState.Loading</code>、<code>LoadState.Error</code>两种状态</p>
-<a id="more"></a>
-<h4 id="查看源码："><a href="#查看源码：" class="headerlink" title="查看源码："></a>查看源码：</h4><p>PagingDataAdapter.kt</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fun withLoadStateFooter(</span><br><span class="line">    footer: LoadStateAdapter&lt;*&gt;</span><br><span class="line">): MergeAdapter &#123;</span><br><span class="line">    addLoadStateListener &#123; loadStates -&gt;</span><br><span class="line">        footer.loadState = loadStates.append</span><br><span class="line">    &#125;</span><br><span class="line">    return MergeAdapter(this, footer)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>Node切换版本、降级、升级</title>
+    <url>/2022/08/19/Node%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC%E3%80%81%E9%99%8D%E7%BA%A7%E3%80%81%E5%8D%87%E7%BA%A7/</url>
+    <content><![CDATA[<h4 id="方案一、安装node版本管理模块n"><a href="#方案一、安装node版本管理模块n" class="headerlink" title="方案一、安装node版本管理模块n"></a>方案一、安装node版本管理模块n</h4><p>安装node管理模块n</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo npm install n -g</span><br></pre></td></tr></table></figure>
 
-<p>LoadStateAdapter.kt</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var loadState: LoadState = LoadState.NotLoading(endOfPaginationReached = false)</span><br><span class="line">    set(loadState) &#123;</span><br><span class="line">        if (field != loadState) &#123;</span><br><span class="line">            val oldItem = displayLoadStateAsItem(field)</span><br><span class="line">            val newItem = displayLoadStateAsItem(loadState)</span><br><span class="line"></span><br><span class="line">            if (oldItem &amp;&amp; !newItem) &#123;</span><br><span class="line">                notifyItemRemoved(0)</span><br><span class="line">            &#125; else if (newItem &amp;&amp; !oldItem) &#123;</span><br><span class="line">                notifyItemInserted(0)</span><br><span class="line">            &#125; else if (oldItem &amp;&amp; newItem) &#123;</span><br><span class="line">                notifyItemChanged(0)</span><br><span class="line">            &#125;</span><br><span class="line">            field = loadState</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Returns true if the LoadState should be displayed as a list item when active.</span><br><span class="line"> *</span><br><span class="line"> * By default, [LoadState.Loading] and [LoadState.Error] present as list items, others do not.</span><br><span class="line"> */</span><br><span class="line">open fun displayLoadStateAsItem(loadState: LoadState): Boolean &#123;</span><br><span class="line">    return loadState is LoadState.Loading || loadState is LoadState.Error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>安装稳定版</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo n stable</span><br></pre></td></tr></table></figure>
 
-<p>通过查看源码可知，只有<code>newItem</code>为<code>true</code>才显示布局UI，若要newItem为true，则loadState的状态只有LoadState.Loading、LoadState.Error，故LoadStateAdapter只有loading、error两个状态。</p>
-<h4 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h4><p>监听PagingDataAdapter.addLoadStateListener可知，列表加载到底部会触发loadState.append的<code>NotLoading(endOfPaginationReached=true)</code>状态。</p>
-<p>以上，想要通过<code>loadState.endOfPaginationReached</code>属性判断是否到底部，只有拿到loadState的<code>NotLoading</code>状态，通过重写<code>displayLoadStateAsItem</code>方法返回<code>true</code>即可。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">override fun displayLoadStateAsItem(loadState: LoadState): Boolean &#123;</span><br><span class="line">    return true</span><br><span class="line">//    return loadState is LoadState.Loading || loadState is LoadState.Error || loadState is LoadState.NotLoading</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>安装最新版</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo n latest</span><br></pre></td></tr></table></figure>
 
-<p>上面两种返回值效果一样，loadState的loading、error、notLoading三种状态都会触发。</p>
-]]></content>
-      <categories>
-        <category>android</category>
-      </categories>
-      <tags>
-        <tag>paging</tag>
-        <tag>android</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ViewPager2与SwipeRefreshLayout滑动冲突问题的解决</title>
-    <url>/2021/04/30/ViewPager2%E4%B8%8ESwipeRefreshLayout%E6%BB%91%E5%8A%A8%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/</url>
-    <content><![CDATA[<blockquote>
-<p>我们是在ViewPager2中的Fragment使用了SwipeRefreshLayout。当向下滑动时只要稍微偏左或右都会触发ViewPager2的移动，造成SwipeRefreshLayout卡在页面上不消失。</p>
-</blockquote>
-<ul>
-<li>解决方案一：重写SwipeRefreshLayout</li>
-</ul>
-<p>我们首先准备修改ViewPager2，可是它没法继承。那么目光只好投向SwipeRefreshLayout。</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class MySwipeRefreshLayout : SwipeRefreshLayout &#123;</span><br><span class="line">    constructor(context: Context, attes: AttributeSet) : super(context, attes) &#123;&#125;</span><br><span class="line">    constructor(context: Context) : super(context)</span><br><span class="line"></span><br><span class="line">    private var startX = 0</span><br><span class="line">    private var beginScrolll = false //是否开始滑动</span><br><span class="line">    private var startY: Int = 0</span><br><span class="line">    override fun dispatchTouchEvent(ev: MotionEvent): Boolean &#123;</span><br><span class="line">        when (ev.action) &#123;</span><br><span class="line">            MotionEvent.ACTION_DOWN -&gt; &#123;</span><br><span class="line">                startX = ev.x.toInt()</span><br><span class="line">                startY = ev.y.toInt()</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_MOVE -&gt; &#123;</span><br><span class="line">                val endX = ev.x.toInt()</span><br><span class="line">                val endY = ev.y.toInt()</span><br><span class="line">                val disX = Math.abs(endX - startX)</span><br><span class="line">                val disY: Int = Math.abs(endY - startY)</span><br><span class="line">                if (disX &gt; disY) &#123;</span><br><span class="line">                    if (!beginScrolll)</span><br><span class="line">                        parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    beginScrolll = true</span><br><span class="line">                    parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -&gt; &#123;</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                beginScrolll=false</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return super.dispatchTouchEvent(ev)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>版本降级/升级</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo n 版本号	#如 sudo n 12.17.0</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>解决方案二：使用SmartRefreshLayout替代SwipeRefreshLayout即可。</li>
-</ul>
-<p><a href="https://blog.csdn.net/qq_15046309/article/details/106005736" target="_blank" rel="noopener">参考原文地址</a></p>
-]]></content>
-      <categories>
-        <category>android</category>
-      </categories>
-      <tags>
-        <tag>jetpack</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mac adb install apk</title>
-    <url>/2019/07/19/Mac-adb-install-apk/</url>
-    <content><![CDATA[<h4 id="Mac配置adb"><a href="#Mac配置adb" class="headerlink" title="Mac配置adb"></a>Mac配置adb</h4><ol>
-<li>在AS界面上，打开Preferences界面（快捷键： command + , 键），然后复制sdk路径<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">~/Library/Android/sdk/platform-tools</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
 <a id="more"></a>
 
-<ol start="2">
-<li><p>打开finder，按快捷键：shift + command + g，前往文件夹<br>查看adb文件是否在该目录下</p>
-</li>
-<li><p>打开终端，输入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">touch .bash_profile</span><br><span class="line">open -e .bash_profile</span><br></pre></td></tr></table></figure>
+<p>检测目前安装的版本</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">n</span><br></pre></td></tr></table></figure>
 
-<p> 修改弹出的.bash_profile的文件，增加以下语句</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export PATH=$&#123;PATH&#125;:~/Library/Android/sdk/platform-tools</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行如下命令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source .bash_profile</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>验证：输入adb回车，即可生效</p>
-</li>
-</ol>
-<h4 id="验证adb是否生效"><a href="#验证adb是否生效" class="headerlink" title="验证adb是否生效"></a>验证adb是否生效</h4><p>在终端输入:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">adb install apk路径</span><br></pre></td></tr></table></figure>
+<p>切换版本(不会删除其他已安装的版本)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">n 版本号</span><br></pre></td></tr></table></figure>
 
-<p>出现success表示安装成功</p>
-<h4 id="常见的Android开发命令"><a href="#常见的Android开发命令" class="headerlink" title="常见的Android开发命令"></a>常见的Android开发命令</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">adb shell：来到手机终端中。</span><br><span class="line">adb divices</span><br><span class="line">adb kill-server</span><br><span class="line">adb start-server</span><br><span class="line">adb install XXX.apk：安装应用程序</span><br><span class="line">abd uninstall （应用程序的包名）</span><br><span class="line">adb -s 设备名字 XXX.apk可以选择哪个模拟器，安装程序</span><br><span class="line">adb pull：（pull拉去，拿取）：把手机中的文件导出去</span><br><span class="line">adb push</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>android</category>
-      </categories>
-      <tags>
-        <tag>mac</tag>
-        <tag>adb</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mac生成SSH Key</title>
-    <url>/2019/07/19/Mac%E7%94%9F%E6%88%90SSH-Key/</url>
-    <content><![CDATA[<h4 id="打开vim（terminal-app）查看本地是否存在SSH-Key"><a href="#打开vim（terminal-app）查看本地是否存在SSH-Key" class="headerlink" title="打开vim（terminal.app）查看本地是否存在SSH-Key"></a>打开vim（terminal.app）查看本地是否存在SSH-Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls -al ~/.ssh</span><br></pre></td></tr></table></figure>
+<p>删除版本</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo n rm 版本号</span><br></pre></td></tr></table></figure>
 
-<p>如果vim输出的是如下内容：证明本地没有生成的SSH Key，请执行第二步。</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">No such file or directory</span><br></pre></td></tr></table></figure>
+<h4 id="方案二、使用nvm"><a href="#方案二、使用nvm" class="headerlink" title="方案二、使用nvm"></a>方案二、使用nvm</h4><p>安装最新版本node</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nvm install stable</span><br></pre></td></tr></table></figure>
 
-<p>如果vim输出的是如下内容： 证明本地已经存在SSH Key 文件，请执行第四步。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">id_rsa    id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>安装指定版本的node</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nvm install [node版本号]</span><br></pre></td></tr></table></figure>
 
-<h4 id="如果没有，生成新的SSH-Key"><a href="#如果没有，生成新的SSH-Key" class="headerlink" title="如果没有，生成新的SSH Key"></a>如果没有，生成新的SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C&quot;you_email&quot;</span><br></pre></td></tr></table></figure>
+<p>查看已安装版本</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nvm ls</span><br></pre></td></tr></table></figure>
 
-<p>your_email：这里填写你在GitLab或者GitHub注册时的邮箱。<br>后面的提示直接敲回车，一路完成。</p>
-<h4 id="生成并添加SSH-Key"><a href="#生成并添加SSH-Key" class="headerlink" title="生成并添加SSH Key"></a>生成并添加SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+<p>切换到指定版本的node</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nvm use [node版本号]</span><br></pre></td></tr></table></figure>
 
-<h4 id="查看SSH-Key"><a href="#查看SSH-Key" class="headerlink" title="查看SSH Key"></a>查看SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat /Users/xxx/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>设置默认版本</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nvm alias default [node版本号]</span><br></pre></td></tr></table></figure>
 
-<p>xxx是你的电脑用户名，例如：howieMacBook-Pro:~ howie$中的howie关键字。<br>复制生成好的SSH Key 添加到 GitLab 或者GitHub中的SSH Key中即可。</p>
-]]></content>
-      <categories>
-        <category>mac</category>
-      </categories>
-      <tags>
-        <tag>mac</tag>
-        <tag>ssh</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>zsh: command not found: hexo</title>
-    <url>/2022/08/18/zsh-command-not-found-hexo/</url>
-    <content><![CDATA[<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>最近打算在hexo新建一篇文章，执行终端时:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">zsh: command not found: hexo</span><br></pre></td></tr></table></figure>
-
-<h4 id="探究"><a href="#探究" class="headerlink" title="探究"></a>探究</h4><p>可能是前段时间学习vue的时候，重新安装了node，导致PATH路径<code>/usr/local/lib/node_modules/</code>目录下的<code>hexo-cli</code>丢失。</p>
-<h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><p>通过 –prefix 参数指定链接创建的目标路径。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yarn global remove hexo-cli</span><br><span class="line"></span><br><span class="line"># 重新安装</span><br><span class="line">yarn global add hexo-cli --prefix /usr/local</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.dazhuanlan.com/maple0015/topics/1070884" target="_blank" rel="noopener">重新执行hexo，成功。</a></p>
+<p>参考文章: <a href="https://blog.csdn.net/Fabulous1111/article/details/84983869" target="_blank" rel="noopener">https://blog.csdn.net/Fabulous1111/article/details/84983869</a></p>
 ]]></content>
       <categories>
         <category>hexo</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2019/07/05/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<a id="more"></a>
-
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
+      <tags>
+        <tag>node</tag>
+      </tags>
   </entry>
   <entry>
     <title>oh-my-zsh ，zsh: command not found: adb</title>
@@ -586,6 +655,44 @@
       <tags>
         <tag>terminal</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>时光很长 莫要慌张</title>
+    <url>/2019/07/23/%E6%97%B6%E5%85%89%E5%BE%88%E9%95%BF-%E8%8E%AB%E8%A6%81%E6%85%8C%E5%BC%A0/</url>
+    <content><![CDATA[<blockquote>
+<p>未曾开言我先笑场，笑场完了听我诉一诉衷肠。        –《笑场》</p>
+</blockquote>
+<p>近来，年岁愈涨，愈感到焦虑，总想一下子把所有的事情做完。都说，人生最好的际遇，就是在适合的年纪做适合的事。年少时，好好学习；成年后，结婚生子。</p>
+<a id="more"></a>
+
+<p>刚毕业，总是心高气傲，想着做一个优秀的工程师、找一个可以红袖添香、慢慢变老的人。理想很丰满、现实很骨感。这句话真的很现实。</p>
+<p>时光如白驹过隙，转瞬而逝，never say goodbye to u。</p>
+<p>或许到了年纪，工作上不顺心，想转型却又难找到机会，父母也催促着你成家。瞬间，感觉自己过了年纪，该做的事什么都没有做，既没有遇到合适的人、自己也没有成长成自己期望的样子。于是，一事无成。开始迷茫和焦虑，想赶紧把该做的事情都做了，找个人结婚、生子、平平凡凡、庸庸碌碌就好。再难以静下心来，去学习和充实，总是找些喜剧以自娱，甚至开始二倍速看世界。既想改变，又在不停的浪费时间，兜兜转转，还在原地。</p>
+<p>《笑场》序言，李诞说过一句话：</p>
+<blockquote>
+<p>我一直以来是个沮丧的人，认为人生没有丝毫意义，梦幻泡影。<br>近来因机缘获得一点儿开悟，找到了活下去的理由——人生确实没有意义，但人生有美。<br>梦幻泡影嘛，本来就是美的。</p>
+</blockquote>
+<p>我想说的是，时光还很长，不必焦虑。不妨出去走走看看，世间的繁华，热闹之后，总会归于平静。给自己点时间，找回本心。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>zsh: command not found: hexo</title>
+    <url>/2022/08/18/zsh-command-not-found-hexo/</url>
+    <content><![CDATA[<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>最近打算在hexo新建一篇文章，执行终端时:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">zsh: command not found: hexo</span><br></pre></td></tr></table></figure>
+
+<h4 id="探究"><a href="#探究" class="headerlink" title="探究"></a>探究</h4><p>可能是前段时间学习vue的时候，重新安装了node，导致PATH路径<code>/usr/local/lib/node_modules/</code>目录下的<code>hexo-cli</code>丢失。</p>
+<h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><p>通过 –prefix 参数指定链接创建的目标路径。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yarn global remove hexo-cli</span><br><span class="line"></span><br><span class="line"># 重新安装</span><br><span class="line">yarn global add hexo-cli --prefix /usr/local</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.dazhuanlan.com/maple0015/topics/1070884" target="_blank" rel="noopener">重新执行hexo，成功。</a></p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
   </entry>
   <entry>
     <title>常用正则表达式</title>
@@ -831,28 +938,6 @@
 ]]></content>
       <categories>
         <category>tools</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>时光很长 莫要慌张</title>
-    <url>/2019/07/23/%E6%97%B6%E5%85%89%E5%BE%88%E9%95%BF-%E8%8E%AB%E8%A6%81%E6%85%8C%E5%BC%A0/</url>
-    <content><![CDATA[<blockquote>
-<p>未曾开言我先笑场，笑场完了听我诉一诉衷肠。        –《笑场》</p>
-</blockquote>
-<p>近来，年岁愈涨，愈感到焦虑，总想一下子把所有的事情做完。都说，人生最好的际遇，就是在适合的年纪做适合的事。年少时，好好学习；成年后，结婚生子。</p>
-<a id="more"></a>
-
-<p>刚毕业，总是心高气傲，想着做一个优秀的工程师、找一个可以红袖添香、慢慢变老的人。理想很丰满、现实很骨感。这句话真的很现实。</p>
-<p>时光如白驹过隙，转瞬而逝，never say goodbye to u。</p>
-<p>或许到了年纪，工作上不顺心，想转型却又难找到机会，父母也催促着你成家。瞬间，感觉自己过了年纪，该做的事什么都没有做，既没有遇到合适的人、自己也没有成长成自己期望的样子。于是，一事无成。开始迷茫和焦虑，想赶紧把该做的事情都做了，找个人结婚、生子、平平凡凡、庸庸碌碌就好。再难以静下心来，去学习和充实，总是找些喜剧以自娱，甚至开始二倍速看世界。既想改变，又在不停的浪费时间，兜兜转转，还在原地。</p>
-<p>《笑场》序言，李诞说过一句话：</p>
-<blockquote>
-<p>我一直以来是个沮丧的人，认为人生没有丝毫意义，梦幻泡影。<br>近来因机缘获得一点儿开悟，找到了活下去的理由——人生确实没有意义，但人生有美。<br>梦幻泡影嘛，本来就是美的。</p>
-</blockquote>
-<p>我想说的是，时光还很长，不必焦虑。不妨出去走走看看，世间的繁华，热闹之后，总会归于平静。给自己点时间，找回本心。</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
       </categories>
   </entry>
 </search>
