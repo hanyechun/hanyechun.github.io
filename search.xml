@@ -171,6 +171,26 @@
       </categories>
   </entry>
   <entry>
+    <title>Hexo 高级应用</title>
+    <url>/2022/08/18/Hexo-%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h4 id="一、Hexo图片引用"><a href="#一、Hexo图片引用" class="headerlink" title="一、Hexo图片引用"></a>一、Hexo图片引用</h4><ol>
+<li><p>本地图片<br>开启<code>_config.yml</code>中的<code>post_asset_folder: true</code> 参数，然后再你的博文生成一个同名的目录，把图片放进去，然后以如下方式引用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![](博文目录/图片.jpg)</span><br></pre></td></tr></table></figure>
+
+<p> 若不想每次生成一个同名目录，直接在resource目录下添加一个images目录，引用如下</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![](/博文目录/images/图片.jpg)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用github存储图片<br>github创建一个项目，上传图片，点击图片 -&gt; download，查看路径</p>
+</li>
+<li><p>使用七牛云<br>点击<a href="https://github.com/gyk001/hexo-qiniu-sync" target="_blank" rel="noopener">这里</a>，查看说明</p>
+</li>
+</ol>
+<a id="more"></a>]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Hexo 双线部署</title>
     <url>/2022/08/18/Hexo-%E5%8F%8C%E7%BA%BF%E9%83%A8%E7%BD%B2/</url>
     <content><![CDATA[<h4 id="一、coding部署"><a href="#一、coding部署" class="headerlink" title="一、coding部署"></a>一、coding部署</h4><ul>
@@ -193,53 +213,25 @@
       </categories>
   </entry>
   <entry>
-    <title>Hexo 高级应用</title>
-    <url>/2022/08/18/Hexo-%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<h4 id="一、Hexo图片引用"><a href="#一、Hexo图片引用" class="headerlink" title="一、Hexo图片引用"></a>一、Hexo图片引用</h4><ol>
-<li><p>本地图片<br>开启<code>_config.yml</code>中的<code>post_asset_folder: true</code> 参数，然后再你的博文生成一个同名的目录，把图片放进去，然后以如下方式引用</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![](博文目录/图片.jpg)</span><br></pre></td></tr></table></figure>
+    <title>MPAndroidChart使用</title>
+    <url>/2022/08/18/MPAndroidChart%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h4 id="Y轴-YAxis"><a href="#Y轴-YAxis" class="headerlink" title="Y轴 YAxis"></a>Y轴 YAxis</h4><p>YAxis是AxisBase的子类。YAxis类（在早于2.0.0 版本中叫做YLabels）是数据和一切与垂直轴相关的信息容器。每个Line-，Bar-，Scatter或CandleStickChart都有一个左右YAxis对象，分别负责左轴或右轴。RadarChart只有一个YAxis。默认情况下，图表的两个轴都已启用并将被绘制。</p>
+<p>为了获得一个实例中的YAxis类，请调用以下方法之一：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">YAxis leftAxis = chart.getAxisLeft();</span><br><span class="line">YAxis rightAxis = chart.getAxisRight();</span><br><span class="line"></span><br><span class="line">YAxis leftAxis = chart.getAxis(AxisDependency.LEFT);</span><br><span class="line"></span><br><span class="line">YAxis yAxis = radarChart.getYAxis(); // this method radarchart only</span><br></pre></td></tr></table></figure>
 
-<p> 若不想每次生成一个同名目录，直接在resource目录下添加一个images目录，引用如下</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![](/博文目录/images/图片.jpg)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用github存储图片<br>github创建一个项目，上传图片，点击图片 -&gt; download，查看路径</p>
-</li>
-<li><p>使用七牛云<br>点击<a href="https://github.com/gyk001/hexo-qiniu-sync" target="_blank" rel="noopener">这里</a>，查看说明</p>
-</li>
-</ol>
-<a id="more"></a>]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Mac生成SSH Key</title>
-    <url>/2019/07/19/Mac%E7%94%9F%E6%88%90SSH-Key/</url>
-    <content><![CDATA[<h4 id="打开vim（terminal-app）查看本地是否存在SSH-Key"><a href="#打开vim（terminal-app）查看本地是否存在SSH-Key" class="headerlink" title="打开vim（terminal.app）查看本地是否存在SSH-Key"></a>打开vim（terminal.app）查看本地是否存在SSH-Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls -al ~/.ssh</span><br></pre></td></tr></table></figure>
-
-<p>如果vim输出的是如下内容：证明本地没有生成的SSH Key，请执行第二步。</p>
+<p>在运行时，用public AxisDependency getAxisDependency()确定此轴表示的图表的一侧。</p>
+<p>在为图表设置数据之前，需要应用影响轴值范围的自定义。</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">No such file or directory</span><br></pre></td></tr></table></figure>
 
-<p>如果vim输出的是如下内容： 证明本地已经存在SSH Key 文件，请执行第四步。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">id_rsa    id_rsa.pub</span><br></pre></td></tr></table></figure>
+<h5 id="轴依赖性"><a href="#轴依赖性" class="headerlink" title="轴依赖性"></a>轴依赖性</h5><p>默认情况下，添加到图表的所有数据都会绘制在图表左侧YAxis。如果未进一步指定和启用，YAxis则调整右侧以表示与左轴相同的比例。</p>
+<p>如果您的图表需要支持不同的轴刻度，您可以通过设置应绘制数据的轴来实现。这可以通过更改DataSet对象的AxisDependency来完成：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LineDataSet dataSet = ...; // get a dataset</span><br><span class="line">dataSet.setAxisDependency(AxisDependency.RIGHT);</span><br></pre></td></tr></table></figure>
 
-<h4 id="如果没有，生成新的SSH-Key"><a href="#如果没有，生成新的SSH-Key" class="headerlink" title="如果没有，生成新的SSH Key"></a>如果没有，生成新的SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C&quot;you_email&quot;</span><br></pre></td></tr></table></figure>
-
-<p>your_email：这里填写你在GitLab或者GitHub注册时的邮箱。<br>后面的提示直接敲回车，一路完成。</p>
-<h4 id="生成并添加SSH-Key"><a href="#生成并添加SSH-Key" class="headerlink" title="生成并添加SSH Key"></a>生成并添加SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
-
-<h4 id="查看SSH-Key"><a href="#查看SSH-Key" class="headerlink" title="查看SSH Key"></a>查看SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat /Users/xxx/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-
-<p>xxx是你的电脑用户名，例如：howieMacBook-Pro:~ howie$中的howie关键字。<br>复制生成好的SSH Key 添加到 GitLab 或者GitHub中的SSH Key中即可。</p>
+<p><a href="https://developer.aliyun.com/article/680371" target="_blank" rel="noopener">设置此项将更改绘制数据的轴。</a></p>
 ]]></content>
       <categories>
-        <category>mac</category>
+        <category>android</category>
       </categories>
-      <tags>
-        <tag>mac</tag>
-        <tag>ssh</tag>
-      </tags>
   </entry>
   <entry>
     <title>Mac adb install apk</title>
@@ -321,25 +313,33 @@
       </tags>
   </entry>
   <entry>
-    <title>MPAndroidChart使用</title>
-    <url>/2022/08/18/MPAndroidChart%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h4 id="Y轴-YAxis"><a href="#Y轴-YAxis" class="headerlink" title="Y轴 YAxis"></a>Y轴 YAxis</h4><p>YAxis是AxisBase的子类。YAxis类（在早于2.0.0 版本中叫做YLabels）是数据和一切与垂直轴相关的信息容器。每个Line-，Bar-，Scatter或CandleStickChart都有一个左右YAxis对象，分别负责左轴或右轴。RadarChart只有一个YAxis。默认情况下，图表的两个轴都已启用并将被绘制。</p>
-<p>为了获得一个实例中的YAxis类，请调用以下方法之一：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">YAxis leftAxis = chart.getAxisLeft();</span><br><span class="line">YAxis rightAxis = chart.getAxisRight();</span><br><span class="line"></span><br><span class="line">YAxis leftAxis = chart.getAxis(AxisDependency.LEFT);</span><br><span class="line"></span><br><span class="line">YAxis yAxis = radarChart.getYAxis(); // this method radarchart only</span><br></pre></td></tr></table></figure>
+    <title>Mac生成SSH Key</title>
+    <url>/2019/07/19/Mac%E7%94%9F%E6%88%90SSH-Key/</url>
+    <content><![CDATA[<h4 id="打开vim（terminal-app）查看本地是否存在SSH-Key"><a href="#打开vim（terminal-app）查看本地是否存在SSH-Key" class="headerlink" title="打开vim（terminal.app）查看本地是否存在SSH-Key"></a>打开vim（terminal.app）查看本地是否存在SSH-Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls -al ~/.ssh</span><br></pre></td></tr></table></figure>
 
-<p>在运行时，用public AxisDependency getAxisDependency()确定此轴表示的图表的一侧。</p>
-<p>在为图表设置数据之前，需要应用影响轴值范围的自定义。</p>
+<p>如果vim输出的是如下内容：证明本地没有生成的SSH Key，请执行第二步。</p>
 <a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">No such file or directory</span><br></pre></td></tr></table></figure>
 
-<h5 id="轴依赖性"><a href="#轴依赖性" class="headerlink" title="轴依赖性"></a>轴依赖性</h5><p>默认情况下，添加到图表的所有数据都会绘制在图表左侧YAxis。如果未进一步指定和启用，YAxis则调整右侧以表示与左轴相同的比例。</p>
-<p>如果您的图表需要支持不同的轴刻度，您可以通过设置应绘制数据的轴来实现。这可以通过更改DataSet对象的AxisDependency来完成：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LineDataSet dataSet = ...; // get a dataset</span><br><span class="line">dataSet.setAxisDependency(AxisDependency.RIGHT);</span><br></pre></td></tr></table></figure>
+<p>如果vim输出的是如下内容： 证明本地已经存在SSH Key 文件，请执行第四步。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">id_rsa    id_rsa.pub</span><br></pre></td></tr></table></figure>
 
-<p><a href="https://developer.aliyun.com/article/680371" target="_blank" rel="noopener">设置此项将更改绘制数据的轴。</a></p>
+<h4 id="如果没有，生成新的SSH-Key"><a href="#如果没有，生成新的SSH-Key" class="headerlink" title="如果没有，生成新的SSH Key"></a>如果没有，生成新的SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C&quot;you_email&quot;</span><br></pre></td></tr></table></figure>
+
+<p>your_email：这里填写你在GitLab或者GitHub注册时的邮箱。<br>后面的提示直接敲回车，一路完成。</p>
+<h4 id="生成并添加SSH-Key"><a href="#生成并添加SSH-Key" class="headerlink" title="生成并添加SSH Key"></a>生成并添加SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看SSH-Key"><a href="#查看SSH-Key" class="headerlink" title="查看SSH Key"></a>查看SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat /Users/xxx/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>xxx是你的电脑用户名，例如：howieMacBook-Pro:~ howie$中的howie关键字。<br>复制生成好的SSH Key 添加到 GitLab 或者GitHub中的SSH Key中即可。</p>
 ]]></content>
       <categories>
-        <category>android</category>
+        <category>mac</category>
       </categories>
+      <tags>
+        <tag>mac</tag>
+        <tag>ssh</tag>
+      </tags>
   </entry>
   <entry>
     <title>OS X 使用 Hexo 和 Coding Pages 搭建静态博客</title>
@@ -432,24 +432,82 @@
       </categories>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2019/07/05/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+    <title>Paging3 LoadStateAdapter显示已加载完所有数据</title>
+    <url>/2020/12/29/Paging3-LoadStateAdapter%E6%98%BE%E7%A4%BA%E5%B7%B2%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE/</url>
+    <content><![CDATA[<h4 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h4><p>使用paging3的过程中，本想通过为PagingDataAdaper添加页脚LoadStateAdapter方法onBindViewHolder(holder: LoadStateViewHolder, loadState: LoadState)中的<code>loadState</code>显示<code>loading</code>、<code>error</code>、<code>no more</code>,但是处理no more的时候发现<code>loadState.endOfPaginationReached</code>一直是<code>false</code>，且loadState只有<code>LoadState.Loading</code>、<code>LoadState.Error</code>两种状态</p>
+<a id="more"></a>
+<h4 id="查看源码："><a href="#查看源码：" class="headerlink" title="查看源码："></a>查看源码：</h4><p>PagingDataAdapter.kt</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fun withLoadStateFooter(</span><br><span class="line">    footer: LoadStateAdapter&lt;*&gt;</span><br><span class="line">): MergeAdapter &#123;</span><br><span class="line">    addLoadStateListener &#123; loadStates -&gt;</span><br><span class="line">        footer.loadState = loadStates.append</span><br><span class="line">    &#125;</span><br><span class="line">    return MergeAdapter(this, footer)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>LoadStateAdapter.kt</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var loadState: LoadState = LoadState.NotLoading(endOfPaginationReached = false)</span><br><span class="line">    set(loadState) &#123;</span><br><span class="line">        if (field != loadState) &#123;</span><br><span class="line">            val oldItem = displayLoadStateAsItem(field)</span><br><span class="line">            val newItem = displayLoadStateAsItem(loadState)</span><br><span class="line"></span><br><span class="line">            if (oldItem &amp;&amp; !newItem) &#123;</span><br><span class="line">                notifyItemRemoved(0)</span><br><span class="line">            &#125; else if (newItem &amp;&amp; !oldItem) &#123;</span><br><span class="line">                notifyItemInserted(0)</span><br><span class="line">            &#125; else if (oldItem &amp;&amp; newItem) &#123;</span><br><span class="line">                notifyItemChanged(0)</span><br><span class="line">            &#125;</span><br><span class="line">            field = loadState</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Returns true if the LoadState should be displayed as a list item when active.</span><br><span class="line"> *</span><br><span class="line"> * By default, [LoadState.Loading] and [LoadState.Error] present as list items, others do not.</span><br><span class="line"> */</span><br><span class="line">open fun displayLoadStateAsItem(loadState: LoadState): Boolean &#123;</span><br><span class="line">    return loadState is LoadState.Loading || loadState is LoadState.Error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过查看源码可知，只有<code>newItem</code>为<code>true</code>才显示布局UI，若要newItem为true，则loadState的状态只有LoadState.Loading、LoadState.Error，故LoadStateAdapter只有loading、error两个状态。</p>
+<h4 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h4><p>监听PagingDataAdapter.addLoadStateListener可知，列表加载到底部会触发loadState.append的<code>NotLoading(endOfPaginationReached=true)</code>状态。</p>
+<p>以上，想要通过<code>loadState.endOfPaginationReached</code>属性判断是否到底部，只有拿到loadState的<code>NotLoading</code>状态，通过重写<code>displayLoadStateAsItem</code>方法返回<code>true</code>即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">override fun displayLoadStateAsItem(loadState: LoadState): Boolean &#123;</span><br><span class="line">    return true</span><br><span class="line">//    return loadState is LoadState.Loading || loadState is LoadState.Error || loadState is LoadState.NotLoading</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面两种返回值效果一样，loadState的loading、error、notLoading三种状态都会触发。</p>
+]]></content>
+      <categories>
+        <category>android</category>
+      </categories>
+      <tags>
+        <tag>paging</tag>
+        <tag>android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ViewPager2与SwipeRefreshLayout滑动冲突问题的解决</title>
+    <url>/2021/04/30/ViewPager2%E4%B8%8ESwipeRefreshLayout%E6%BB%91%E5%8A%A8%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/</url>
+    <content><![CDATA[<blockquote>
+<p>我们是在ViewPager2中的Fragment使用了SwipeRefreshLayout。当向下滑动时只要稍微偏左或右都会触发ViewPager2的移动，造成SwipeRefreshLayout卡在页面上不消失。</p>
+</blockquote>
+<ul>
+<li>解决方案一：重写SwipeRefreshLayout</li>
+</ul>
+<p>我们首先准备修改ViewPager2，可是它没法继承。那么目光只好投向SwipeRefreshLayout。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class MySwipeRefreshLayout : SwipeRefreshLayout &#123;</span><br><span class="line">    constructor(context: Context, attes: AttributeSet) : super(context, attes) &#123;&#125;</span><br><span class="line">    constructor(context: Context) : super(context)</span><br><span class="line"></span><br><span class="line">    private var startX = 0</span><br><span class="line">    private var beginScrolll = false //是否开始滑动</span><br><span class="line">    private var startY: Int = 0</span><br><span class="line">    override fun dispatchTouchEvent(ev: MotionEvent): Boolean &#123;</span><br><span class="line">        when (ev.action) &#123;</span><br><span class="line">            MotionEvent.ACTION_DOWN -&gt; &#123;</span><br><span class="line">                startX = ev.x.toInt()</span><br><span class="line">                startY = ev.y.toInt()</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_MOVE -&gt; &#123;</span><br><span class="line">                val endX = ev.x.toInt()</span><br><span class="line">                val endY = ev.y.toInt()</span><br><span class="line">                val disX = Math.abs(endX - startX)</span><br><span class="line">                val disY: Int = Math.abs(endY - startY)</span><br><span class="line">                if (disX &gt; disY) &#123;</span><br><span class="line">                    if (!beginScrolll)</span><br><span class="line">                        parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    beginScrolll = true</span><br><span class="line">                    parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -&gt; &#123;</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                beginScrolll=false</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return super.dispatchTouchEvent(ev)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>解决方案二：使用SmartRefreshLayout替代SwipeRefreshLayout即可。</li>
+</ul>
+<p><a href="https://blog.csdn.net/qq_15046309/article/details/106005736" target="_blank" rel="noopener">参考原文地址</a></p>
+]]></content>
+      <categories>
+        <category>android</category>
+      </categories>
+      <tags>
+        <tag>jetpack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>oh-my-zsh ，zsh: command not found: adb</title>
+    <url>/2019/12/26/oh-my-zsh-%EF%BC%8Czsh-command-not-found-adb/</url>
+    <content><![CDATA[<p>安装完zsh，在使用相关shell命令，出现了”zsh: command not found adb:adb”,”zsh: command not found: git” 等一系列error</p>
+<blockquote>
+<p>其实就是bash shell 以及zsh shell 是两种读取系统环境变量（使用adb的前提是你肯定已经在bash的 .bash_profile 已经配置相关android tool的环境变量了，从而才能使用adb命令）<br>然而在使用zsh shell的时候，你并没有把相关的环境变量的配置设置到 .zshrc 中（功能上类似bash 的.bash_profile）</p>
+</blockquote>
 <a id="more"></a>
 
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<h5 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h5><p>既然是.zshrc 没有配置相关环境变量设置，把 bash 中.bash_profile 全部环境变量加入就好</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">open .zshrc</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>然后找到# User configuration部分，添加</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>执行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source .zshrc</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p>最后再运行adb命令即可</p>
 ]]></content>
+      <categories>
+        <category>tools</category>
+      </categories>
+      <tags>
+        <tag>terminal</tag>
+      </tags>
   </entry>
   <entry>
     <title>Retrofit多图上传</title>
@@ -483,82 +541,24 @@
       </tags>
   </entry>
   <entry>
-    <title>oh-my-zsh ，zsh: command not found: adb</title>
-    <url>/2019/12/26/oh-my-zsh-%EF%BC%8Czsh-command-not-found-adb/</url>
-    <content><![CDATA[<p>安装完zsh，在使用相关shell命令，出现了”zsh: command not found adb:adb”,”zsh: command not found: git” 等一系列error</p>
-<blockquote>
-<p>其实就是bash shell 以及zsh shell 是两种读取系统环境变量（使用adb的前提是你肯定已经在bash的 .bash_profile 已经配置相关android tool的环境变量了，从而才能使用adb命令）<br>然而在使用zsh shell的时候，你并没有把相关的环境变量的配置设置到 .zshrc 中（功能上类似bash 的.bash_profile）</p>
-</blockquote>
+    <title>Hello World</title>
+    <url>/2019/07/05/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <a id="more"></a>
 
-<h5 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h5><p>既然是.zshrc 没有配置相关环境变量设置，把 bash 中.bash_profile 全部环境变量加入就好</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">open .zshrc</span><br></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
-<p>然后找到# User configuration部分，添加</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>执行</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source .zshrc</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>最后再运行adb命令即可</p>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
-      <categories>
-        <category>tools</category>
-      </categories>
-      <tags>
-        <tag>terminal</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ViewPager2与SwipeRefreshLayout滑动冲突问题的解决</title>
-    <url>/2021/04/30/ViewPager2%E4%B8%8ESwipeRefreshLayout%E6%BB%91%E5%8A%A8%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/</url>
-    <content><![CDATA[<blockquote>
-<p>我们是在ViewPager2中的Fragment使用了SwipeRefreshLayout。当向下滑动时只要稍微偏左或右都会触发ViewPager2的移动，造成SwipeRefreshLayout卡在页面上不消失。</p>
-</blockquote>
-<ul>
-<li>解决方案一：重写SwipeRefreshLayout</li>
-</ul>
-<p>我们首先准备修改ViewPager2，可是它没法继承。那么目光只好投向SwipeRefreshLayout。</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class MySwipeRefreshLayout : SwipeRefreshLayout &#123;</span><br><span class="line">    constructor(context: Context, attes: AttributeSet) : super(context, attes) &#123;&#125;</span><br><span class="line">    constructor(context: Context) : super(context)</span><br><span class="line"></span><br><span class="line">    private var startX = 0</span><br><span class="line">    private var beginScrolll = false //是否开始滑动</span><br><span class="line">    private var startY: Int = 0</span><br><span class="line">    override fun dispatchTouchEvent(ev: MotionEvent): Boolean &#123;</span><br><span class="line">        when (ev.action) &#123;</span><br><span class="line">            MotionEvent.ACTION_DOWN -&gt; &#123;</span><br><span class="line">                startX = ev.x.toInt()</span><br><span class="line">                startY = ev.y.toInt()</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_MOVE -&gt; &#123;</span><br><span class="line">                val endX = ev.x.toInt()</span><br><span class="line">                val endY = ev.y.toInt()</span><br><span class="line">                val disX = Math.abs(endX - startX)</span><br><span class="line">                val disY: Int = Math.abs(endY - startY)</span><br><span class="line">                if (disX &gt; disY) &#123;</span><br><span class="line">                    if (!beginScrolll)</span><br><span class="line">                        parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    beginScrolll = true</span><br><span class="line">                    parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -&gt; &#123;</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                beginScrolll=false</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return super.dispatchTouchEvent(ev)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>解决方案二：使用SmartRefreshLayout替代SwipeRefreshLayout即可。</li>
-</ul>
-<p><a href="https://blog.csdn.net/qq_15046309/article/details/106005736" target="_blank" rel="noopener">参考原文地址</a></p>
-]]></content>
-      <categories>
-        <category>android</category>
-      </categories>
-      <tags>
-        <tag>jetpack</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Paging3 LoadStateAdapter显示已加载完所有数据</title>
-    <url>/2020/12/29/Paging3-LoadStateAdapter%E6%98%BE%E7%A4%BA%E5%B7%B2%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE/</url>
-    <content><![CDATA[<h4 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h4><p>使用paging3的过程中，本想通过为PagingDataAdaper添加页脚LoadStateAdapter方法onBindViewHolder(holder: LoadStateViewHolder, loadState: LoadState)中的<code>loadState</code>显示<code>loading</code>、<code>error</code>、<code>no more</code>,但是处理no more的时候发现<code>loadState.endOfPaginationReached</code>一直是<code>false</code>，且loadState只有<code>LoadState.Loading</code>、<code>LoadState.Error</code>两种状态</p>
-<a id="more"></a>
-<h4 id="查看源码："><a href="#查看源码：" class="headerlink" title="查看源码："></a>查看源码：</h4><p>PagingDataAdapter.kt</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fun withLoadStateFooter(</span><br><span class="line">    footer: LoadStateAdapter&lt;*&gt;</span><br><span class="line">): MergeAdapter &#123;</span><br><span class="line">    addLoadStateListener &#123; loadStates -&gt;</span><br><span class="line">        footer.loadState = loadStates.append</span><br><span class="line">    &#125;</span><br><span class="line">    return MergeAdapter(this, footer)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>LoadStateAdapter.kt</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var loadState: LoadState = LoadState.NotLoading(endOfPaginationReached = false)</span><br><span class="line">    set(loadState) &#123;</span><br><span class="line">        if (field != loadState) &#123;</span><br><span class="line">            val oldItem = displayLoadStateAsItem(field)</span><br><span class="line">            val newItem = displayLoadStateAsItem(loadState)</span><br><span class="line"></span><br><span class="line">            if (oldItem &amp;&amp; !newItem) &#123;</span><br><span class="line">                notifyItemRemoved(0)</span><br><span class="line">            &#125; else if (newItem &amp;&amp; !oldItem) &#123;</span><br><span class="line">                notifyItemInserted(0)</span><br><span class="line">            &#125; else if (oldItem &amp;&amp; newItem) &#123;</span><br><span class="line">                notifyItemChanged(0)</span><br><span class="line">            &#125;</span><br><span class="line">            field = loadState</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Returns true if the LoadState should be displayed as a list item when active.</span><br><span class="line"> *</span><br><span class="line"> * By default, [LoadState.Loading] and [LoadState.Error] present as list items, others do not.</span><br><span class="line"> */</span><br><span class="line">open fun displayLoadStateAsItem(loadState: LoadState): Boolean &#123;</span><br><span class="line">    return loadState is LoadState.Loading || loadState is LoadState.Error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>通过查看源码可知，只有<code>newItem</code>为<code>true</code>才显示布局UI，若要newItem为true，则loadState的状态只有LoadState.Loading、LoadState.Error，故LoadStateAdapter只有loading、error两个状态。</p>
-<h4 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h4><p>监听PagingDataAdapter.addLoadStateListener可知，列表加载到底部会触发loadState.append的<code>NotLoading(endOfPaginationReached=true)</code>状态。</p>
-<p>以上，想要通过<code>loadState.endOfPaginationReached</code>属性判断是否到底部，只有拿到loadState的<code>NotLoading</code>状态，通过重写<code>displayLoadStateAsItem</code>方法返回<code>true</code>即可。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">override fun displayLoadStateAsItem(loadState: LoadState): Boolean &#123;</span><br><span class="line">    return true</span><br><span class="line">//    return loadState is LoadState.Loading || loadState is LoadState.Error || loadState is LoadState.NotLoading</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>上面两种返回值效果一样，loadState的loading、error、notLoading三种状态都会触发。</p>
-]]></content>
-      <categories>
-        <category>android</category>
-      </categories>
-      <tags>
-        <tag>paging</tag>
-        <tag>android</tag>
-      </tags>
   </entry>
   <entry>
     <title>zsh: command not found: hexo</title>
