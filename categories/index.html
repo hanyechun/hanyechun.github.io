@@ -145,13 +145,11 @@
 <meta property="og:site_name" content="hyc&#39;s blog">
 <meta property="og:description" content="iblog">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-18T06:56:24.298Z">
+<meta property="og:updated_time" content="2022-08-19T10:06:32.109Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="categories">
 <meta name="twitter:description" content="iblog">
 
-
-  
 
 
   <link rel="alternate" href="/atom.xml" title="hyc's blog" type="application/atom+xml">
@@ -534,14 +532,6 @@
           </div>
           
 
-  
-    <div class="comments" id="comments">
-    </div>
-
-  
-
-
-
         </div>
         
           
@@ -864,34 +854,30 @@
     return GUEST.indexOf(item) > -1;
   });
 
-
-  var requiredFields = '<%= theme.comment.valine.requiredFields %>';
-  requiredFields = requiredFields.split(',');
-
+  var required = 'mail';
+  required = required.split(',');
 
   new Valine({
     el: '#comments',
     verify: false,
-    notify: true,
+    notify: false,
     appId: 'CQp1LA3nmiItGPvjdhn0g152-MdYXbMMI',
     appKey: 'HxHFMjLyzuSgVX9aJdO6BUCn',
-    placeholder: '说点什么吧...',
+    placeholder: '说点什么吧... \n昵称栏输入QQ号可以自动获取邮箱、头像哦',
     avatar: 'mm',
     meta: guest,
     pageSize: '10' || 10,
     serverURLs: 'https://cqp1la3n.api.lncldglobal.com',
     visitor: false,
     lang: 'zh-cn' || 'zh-cn',
-    enableQQ：enableQQ: '',
-    recordIP：recordIP: '',
-    requiredFields: requiredFields
+    enableQQ: 'true',
+    recordIP: 'false',
+    requiredFields: required,
   });
 </script>
 
 
 
-
-  
 
 
   

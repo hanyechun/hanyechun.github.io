@@ -139,7 +139,7 @@
 
 
   <meta name="description" content="问题描述：使用paging3的过程中，本想通过为PagingDataAdaper添加页脚LoadStateAdapter方法onBindViewHolder(holder: LoadStateViewHolder, loadState: LoadState)中的loadState显示loading、error、no more,但是处理no more的时候发现loadState.endOfPagin">
-<meta name="keywords" content="jetpack,paging">
+<meta name="keywords" content="paging,jetpack">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Paging3 LoadStateAdapter显示已加载完所有数据">
 <meta property="og:url" content="https://hanyechun.github.io/2020/12/29/Paging3-LoadStateAdapter显示已加载完所有数据/index.html">
@@ -659,9 +659,9 @@
         
         <div class="post-tags">
           
-            <a href="/tags/jetpack/" rel="tag"># jetpack</a>
-          
             <a href="/tags/paging/" rel="tag"># paging</a>
+          
+            <a href="/tags/jetpack/" rel="tag"># jetpack</a>
           
         </div>
       
@@ -1064,27 +1064,25 @@
     return GUEST.indexOf(item) > -1;
   });
 
-
-  var requiredFields = '<%= theme.comment.valine.requiredFields %>';
-  requiredFields = requiredFields.split(',');
-
+  var required = 'mail';
+  required = required.split(',');
 
   new Valine({
     el: '#comments',
     verify: false,
-    notify: true,
+    notify: false,
     appId: 'CQp1LA3nmiItGPvjdhn0g152-MdYXbMMI',
     appKey: 'HxHFMjLyzuSgVX9aJdO6BUCn',
-    placeholder: '说点什么吧...',
+    placeholder: '说点什么吧... \n昵称栏输入QQ号可以自动获取邮箱、头像哦',
     avatar: 'mm',
     meta: guest,
     pageSize: '10' || 10,
     serverURLs: 'https://cqp1la3n.api.lncldglobal.com',
     visitor: false,
     lang: 'zh-cn' || 'zh-cn',
-    enableQQ：enableQQ: '',
-    recordIP：recordIP: '',
-    requiredFields: requiredFields
+    enableQQ: 'true',
+    recordIP: 'false',
+    requiredFields: required,
   });
 </script>
 
