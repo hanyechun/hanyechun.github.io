@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo 双线部署</title>
+    <url>/2022/08/18/Hexo-%E5%8F%8C%E7%BA%BF%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h4 id="一、coding部署"><a href="#一、coding部署" class="headerlink" title="一、coding部署"></a>一、coding部署</h4><ul>
+<li>到<a href="https://coding.net/" target="_blank" rel="noopener">Coding</a>注册账号</li>
+<li>添加ssh公钥，可参考<a href="https://www.jianshu.com/p/7431fc3e5013" target="_blank" rel="noopener">这篇文章</a></li>
+<li>创建项目、仓库名任意，配置pages服务</li>
+</ul>
+<h4 id="二、github部署"><a href="#二、github部署" class="headerlink" title="二、github部署"></a>二、github部署</h4><ul>
+<li>创建仓库，仓库名必须为<code>yourname.github.io</code>，<code>yourname</code>为用户名<br>当你的仓库名为：用户名.github.io 之后默认开启Github Pages</li>
+<li>添加ssh key</li>
+</ul>
+<a id="more"></a>
+
+<h4 id="三、-config-yml修改"><a href="#三、-config-yml修改" class="headerlink" title="三、_config.yml修改"></a>三、_config.yml修改</h4><p>修改<code>站点配置文件</code>的<code>deploy</code>信息如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo:</span><br><span class="line">      github: git@github.com:yourname/yourname.github.io.git</span><br><span class="line">      coding: git@git.coding.net:yourname/yourname.git</span><br></pre></td></tr></table></figure>
+
+<h4 id="四、执行部署"><a href="#四、执行部署" class="headerlink" title="四、执行部署"></a>四、执行部署</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hexo 高级应用</title>
+    <url>/2022/08/18/Hexo-%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h4 id="一、Hexo图片引用"><a href="#一、Hexo图片引用" class="headerlink" title="一、Hexo图片引用"></a>一、Hexo图片引用</h4><ol>
+<li><p>本地图片<br>开启<code>_config.yml</code>中的<code>post_asset_folder: true</code> 参数，然后再你的博文生成一个同名的目录，把图片放进去，然后以如下方式引用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![](博文目录/图片.jpg)</span><br></pre></td></tr></table></figure>
+
+<p> 若不想每次生成一个同名目录，直接在resource目录下添加一个images目录，引用如下</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![](/博文目录/images/图片.jpg)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用github存储图片<br>github创建一个项目，上传图片，点击图片 -&gt; download，查看路径</p>
+</li>
+<li><p>使用七牛云<br>点击<a href="https://github.com/gyk001/hexo-qiniu-sync" target="_blank" rel="noopener">这里</a>，查看说明</p>
+</li>
+</ol>
+<a id="more"></a>]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Hexo NexT主题</title>
     <url>/2022/08/18/Hexo-NexT%E4%B8%BB%E9%A2%98/</url>
     <content><![CDATA[<p><a href="http://theme-next.iissnan.com/theme-settings.html#volunteer-404" target="_blank" rel="noopener">官方文档</a></p>
@@ -70,46 +112,133 @@
       </categories>
   </entry>
   <entry>
-    <title>Hexo 双线部署</title>
-    <url>/2022/08/18/Hexo-%E5%8F%8C%E7%BA%BF%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<h4 id="一、coding部署"><a href="#一、coding部署" class="headerlink" title="一、coding部署"></a>一、coding部署</h4><ul>
-<li>到<a href="https://coding.net/" target="_blank" rel="noopener">Coding</a>注册账号</li>
-<li>添加ssh公钥，可参考<a href="https://www.jianshu.com/p/7431fc3e5013" target="_blank" rel="noopener">这篇文章</a></li>
-<li>创建项目、仓库名任意，配置pages服务</li>
-</ul>
-<h4 id="二、github部署"><a href="#二、github部署" class="headerlink" title="二、github部署"></a>二、github部署</h4><ul>
-<li>创建仓库，仓库名必须为<code>yourname.github.io</code>，<code>yourname</code>为用户名<br>当你的仓库名为：用户名.github.io 之后默认开启Github Pages</li>
-<li>添加ssh key</li>
-</ul>
+    <title>MPAndroidChart使用</title>
+    <url>/2022/08/18/MPAndroidChart%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h4 id="Y轴-YAxis"><a href="#Y轴-YAxis" class="headerlink" title="Y轴 YAxis"></a>Y轴 YAxis</h4><p>YAxis是AxisBase的子类。YAxis类（在早于2.0.0 版本中叫做YLabels）是数据和一切与垂直轴相关的信息容器。每个Line-，Bar-，Scatter或CandleStickChart都有一个左右YAxis对象，分别负责左轴或右轴。RadarChart只有一个YAxis。默认情况下，图表的两个轴都已启用并将被绘制。</p>
+<p>为了获得一个实例中的YAxis类，请调用以下方法之一：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">YAxis leftAxis = chart.getAxisLeft();</span><br><span class="line">YAxis rightAxis = chart.getAxisRight();</span><br><span class="line"></span><br><span class="line">YAxis leftAxis = chart.getAxis(AxisDependency.LEFT);</span><br><span class="line"></span><br><span class="line">YAxis yAxis = radarChart.getYAxis(); // this method radarchart only</span><br></pre></td></tr></table></figure>
+
+<p>在运行时，用public AxisDependency getAxisDependency()确定此轴表示的图表的一侧。</p>
+<p>在为图表设置数据之前，需要应用影响轴值范围的自定义。</p>
 <a id="more"></a>
 
-<h4 id="三、-config-yml修改"><a href="#三、-config-yml修改" class="headerlink" title="三、_config.yml修改"></a>三、_config.yml修改</h4><p>修改<code>站点配置文件</code>的<code>deploy</code>信息如下</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo:</span><br><span class="line">      github: git@github.com:yourname/yourname.github.io.git</span><br><span class="line">      coding: git@git.coding.net:yourname/yourname.git</span><br></pre></td></tr></table></figure>
+<h5 id="轴依赖性"><a href="#轴依赖性" class="headerlink" title="轴依赖性"></a>轴依赖性</h5><p>默认情况下，添加到图表的所有数据都会绘制在图表左侧YAxis。如果未进一步指定和启用，YAxis则调整右侧以表示与左轴相同的比例。</p>
+<p>如果您的图表需要支持不同的轴刻度，您可以通过设置应绘制数据的轴来实现。这可以通过更改DataSet对象的AxisDependency来完成：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LineDataSet dataSet = ...; // get a dataset</span><br><span class="line">dataSet.setAxisDependency(AxisDependency.RIGHT);</span><br></pre></td></tr></table></figure>
 
-<h4 id="四、执行部署"><a href="#四、执行部署" class="headerlink" title="四、执行部署"></a>四、执行部署</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>]]></content>
+<p><a href="https://developer.aliyun.com/article/680371" target="_blank" rel="noopener">设置此项将更改绘制数据的轴。</a></p>
+]]></content>
       <categories>
-        <category>hexo</category>
+        <category>android</category>
       </categories>
   </entry>
   <entry>
-    <title>Hexo 高级应用</title>
-    <url>/2022/08/18/Hexo-%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<h4 id="一、Hexo图片引用"><a href="#一、Hexo图片引用" class="headerlink" title="一、Hexo图片引用"></a>一、Hexo图片引用</h4><ol>
-<li><p>本地图片<br>开启<code>_config.yml</code>中的<code>post_asset_folder: true</code> 参数，然后再你的博文生成一个同名的目录，把图片放进去，然后以如下方式引用</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![](博文目录/图片.jpg)</span><br></pre></td></tr></table></figure>
+    <title>Mac使用oh-my-zsh + autosuggestions搭建个性化Terminal</title>
+    <url>/2019/10/14/Mac%E4%BD%BF%E7%94%A8oh-my-zsh-autosuggestions%E6%90%AD%E5%BB%BA%E4%B8%AA%E6%80%A7%E5%8C%96Terminal/</url>
+    <content><![CDATA[<p>查看Mac上已有的shell</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat /etc/shells</span><br><span class="line"></span><br><span class="line">/bin/bash</span><br><span class="line">/bin/csh</span><br><span class="line">/bin/ksh</span><br><span class="line">/bin/sh</span><br><span class="line">/bin/tcsh</span><br><span class="line">/bin/zsh</span><br></pre></td></tr></table></figure>
 
-<p> 若不想每次生成一个同名目录，直接在resource目录下添加一个images目录，引用如下</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![](/博文目录/images/图片.jpg)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用github存储图片<br>github创建一个项目，上传图片，点击图片 -&gt; download，查看路径</p>
-</li>
-<li><p>使用七牛云<br>点击<a href="https://github.com/gyk001/hexo-qiniu-sync" target="_blank" rel="noopener">这里</a>，查看说明</p>
+<p>将默认 shell 改成 zsh</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p>安装 oh my zsh</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</span><br><span class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>shell solarized 配色</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone git://github.com/altercation/solarized.git</span><br><span class="line"># 然后打开 solarized/osx-terminal.app-colors-solarized/Solarized Dark ansi.terminal 配置文件</span><br></pre></td></tr></table></figure>
+
+<p>安装 autojump 插件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew install autojump # 确保有 brew 命令</span><br></pre></td></tr></table></figure>
+
+<p>安装 zsh-autosuggestions 插件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-autosuggestions $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+
+<p>安装 zsh-syntax-highlighting 插件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+
+<p>编辑～/.zshrc 文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim ~/.zshrc</span><br><span class="line"></span><br><span class="line">ZSH_THEME=&quot;agnoster&quot; # 默认主题主题</span><br><span class="line">plugins=(git brew laravel5 autojump zsh-autosuggestions zsh-syntax-highlighting) # 配置插件</span><br></pre></td></tr></table></figure>
+
+<p>使用如下命令使控制台窗口生效</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes" target="_blank" rel="noopener">oh-my-zsh主题选择</a></p>
+]]></content>
+      <categories>
+        <category>mac</category>
+      </categories>
+      <tags>
+        <tag>terminal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac生成SSH Key</title>
+    <url>/2019/07/19/Mac%E7%94%9F%E6%88%90SSH-Key/</url>
+    <content><![CDATA[<h4 id="打开vim（terminal-app）查看本地是否存在SSH-Key"><a href="#打开vim（terminal-app）查看本地是否存在SSH-Key" class="headerlink" title="打开vim（terminal.app）查看本地是否存在SSH-Key"></a>打开vim（terminal.app）查看本地是否存在SSH-Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls -al ~/.ssh</span><br></pre></td></tr></table></figure>
+
+<p>如果vim输出的是如下内容：证明本地没有生成的SSH Key，请执行第二步。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">No such file or directory</span><br></pre></td></tr></table></figure>
+
+<p>如果vim输出的是如下内容： 证明本地已经存在SSH Key 文件，请执行第四步。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">id_rsa    id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<h4 id="如果没有，生成新的SSH-Key"><a href="#如果没有，生成新的SSH-Key" class="headerlink" title="如果没有，生成新的SSH Key"></a>如果没有，生成新的SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C&quot;you_email&quot;</span><br></pre></td></tr></table></figure>
+
+<p>your_email：这里填写你在GitLab或者GitHub注册时的邮箱。<br>后面的提示直接敲回车，一路完成。</p>
+<h4 id="生成并添加SSH-Key"><a href="#生成并添加SSH-Key" class="headerlink" title="生成并添加SSH Key"></a>生成并添加SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看SSH-Key"><a href="#查看SSH-Key" class="headerlink" title="查看SSH Key"></a>查看SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat /Users/xxx/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>xxx是你的电脑用户名，例如：howieMacBook-Pro:~ howie$中的howie关键字。<br>复制生成好的SSH Key 添加到 GitLab 或者GitHub中的SSH Key中即可。</p>
+]]></content>
+      <categories>
+        <category>mac</category>
+      </categories>
+      <tags>
+        <tag>mac</tag>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac adb install apk</title>
+    <url>/2019/07/19/Mac-adb-install-apk/</url>
+    <content><![CDATA[<h4 id="Mac配置adb"><a href="#Mac配置adb" class="headerlink" title="Mac配置adb"></a>Mac配置adb</h4><ol>
+<li>在AS界面上，打开Preferences界面（快捷键： command + , 键），然后复制sdk路径<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">~/Library/Android/sdk/platform-tools</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
-<a id="more"></a>]]></content>
+<a id="more"></a>
+
+<ol start="2">
+<li><p>打开finder，按快捷键：shift + command + g，前往文件夹<br>查看adb文件是否在该目录下</p>
+</li>
+<li><p>打开终端，输入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">touch .bash_profile</span><br><span class="line">open -e .bash_profile</span><br></pre></td></tr></table></figure>
+
+<p> 修改弹出的.bash_profile的文件，增加以下语句</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export PATH=$&#123;PATH&#125;:~/Library/Android/sdk/platform-tools</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行如下命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source .bash_profile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证：输入adb回车，即可生效</p>
+</li>
+</ol>
+<h4 id="验证adb是否生效"><a href="#验证adb是否生效" class="headerlink" title="验证adb是否生效"></a>验证adb是否生效</h4><p>在终端输入:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">adb install apk路径</span><br></pre></td></tr></table></figure>
+
+<p>出现success表示安装成功</p>
+<h4 id="常见的Android开发命令"><a href="#常见的Android开发命令" class="headerlink" title="常见的Android开发命令"></a>常见的Android开发命令</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">adb shell：来到手机终端中。</span><br><span class="line">adb divices</span><br><span class="line">adb kill-server</span><br><span class="line">adb start-server</span><br><span class="line">adb install XXX.apk：安装应用程序</span><br><span class="line">abd uninstall （应用程序的包名）</span><br><span class="line">adb -s 设备名字 XXX.apk可以选择哪个模拟器，安装程序</span><br><span class="line">adb pull：（pull拉去，拿取）：把手机中的文件导出去</span><br><span class="line">adb push</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>hexo</category>
+        <category>android</category>
       </categories>
+      <tags>
+        <tag>mac</tag>
+        <tag>adb</tag>
+      </tags>
   </entry>
   <entry>
     <title>Android面试题</title>
@@ -213,106 +342,6 @@
       </categories>
   </entry>
   <entry>
-    <title>MPAndroidChart使用</title>
-    <url>/2022/08/18/MPAndroidChart%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h4 id="Y轴-YAxis"><a href="#Y轴-YAxis" class="headerlink" title="Y轴 YAxis"></a>Y轴 YAxis</h4><p>YAxis是AxisBase的子类。YAxis类（在早于2.0.0 版本中叫做YLabels）是数据和一切与垂直轴相关的信息容器。每个Line-，Bar-，Scatter或CandleStickChart都有一个左右YAxis对象，分别负责左轴或右轴。RadarChart只有一个YAxis。默认情况下，图表的两个轴都已启用并将被绘制。</p>
-<p>为了获得一个实例中的YAxis类，请调用以下方法之一：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">YAxis leftAxis = chart.getAxisLeft();</span><br><span class="line">YAxis rightAxis = chart.getAxisRight();</span><br><span class="line"></span><br><span class="line">YAxis leftAxis = chart.getAxis(AxisDependency.LEFT);</span><br><span class="line"></span><br><span class="line">YAxis yAxis = radarChart.getYAxis(); // this method radarchart only</span><br></pre></td></tr></table></figure>
-
-<p>在运行时，用public AxisDependency getAxisDependency()确定此轴表示的图表的一侧。</p>
-<p>在为图表设置数据之前，需要应用影响轴值范围的自定义。</p>
-<a id="more"></a>
-
-<h5 id="轴依赖性"><a href="#轴依赖性" class="headerlink" title="轴依赖性"></a>轴依赖性</h5><p>默认情况下，添加到图表的所有数据都会绘制在图表左侧YAxis。如果未进一步指定和启用，YAxis则调整右侧以表示与左轴相同的比例。</p>
-<p>如果您的图表需要支持不同的轴刻度，您可以通过设置应绘制数据的轴来实现。这可以通过更改DataSet对象的AxisDependency来完成：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LineDataSet dataSet = ...; // get a dataset</span><br><span class="line">dataSet.setAxisDependency(AxisDependency.RIGHT);</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://developer.aliyun.com/article/680371" target="_blank" rel="noopener">设置此项将更改绘制数据的轴。</a></p>
-]]></content>
-      <categories>
-        <category>android</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Mac adb install apk</title>
-    <url>/2019/07/19/Mac-adb-install-apk/</url>
-    <content><![CDATA[<h4 id="Mac配置adb"><a href="#Mac配置adb" class="headerlink" title="Mac配置adb"></a>Mac配置adb</h4><ol>
-<li>在AS界面上，打开Preferences界面（快捷键： command + , 键），然后复制sdk路径<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">~/Library/Android/sdk/platform-tools</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<a id="more"></a>
-
-<ol start="2">
-<li><p>打开finder，按快捷键：shift + command + g，前往文件夹<br>查看adb文件是否在该目录下</p>
-</li>
-<li><p>打开终端，输入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">touch .bash_profile</span><br><span class="line">open -e .bash_profile</span><br></pre></td></tr></table></figure>
-
-<p> 修改弹出的.bash_profile的文件，增加以下语句</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export PATH=$&#123;PATH&#125;:~/Library/Android/sdk/platform-tools</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行如下命令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source .bash_profile</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>验证：输入adb回车，即可生效</p>
-</li>
-</ol>
-<h4 id="验证adb是否生效"><a href="#验证adb是否生效" class="headerlink" title="验证adb是否生效"></a>验证adb是否生效</h4><p>在终端输入:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">adb install apk路径</span><br></pre></td></tr></table></figure>
-
-<p>出现success表示安装成功</p>
-<h4 id="常见的Android开发命令"><a href="#常见的Android开发命令" class="headerlink" title="常见的Android开发命令"></a>常见的Android开发命令</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">adb shell：来到手机终端中。</span><br><span class="line">adb divices</span><br><span class="line">adb kill-server</span><br><span class="line">adb start-server</span><br><span class="line">adb install XXX.apk：安装应用程序</span><br><span class="line">abd uninstall （应用程序的包名）</span><br><span class="line">adb -s 设备名字 XXX.apk可以选择哪个模拟器，安装程序</span><br><span class="line">adb pull：（pull拉去，拿取）：把手机中的文件导出去</span><br><span class="line">adb push</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>android</category>
-      </categories>
-      <tags>
-        <tag>mac</tag>
-        <tag>adb</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mac使用oh-my-zsh + autosuggestions搭建个性化Terminal</title>
-    <url>/2019/10/14/Mac%E4%BD%BF%E7%94%A8oh-my-zsh-autosuggestions%E6%90%AD%E5%BB%BA%E4%B8%AA%E6%80%A7%E5%8C%96Terminal/</url>
-    <content><![CDATA[<p>查看Mac上已有的shell</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat /etc/shells</span><br><span class="line"></span><br><span class="line">/bin/bash</span><br><span class="line">/bin/csh</span><br><span class="line">/bin/ksh</span><br><span class="line">/bin/sh</span><br><span class="line">/bin/tcsh</span><br><span class="line">/bin/zsh</span><br></pre></td></tr></table></figure>
-
-<p>将默认 shell 改成 zsh</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<p>安装 oh my zsh</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</span><br><span class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</span><br></pre></td></tr></table></figure>
-
-<p>shell solarized 配色</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone git://github.com/altercation/solarized.git</span><br><span class="line"># 然后打开 solarized/osx-terminal.app-colors-solarized/Solarized Dark ansi.terminal 配置文件</span><br></pre></td></tr></table></figure>
-
-<p>安装 autojump 插件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew install autojump # 确保有 brew 命令</span><br></pre></td></tr></table></figure>
-
-<p>安装 zsh-autosuggestions 插件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-autosuggestions $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
-
-<p>安装 zsh-syntax-highlighting 插件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
-
-<p>编辑～/.zshrc 文件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim ~/.zshrc</span><br><span class="line"></span><br><span class="line">ZSH_THEME=&quot;agnoster&quot; # 默认主题主题</span><br><span class="line">plugins=(git brew laravel5 autojump zsh-autosuggestions zsh-syntax-highlighting) # 配置插件</span><br></pre></td></tr></table></figure>
-
-<p>使用如下命令使控制台窗口生效</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes" target="_blank" rel="noopener">oh-my-zsh主题选择</a></p>
-]]></content>
-      <categories>
-        <category>mac</category>
-      </categories>
-      <tags>
-        <tag>terminal</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Paging3 LoadStateAdapter显示已加载完所有数据</title>
     <url>/2020/12/29/Paging3-LoadStateAdapter%E6%98%BE%E7%A4%BA%E5%B7%B2%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE/</url>
     <content><![CDATA[<h4 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h4><p>使用paging3的过程中，本想通过为PagingDataAdaper添加页脚LoadStateAdapter方法onBindViewHolder(holder: LoadStateViewHolder, loadState: LoadState)中的<code>loadState</code>显示<code>loading</code>、<code>error</code>、<code>no more</code>,但是处理no more的时候发现<code>loadState.endOfPaginationReached</code>一直是<code>false</code>，且loadState只有<code>LoadState.Loading</code>、<code>LoadState.Error</code>两种状态</p>
@@ -336,35 +365,6 @@
       <tags>
         <tag>paging</tag>
         <tag>android</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mac生成SSH Key</title>
-    <url>/2019/07/19/Mac%E7%94%9F%E6%88%90SSH-Key/</url>
-    <content><![CDATA[<h4 id="打开vim（terminal-app）查看本地是否存在SSH-Key"><a href="#打开vim（terminal-app）查看本地是否存在SSH-Key" class="headerlink" title="打开vim（terminal.app）查看本地是否存在SSH-Key"></a>打开vim（terminal.app）查看本地是否存在SSH-Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls -al ~/.ssh</span><br></pre></td></tr></table></figure>
-
-<p>如果vim输出的是如下内容：证明本地没有生成的SSH Key，请执行第二步。</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">No such file or directory</span><br></pre></td></tr></table></figure>
-
-<p>如果vim输出的是如下内容： 证明本地已经存在SSH Key 文件，请执行第四步。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">id_rsa    id_rsa.pub</span><br></pre></td></tr></table></figure>
-
-<h4 id="如果没有，生成新的SSH-Key"><a href="#如果没有，生成新的SSH-Key" class="headerlink" title="如果没有，生成新的SSH Key"></a>如果没有，生成新的SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C&quot;you_email&quot;</span><br></pre></td></tr></table></figure>
-
-<p>your_email：这里填写你在GitLab或者GitHub注册时的邮箱。<br>后面的提示直接敲回车，一路完成。</p>
-<h4 id="生成并添加SSH-Key"><a href="#生成并添加SSH-Key" class="headerlink" title="生成并添加SSH Key"></a>生成并添加SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
-
-<h4 id="查看SSH-Key"><a href="#查看SSH-Key" class="headerlink" title="查看SSH Key"></a>查看SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat /Users/xxx/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-
-<p>xxx是你的电脑用户名，例如：howieMacBook-Pro:~ howie$中的howie关键字。<br>复制生成好的SSH Key 添加到 GitLab 或者GitHub中的SSH Key中即可。</p>
-]]></content>
-      <categories>
-        <category>mac</category>
-      </categories>
-      <tags>
-        <tag>mac</tag>
-        <tag>ssh</tag>
       </tags>
   </entry>
   <entry>
@@ -397,51 +397,6 @@
       <tags>
         <tag>retrofit</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>ViewPager2与SwipeRefreshLayout滑动冲突问题的解决</title>
-    <url>/2021/04/30/ViewPager2%E4%B8%8ESwipeRefreshLayout%E6%BB%91%E5%8A%A8%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/</url>
-    <content><![CDATA[<blockquote>
-<p>我们是在ViewPager2中的Fragment使用了SwipeRefreshLayout。当向下滑动时只要稍微偏左或右都会触发ViewPager2的移动，造成SwipeRefreshLayout卡在页面上不消失。</p>
-</blockquote>
-<ul>
-<li>解决方案一：重写SwipeRefreshLayout</li>
-</ul>
-<p>我们首先准备修改ViewPager2，可是它没法继承。那么目光只好投向SwipeRefreshLayout。</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class MySwipeRefreshLayout : SwipeRefreshLayout &#123;</span><br><span class="line">    constructor(context: Context, attes: AttributeSet) : super(context, attes) &#123;&#125;</span><br><span class="line">    constructor(context: Context) : super(context)</span><br><span class="line"></span><br><span class="line">    private var startX = 0</span><br><span class="line">    private var beginScrolll = false //是否开始滑动</span><br><span class="line">    private var startY: Int = 0</span><br><span class="line">    override fun dispatchTouchEvent(ev: MotionEvent): Boolean &#123;</span><br><span class="line">        when (ev.action) &#123;</span><br><span class="line">            MotionEvent.ACTION_DOWN -&gt; &#123;</span><br><span class="line">                startX = ev.x.toInt()</span><br><span class="line">                startY = ev.y.toInt()</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_MOVE -&gt; &#123;</span><br><span class="line">                val endX = ev.x.toInt()</span><br><span class="line">                val endY = ev.y.toInt()</span><br><span class="line">                val disX = Math.abs(endX - startX)</span><br><span class="line">                val disY: Int = Math.abs(endY - startY)</span><br><span class="line">                if (disX &gt; disY) &#123;</span><br><span class="line">                    if (!beginScrolll)</span><br><span class="line">                        parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    beginScrolll = true</span><br><span class="line">                    parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -&gt; &#123;</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                beginScrolll=false</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return super.dispatchTouchEvent(ev)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>解决方案二：使用SmartRefreshLayout替代SwipeRefreshLayout即可。</li>
-</ul>
-<p><a href="https://blog.csdn.net/qq_15046309/article/details/106005736" target="_blank" rel="noopener">参考原文地址</a></p>
-]]></content>
-      <categories>
-        <category>android</category>
-      </categories>
-      <tags>
-        <tag>jetpack</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2019/07/05/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<a id="more"></a>
-
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>OS X 使用 Hexo 和 Coding Pages 搭建静态博客</title>
@@ -561,6 +516,31 @@
       </tags>
   </entry>
   <entry>
+    <title>ViewPager2与SwipeRefreshLayout滑动冲突问题的解决</title>
+    <url>/2021/04/30/ViewPager2%E4%B8%8ESwipeRefreshLayout%E6%BB%91%E5%8A%A8%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/</url>
+    <content><![CDATA[<blockquote>
+<p>我们是在ViewPager2中的Fragment使用了SwipeRefreshLayout。当向下滑动时只要稍微偏左或右都会触发ViewPager2的移动，造成SwipeRefreshLayout卡在页面上不消失。</p>
+</blockquote>
+<ul>
+<li>解决方案一：重写SwipeRefreshLayout</li>
+</ul>
+<p>我们首先准备修改ViewPager2，可是它没法继承。那么目光只好投向SwipeRefreshLayout。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class MySwipeRefreshLayout : SwipeRefreshLayout &#123;</span><br><span class="line">    constructor(context: Context, attes: AttributeSet) : super(context, attes) &#123;&#125;</span><br><span class="line">    constructor(context: Context) : super(context)</span><br><span class="line"></span><br><span class="line">    private var startX = 0</span><br><span class="line">    private var beginScrolll = false //是否开始滑动</span><br><span class="line">    private var startY: Int = 0</span><br><span class="line">    override fun dispatchTouchEvent(ev: MotionEvent): Boolean &#123;</span><br><span class="line">        when (ev.action) &#123;</span><br><span class="line">            MotionEvent.ACTION_DOWN -&gt; &#123;</span><br><span class="line">                startX = ev.x.toInt()</span><br><span class="line">                startY = ev.y.toInt()</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_MOVE -&gt; &#123;</span><br><span class="line">                val endX = ev.x.toInt()</span><br><span class="line">                val endY = ev.y.toInt()</span><br><span class="line">                val disX = Math.abs(endX - startX)</span><br><span class="line">                val disY: Int = Math.abs(endY - startY)</span><br><span class="line">                if (disX &gt; disY) &#123;</span><br><span class="line">                    if (!beginScrolll)</span><br><span class="line">                        parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    beginScrolll = true</span><br><span class="line">                    parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -&gt; &#123;</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                beginScrolll=false</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return super.dispatchTouchEvent(ev)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>解决方案二：使用SmartRefreshLayout替代SwipeRefreshLayout即可。</li>
+</ul>
+<p><a href="https://blog.csdn.net/qq_15046309/article/details/106005736" target="_blank" rel="noopener">参考原文地址</a></p>
+]]></content>
+      <categories>
+        <category>android</category>
+      </categories>
+      <tags>
+        <tag>jetpack</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>zsh: command not found: hexo</title>
     <url>/2022/08/18/zsh-command-not-found-hexo/</url>
     <content><![CDATA[<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>最近打算在hexo新建一篇文章，执行终端时:</p>
@@ -574,28 +554,6 @@
 ]]></content>
       <categories>
         <category>hexo</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>时光很长 莫要慌张</title>
-    <url>/2019/07/23/%E6%97%B6%E5%85%89%E5%BE%88%E9%95%BF-%E8%8E%AB%E8%A6%81%E6%85%8C%E5%BC%A0/</url>
-    <content><![CDATA[<blockquote>
-<p>未曾开言我先笑场，笑场完了听我诉一诉衷肠。        –《笑场》</p>
-</blockquote>
-<p>近来，年岁愈涨，愈感到焦虑，总想一下子把所有的事情做完。都说，人生最好的际遇，就是在适合的年纪做适合的事。年少时，好好学习；成年后，结婚生子。</p>
-<a id="more"></a>
-
-<p>刚毕业，总是心高气傲，想着做一个优秀的工程师、找一个可以红袖添香、慢慢变老的人。理想很丰满、现实很骨感。这句话真的很现实。</p>
-<p>时光如白驹过隙，转瞬而逝，never say goodbye to u。</p>
-<p>或许到了年纪，工作上不顺心，想转型却又难找到机会，父母也催促着你成家。瞬间，感觉自己过了年纪，该做的事什么都没有做，既没有遇到合适的人、自己也没有成长成自己期望的样子。于是，一事无成。开始迷茫和焦虑，想赶紧把该做的事情都做了，找个人结婚、生子、平平凡凡、庸庸碌碌就好。再难以静下心来，去学习和充实，总是找些喜剧以自娱，甚至开始二倍速看世界。既想改变，又在不停的浪费时间，兜兜转转，还在原地。</p>
-<p>《笑场》序言，李诞说过一句话：</p>
-<blockquote>
-<p>我一直以来是个沮丧的人，认为人生没有丝毫意义，梦幻泡影。<br>近来因机缘获得一点儿开悟，找到了活下去的理由——人生确实没有意义，但人生有美。<br>梦幻泡影嘛，本来就是美的。</p>
-</blockquote>
-<p>我想说的是，时光还很长，不必焦虑。不妨出去走走看看，世间的繁华，热闹之后，总会归于平静。给自己点时间，找回本心。</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
       </categories>
   </entry>
   <entry>
@@ -842,6 +800,48 @@
 ]]></content>
       <categories>
         <category>tools</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2019/07/05/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<a id="more"></a>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>时光很长 莫要慌张</title>
+    <url>/2019/07/23/%E6%97%B6%E5%85%89%E5%BE%88%E9%95%BF-%E8%8E%AB%E8%A6%81%E6%85%8C%E5%BC%A0/</url>
+    <content><![CDATA[<blockquote>
+<p>未曾开言我先笑场，笑场完了听我诉一诉衷肠。        –《笑场》</p>
+</blockquote>
+<p>近来，年岁愈涨，愈感到焦虑，总想一下子把所有的事情做完。都说，人生最好的际遇，就是在适合的年纪做适合的事。年少时，好好学习；成年后，结婚生子。</p>
+<a id="more"></a>
+
+<p>刚毕业，总是心高气傲，想着做一个优秀的工程师、找一个可以红袖添香、慢慢变老的人。理想很丰满、现实很骨感。这句话真的很现实。</p>
+<p>时光如白驹过隙，转瞬而逝，never say goodbye to u。</p>
+<p>或许到了年纪，工作上不顺心，想转型却又难找到机会，父母也催促着你成家。瞬间，感觉自己过了年纪，该做的事什么都没有做，既没有遇到合适的人、自己也没有成长成自己期望的样子。于是，一事无成。开始迷茫和焦虑，想赶紧把该做的事情都做了，找个人结婚、生子、平平凡凡、庸庸碌碌就好。再难以静下心来，去学习和充实，总是找些喜剧以自娱，甚至开始二倍速看世界。既想改变，又在不停的浪费时间，兜兜转转，还在原地。</p>
+<p>《笑场》序言，李诞说过一句话：</p>
+<blockquote>
+<p>我一直以来是个沮丧的人，认为人生没有丝毫意义，梦幻泡影。<br>近来因机缘获得一点儿开悟，找到了活下去的理由——人生确实没有意义，但人生有美。<br>梦幻泡影嘛，本来就是美的。</p>
+</blockquote>
+<p>我想说的是，时光还很长，不必焦虑。不妨出去走走看看，世间的繁华，热闹之后，总会归于平静。给自己点时间，找回本心。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
       </categories>
   </entry>
 </search>
