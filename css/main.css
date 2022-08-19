@@ -1742,7 +1742,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7cffad;
+  background: #8e0de2;
 }
 .feed-link,
 .chat {
@@ -2753,4 +2753,7 @@ ul.breadcrumb li+li:last-child {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+.vcopy.txt-right {
+  display: none;
 }
