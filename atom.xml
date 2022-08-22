@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hanyechun.github.io/"/>
-  <updated>2022-08-19T10:09:29.429Z</updated>
+  <updated>2022-08-22T11:38:52.073Z</updated>
   <id>https://hanyechun.github.io/</id>
   
   <author>
@@ -15,6 +15,96 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo部署到github提示TypeError [ERR_INVALID_ARG_TYPE]: The &#39;mode&#39; argument must be integer. </title>
+    <link href="https://hanyechun.github.io/2022/08/22/Hexo%E9%83%A8%E7%BD%B2%E5%88%B0github%E6%8F%90%E7%A4%BATypeError-ERR-INVALID-ARG-TYPE-The-mode-argument-must-be-integer/"/>
+    <id>https://hanyechun.github.io/2022/08/22/Hexo部署到github提示TypeError-ERR-INVALID-ARG-TYPE-The-mode-argument-must-be-integer/</id>
+    <published>2022-08-22T11:15:37.000Z</published>
+    <updated>2022-08-22T11:38:52.073Z</updated>
+    
+    <content type="html"><![CDATA[<p>由于前段时间学习vue，重装了我的node，导致node版本过高。hexo部署到github时出现以下错误：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FATAL Something&apos;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line">TypeError [ERR_INVALID_ARG_TYPE]: The &quot;mode&quot; argument must be integer. Received an instance of Object</span><br><span class="line">    at copyFile (fs.js:1972:10)</span><br><span class="line">    at tryCatcher (/Users/hyc/Documents/iblog/node_modules/bluebird/js/release/util.js:16:23)</span><br><span class="line">    at ret (eval at makeNodePromisifiedEval (/Users/hyc/.nvm/versions/node/v14.15.0/lib/node_modules/hexo-cli/node_modules/bluebird/js/release/promisify.js:184:12), &lt;anonymous&gt;:13:39)</span><br><span class="line">    at /Users/hyc/Documents/iblog/node_modules/hexo-fs/lib/fs.js:144:39</span><br><span class="line">    at tryCatcher (/Users/hyc/Documents/iblog/node_modules/bluebird/js/release/util.js:16:23)</span><br></pre></td></tr></table></figure><h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>node14与hexo不兼容导致。</p><p>查看node版本号：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br><span class="line">hexo: 3.9.0</span><br><span class="line">hexo-cli: 4.3.0</span><br><span class="line">os: win32 10.0.19042</span><br><span class="line">node: 14.17.5</span><br></pre></td></tr></table></figure><h4 id="解决方案一"><a href="#解决方案一" class="headerlink" title="解决方案一"></a>解决方案一</h4><p>当前node版本是 <code>14.17.5</code>，从14降低到12即可解决此问题。推荐<code>12.17.0</code>。</p><a id="more"></a><p>node升降机、版本切换，可<a href="https://hanyechun.github.io/2022/08/19/Node%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC%E3%80%81%E9%99%8D%E7%BA%A7%E3%80%81%E5%8D%87%E7%BA%A7/#more">点此</a>文章。</p><h4 id="解决方案二-未尝试，不知是否可行"><a href="#解决方案二-未尝试，不知是否可行" class="headerlink" title="解决方案二 (未尝试，不知是否可行)"></a>解决方案二 (未尝试，不知是否可行)</h4><p>修改package.json文件，升级hexo-renderer-stylus到2.0.0版本:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm update</span><br></pre></td></tr></table></figure><p>参考<a href="https://www.4spaces.org/hexo-mode-argument-must-be-integer-error/" target="_blank" rel="noopener">此文</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于前段时间学习vue，重装了我的node，导致node版本过高。hexo部署到github时出现以下错误：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;FATAL Something&amp;apos;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TypeError [ERR_INVALID_ARG_TYPE]: The &amp;quot;mode&amp;quot; argument must be integer. Received an instance of Object&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    at copyFile (fs.js:1972:10)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    at tryCatcher (/Users/hyc/Documents/iblog/node_modules/bluebird/js/release/util.js:16:23)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    at ret (eval at makeNodePromisifiedEval (/Users/hyc/.nvm/versions/node/v14.15.0/lib/node_modules/hexo-cli/node_modules/bluebird/js/release/promisify.js:184:12), &amp;lt;anonymous&amp;gt;:13:39)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    at /Users/hyc/Documents/iblog/node_modules/hexo-fs/lib/fs.js:144:39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    at tryCatcher (/Users/hyc/Documents/iblog/node_modules/bluebird/js/release/util.js:16:23)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;原因&quot;&gt;&lt;a href=&quot;#原因&quot; class=&quot;headerlink&quot; title=&quot;原因&quot;&gt;&lt;/a&gt;原因&lt;/h4&gt;&lt;p&gt;node14与hexo不兼容导致。&lt;/p&gt;
+&lt;p&gt;查看node版本号：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo -v&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo: 3.9.0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo-cli: 4.3.0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;os: win32 10.0.19042&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;node: 14.17.5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;解决方案一&quot;&gt;&lt;a href=&quot;#解决方案一&quot; class=&quot;headerlink&quot; title=&quot;解决方案一&quot;&gt;&lt;/a&gt;解决方案一&lt;/h4&gt;&lt;p&gt;当前node版本是 &lt;code&gt;14.17.5&lt;/code&gt;，从14降低到12即可解决此问题。推荐&lt;code&gt;12.17.0&lt;/code&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="hexo" scheme="https://hanyechun.github.io/categories/hexo/"/>
+    
+    
+      <category term="node" scheme="https://hanyechun.github.io/tags/node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kotlin 1.6+ Room无法使用suspend挂起符</title>
+    <link href="https://hanyechun.github.io/2022/08/22/Kotlin-1-6-Room%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8suspend%E6%8C%82%E8%B5%B7%E7%AC%A6/"/>
+    <id>https://hanyechun.github.io/2022/08/22/Kotlin-1-6-Room无法使用suspend挂起符/</id>
+    <published>2022-08-22T11:00:02.000Z</published>
+    <updated>2022-08-22T11:06:44.294Z</updated>
+    
+    <content type="html"><![CDATA[<p>将 kotlin 升级到 1.6.0 会导致 Room Dao 挂起修改器中断构建项目并出现错误:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Not sure how to handle query method&apos;s return type........</span><br></pre></td></tr></table></figure><p>除了在存储库中运行 Dao 函数 withContext(Disapatchers.IO) 的解决方法之外，还有其他解决方案吗？</p><p>解决：升级Room版本至 <code>2.4.0</code> 以上</p><blockquote><p>The new Kotlin compiler (aka <code>1.6.+</code>) needs room version <code>2.4.0</code> at least to support the language. So Upgrade your room dependency to <code>2.4.0.</code></p><p>And since you are using the version of room you also have to target Android <code>API 31</code>.</p></blockquote><a id="more"></a><p>译：</p><blockquote><p>新的 Kotlin 编译器 (aka )至少1.6.+需要房间版本来支持该语言。2.4.0所以将你的房间依赖升级到2.4.0.</p><p>而且由于您使用的是 room 版本，因此您还必须针对 Android API 31</p></blockquote><p>参考：<br><a href="https://stackoverflow.com/questions/70094669/how-to-use-suspend-modifier-in-room-dao-after-kotlin-upgrade-to-1-6-0" target="_blank" rel="noopener">https://stackoverflow.com/questions/70094669/how-to-use-suspend-modifier-in-room-dao-after-kotlin-upgrade-to-1-6-0</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;将 kotlin 升级到 1.6.0 会导致 Room Dao 挂起修改器中断构建项目并出现错误:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Not sure how to handle query method&amp;apos;s return type........&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;除了在存储库中运行 Dao 函数 withContext(Disapatchers.IO) 的解决方法之外，还有其他解决方案吗？&lt;/p&gt;
+&lt;p&gt;解决：升级Room版本至 &lt;code&gt;2.4.0&lt;/code&gt; 以上&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The new Kotlin compiler (aka &lt;code&gt;1.6.+&lt;/code&gt;) needs room version &lt;code&gt;2.4.0&lt;/code&gt; at least to support the language. So Upgrade your room dependency to &lt;code&gt;2.4.0.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;And since you are using the version of room you also have to target Android &lt;code&gt;API 31&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="android" scheme="https://hanyechun.github.io/categories/android/"/>
+    
+    
+      <category term="jetpack" scheme="https://hanyechun.github.io/tags/jetpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android Room数据库警告Schema export directory错误</title>
+    <link href="https://hanyechun.github.io/2022/08/22/Android-Room%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AD%A6%E5%91%8ASchema-export-directory%E9%94%99%E8%AF%AF/"/>
+    <id>https://hanyechun.github.io/2022/08/22/Android-Room数据库警告Schema-export-directory错误/</id>
+    <published>2022-08-22T10:21:24.000Z</published>
+    <updated>2022-08-22T10:51:21.751Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用Room数据库的时候，虽然项目可以运行起来。但是，却报以下error:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Error:(22, 17) 警告: Schema export directory is not provided to the annotation processor so we cannot export the schema. </span><br><span class="line"></span><br><span class="line">You can either provide `room.schemaLocation` annotation processor argument OR set exportSchema to false.</span><br></pre></td></tr></table></figure><p>As per the <a href="https://developer.android.com/reference/android/arch/persistence/room/Database.html#exportSchema()" target="_blank" rel="noopener">docs</a></p><blockquote><p><strong>导出模式</strong><br>您可以设置注释处理器参数 (<code>room.schemaLocation</code>) 来告诉 Room 将架构导出到文件夹中。尽管这不是强制性的，但在您的代码库中拥有版本历史记录是一个很好的做法，并且您应该将该文件提交到您的版本控制系统中（但不要将它与您的应用程序一起发布！）。</p><p>设置时<code>room.schemaLocation</code>，Room 将检查此变量，如果设置为 <code>true</code>，则其架构将导出到给定文件夹中。</p><p><code>exportSchema</code>默认情况<code>true</code>下，但是当您不想保留版本历史记录时，您可以为数据库禁用它（例如仅在内存中的数据库）。</p></blockquote><p>实际上，上面已经提示了开发者应该怎么处理，给出了两种方案。</p><a id="more"></a><h4 id="方案一"><a href="#方案一" class="headerlink" title="方案一:"></a>方案一:</h4><p>给RoomDatabase设置exportSchema注解为false。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Database(entities = &#123; YourEntity.class &#125;, version = 1, exportSchema = false)</span><br><span class="line">public abstract class MovieDatabase extends RoomDatabase &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="方案二：-推荐"><a href="#方案二：-推荐" class="headerlink" title="方案二：(推荐)"></a>方案二：(推荐)</h4><p>在项目中gradle中通过 annotationProcessorOptions 注解，为room.schemaLocation指定schemas的子文件夹。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion 26</span><br><span class="line">    buildToolsVersion &quot;26.0.2&quot;</span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        applicationId &quot;com.xingen.architecturecomponents&quot;</span><br><span class="line">        minSdkVersion 15</span><br><span class="line">        targetSdkVersion 26</span><br><span class="line">        versionCode 1</span><br><span class="line">        versionName &quot;1.0&quot;</span><br><span class="line">        testInstrumentationRunner &quot;android.support.test.runner.AndroidJUnitRunner&quot;</span><br><span class="line"></span><br><span class="line">        //指定room.schemaLocation生成的文件路径</span><br><span class="line">        javaCompileOptions &#123;</span><br><span class="line">            annotationProcessorOptions &#123;</span><br><span class="line">                arguments = [&quot;room.schemaLocation&quot;: &quot;$projectDir/schemas&quot;.toString()]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>当执行项目后，在Android Studio 的Project视图下，查看项目，会发现Module生成了一个schemas的文件夹，如下图所示：<br><img src="https://img-blog.csdn.net/20171205224652971?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGV4aW5nZW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt></p><p>其中，会生成版本1的Json文件,这里可以查看Room数据库的配置情况：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;formatVersion&quot;: 1,</span><br><span class="line">  &quot;database&quot;: &#123;</span><br><span class="line">    &quot;version&quot;: 1,</span><br><span class="line">    &quot;identityHash&quot;: &quot;8240057b6178b803a0bf9915edf969ef&quot;,</span><br><span class="line">    &quot;entities&quot;: [</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;tableName&quot;: &quot;movies&quot;,</span><br><span class="line">        &quot;createSql&quot;: &quot;CREATE TABLE IF NOT EXISTS `$&#123;TABLE_NAME&#125;` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `year` TEXT, `title` TEXT, `image` TEXT)&quot;,</span><br><span class="line">        &quot;fields&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;fieldPath&quot;: &quot;id&quot;,</span><br><span class="line">            &quot;columnName&quot;: &quot;id&quot;,</span><br><span class="line">            &quot;affinity&quot;: &quot;INTEGER&quot;,</span><br><span class="line">            &quot;notNull&quot;: true</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;fieldPath&quot;: &quot;year&quot;,</span><br><span class="line">            &quot;columnName&quot;: &quot;year&quot;,</span><br><span class="line">            &quot;affinity&quot;: &quot;TEXT&quot;,</span><br><span class="line">            &quot;notNull&quot;: false</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;fieldPath&quot;: &quot;title&quot;,</span><br><span class="line">            &quot;columnName&quot;: &quot;title&quot;,</span><br><span class="line">            &quot;affinity&quot;: &quot;TEXT&quot;,</span><br><span class="line">            &quot;notNull&quot;: false</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;fieldPath&quot;: &quot;image&quot;,</span><br><span class="line">            &quot;columnName&quot;: &quot;image&quot;,</span><br><span class="line">            &quot;affinity&quot;: &quot;TEXT&quot;,</span><br><span class="line">            &quot;notNull&quot;: false</span><br><span class="line">          &#125;</span><br><span class="line">        ],</span><br><span class="line">        &quot;primaryKey&quot;: &#123;</span><br><span class="line">          &quot;columnNames&quot;: [</span><br><span class="line">            &quot;id&quot;</span><br><span class="line">          ],</span><br><span class="line">          &quot;autoGenerate&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;indices&quot;: [],</span><br><span class="line">        &quot;foreignKeys&quot;: []</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;setupQueries&quot;: [</span><br><span class="line">      &quot;CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)&quot;,</span><br><span class="line">      &quot;INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \&quot;8240057b6178b803a0bf9915edf969ef\&quot;)&quot;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>参考文章：<br><a href="https://blog.csdn.net/hexingen/article/details/78725958" target="_blank" rel="noopener">https://blog.csdn.net/hexingen/article/details/78725958</a><br><a href="https://stackoverflow.com/questions/44322178/room-schema-export-directory-is-not-provided-to-the-annotation-processor-so-we" target="_blank" rel="noopener">https://stackoverflow.com/questions/44322178/room-schema-export-directory-is-not-provided-to-the-annotation-processor-so-we</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用Room数据库的时候，虽然项目可以运行起来。但是，却报以下error:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Error:(22, 17) 警告: Schema export directory is not provided to the annotation processor so we cannot export the schema. &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;You can either provide `room.schemaLocation` annotation processor argument OR set exportSchema to false.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;As per the &lt;a href=&quot;https://developer.android.com/reference/android/arch/persistence/room/Database.html#exportSchema()&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;docs&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;导出模式&lt;/strong&gt;&lt;br&gt;您可以设置注释处理器参数 (&lt;code&gt;room.schemaLocation&lt;/code&gt;) 来告诉 Room 将架构导出到文件夹中。尽管这不是强制性的，但在您的代码库中拥有版本历史记录是一个很好的做法，并且您应该将该文件提交到您的版本控制系统中（但不要将它与您的应用程序一起发布！）。&lt;/p&gt;
+&lt;p&gt;设置时&lt;code&gt;room.schemaLocation&lt;/code&gt;，Room 将检查此变量，如果设置为 &lt;code&gt;true&lt;/code&gt;，则其架构将导出到给定文件夹中。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;exportSchema&lt;/code&gt;默认情况&lt;code&gt;true&lt;/code&gt;下，但是当您不想保留版本历史记录时，您可以为数据库禁用它（例如仅在内存中的数据库）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;实际上，上面已经提示了开发者应该怎么处理，给出了两种方案。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="android" scheme="https://hanyechun.github.io/categories/android/"/>
+    
+    
+      <category term="jetpack" scheme="https://hanyechun.github.io/tags/jetpack/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo NexT评论系统Valine</title>
@@ -497,9 +587,9 @@
       <category term="android" scheme="https://hanyechun.github.io/categories/android/"/>
     
     
-      <category term="paging" scheme="https://hanyechun.github.io/tags/paging/"/>
-    
       <category term="jetpack" scheme="https://hanyechun.github.io/tags/jetpack/"/>
+    
+      <category term="paging" scheme="https://hanyechun.github.io/tags/paging/"/>
     
   </entry>
   
@@ -620,74 +710,6 @@
     </summary>
     
       <category term="随笔" scheme="https://hanyechun.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Mac生成SSH Key</title>
-    <link href="https://hanyechun.github.io/2019/07/19/Mac%E7%94%9F%E6%88%90SSH-Key/"/>
-    <id>https://hanyechun.github.io/2019/07/19/Mac生成SSH-Key/</id>
-    <published>2019-07-19T07:16:51.000Z</published>
-    <updated>2022-08-19T05:57:26.291Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="打开vim（terminal-app）查看本地是否存在SSH-Key"><a href="#打开vim（terminal-app）查看本地是否存在SSH-Key" class="headerlink" title="打开vim（terminal.app）查看本地是否存在SSH-Key"></a>打开vim（terminal.app）查看本地是否存在SSH-Key</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -al ~/.ssh</span><br></pre></td></tr></table></figure><p>如果vim输出的是如下内容：证明本地没有生成的SSH Key，请执行第二步。</p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">No such file or directory</span><br></pre></td></tr></table></figure><p>如果vim输出的是如下内容： 证明本地已经存在SSH Key 文件，请执行第四步。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id_rsa    id_rsa.pub</span><br></pre></td></tr></table></figure><h4 id="如果没有，生成新的SSH-Key"><a href="#如果没有，生成新的SSH-Key" class="headerlink" title="如果没有，生成新的SSH Key"></a>如果没有，生成新的SSH Key</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C&quot;you_email&quot;</span><br></pre></td></tr></table></figure><p>your_email：这里填写你在GitLab或者GitHub注册时的邮箱。<br>后面的提示直接敲回车，一路完成。</p><h4 id="生成并添加SSH-Key"><a href="#生成并添加SSH-Key" class="headerlink" title="生成并添加SSH Key"></a>生成并添加SSH Key</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure><h4 id="查看SSH-Key"><a href="#查看SSH-Key" class="headerlink" title="查看SSH Key"></a>查看SSH Key</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /Users/xxx/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure><p>xxx是你的电脑用户名，例如：howieMacBook-Pro:~ howie$中的howie关键字。<br>复制生成好的SSH Key 添加到 GitLab 或者GitHub中的SSH Key中即可。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;打开vim（terminal-app）查看本地是否存在SSH-Key&quot;&gt;&lt;a href=&quot;#打开vim（terminal-app）查看本地是否存在SSH-Key&quot; class=&quot;headerlink&quot; title=&quot;打开vim（terminal.app）查看本地是否存在SSH-Key&quot;&gt;&lt;/a&gt;打开vim（terminal.app）查看本地是否存在SSH-Key&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ls -al ~/.ssh&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;如果vim输出的是如下内容：证明本地没有生成的SSH Key，请执行第二步。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="mac" scheme="https://hanyechun.github.io/categories/mac/"/>
-    
-    
-      <category term="ssh" scheme="https://hanyechun.github.io/tags/ssh/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac adb install apk</title>
-    <link href="https://hanyechun.github.io/2019/07/19/Mac-adb-install-apk/"/>
-    <id>https://hanyechun.github.io/2019/07/19/Mac-adb-install-apk/</id>
-    <published>2019-07-19T06:28:00.000Z</published>
-    <updated>2022-08-19T05:57:09.686Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="Mac配置adb"><a href="#Mac配置adb" class="headerlink" title="Mac配置adb"></a>Mac配置adb</h4><ol><li>在AS界面上，打开Preferences界面（快捷键： command + , 键），然后复制sdk路径<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/Library/Android/sdk/platform-tools</span><br></pre></td></tr></table></figure></li></ol><a id="more"></a><ol start="2"><li><p>打开finder，按快捷键：shift + command + g，前往文件夹<br>查看adb文件是否在该目录下</p></li><li><p>打开终端，输入</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch .bash_profile</span><br><span class="line">open -e .bash_profile</span><br></pre></td></tr></table></figure><p> 修改弹出的.bash_profile的文件，增加以下语句</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$&#123;PATH&#125;:~/Library/Android/sdk/platform-tools</span><br></pre></td></tr></table></figure></li><li><p>执行如下命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source .bash_profile</span><br></pre></td></tr></table></figure></li><li><p>验证：输入adb回车，即可生效</p></li></ol><h4 id="验证adb是否生效"><a href="#验证adb是否生效" class="headerlink" title="验证adb是否生效"></a>验证adb是否生效</h4><p>在终端输入:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb install apk路径</span><br></pre></td></tr></table></figure><p>出现success表示安装成功</p><h4 id="常见的Android开发命令"><a href="#常见的Android开发命令" class="headerlink" title="常见的Android开发命令"></a>常见的Android开发命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">adb shell：来到手机终端中。</span><br><span class="line">adb divices</span><br><span class="line">adb kill-server</span><br><span class="line">adb start-server</span><br><span class="line">adb install XXX.apk：安装应用程序</span><br><span class="line">abd uninstall （应用程序的包名）</span><br><span class="line">adb -s 设备名字 XXX.apk可以选择哪个模拟器，安装程序</span><br><span class="line">adb pull：（pull拉去，拿取）：把手机中的文件导出去</span><br><span class="line">adb push</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;Mac配置adb&quot;&gt;&lt;a href=&quot;#Mac配置adb&quot; class=&quot;headerlink&quot; title=&quot;Mac配置adb&quot;&gt;&lt;/a&gt;Mac配置adb&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;在AS界面上，打开Preferences界面（快捷键： command + , 键），然后复制sdk路径&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;~/Library/Android/sdk/platform-tools&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="android" scheme="https://hanyechun.github.io/categories/android/"/>
-    
-    
-      <category term="adb" scheme="https://hanyechun.github.io/tags/adb/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://hanyechun.github.io/2019/07/05/hello-world/"/>
-    <id>https://hanyechun.github.io/2019/07/05/hello-world/</id>
-    <published>2019-07-05T09:35:50.832Z</published>
-    <updated>2019-07-19T03:14:48.037Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><a id="more"></a><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-    
-    </summary>
     
     
   </entry>
