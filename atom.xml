@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hanyechun.github.io/"/>
-  <updated>2022-08-23T03:48:15.906Z</updated>
+  <updated>2022-08-23T05:00:49.406Z</updated>
   <id>https://hanyechun.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo部署到github上，白屏了</title>
+    <link href="https://hanyechun.github.io/2022/08/23/Hexo%E9%83%A8%E7%BD%B2%E5%88%B0github%E4%B8%8A%EF%BC%8C%E7%99%BD%E5%B1%8F%E4%BA%86/"/>
+    <id>https://hanyechun.github.io/2022/08/23/Hexo部署到github上，白屏了/</id>
+    <published>2022-08-23T04:52:44.000Z</published>
+    <updated>2022-08-23T05:00:49.406Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>先你应该在本地测试 Hexo 是否正确安装。<br>在 hexo 的目录下，运行 <code>hexo s</code>, 如果 hexo 安装正确会出现如下内容</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  iblog hexo s</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure><p> 这个时候，打开浏览器，输入 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000</a> 看看是不是能够看到你的网站。<br> 如果正常显示。说明 Hexo 安装正确，问题就在出现在 github 上了。</p></li><li><p>如果你正确地在 hexo 中配置了 github。你可以先 <code>hexo clean</code> 再 <code>hexo d -g</code> 。<br>如果成功，最后应该会显示</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Branch &apos;master&apos; set up to track remote branch &apos;master&apos; from &apos;git@github.com:xxx/xxx.github.io.git&apos;.</span><br><span class="line">INFO  Deploy done: git</span><br></pre></td></tr></table></figure></li></ol><a id="more"></a><ol start="3"><li><p>前两步都没问题，就该检查 github 仓库了。<br>打开你的 github 上名为 xxx.github.io 的仓库，如果部署正确上面应该会有内容的。至少会有一个 <code>index.html</code> 之类的文件。</p></li><li><p>如果你能找到 index.html 文件，但是还是打不开你的网站，那说明很有可能 github page 相关配置出了问题。<br>可以做一个简单的测试。把 xxx.github.io 仓库下的内容全部删除了，新建一个 <code>index.html</code> 文件，输入如下内容</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;title&gt; hexo test &lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h1&gt;hexo test&lt;/h1&gt;</span><br><span class="line">    &lt;p&gt; hello world &lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></li></ol><p>然后你在浏览器打开 xxx.github.io<br>如果打开没问题，能看到 hello world, 说明你的 github 仓库配置没问题，你需要检查你的 hexo 是不是正确上传到了 github.<br>如果打开还是一片空白，建议你删了这个仓库，找个教程重新新建一个仓库。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;先你应该在本地测试 Hexo 是否正确安装。&lt;br&gt;在 hexo 的目录下，运行 &lt;code&gt;hexo s&lt;/code&gt;, 如果 hexo 安装正确会出现如下内容&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;➜  iblog hexo s&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;INFO  Start processing&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt; 这个时候，打开浏览器，输入 &lt;a href=&quot;http://localhost:4000/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://localhost:4000&lt;/a&gt; 看看是不是能够看到你的网站。&lt;br&gt; 如果正常显示。说明 Hexo 安装正确，问题就在出现在 github 上了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如果你正确地在 hexo 中配置了 github。你可以先 &lt;code&gt;hexo clean&lt;/code&gt; 再 &lt;code&gt;hexo d -g&lt;/code&gt; 。&lt;br&gt;如果成功，最后应该会显示&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Branch &amp;apos;master&amp;apos; set up to track remote branch &amp;apos;master&amp;apos; from &amp;apos;git@github.com:xxx/xxx.github.io.git&amp;apos;.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;INFO  Deploy done: git&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="hexo" scheme="https://hanyechun.github.io/categories/hexo/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Float保留小数位</title>
@@ -687,33 +717,6 @@
     
     
       <category term="terminal" scheme="https://hanyechun.github.io/tags/terminal/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Retrofit多图上传</title>
-    <link href="https://hanyechun.github.io/2019/07/30/Retrofit%E5%A4%9A%E5%9B%BE%E4%B8%8A%E4%BC%A0/"/>
-    <id>https://hanyechun.github.io/2019/07/30/Retrofit多图上传/</id>
-    <published>2019-07-30T09:36:04.000Z</published>
-    <updated>2019-07-30T09:48:00.194Z</updated>
-    
-    <content type="html"><![CDATA[<p>首先是定义接口部分：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public interface MyApi&#123;</span><br><span class="line">    @Multipart</span><br><span class="line">    @POST(&quot;renovation/uploadImg&quot;)</span><br><span class="line">    Observable&lt;HttpResult&gt; upLoadsImg(@PartMap Map&lt;String, RequestBody&gt; params,  @Part(&quot;content&quot;)RequestBody content);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p><strong>注意</strong> 这里使用<code>@Multipart</code>注解，参数这里使用<code>@PartMap</code>和<code>@Part</code>，他们是用来上传文件用的。 这里需要注意的是，使用了<code>@Multipart</code>注解，参数的类型都应该是<code>RequestBody</code>，不然上传的图片的时候会报<code>JSON must start with an array or an object</code>错误。上传多张图片就使用<code>@PartMap Map&lt;String, RequestBody&gt;</code></p></blockquote><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public interface MyApi&#123;</span><br><span class="line">   @Multipart</span><br><span class="line">   @POST(&quot;renovation/uploadSingleImg&quot;)</span><br><span class="line">   Observable&lt;HttpResult&gt; upLoadsImg(@Part MultipartBody.Part photo);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>单图上传就用 <code>@Part MultipartBody.Part</code></p></blockquote><p>其次就是具体实现部分（以多图上传为例）:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">Observer&lt;HttpResult&gt; observer = new Observer&lt;HttpResult&gt;() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void onCompleted() &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void onError(Throwable e) &#123;</span><br><span class="line">        progressUtils.dismiss();</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void onNext(HttpResult httpResult) &#123;</span><br><span class="line">        //处理返回结果</span><br><span class="line">            if (httpResult.isStatus()) &#123;</span><br><span class="line">                Toast.makeText(mContext, &quot;上传成功&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                Toast.makeText(mContext, &quot;上传失败&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">            &#125;</span><br><span class="line">            progressUtils.dismiss();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">private void submitData() &#123;</span><br><span class="line"></span><br><span class="line">        //图片压缩</span><br><span class="line">        compressUtils();</span><br><span class="line"></span><br><span class="line">        Map&lt;String, RequestBody&gt;  photos = new HashMap&lt;&gt;();</span><br><span class="line">        //mPhotoList是选择图片后的返回路径</span><br><span class="line">        if (mPhotoList.size() &gt; 0) &#123;</span><br><span class="line">            for (int i = 0; i &lt; mPhotoList.size(); i++) &#123;</span><br><span class="line">                File  file = new File(mPhotoList.get(i).getPhotoPath());</span><br><span class="line">                RequestBody  requestFile = RequestBody.create(MediaType.parse(&quot;multipart/form-data&quot;), file);</span><br><span class="line">                //RequestBody  requestFile = RequestBody.create(MediaType.parse(&quot;image/jpg&quot;), file);</span><br><span class="line"></span><br><span class="line">             //这里前面一部分是服务器要求你传的key，加上一个i,就可以动态设置key的长度</span><br><span class="line">                photos.put(&quot;AttachmentKey&quot;+i+&quot;\&quot;; filename=\&quot;&quot;+file.getName(),requestFile);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        subscription  = Network.getMyApi().upLoadsImg(photos,RequestBody.create(null,content))</span><br><span class="line">                .subscribeOn(Schedulers.io())</span><br><span class="line">                .unsubscribeOn(Schedulers.io())</span><br><span class="line">                .observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">                .subscribe(observer);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><blockquote><p>这里详细解释已经在代码中有注释说明，我按照这个方法上传是没有问题的。相册选机器我推荐使用 <a href="https://github.com/pengjianbo/GalleryFinal" target="_blank" rel="noopener">GalleryFinal</a>里面的功能很详细，实现了拍照、图片选择（单选/多选）、 裁剪（单/多裁剪）、旋转等功能，具体链接里面有介绍。</p></blockquote><p><strong>MediaType.parse(“multipart/form-data”)传MediaType.parse(“image/jpg”)也可以，原因还不知道。</strong></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;首先是定义接口部分：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public interface MyApi&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    @Multipart&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    @POST(&amp;quot;renovation/uploadImg&amp;quot;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Observable&amp;lt;HttpResult&amp;gt; upLoadsImg(@PartMap Map&amp;lt;String, RequestBody&amp;gt; params,  @Part(&amp;quot;content&amp;quot;)RequestBody content);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt; 这里使用&lt;code&gt;@Multipart&lt;/code&gt;注解，参数这里使用&lt;code&gt;@PartMap&lt;/code&gt;和&lt;code&gt;@Part&lt;/code&gt;，他们是用来上传文件用的。 这里需要注意的是，使用了&lt;code&gt;@Multipart&lt;/code&gt;注解，参数的类型都应该是&lt;code&gt;RequestBody&lt;/code&gt;，不然上传的图片的时候会报&lt;code&gt;JSON must start with an array or an object&lt;/code&gt;错误。上传多张图片就使用&lt;code&gt;@PartMap Map&amp;lt;String, RequestBody&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="android" scheme="https://hanyechun.github.io/categories/android/"/>
-    
-    
-      <category term="retrofit" scheme="https://hanyechun.github.io/tags/retrofit/"/>
     
   </entry>
   
