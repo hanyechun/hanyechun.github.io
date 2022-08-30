@@ -29,40 +29,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Android Room数据库警告Schema export directory错误</title>
-    <url>/2022/08/22/Android-Room%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AD%A6%E5%91%8ASchema-export-directory%E9%94%99%E8%AF%AF/</url>
-    <content><![CDATA[<p>使用Room数据库的时候，虽然项目可以运行起来。但是，却报以下error:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Error:(22, 17) 警告: Schema export directory is not provided to the annotation processor so we cannot export the schema. </span><br><span class="line"></span><br><span class="line">You can either provide `room.schemaLocation` annotation processor argument OR set exportSchema to false.</span><br></pre></td></tr></table></figure>
-
-<p>As per the <a href="https://developer.android.com/reference/android/arch/persistence/room/Database.html#exportSchema()" target="_blank" rel="noopener">docs</a></p>
-<blockquote>
-<p><strong>导出模式</strong><br>您可以设置注释处理器参数 (<code>room.schemaLocation</code>) 来告诉 Room 将架构导出到文件夹中。尽管这不是强制性的，但在您的代码库中拥有版本历史记录是一个很好的做法，并且您应该将该文件提交到您的版本控制系统中（但不要将它与您的应用程序一起发布！）。</p>
-<p>设置时<code>room.schemaLocation</code>，Room 将检查此变量，如果设置为 <code>true</code>，则其架构将导出到给定文件夹中。</p>
-<p><code>exportSchema</code>默认情况<code>true</code>下，但是当您不想保留版本历史记录时，您可以为数据库禁用它（例如仅在内存中的数据库）。</p>
-</blockquote>
-<p>实际上，上面已经提示了开发者应该怎么处理，给出了两种方案。</p>
-<a id="more"></a>
-
-<h4 id="方案一"><a href="#方案一" class="headerlink" title="方案一:"></a>方案一:</h4><p>给RoomDatabase设置exportSchema注解为false。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Database(entities = &#123; YourEntity.class &#125;, version = 1, exportSchema = false)</span><br><span class="line">public abstract class MovieDatabase extends RoomDatabase &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="方案二：-推荐"><a href="#方案二：-推荐" class="headerlink" title="方案二：(推荐)"></a>方案二：(推荐)</h4><p>在项目中gradle中通过 annotationProcessorOptions 注解，为room.schemaLocation指定schemas的子文件夹。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion 26</span><br><span class="line">    buildToolsVersion &quot;26.0.2&quot;</span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        applicationId &quot;com.xingen.architecturecomponents&quot;</span><br><span class="line">        minSdkVersion 15</span><br><span class="line">        targetSdkVersion 26</span><br><span class="line">        versionCode 1</span><br><span class="line">        versionName &quot;1.0&quot;</span><br><span class="line">        testInstrumentationRunner &quot;android.support.test.runner.AndroidJUnitRunner&quot;</span><br><span class="line"></span><br><span class="line">        //指定room.schemaLocation生成的文件路径</span><br><span class="line">        javaCompileOptions &#123;</span><br><span class="line">            annotationProcessorOptions &#123;</span><br><span class="line">                arguments = [&quot;room.schemaLocation&quot;: &quot;$projectDir/schemas&quot;.toString()]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当执行项目后，在Android Studio 的Project视图下，查看项目，会发现Module生成了一个schemas的文件夹，如下图所示：<br><img src="https://img-blog.csdn.net/20171205224652971?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGV4aW5nZW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt></p>
-<p>其中，会生成版本1的Json文件,这里可以查看Room数据库的配置情况：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;formatVersion&quot;: 1,</span><br><span class="line">  &quot;database&quot;: &#123;</span><br><span class="line">    &quot;version&quot;: 1,</span><br><span class="line">    &quot;identityHash&quot;: &quot;8240057b6178b803a0bf9915edf969ef&quot;,</span><br><span class="line">    &quot;entities&quot;: [</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;tableName&quot;: &quot;movies&quot;,</span><br><span class="line">        &quot;createSql&quot;: &quot;CREATE TABLE IF NOT EXISTS `$&#123;TABLE_NAME&#125;` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `year` TEXT, `title` TEXT, `image` TEXT)&quot;,</span><br><span class="line">        &quot;fields&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;fieldPath&quot;: &quot;id&quot;,</span><br><span class="line">            &quot;columnName&quot;: &quot;id&quot;,</span><br><span class="line">            &quot;affinity&quot;: &quot;INTEGER&quot;,</span><br><span class="line">            &quot;notNull&quot;: true</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;fieldPath&quot;: &quot;year&quot;,</span><br><span class="line">            &quot;columnName&quot;: &quot;year&quot;,</span><br><span class="line">            &quot;affinity&quot;: &quot;TEXT&quot;,</span><br><span class="line">            &quot;notNull&quot;: false</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;fieldPath&quot;: &quot;title&quot;,</span><br><span class="line">            &quot;columnName&quot;: &quot;title&quot;,</span><br><span class="line">            &quot;affinity&quot;: &quot;TEXT&quot;,</span><br><span class="line">            &quot;notNull&quot;: false</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;fieldPath&quot;: &quot;image&quot;,</span><br><span class="line">            &quot;columnName&quot;: &quot;image&quot;,</span><br><span class="line">            &quot;affinity&quot;: &quot;TEXT&quot;,</span><br><span class="line">            &quot;notNull&quot;: false</span><br><span class="line">          &#125;</span><br><span class="line">        ],</span><br><span class="line">        &quot;primaryKey&quot;: &#123;</span><br><span class="line">          &quot;columnNames&quot;: [</span><br><span class="line">            &quot;id&quot;</span><br><span class="line">          ],</span><br><span class="line">          &quot;autoGenerate&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;indices&quot;: [],</span><br><span class="line">        &quot;foreignKeys&quot;: []</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;setupQueries&quot;: [</span><br><span class="line">      &quot;CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)&quot;,</span><br><span class="line">      &quot;INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \&quot;8240057b6178b803a0bf9915edf969ef\&quot;)&quot;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>参考文章：<br><a href="https://blog.csdn.net/hexingen/article/details/78725958" target="_blank" rel="noopener">https://blog.csdn.net/hexingen/article/details/78725958</a><br><a href="https://stackoverflow.com/questions/44322178/room-schema-export-directory-is-not-provided-to-the-annotation-processor-so-we" target="_blank" rel="noopener">https://stackoverflow.com/questions/44322178/room-schema-export-directory-is-not-provided-to-the-annotation-processor-so-we</a></p>
-]]></content>
-      <categories>
-        <category>android</category>
-      </categories>
-      <tags>
-        <tag>jetpack</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Android APP版本工具</title>
     <url>/2022/08/23/Android-APP%E7%89%88%E6%9C%AC%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<h4 id="获取版本名称"><a href="#获取版本名称" class="headerlink" title="获取版本名称"></a>获取版本名称</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">private fun obtainVersionName(): String &#123;</span><br><span class="line">    val manager = packageManager</span><br><span class="line">    return try &#123;</span><br><span class="line">        manager.getPackageInfo(packageName, 0).versionName</span><br><span class="line">    &#125; catch (e: PackageManager.NameNotFoundException) &#123;</span><br><span class="line">        e.printStackTrace()</span><br><span class="line">        &quot;&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
@@ -71,12 +37,72 @@
       </categories>
   </entry>
   <entry>
-    <title>Android11 分区存储</title>
-    <url>/2022/08/24/Android11-%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8/</url>
-    <content><![CDATA[<p>I don’t have time to write for a while, so let’s look <a href="https://cloud.tencent.com/developer/inventory/692/article/1706411" target="_blank" rel="noopener">here</a> first.</p>
+    <title>Hexo NexT主题</title>
+    <url>/2022/08/18/Hexo-NexT%E4%B8%BB%E9%A2%98/</url>
+    <content><![CDATA[<p><a href="http://theme-next.iissnan.com/theme-settings.html#volunteer-404" target="_blank" rel="noopener">官方文档</a></p>
+<h4 id="一、设置文章底部版权信息"><a href="#一、设置文章底部版权信息" class="headerlink" title="一、设置文章底部版权信息"></a>一、设置文章底部版权信息</h4><p>打开主题配置文件<code>_config.yml</code>，找到<code>creative_commons</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">creative_commons:</span><br><span class="line">  license: by-nc-sa</span><br><span class="line">  sidebar: false</span><br><span class="line">  post: true #设置为true</span><br><span class="line">  language:</span><br></pre></td></tr></table></figure>
+
+<p><a href="http://creativecommons.org/" target="_blank" rel="noopener">Creative commons协议</a>，这个就是设置版权声明</p>
+<a id="more"></a>
+
+<h4 id="二、添加标签页"><a href="#二、添加标签页" class="headerlink" title="二、添加标签页"></a>二、添加标签页</h4><ul>
+<li>新建页面：<br>前面通过修改next主题下的_config.yml文件中的menu选项，可以在主页面的菜单栏添加标签选项，但是此时点击标签，跳转的页面会显示page not found。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page tags    #新建标签页面</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>输入命令后，在<code>根目录/source</code>会生成一个tags文件夹，其中有个index.md文件。</p>
+<ul>
+<li><p>设置页面类型：<br>修改index.md，添加type：tags</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2016-11-15 19:10:05</span><br><span class="line">type:  tags</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置文章的标签：<br>当要为某篇文章添加标签时，只需在文章开头设置相应标签即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: test1    #文章标签</span><br><span class="line">date: 2017-09-20 13:29:11</span><br><span class="line">tags:         #标签</span><br><span class="line">  - test1</span><br><span class="line">  - one</span><br><span class="line">  - two</span><br><span class="line">categories: 测试     #分类</span><br><span class="line">---   </span><br><span class="line">ps：注意这是在新建文章里添加标签</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="三、添加分类、关于页面"><a href="#三、添加分类、关于页面" class="headerlink" title="三、添加分类、关于页面"></a>三、添加分类、关于页面</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page categories/about</span><br></pre></td></tr></table></figure>
+
+<p>在<code>根目录/source</code>生成文件夹的中修改<code>index.md</code>文件中type类型分别为categories和about即可 </p>
+<ul>
+<li><p>文章添加分类</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: test1</span><br><span class="line">date: 2017-09-20 13:29:11</span><br><span class="line">tags:</span><br><span class="line">  - test1</span><br><span class="line">  - one</span><br><span class="line">  - two</span><br><span class="line">categories: 测试     #添加为测试类</span><br><span class="line">---  </span><br><span class="line">ps：注意这是在新建文章里添加分类</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加关于我</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 关于我</span><br><span class="line">date: 2017-09-17 10:22:54  </span><br><span class="line">type: about </span><br><span class="line">comments: false</span><br><span class="line">---</span><br><span class="line">一只快乐的小菜鸟，欢迎分享知识。</span><br><span class="line">ps：注意这是在about文件夹里修改index.md文件</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="四、添加公益404"><a href="#四、添加公益404" class="headerlink" title="四、添加公益404"></a>四、添加公益404</h4><p>新建 404.html 页面，放到主题的 source 目录下，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html;charset=utf-8;&quot;/&gt;</span><br><span class="line">  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt;</span><br><span class="line">  &lt;meta name=&quot;robots&quot; content=&quot;all&quot; /&gt;</span><br><span class="line">  &lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot;/&gt;</span><br><span class="line">  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://qzone.qq.com/gy/404/style/404style.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;script type=&quot;text/plain&quot; src=&quot;http://www.qq.com/404/search_children.js&quot;</span><br><span class="line">          charset=&quot;utf-8&quot; homePageUrl=&quot;/&quot;</span><br><span class="line">          homePageName=&quot;回到我的主页&quot;&gt;</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">  &lt;script src=&quot;https://qzone.qq.com/gy/404/data.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script src=&quot;https://qzone.qq.com/gy/404/page.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下 <a href="http://www.ixirong.com/404.html" target="_blank" rel="noopener">http://www.ixirong.com/404.html</a></p>
+<h4 id="五、添加搜索"><a href="#五、添加搜索" class="headerlink" title="五、添加搜索"></a>五、添加搜索</h4><ul>
+<li><p>安装 hexo-generator-searchdb，在站点的根目录下执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑 站点配置文件，新增以下内容到任意位置：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑 主题配置文件，启用本地搜索功能：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Local search</span><br><span class="line">local_search:</span><br><span class="line">  enable: true    #true开启</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="六、添加文章字数统计和阅读时长"><a href="#六、添加文章字数统计和阅读时长" class="headerlink" title="六、添加文章字数统计和阅读时长"></a>六、添加文章字数统计和阅读时长</h4><ul>
+<li><p>根目录命令运行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-symbols-count-time --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>根目录配置文件<code>_config.yml</code>底部添加如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  #文章内是否显示</span><br><span class="line">  symbols: true</span><br><span class="line">  time: true</span><br><span class="line">  #网页底部是否显示</span><br><span class="line">  total_symbols: true</span><br><span class="line">  total_time: true</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>更多主题配置，点击<a href="https://www.lixint.me/hexo-theme-diy.html" target="_blank" rel="noopener">这里</a><br>博客搭建高级应用，点击<a href="https://blog.annieyu.com/posts/3333782006.html" target="_blank" rel="noopener">这里</a><br>官方主题文档，点击<a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="noopener">这里</a><br>官方三方服务文档，点击<a href="https://theme-next.org/docs/third-party-services/comments-and-widgets" target="_blank" rel="noopener">这里</a></p>
+<p><strong><em>多看官方文档、多看官方文档、多看官方文档</em></strong></p>
 ]]></content>
       <categories>
-        <category>android</category>
+        <category>hexo</category>
       </categories>
   </entry>
   <entry>
@@ -181,6 +207,62 @@
       </categories>
   </entry>
   <entry>
+    <title>Android Room数据库警告Schema export directory错误</title>
+    <url>/2022/08/22/Android-Room%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AD%A6%E5%91%8ASchema-export-directory%E9%94%99%E8%AF%AF/</url>
+    <content><![CDATA[<p>使用Room数据库的时候，虽然项目可以运行起来。但是，却报以下error:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Error:(22, 17) 警告: Schema export directory is not provided to the annotation processor so we cannot export the schema. </span><br><span class="line"></span><br><span class="line">You can either provide `room.schemaLocation` annotation processor argument OR set exportSchema to false.</span><br></pre></td></tr></table></figure>
+
+<p>As per the <a href="https://developer.android.com/reference/android/arch/persistence/room/Database.html#exportSchema()" target="_blank" rel="noopener">docs</a></p>
+<blockquote>
+<p><strong>导出模式</strong><br>您可以设置注释处理器参数 (<code>room.schemaLocation</code>) 来告诉 Room 将架构导出到文件夹中。尽管这不是强制性的，但在您的代码库中拥有版本历史记录是一个很好的做法，并且您应该将该文件提交到您的版本控制系统中（但不要将它与您的应用程序一起发布！）。</p>
+<p>设置时<code>room.schemaLocation</code>，Room 将检查此变量，如果设置为 <code>true</code>，则其架构将导出到给定文件夹中。</p>
+<p><code>exportSchema</code>默认情况<code>true</code>下，但是当您不想保留版本历史记录时，您可以为数据库禁用它（例如仅在内存中的数据库）。</p>
+</blockquote>
+<p>实际上，上面已经提示了开发者应该怎么处理，给出了两种方案。</p>
+<a id="more"></a>
+
+<h4 id="方案一"><a href="#方案一" class="headerlink" title="方案一:"></a>方案一:</h4><p>给RoomDatabase设置exportSchema注解为false。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Database(entities = &#123; YourEntity.class &#125;, version = 1, exportSchema = false)</span><br><span class="line">public abstract class MovieDatabase extends RoomDatabase &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="方案二：-推荐"><a href="#方案二：-推荐" class="headerlink" title="方案二：(推荐)"></a>方案二：(推荐)</h4><p>在项目中gradle中通过 annotationProcessorOptions 注解，为room.schemaLocation指定schemas的子文件夹。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion 26</span><br><span class="line">    buildToolsVersion &quot;26.0.2&quot;</span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        applicationId &quot;com.xingen.architecturecomponents&quot;</span><br><span class="line">        minSdkVersion 15</span><br><span class="line">        targetSdkVersion 26</span><br><span class="line">        versionCode 1</span><br><span class="line">        versionName &quot;1.0&quot;</span><br><span class="line">        testInstrumentationRunner &quot;android.support.test.runner.AndroidJUnitRunner&quot;</span><br><span class="line"></span><br><span class="line">        //指定room.schemaLocation生成的文件路径</span><br><span class="line">        javaCompileOptions &#123;</span><br><span class="line">            annotationProcessorOptions &#123;</span><br><span class="line">                arguments = [&quot;room.schemaLocation&quot;: &quot;$projectDir/schemas&quot;.toString()]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当执行项目后，在Android Studio 的Project视图下，查看项目，会发现Module生成了一个schemas的文件夹，如下图所示：<br><img src="https://img-blog.csdn.net/20171205224652971?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGV4aW5nZW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt></p>
+<p>其中，会生成版本1的Json文件,这里可以查看Room数据库的配置情况：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;formatVersion&quot;: 1,</span><br><span class="line">  &quot;database&quot;: &#123;</span><br><span class="line">    &quot;version&quot;: 1,</span><br><span class="line">    &quot;identityHash&quot;: &quot;8240057b6178b803a0bf9915edf969ef&quot;,</span><br><span class="line">    &quot;entities&quot;: [</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;tableName&quot;: &quot;movies&quot;,</span><br><span class="line">        &quot;createSql&quot;: &quot;CREATE TABLE IF NOT EXISTS `$&#123;TABLE_NAME&#125;` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `year` TEXT, `title` TEXT, `image` TEXT)&quot;,</span><br><span class="line">        &quot;fields&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;fieldPath&quot;: &quot;id&quot;,</span><br><span class="line">            &quot;columnName&quot;: &quot;id&quot;,</span><br><span class="line">            &quot;affinity&quot;: &quot;INTEGER&quot;,</span><br><span class="line">            &quot;notNull&quot;: true</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;fieldPath&quot;: &quot;year&quot;,</span><br><span class="line">            &quot;columnName&quot;: &quot;year&quot;,</span><br><span class="line">            &quot;affinity&quot;: &quot;TEXT&quot;,</span><br><span class="line">            &quot;notNull&quot;: false</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;fieldPath&quot;: &quot;title&quot;,</span><br><span class="line">            &quot;columnName&quot;: &quot;title&quot;,</span><br><span class="line">            &quot;affinity&quot;: &quot;TEXT&quot;,</span><br><span class="line">            &quot;notNull&quot;: false</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;fieldPath&quot;: &quot;image&quot;,</span><br><span class="line">            &quot;columnName&quot;: &quot;image&quot;,</span><br><span class="line">            &quot;affinity&quot;: &quot;TEXT&quot;,</span><br><span class="line">            &quot;notNull&quot;: false</span><br><span class="line">          &#125;</span><br><span class="line">        ],</span><br><span class="line">        &quot;primaryKey&quot;: &#123;</span><br><span class="line">          &quot;columnNames&quot;: [</span><br><span class="line">            &quot;id&quot;</span><br><span class="line">          ],</span><br><span class="line">          &quot;autoGenerate&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;indices&quot;: [],</span><br><span class="line">        &quot;foreignKeys&quot;: []</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;setupQueries&quot;: [</span><br><span class="line">      &quot;CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)&quot;,</span><br><span class="line">      &quot;INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \&quot;8240057b6178b803a0bf9915edf969ef\&quot;)&quot;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参考文章：<br><a href="https://blog.csdn.net/hexingen/article/details/78725958" target="_blank" rel="noopener">https://blog.csdn.net/hexingen/article/details/78725958</a><br><a href="https://stackoverflow.com/questions/44322178/room-schema-export-directory-is-not-provided-to-the-annotation-processor-so-we" target="_blank" rel="noopener">https://stackoverflow.com/questions/44322178/room-schema-export-directory-is-not-provided-to-the-annotation-processor-so-we</a></p>
+]]></content>
+      <categories>
+        <category>android</category>
+      </categories>
+      <tags>
+        <tag>jetpack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo 双线部署</title>
+    <url>/2022/08/18/Hexo-%E5%8F%8C%E7%BA%BF%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h4 id="一、coding部署"><a href="#一、coding部署" class="headerlink" title="一、coding部署"></a>一、coding部署</h4><ul>
+<li>到<a href="https://coding.net/" target="_blank" rel="noopener">Coding</a>注册账号</li>
+<li>添加ssh公钥，可参考<a href="https://www.jianshu.com/p/7431fc3e5013" target="_blank" rel="noopener">这篇文章</a></li>
+<li>创建项目、仓库名任意，配置pages服务</li>
+</ul>
+<h4 id="二、github部署"><a href="#二、github部署" class="headerlink" title="二、github部署"></a>二、github部署</h4><ul>
+<li>创建仓库，仓库名必须为<code>yourname.github.io</code>，<code>yourname</code>为用户名<br>当你的仓库名为：用户名.github.io 之后默认开启Github Pages</li>
+<li>添加ssh key</li>
+</ul>
+<a id="more"></a>
+
+<h4 id="三、-config-yml修改"><a href="#三、-config-yml修改" class="headerlink" title="三、_config.yml修改"></a>三、_config.yml修改</h4><p>修改<code>站点配置文件</code>的<code>deploy</code>信息如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo:</span><br><span class="line">      github: git@github.com:yourname/yourname.github.io.git</span><br><span class="line">      coding: git@git.coding.net:yourname/yourname.git</span><br></pre></td></tr></table></figure>
+
+<h4 id="四、执行部署"><a href="#四、执行部署" class="headerlink" title="四、执行部署"></a>四、执行部署</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Float保留小数位</title>
     <url>/2022/08/23/Float%E4%BF%9D%E7%95%99%E5%B0%8F%E6%95%B0%E4%BD%8D/</url>
     <content><![CDATA[<p>Float保留小数位的几种方法：</p>
@@ -197,6 +279,35 @@
       <tags>
         <tag>float</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hexo 添加留言板</title>
+    <url>/2022/08/19/Hexo-%E6%B7%BB%E5%8A%A0%E7%95%99%E8%A8%80%E6%9D%BF/</url>
+    <content><![CDATA[<ol>
+<li><p>添加一个新的page</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page &quot;guestbook&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入 <code>source/guestbook/index.md</code>。加入你想显示的内容，如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 给我留言吧</span><br><span class="line">date: 2022-02-18 20:04:25</span><br><span class="line">type: &quot;guestbook&quot;</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"># 欢迎来到我的博客！</span><br><span class="line"></span><br><span class="line">&gt; 欢迎在这里留言！任何问题都可以在这里留言，我会及时回复的，添加email可以获得更快的回复速度，在呢称栏目输入QQ号可以直接获取你的QQ头像噢。</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<a id="more"></a>
+
+<ol start="3">
+<li><p>进入<code>theme/next/_config.yml</code>, 找到 <code>menu</code> , 添加留言板功能：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  guestbook: /guestbook/ || comment</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更改 <code>themes/next/languages</code> 下对应语言的翻译。例如中文的<code>zh-CN.yml</code>文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  guestbook: 留言板</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重新部署即可查看</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
   </entry>
   <entry>
     <title>Hexo NexT评论系统Valine</title>
@@ -233,126 +344,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Hexo NexT主题</title>
-    <url>/2022/08/18/Hexo-NexT%E4%B8%BB%E9%A2%98/</url>
-    <content><![CDATA[<p><a href="http://theme-next.iissnan.com/theme-settings.html#volunteer-404" target="_blank" rel="noopener">官方文档</a></p>
-<h4 id="一、设置文章底部版权信息"><a href="#一、设置文章底部版权信息" class="headerlink" title="一、设置文章底部版权信息"></a>一、设置文章底部版权信息</h4><p>打开主题配置文件<code>_config.yml</code>，找到<code>creative_commons</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">creative_commons:</span><br><span class="line">  license: by-nc-sa</span><br><span class="line">  sidebar: false</span><br><span class="line">  post: true #设置为true</span><br><span class="line">  language:</span><br></pre></td></tr></table></figure>
-
-<p><a href="http://creativecommons.org/" target="_blank" rel="noopener">Creative commons协议</a>，这个就是设置版权声明</p>
-<a id="more"></a>
-
-<h4 id="二、添加标签页"><a href="#二、添加标签页" class="headerlink" title="二、添加标签页"></a>二、添加标签页</h4><ul>
-<li>新建页面：<br>前面通过修改next主题下的_config.yml文件中的menu选项，可以在主页面的菜单栏添加标签选项，但是此时点击标签，跳转的页面会显示page not found。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page tags    #新建标签页面</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>输入命令后，在<code>根目录/source</code>会生成一个tags文件夹，其中有个index.md文件。</p>
-<ul>
-<li><p>设置页面类型：<br>修改index.md，添加type：tags</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2016-11-15 19:10:05</span><br><span class="line">type:  tags</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置文章的标签：<br>当要为某篇文章添加标签时，只需在文章开头设置相应标签即可。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: test1    #文章标签</span><br><span class="line">date: 2017-09-20 13:29:11</span><br><span class="line">tags:         #标签</span><br><span class="line">  - test1</span><br><span class="line">  - one</span><br><span class="line">  - two</span><br><span class="line">categories: 测试     #分类</span><br><span class="line">---   </span><br><span class="line">ps：注意这是在新建文章里添加标签</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="三、添加分类、关于页面"><a href="#三、添加分类、关于页面" class="headerlink" title="三、添加分类、关于页面"></a>三、添加分类、关于页面</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page categories/about</span><br></pre></td></tr></table></figure>
-
-<p>在<code>根目录/source</code>生成文件夹的中修改<code>index.md</code>文件中type类型分别为categories和about即可 </p>
-<ul>
-<li><p>文章添加分类</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: test1</span><br><span class="line">date: 2017-09-20 13:29:11</span><br><span class="line">tags:</span><br><span class="line">  - test1</span><br><span class="line">  - one</span><br><span class="line">  - two</span><br><span class="line">categories: 测试     #添加为测试类</span><br><span class="line">---  </span><br><span class="line">ps：注意这是在新建文章里添加分类</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加关于我</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 关于我</span><br><span class="line">date: 2017-09-17 10:22:54  </span><br><span class="line">type: about </span><br><span class="line">comments: false</span><br><span class="line">---</span><br><span class="line">一只快乐的小菜鸟，欢迎分享知识。</span><br><span class="line">ps：注意这是在about文件夹里修改index.md文件</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="四、添加公益404"><a href="#四、添加公益404" class="headerlink" title="四、添加公益404"></a>四、添加公益404</h4><p>新建 404.html 页面，放到主题的 source 目录下，内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html;charset=utf-8;&quot;/&gt;</span><br><span class="line">  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt;</span><br><span class="line">  &lt;meta name=&quot;robots&quot; content=&quot;all&quot; /&gt;</span><br><span class="line">  &lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot;/&gt;</span><br><span class="line">  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://qzone.qq.com/gy/404/style/404style.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;script type=&quot;text/plain&quot; src=&quot;http://www.qq.com/404/search_children.js&quot;</span><br><span class="line">          charset=&quot;utf-8&quot; homePageUrl=&quot;/&quot;</span><br><span class="line">          homePageName=&quot;回到我的主页&quot;&gt;</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">  &lt;script src=&quot;https://qzone.qq.com/gy/404/data.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script src=&quot;https://qzone.qq.com/gy/404/page.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>效果如下 <a href="http://www.ixirong.com/404.html" target="_blank" rel="noopener">http://www.ixirong.com/404.html</a></p>
-<h4 id="五、添加搜索"><a href="#五、添加搜索" class="headerlink" title="五、添加搜索"></a>五、添加搜索</h4><ul>
-<li><p>安装 hexo-generator-searchdb，在站点的根目录下执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编辑 站点配置文件，新增以下内容到任意位置：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编辑 主题配置文件，启用本地搜索功能：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Local search</span><br><span class="line">local_search:</span><br><span class="line">  enable: true    #true开启</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="六、添加文章字数统计和阅读时长"><a href="#六、添加文章字数统计和阅读时长" class="headerlink" title="六、添加文章字数统计和阅读时长"></a>六、添加文章字数统计和阅读时长</h4><ul>
-<li><p>根目录命令运行</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-symbols-count-time --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>根目录配置文件<code>_config.yml</code>底部添加如下内容：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  #文章内是否显示</span><br><span class="line">  symbols: true</span><br><span class="line">  time: true</span><br><span class="line">  #网页底部是否显示</span><br><span class="line">  total_symbols: true</span><br><span class="line">  total_time: true</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>更多主题配置，点击<a href="https://www.lixint.me/hexo-theme-diy.html" target="_blank" rel="noopener">这里</a><br>博客搭建高级应用，点击<a href="https://blog.annieyu.com/posts/3333782006.html" target="_blank" rel="noopener">这里</a><br>官方主题文档，点击<a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="noopener">这里</a><br>官方三方服务文档，点击<a href="https://theme-next.org/docs/third-party-services/comments-and-widgets" target="_blank" rel="noopener">这里</a></p>
-<p><strong><em>多看官方文档、多看官方文档、多看官方文档</em></strong></p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hexo 双线部署</title>
-    <url>/2022/08/18/Hexo-%E5%8F%8C%E7%BA%BF%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<h4 id="一、coding部署"><a href="#一、coding部署" class="headerlink" title="一、coding部署"></a>一、coding部署</h4><ul>
-<li>到<a href="https://coding.net/" target="_blank" rel="noopener">Coding</a>注册账号</li>
-<li>添加ssh公钥，可参考<a href="https://www.jianshu.com/p/7431fc3e5013" target="_blank" rel="noopener">这篇文章</a></li>
-<li>创建项目、仓库名任意，配置pages服务</li>
-</ul>
-<h4 id="二、github部署"><a href="#二、github部署" class="headerlink" title="二、github部署"></a>二、github部署</h4><ul>
-<li>创建仓库，仓库名必须为<code>yourname.github.io</code>，<code>yourname</code>为用户名<br>当你的仓库名为：用户名.github.io 之后默认开启Github Pages</li>
-<li>添加ssh key</li>
-</ul>
-<a id="more"></a>
-
-<h4 id="三、-config-yml修改"><a href="#三、-config-yml修改" class="headerlink" title="三、_config.yml修改"></a>三、_config.yml修改</h4><p>修改<code>站点配置文件</code>的<code>deploy</code>信息如下</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo:</span><br><span class="line">      github: git@github.com:yourname/yourname.github.io.git</span><br><span class="line">      coding: git@git.coding.net:yourname/yourname.git</span><br></pre></td></tr></table></figure>
-
-<h4 id="四、执行部署"><a href="#四、执行部署" class="headerlink" title="四、执行部署"></a>四、执行部署</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hexo 添加留言板</title>
-    <url>/2022/08/19/Hexo-%E6%B7%BB%E5%8A%A0%E7%95%99%E8%A8%80%E6%9D%BF/</url>
-    <content><![CDATA[<ol>
-<li><p>添加一个新的page</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page &quot;guestbook&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>进入 <code>source/guestbook/index.md</code>。加入你想显示的内容，如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 给我留言吧</span><br><span class="line">date: 2022-02-18 20:04:25</span><br><span class="line">type: &quot;guestbook&quot;</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"># 欢迎来到我的博客！</span><br><span class="line"></span><br><span class="line">&gt; 欢迎在这里留言！任何问题都可以在这里留言，我会及时回复的，添加email可以获得更快的回复速度，在呢称栏目输入QQ号可以直接获取你的QQ头像噢。</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<a id="more"></a>
-
-<ol start="3">
-<li><p>进入<code>theme/next/_config.yml</code>, 找到 <code>menu</code> , 添加留言板功能：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  guestbook: /guestbook/ || comment</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>更改 <code>themes/next/languages</code> 下对应语言的翻译。例如中文的<code>zh-CN.yml</code>文件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  guestbook: 留言板</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重新部署即可查看</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Hexo 高级应用</title>
     <url>/2022/08/18/Hexo-%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[<h4 id="一、Hexo图片引用"><a href="#一、Hexo图片引用" class="headerlink" title="一、Hexo图片引用"></a>一、Hexo图片引用</h4><ol>
@@ -373,29 +364,59 @@
       </categories>
   </entry>
   <entry>
-    <title>Hexo部署到github提示TypeError [ERR_INVALID_ARG_TYPE]: The &#39;mode&#39; argument must be integer. </title>
-    <url>/2022/08/22/Hexo%E9%83%A8%E7%BD%B2%E5%88%B0github%E6%8F%90%E7%A4%BATypeError-ERR-INVALID-ARG-TYPE-The-mode-argument-must-be-integer/</url>
-    <content><![CDATA[<p>由于前段时间学习vue，重装了我的node，导致node版本过高。hexo部署到github时出现以下错误：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FATAL Something&apos;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line">TypeError [ERR_INVALID_ARG_TYPE]: The &quot;mode&quot; argument must be integer. Received an instance of Object</span><br><span class="line">    at copyFile (fs.js:1972:10)</span><br><span class="line">    at tryCatcher (/Users/hyc/Documents/iblog/node_modules/bluebird/js/release/util.js:16:23)</span><br><span class="line">    at ret (eval at makeNodePromisifiedEval (/Users/hyc/.nvm/versions/node/v14.15.0/lib/node_modules/hexo-cli/node_modules/bluebird/js/release/promisify.js:184:12), &lt;anonymous&gt;:13:39)</span><br><span class="line">    at /Users/hyc/Documents/iblog/node_modules/hexo-fs/lib/fs.js:144:39</span><br><span class="line">    at tryCatcher (/Users/hyc/Documents/iblog/node_modules/bluebird/js/release/util.js:16:23)</span><br></pre></td></tr></table></figure>
+    <title>Hexo部署到github上，白屏了</title>
+    <url>/2022/08/23/Hexo%E9%83%A8%E7%BD%B2%E5%88%B0github%E4%B8%8A%EF%BC%8C%E7%99%BD%E5%B1%8F%E4%BA%86/</url>
+    <content><![CDATA[<ol>
+<li><p>先你应该在本地测试 Hexo 是否正确安装。<br>在 hexo 的目录下，运行 <code>hexo s</code>, 如果 hexo 安装正确会出现如下内容</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">➜  iblog hexo s</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
 
-<h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>node14与hexo不兼容导致。</p>
-<p>查看node版本号：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo -v</span><br><span class="line">hexo: 3.9.0</span><br><span class="line">hexo-cli: 4.3.0</span><br><span class="line">os: win32 10.0.19042</span><br><span class="line">node: 14.17.5</span><br></pre></td></tr></table></figure>
+<p> 这个时候，打开浏览器，输入 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000</a> 看看是不是能够看到你的网站。<br> 如果正常显示。说明 Hexo 安装正确，问题就在出现在 github 上了。</p>
+</li>
+<li><p>如果你正确地在 hexo 中配置了 github。你可以先 <code>hexo clean</code> 再 <code>hexo d -g</code> 。<br>如果成功，最后应该会显示</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Branch &apos;master&apos; set up to track remote branch &apos;master&apos; from &apos;git@github.com:xxx/xxx.github.io.git&apos;.</span><br><span class="line">INFO  Deploy done: git</span><br></pre></td></tr></table></figure>
 
-<h4 id="解决方案一"><a href="#解决方案一" class="headerlink" title="解决方案一"></a>解决方案一</h4><p>当前node版本是 <code>14.17.5</code>，从14降低到12即可解决此问题。推荐<code>12.17.0</code>。</p>
+</li>
+</ol>
 <a id="more"></a>
 
-<p>node升降机、版本切换，可<a href="https://hanyechun.github.io/2022/08/19/Node%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC%E3%80%81%E9%99%8D%E7%BA%A7%E3%80%81%E5%8D%87%E7%BA%A7/#more">点此</a>文章。</p>
-<h4 id="解决方案二-未尝试，不知是否可行"><a href="#解决方案二-未尝试，不知是否可行" class="headerlink" title="解决方案二 (未尝试，不知是否可行)"></a>解决方案二 (未尝试，不知是否可行)</h4><p>修改package.json文件，升级hexo-renderer-stylus到2.0.0版本:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm update</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p>前两步都没问题，就该检查 github 仓库了。<br>打开你的 github 上名为 xxx.github.io 的仓库，如果部署正确上面应该会有内容的。至少会有一个 <code>index.html</code> 之类的文件。</p>
+</li>
+<li><p>如果你能找到 index.html 文件，但是还是打不开你的网站，那说明很有可能 github page 相关配置出了问题。<br>可以做一个简单的测试。把 xxx.github.io 仓库下的内容全部删除了，新建一个 <code>index.html</code> 文件，输入如下内容</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;title&gt; hexo test &lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h1&gt;hexo test&lt;/h1&gt;</span><br><span class="line">    &lt;p&gt; hello world &lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 
-<p>参考<a href="https://www.4spaces.org/hexo-mode-argument-must-be-integer-error/" target="_blank" rel="noopener">此文</a></p>
+</li>
+</ol>
+<p>然后你在浏览器打开 xxx.github.io<br>如果打开没问题，能看到 hello world, 说明你的 github 仓库配置没问题，你需要检查你的 hexo 是不是正确上传到了 github.<br>如果打开还是一片空白，建议你删了这个仓库，找个教程重新新建一个仓库。</p>
 ]]></content>
       <categories>
         <category>hexo</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Kotlin List强制转换警告</title>
+    <url>/2022/08/30/Kotlin-List%E5%BC%BA%E5%88%B6%E8%BD%AC%E6%8D%A2%E8%AD%A6%E5%91%8A/</url>
+    <content><![CDATA[<p><a href="https://stackoverflow.com/questions/36569421/kotlin-how-to-work-with-list-casts-unchecked-cast-kotlin-collections-listkot" target="_blank" rel="noopener">stack overflow</a></p>
+<h4 id="Kotlin-How-to-work-with-List-casts-Unchecked-Cast-kotlin-collections-List-lt-Kotlin-Any-gt-to-kotlin-colletions-List"><a href="#Kotlin-How-to-work-with-List-casts-Unchecked-Cast-kotlin-collections-List-lt-Kotlin-Any-gt-to-kotlin-colletions-List" class="headerlink" title="Kotlin: How to work with List casts: Unchecked Cast: kotlin.collections.List&lt;Kotlin.Any?&gt; to kotlin.colletions.List"></a>Kotlin: How to work with List casts: Unchecked Cast: kotlin.collections.List&lt;Kotlin.Any?&gt; to kotlin.colletions.List<waypoint></waypoint></h4><blockquote>
+<p>在 Kotlin 中，一般情况下无法在运行时检查泛型参数（就像只检查 a 的项目List<t>，这只是一种特殊情况），因此将泛型类型转换为具有不同泛型参数的另一个类型会引发警告，除非cast 位于方差范围内。</t></p>
+</blockquote>
+<p>有几种不同的解决方案 (推荐filterIsInstance)</p>
+<h4 id="您已经检查了类型，并且非常确定演员表是安全的。鉴于此，您可以使用抑制警告"><a href="#您已经检查了类型，并且非常确定演员表是安全的。鉴于此，您可以使用抑制警告" class="headerlink" title="您已经检查了类型，并且非常确定演员表是安全的。鉴于此，您可以使用抑制警告"></a>您已经检查了类型，并且非常确定演员表是安全的。鉴于此，您可以使用抑制警告</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Suppress(&quot;UNCHECKED_CAST&quot;)</span><br><span class="line">val waypointList = list as? List&lt;Waypoint&gt; ?: return null</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用-filterIsInstance-函数，它检查项目类型并返回包含传递类型的项目的列表："><a href="#使用-filterIsInstance-函数，它检查项目类型并返回包含传递类型的项目的列表：" class="headerlink" title="使用.filterIsInstance()函数，它检查项目类型并返回包含传递类型的项目的列表："></a>使用.filterIsInstance<t>()函数，它检查项目类型并返回包含传递类型的项目的列表：</t></h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">val waypointList: List&lt;Waypoint&gt; = list.filterIsInstance&lt;Waypoint&gt;()</span><br><span class="line"></span><br><span class="line">if (waypointList.size != list.size)</span><br><span class="line">    return null</span><br></pre></td></tr></table></figure>
+
+<p>请注意，如果您使用filterIsInstance并且原始列表包含不同类型的元素，您的代码将默默地将它们过滤掉。有时这是你想要的，但有时你可能宁愿IllegalStateException抛出一个或类似的东西。如果是后者，那么您可以创建自己的方法来检查然后强制转换：<code>inline fun &lt;reified R&gt; Iterable&lt;*&gt;.mapAsInstance() = map { it.apply { check(this is R) } as R }</code></p>
+<a id="more"></a>
+
+<h4 id="编写一个实用函数来检查类型并在类型正确时返回相同的列表，从而将强制转换（从编译器的角度来看仍然未经检查）封装在其中："><a href="#编写一个实用函数来检查类型并在类型正确时返回相同的列表，从而将强制转换（从编译器的角度来看仍然未经检查）封装在其中：" class="headerlink" title="编写一个实用函数来检查类型并在类型正确时返回相同的列表，从而将强制转换（从编译器的角度来看仍然未经检查）封装在其中："></a>编写一个实用函数来检查类型并在类型正确时返回相同的列表，从而将强制转换（从编译器的角度来看仍然未经检查）封装在其中：</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Suppress(&quot;UNCHECKED_CAST&quot;)</span><br><span class="line">inline fun &lt;reified T : Any&gt; List&lt;*&gt;.checkItemsAre() =</span><br><span class="line">        if (all &#123; it is T &#125;)</span><br><span class="line">            this as List&lt;T&gt;</span><br><span class="line">        else null</span><br></pre></td></tr></table></figure>
+
+<p>用法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">val waypointList = list.checkItemsAre&lt;Waypoint&gt;() ?: return null</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>android</category>
+      </categories>
       <tags>
-        <tag>node</tag>
+        <tag>kotlin</tag>
       </tags>
   </entry>
   <entry>
@@ -424,6 +445,32 @@
       </categories>
       <tags>
         <tag>jetpack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo部署到github提示TypeError [ERR_INVALID_ARG_TYPE]: The &#39;mode&#39; argument must be integer. </title>
+    <url>/2022/08/22/Hexo%E9%83%A8%E7%BD%B2%E5%88%B0github%E6%8F%90%E7%A4%BATypeError-ERR-INVALID-ARG-TYPE-The-mode-argument-must-be-integer/</url>
+    <content><![CDATA[<p>由于前段时间学习vue，重装了我的node，导致node版本过高。hexo部署到github时出现以下错误：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FATAL Something&apos;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line">TypeError [ERR_INVALID_ARG_TYPE]: The &quot;mode&quot; argument must be integer. Received an instance of Object</span><br><span class="line">    at copyFile (fs.js:1972:10)</span><br><span class="line">    at tryCatcher (/Users/hyc/Documents/iblog/node_modules/bluebird/js/release/util.js:16:23)</span><br><span class="line">    at ret (eval at makeNodePromisifiedEval (/Users/hyc/.nvm/versions/node/v14.15.0/lib/node_modules/hexo-cli/node_modules/bluebird/js/release/promisify.js:184:12), &lt;anonymous&gt;:13:39)</span><br><span class="line">    at /Users/hyc/Documents/iblog/node_modules/hexo-fs/lib/fs.js:144:39</span><br><span class="line">    at tryCatcher (/Users/hyc/Documents/iblog/node_modules/bluebird/js/release/util.js:16:23)</span><br></pre></td></tr></table></figure>
+
+<h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>node14与hexo不兼容导致。</p>
+<p>查看node版本号：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo -v</span><br><span class="line">hexo: 3.9.0</span><br><span class="line">hexo-cli: 4.3.0</span><br><span class="line">os: win32 10.0.19042</span><br><span class="line">node: 14.17.5</span><br></pre></td></tr></table></figure>
+
+<h4 id="解决方案一"><a href="#解决方案一" class="headerlink" title="解决方案一"></a>解决方案一</h4><p>当前node版本是 <code>14.17.5</code>，从14降低到12即可解决此问题。推荐<code>12.17.0</code>。</p>
+<a id="more"></a>
+
+<p>node升降机、版本切换，可<a href="https://hanyechun.github.io/2022/08/19/Node%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC%E3%80%81%E9%99%8D%E7%BA%A7%E3%80%81%E5%8D%87%E7%BA%A7/#more">点此</a>文章。</p>
+<h4 id="解决方案二-未尝试，不知是否可行"><a href="#解决方案二-未尝试，不知是否可行" class="headerlink" title="解决方案二 (未尝试，不知是否可行)"></a>解决方案二 (未尝试，不知是否可行)</h4><p>修改package.json文件，升级hexo-renderer-stylus到2.0.0版本:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm update</span><br></pre></td></tr></table></figure>
+
+<p>参考<a href="https://www.4spaces.org/hexo-mode-argument-must-be-integer-error/" target="_blank" rel="noopener">此文</a></p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
       </tags>
   </entry>
   <entry>
@@ -483,56 +530,6 @@
       <categories>
         <category>android</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Node切换版本、降级、升级</title>
-    <url>/2022/08/19/Node%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC%E3%80%81%E9%99%8D%E7%BA%A7%E3%80%81%E5%8D%87%E7%BA%A7/</url>
-    <content><![CDATA[<h4 id="方案一、安装node版本管理模块n"><a href="#方案一、安装node版本管理模块n" class="headerlink" title="方案一、安装node版本管理模块n"></a>方案一、安装node版本管理模块n</h4><p>安装node管理模块n</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo npm install n -g</span><br></pre></td></tr></table></figure>
-
-<p>安装稳定版</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo n stable</span><br></pre></td></tr></table></figure>
-
-<p>安装最新版</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo n latest</span><br></pre></td></tr></table></figure>
-
-<p>版本降级/升级</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo n 版本号	#如 sudo n 12.17.0</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<p>检测目前安装的版本</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">n</span><br></pre></td></tr></table></figure>
-
-<p>切换版本(不会删除其他已安装的版本)</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">n 版本号</span><br></pre></td></tr></table></figure>
-
-<p>删除版本</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo n rm 版本号</span><br></pre></td></tr></table></figure>
-
-<h4 id="方案二、使用nvm"><a href="#方案二、使用nvm" class="headerlink" title="方案二、使用nvm"></a>方案二、使用nvm</h4><p>安装最新版本node</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nvm install stable</span><br></pre></td></tr></table></figure>
-
-<p>安装指定版本的node</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nvm install [node版本号]</span><br></pre></td></tr></table></figure>
-
-<p>查看已安装版本</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nvm ls</span><br></pre></td></tr></table></figure>
-
-<p>切换到指定版本的node</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nvm use [node版本号]</span><br></pre></td></tr></table></figure>
-
-<p>设置默认版本</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nvm alias default [node版本号]</span><br></pre></td></tr></table></figure>
-
-<p>参考文章: <a href="https://blog.csdn.net/Fabulous1111/article/details/84983869" target="_blank" rel="noopener">https://blog.csdn.net/Fabulous1111/article/details/84983869</a></p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>node</tag>
-      </tags>
   </entry>
   <entry>
     <title>Mac使用oh-my-zsh + autosuggestions搭建个性化Terminal</title>
@@ -692,6 +689,109 @@
       </tags>
   </entry>
   <entry>
+    <title>Mac生成SSH Key</title>
+    <url>/2019/07/19/Mac%E7%94%9F%E6%88%90SSH-Key/</url>
+    <content><![CDATA[<h4 id="打开vim（terminal-app）查看本地是否存在SSH-Key"><a href="#打开vim（terminal-app）查看本地是否存在SSH-Key" class="headerlink" title="打开vim（terminal.app）查看本地是否存在SSH-Key"></a>打开vim（terminal.app）查看本地是否存在SSH-Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls -al ~/.ssh</span><br></pre></td></tr></table></figure>
+
+<p>如果vim输出的是如下内容：证明本地没有生成的SSH Key，请执行第二步。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">No such file or directory</span><br></pre></td></tr></table></figure>
+
+<p>如果vim输出的是如下内容： 证明本地已经存在SSH Key 文件，请执行第四步。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">id_rsa    id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<h4 id="如果没有，生成新的SSH-Key"><a href="#如果没有，生成新的SSH-Key" class="headerlink" title="如果没有，生成新的SSH Key"></a>如果没有，生成新的SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C&quot;you_email&quot;</span><br></pre></td></tr></table></figure>
+
+<p>your_email：这里填写你在GitLab或者GitHub注册时的邮箱。<br>后面的提示直接敲回车，一路完成。</p>
+<h4 id="生成并添加SSH-Key"><a href="#生成并添加SSH-Key" class="headerlink" title="生成并添加SSH Key"></a>生成并添加SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看SSH-Key"><a href="#查看SSH-Key" class="headerlink" title="查看SSH Key"></a>查看SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat /Users/xxx/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>xxx是你的电脑用户名，例如：howieMacBook-Pro:~ howie$中的howie关键字。<br>复制生成好的SSH Key 添加到 GitLab 或者GitHub中的SSH Key中即可。</p>
+]]></content>
+      <categories>
+        <category>mac</category>
+      </categories>
+      <tags>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Node切换版本、降级、升级</title>
+    <url>/2022/08/19/Node%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC%E3%80%81%E9%99%8D%E7%BA%A7%E3%80%81%E5%8D%87%E7%BA%A7/</url>
+    <content><![CDATA[<h4 id="方案一、安装node版本管理模块n"><a href="#方案一、安装node版本管理模块n" class="headerlink" title="方案一、安装node版本管理模块n"></a>方案一、安装node版本管理模块n</h4><p>安装node管理模块n</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo npm install n -g</span><br></pre></td></tr></table></figure>
+
+<p>安装稳定版</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo n stable</span><br></pre></td></tr></table></figure>
+
+<p>安装最新版</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo n latest</span><br></pre></td></tr></table></figure>
+
+<p>版本降级/升级</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo n 版本号	#如 sudo n 12.17.0</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p>检测目前安装的版本</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">n</span><br></pre></td></tr></table></figure>
+
+<p>切换版本(不会删除其他已安装的版本)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">n 版本号</span><br></pre></td></tr></table></figure>
+
+<p>删除版本</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo n rm 版本号</span><br></pre></td></tr></table></figure>
+
+<h4 id="方案二、使用nvm"><a href="#方案二、使用nvm" class="headerlink" title="方案二、使用nvm"></a>方案二、使用nvm</h4><p>安装最新版本node</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nvm install stable</span><br></pre></td></tr></table></figure>
+
+<p>安装指定版本的node</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nvm install [node版本号]</span><br></pre></td></tr></table></figure>
+
+<p>查看已安装版本</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nvm ls</span><br></pre></td></tr></table></figure>
+
+<p>切换到指定版本的node</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nvm use [node版本号]</span><br></pre></td></tr></table></figure>
+
+<p>设置默认版本</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nvm alias default [node版本号]</span><br></pre></td></tr></table></figure>
+
+<p>参考文章: <a href="https://blog.csdn.net/Fabulous1111/article/details/84983869" target="_blank" rel="noopener">https://blog.csdn.net/Fabulous1111/article/details/84983869</a></p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ViewPager2与SwipeRefreshLayout滑动冲突问题的解决</title>
+    <url>/2021/04/30/ViewPager2%E4%B8%8ESwipeRefreshLayout%E6%BB%91%E5%8A%A8%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/</url>
+    <content><![CDATA[<blockquote>
+<p>我们是在ViewPager2中的Fragment使用了SwipeRefreshLayout。当向下滑动时只要稍微偏左或右都会触发ViewPager2的移动，造成SwipeRefreshLayout卡在页面上不消失。</p>
+</blockquote>
+<ul>
+<li>解决方案一：重写SwipeRefreshLayout</li>
+</ul>
+<p>我们首先准备修改ViewPager2，可是它没法继承。那么目光只好投向SwipeRefreshLayout。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class MySwipeRefreshLayout : SwipeRefreshLayout &#123;</span><br><span class="line">    constructor(context: Context, attes: AttributeSet) : super(context, attes) &#123;&#125;</span><br><span class="line">    constructor(context: Context) : super(context)</span><br><span class="line"></span><br><span class="line">    private var startX = 0</span><br><span class="line">    private var beginScrolll = false //是否开始滑动</span><br><span class="line">    private var startY: Int = 0</span><br><span class="line">    override fun dispatchTouchEvent(ev: MotionEvent): Boolean &#123;</span><br><span class="line">        when (ev.action) &#123;</span><br><span class="line">            MotionEvent.ACTION_DOWN -&gt; &#123;</span><br><span class="line">                startX = ev.x.toInt()</span><br><span class="line">                startY = ev.y.toInt()</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_MOVE -&gt; &#123;</span><br><span class="line">                val endX = ev.x.toInt()</span><br><span class="line">                val endY = ev.y.toInt()</span><br><span class="line">                val disX = Math.abs(endX - startX)</span><br><span class="line">                val disY: Int = Math.abs(endY - startY)</span><br><span class="line">                if (disX &gt; disY) &#123;</span><br><span class="line">                    if (!beginScrolll)</span><br><span class="line">                        parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    beginScrolll = true</span><br><span class="line">                    parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -&gt; &#123;</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                beginScrolll=false</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return super.dispatchTouchEvent(ev)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>解决方案二：使用SmartRefreshLayout替代SwipeRefreshLayout即可。</li>
+</ul>
+<p><a href="https://blog.csdn.net/qq_15046309/article/details/106005736" target="_blank" rel="noopener">参考原文地址</a></p>
+]]></content>
+      <categories>
+        <category>android</category>
+      </categories>
+      <tags>
+        <tag>jetpack</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Retrofit多图上传</title>
     <url>/2019/07/30/Retrofit%E5%A4%9A%E5%9B%BE%E4%B8%8A%E4%BC%A0/</url>
     <content><![CDATA[<p>首先是定义接口部分：</p>
@@ -796,29 +896,24 @@
       </tags>
   </entry>
   <entry>
-    <title>ViewPager2与SwipeRefreshLayout滑动冲突问题的解决</title>
-    <url>/2021/04/30/ViewPager2%E4%B8%8ESwipeRefreshLayout%E6%BB%91%E5%8A%A8%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/</url>
-    <content><![CDATA[<blockquote>
-<p>我们是在ViewPager2中的Fragment使用了SwipeRefreshLayout。当向下滑动时只要稍微偏左或右都会触发ViewPager2的移动，造成SwipeRefreshLayout卡在页面上不消失。</p>
-</blockquote>
-<ul>
-<li>解决方案一：重写SwipeRefreshLayout</li>
-</ul>
-<p>我们首先准备修改ViewPager2，可是它没法继承。那么目光只好投向SwipeRefreshLayout。</p>
+    <title>Hello World</title>
+    <url>/2019/07/05/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class MySwipeRefreshLayout : SwipeRefreshLayout &#123;</span><br><span class="line">    constructor(context: Context, attes: AttributeSet) : super(context, attes) &#123;&#125;</span><br><span class="line">    constructor(context: Context) : super(context)</span><br><span class="line"></span><br><span class="line">    private var startX = 0</span><br><span class="line">    private var beginScrolll = false //是否开始滑动</span><br><span class="line">    private var startY: Int = 0</span><br><span class="line">    override fun dispatchTouchEvent(ev: MotionEvent): Boolean &#123;</span><br><span class="line">        when (ev.action) &#123;</span><br><span class="line">            MotionEvent.ACTION_DOWN -&gt; &#123;</span><br><span class="line">                startX = ev.x.toInt()</span><br><span class="line">                startY = ev.y.toInt()</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_MOVE -&gt; &#123;</span><br><span class="line">                val endX = ev.x.toInt()</span><br><span class="line">                val endY = ev.y.toInt()</span><br><span class="line">                val disX = Math.abs(endX - startX)</span><br><span class="line">                val disY: Int = Math.abs(endY - startY)</span><br><span class="line">                if (disX &gt; disY) &#123;</span><br><span class="line">                    if (!beginScrolll)</span><br><span class="line">                        parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    beginScrolll = true</span><br><span class="line">                    parent.requestDisallowInterceptTouchEvent(true)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -&gt; &#123;</span><br><span class="line">                parent.requestDisallowInterceptTouchEvent(false)</span><br><span class="line">                beginScrolll=false</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return super.dispatchTouchEvent(ev)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>解决方案二：使用SmartRefreshLayout替代SwipeRefreshLayout即可。</li>
-</ul>
-<p><a href="https://blog.csdn.net/qq_15046309/article/details/106005736" target="_blank" rel="noopener">参考原文地址</a></p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
-      <categories>
-        <category>android</category>
-      </categories>
-      <tags>
-        <tag>jetpack</tag>
-      </tags>
   </entry>
   <entry>
     <title>oh-my-zsh ，zsh: command not found: adb</title>
@@ -846,42 +941,6 @@
       <tags>
         <tag>terminal</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2019/07/05/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<a id="more"></a>
-
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>zsh: command not found: hexo</title>
-    <url>/2022/08/18/zsh-command-not-found-hexo/</url>
-    <content><![CDATA[<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>最近打算在hexo新建一篇文章，执行终端时:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">zsh: command not found: hexo</span><br></pre></td></tr></table></figure>
-
-<h4 id="探究"><a href="#探究" class="headerlink" title="探究"></a>探究</h4><p>可能是前段时间学习vue的时候，重新安装了node，导致PATH路径<code>/usr/local/lib/node_modules/</code>目录下的<code>hexo-cli</code>丢失。</p>
-<h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><p>通过 –prefix 参数指定链接创建的目标路径。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yarn global remove hexo-cli</span><br><span class="line"></span><br><span class="line"># 重新安装</span><br><span class="line">yarn global add hexo-cli --prefix /usr/local</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.dazhuanlan.com/maple0015/topics/1070884" target="_blank" rel="noopener">重新执行hexo，成功。</a></p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
   </entry>
   <entry>
     <title>常用正则表达式</title>
@@ -1130,34 +1189,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Mac生成SSH Key</title>
-    <url>/2019/07/19/Mac%E7%94%9F%E6%88%90SSH-Key/</url>
-    <content><![CDATA[<h4 id="打开vim（terminal-app）查看本地是否存在SSH-Key"><a href="#打开vim（terminal-app）查看本地是否存在SSH-Key" class="headerlink" title="打开vim（terminal.app）查看本地是否存在SSH-Key"></a>打开vim（terminal.app）查看本地是否存在SSH-Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls -al ~/.ssh</span><br></pre></td></tr></table></figure>
-
-<p>如果vim输出的是如下内容：证明本地没有生成的SSH Key，请执行第二步。</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">No such file or directory</span><br></pre></td></tr></table></figure>
-
-<p>如果vim输出的是如下内容： 证明本地已经存在SSH Key 文件，请执行第四步。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">id_rsa    id_rsa.pub</span><br></pre></td></tr></table></figure>
-
-<h4 id="如果没有，生成新的SSH-Key"><a href="#如果没有，生成新的SSH-Key" class="headerlink" title="如果没有，生成新的SSH Key"></a>如果没有，生成新的SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C&quot;you_email&quot;</span><br></pre></td></tr></table></figure>
-
-<p>your_email：这里填写你在GitLab或者GitHub注册时的邮箱。<br>后面的提示直接敲回车，一路完成。</p>
-<h4 id="生成并添加SSH-Key"><a href="#生成并添加SSH-Key" class="headerlink" title="生成并添加SSH Key"></a>生成并添加SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
-
-<h4 id="查看SSH-Key"><a href="#查看SSH-Key" class="headerlink" title="查看SSH Key"></a>查看SSH Key</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat /Users/xxx/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-
-<p>xxx是你的电脑用户名，例如：howieMacBook-Pro:~ howie$中的howie关键字。<br>复制生成好的SSH Key 添加到 GitLab 或者GitHub中的SSH Key中即可。</p>
-]]></content>
-      <categories>
-        <category>mac</category>
-      </categories>
-      <tags>
-        <tag>ssh</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>时光很长 莫要慌张</title>
     <url>/2019/07/23/%E6%97%B6%E5%85%89%E5%BE%88%E9%95%BF-%E8%8E%AB%E8%A6%81%E6%85%8C%E5%BC%A0/</url>
     <content><![CDATA[<blockquote>
@@ -1180,33 +1211,28 @@
       </categories>
   </entry>
   <entry>
-    <title>Hexo部署到github上，白屏了</title>
-    <url>/2022/08/23/Hexo%E9%83%A8%E7%BD%B2%E5%88%B0github%E4%B8%8A%EF%BC%8C%E7%99%BD%E5%B1%8F%E4%BA%86/</url>
-    <content><![CDATA[<ol>
-<li><p>先你应该在本地测试 Hexo 是否正确安装。<br>在 hexo 的目录下，运行 <code>hexo s</code>, 如果 hexo 安装正确会出现如下内容</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">➜  iblog hexo s</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+    <title>zsh: command not found: hexo</title>
+    <url>/2022/08/18/zsh-command-not-found-hexo/</url>
+    <content><![CDATA[<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>最近打算在hexo新建一篇文章，执行终端时:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">zsh: command not found: hexo</span><br></pre></td></tr></table></figure>
 
-<p> 这个时候，打开浏览器，输入 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000</a> 看看是不是能够看到你的网站。<br> 如果正常显示。说明 Hexo 安装正确，问题就在出现在 github 上了。</p>
-</li>
-<li><p>如果你正确地在 hexo 中配置了 github。你可以先 <code>hexo clean</code> 再 <code>hexo d -g</code> 。<br>如果成功，最后应该会显示</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Branch &apos;master&apos; set up to track remote branch &apos;master&apos; from &apos;git@github.com:xxx/xxx.github.io.git&apos;.</span><br><span class="line">INFO  Deploy done: git</span><br></pre></td></tr></table></figure>
+<h4 id="探究"><a href="#探究" class="headerlink" title="探究"></a>探究</h4><p>可能是前段时间学习vue的时候，重新安装了node，导致PATH路径<code>/usr/local/lib/node_modules/</code>目录下的<code>hexo-cli</code>丢失。</p>
+<h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><p>通过 –prefix 参数指定链接创建的目标路径。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yarn global remove hexo-cli</span><br><span class="line"></span><br><span class="line"># 重新安装</span><br><span class="line">yarn global add hexo-cli --prefix /usr/local</span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
-<a id="more"></a>
-
-<ol start="3">
-<li><p>前两步都没问题，就该检查 github 仓库了。<br>打开你的 github 上名为 xxx.github.io 的仓库，如果部署正确上面应该会有内容的。至少会有一个 <code>index.html</code> 之类的文件。</p>
-</li>
-<li><p>如果你能找到 index.html 文件，但是还是打不开你的网站，那说明很有可能 github page 相关配置出了问题。<br>可以做一个简单的测试。把 xxx.github.io 仓库下的内容全部删除了，新建一个 <code>index.html</code> 文件，输入如下内容</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;title&gt; hexo test &lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h1&gt;hexo test&lt;/h1&gt;</span><br><span class="line">    &lt;p&gt; hello world &lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>然后你在浏览器打开 xxx.github.io<br>如果打开没问题，能看到 hello world, 说明你的 github 仓库配置没问题，你需要检查你的 hexo 是不是正确上传到了 github.<br>如果打开还是一片空白，建议你删了这个仓库，找个教程重新新建一个仓库。</p>
+<p><a href="https://www.dazhuanlan.com/maple0015/topics/1070884" target="_blank" rel="noopener">重新执行hexo，成功。</a></p>
 ]]></content>
       <categories>
         <category>hexo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Android11 分区存储</title>
+    <url>/2022/08/24/Android11-%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8/</url>
+    <content><![CDATA[<p>I don’t have time to write for a while, so let’s look <a href="https://cloud.tencent.com/developer/inventory/692/article/1706411" target="_blank" rel="noopener">here</a> first.</p>
+]]></content>
+      <categories>
+        <category>android</category>
       </categories>
   </entry>
 </search>
