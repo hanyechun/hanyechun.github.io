@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hanyechun.github.io/"/>
-  <updated>2022-09-03T05:35:56.400Z</updated>
+  <updated>2022-09-26T07:17:18.174Z</updated>
   <id>https://hanyechun.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android 12 蓝牙权限变更</title>
+    <link href="https://hanyechun.github.io/2022/09/26/Android-12-%E8%93%9D%E7%89%99%E6%9D%83%E9%99%90%E5%8F%98%E6%9B%B4/"/>
+    <id>https://hanyechun.github.io/2022/09/26/Android-12-蓝牙权限变更/</id>
+    <published>2022-09-26T07:02:27.000Z</published>
+    <updated>2022-09-26T07:17:18.174Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="运行崩溃："><a href="#运行崩溃：" class="headerlink" title="运行崩溃："></a>运行崩溃：</h4><blockquote><p>Caused by: java.lang.SecurityException: Need android.permission.BLUETOOTH_CONNECT<br>permission for android.content.AttributionSource@db46d647: enable 37 at<br>android.os.Parcel.createExceptionOrNull(Parcel.java:2425) 38 at<br>android.os.Parcel.createException(Parcel.java:2409) 39 at<br>android.os.Parcel.readException(Parcel.java:2392) 40 at<br>android.os.Parcel.readException(Parcel.java:2334) 41 at<br>android.bluetooth.IBluetoothManagerStubProxy.enable(IBluetoothManager.java:611) 42 at<br>android.bluetooth.BluetoothAdapter.enable(BluetoothAdapter.java:1217)</p></blockquote><h4 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h4><p>在target到Android12之后，查找蓝牙设备需要添加 BLUETOOTH_SCAN 权限，与匹配的蓝牙设备传输数据需要获取BLUETOOTH_CONNECT 权限。</p><p>参考<a href="https://developer.android.com/guide/topics/connectivity/bluetooth/permissions" target="_blank" rel="noopener">官方文档</a>权限声明：</p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;manifest&gt;</span><br><span class="line">    &lt;!-- Request legacy Bluetooth permissions on older devices. --&gt;</span><br><span class="line">    &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH&quot;</span><br><span class="line">                     android:maxSdkVersion=&quot;30&quot; /&gt;</span><br><span class="line">    &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_ADMIN&quot;</span><br><span class="line">                     android:maxSdkVersion=&quot;30&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Needed only if your app looks for Bluetooth devices.</span><br><span class="line">         If your app doesn&apos;t use Bluetooth scan results to derive physical</span><br><span class="line">         location information, you can strongly assert that your app</span><br><span class="line">         doesn&apos;t derive physical location. --&gt;</span><br><span class="line">    &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_SCAN&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Needed only if your app makes the device discoverable to Bluetooth</span><br><span class="line">         devices. --&gt;</span><br><span class="line">    &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_ADVERTISE&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Needed only if your app communicates with already-paired Bluetooth</span><br><span class="line">         devices. --&gt;</span><br><span class="line">    &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_CONNECT&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Needed only if your app uses Bluetooth scan results to derive physical location. --&gt;</span><br><span class="line">    &lt;uses-permission android:name=&quot;android.permission.ACCESS_FINE_LOCATION&quot; /&gt;</span><br><span class="line">    ...</span><br><span class="line">&lt;/manifest&gt;</span><br></pre></td></tr></table></figure><h4 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h4><p>在查找和匹配蓝牙设备之前，先动态申请 BLUETOOTH_SCAN 权限以及BLUETOOTH_CONNECT 权限。</p><h4 id="适配-Android12-的一些坑"><a href="#适配-Android12-的一些坑" class="headerlink" title="适配 Android12 的一些坑"></a><a href="https://mp.weixin.qq.com/s/CEsb7BmhNJ8mbqX4FjVS1A" target="_blank" rel="noopener">适配 Android12 的一些坑</a></h4>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;运行崩溃：&quot;&gt;&lt;a href=&quot;#运行崩溃：&quot; class=&quot;headerlink&quot; title=&quot;运行崩溃：&quot;&gt;&lt;/a&gt;运行崩溃：&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Caused by: java.lang.SecurityException: Need android.permission.BLUETOOTH_CONNECT&lt;br&gt;permission for android.content.AttributionSource@db46d647: enable 37 at&lt;br&gt;android.os.Parcel.createExceptionOrNull(Parcel.java:2425) 38 at&lt;br&gt;android.os.Parcel.createException(Parcel.java:2409) 39 at&lt;br&gt;android.os.Parcel.readException(Parcel.java:2392) 40 at&lt;br&gt;android.os.Parcel.readException(Parcel.java:2334) 41 at&lt;br&gt;android.bluetooth.IBluetoothManagerStubProxy.enable(IBluetoothManager.java:611) 42 at&lt;br&gt;android.bluetooth.BluetoothAdapter.enable(BluetoothAdapter.java:1217)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;问题描述：&quot;&gt;&lt;a href=&quot;#问题描述：&quot; class=&quot;headerlink&quot; title=&quot;问题描述：&quot;&gt;&lt;/a&gt;问题描述：&lt;/h4&gt;&lt;p&gt;在target到Android12之后，查找蓝牙设备需要添加 BLUETOOTH_SCAN 权限，与匹配的蓝牙设备传输数据需要获取BLUETOOTH_CONNECT 权限。&lt;/p&gt;
+&lt;p&gt;参考&lt;a href=&quot;https://developer.android.com/guide/topics/connectivity/bluetooth/permissions&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;官方文档&lt;/a&gt;权限声明：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="android" scheme="https://hanyechun.github.io/categories/android/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Android Room升级和迁移</title>
@@ -535,30 +559,6 @@
 &lt;hr&gt;
 &lt;h4 id=&quot;安装-Git&quot;&gt;&lt;a href=&quot;#安装-Git&quot; class=&quot;headerlink&quot; title=&quot;安装 Git&quot;&gt;&lt;/a&gt;安装 Git&lt;/h4&gt;&lt;p&gt;搭建博客需要用到 git，下面这条命令可查看本机是否已安装 git，若未安装可参考&lt;a href=&quot;https://www.liaoxuefeng.com/wiki/896043488029600/896067074338496&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;这篇博文&lt;/a&gt;进行安装。&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git --version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="hexo" scheme="https://hanyechun.github.io/categories/hexo/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>zsh: command not found: hexo</title>
-    <link href="https://hanyechun.github.io/2022/08/18/zsh-command-not-found-hexo/"/>
-    <id>https://hanyechun.github.io/2022/08/18/zsh-command-not-found-hexo/</id>
-    <published>2022-08-18T06:23:50.000Z</published>
-    <updated>2022-08-18T06:37:38.977Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>最近打算在hexo新建一篇文章，执行终端时:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zsh: command not found: hexo</span><br></pre></td></tr></table></figure><h4 id="探究"><a href="#探究" class="headerlink" title="探究"></a>探究</h4><p>可能是前段时间学习vue的时候，重新安装了node，导致PATH路径<code>/usr/local/lib/node_modules/</code>目录下的<code>hexo-cli</code>丢失。</p><h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><p>通过 –prefix 参数指定链接创建的目标路径。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yarn global remove hexo-cli</span><br><span class="line"></span><br><span class="line"># 重新安装</span><br><span class="line">yarn global add hexo-cli --prefix /usr/local</span><br></pre></td></tr></table></figure><p><a href="https://www.dazhuanlan.com/maple0015/topics/1070884" target="_blank" rel="noopener">重新执行hexo，成功。</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h4&gt;&lt;p&gt;最近打算在hexo新建一篇文章，执行终端时:&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;
-      
     
     </summary>
     

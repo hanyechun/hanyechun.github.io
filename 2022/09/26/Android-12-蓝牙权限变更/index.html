@@ -138,18 +138,17 @@
 
 
 
-  <meta name="description" content="首先是定义接口部分： 12345public interface MyApi&amp;#123;    @Multipart    @POST(&amp;quot;renovation/uploadImg&amp;quot;)    Observable&amp;lt;HttpResult&amp;gt; upLoadsImg(@PartMap Map&amp;lt;String, RequestBody&amp;gt; params,  @Part(">
-<meta name="keywords" content="retrofit">
+  <meta name="description" content="运行崩溃： Caused by: java.lang.SecurityException: Need android.permission.BLUETOOTH_CONNECTpermission for android.content.AttributionSource@db46d647: enable 37 atandroid.os.Parcel.createExceptionOrNull(Pa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Retrofit多图上传">
-<meta property="og:url" content="https://hanyechun.github.io/2019/07/30/Retrofit多图上传/index.html">
+<meta property="og:title" content="Android 12 蓝牙权限变更">
+<meta property="og:url" content="https://hanyechun.github.io/2022/09/26/Android-12-蓝牙权限变更/index.html">
 <meta property="og:site_name" content="hyc&#39;s blog">
-<meta property="og:description" content="首先是定义接口部分： 12345public interface MyApi&amp;#123;    @Multipart    @POST(&amp;quot;renovation/uploadImg&amp;quot;)    Observable&amp;lt;HttpResult&amp;gt; upLoadsImg(@PartMap Map&amp;lt;String, RequestBody&amp;gt; params,  @Part(">
+<meta property="og:description" content="运行崩溃： Caused by: java.lang.SecurityException: Need android.permission.BLUETOOTH_CONNECTpermission for android.content.AttributionSource@db46d647: enable 37 atandroid.os.Parcel.createExceptionOrNull(Pa">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-30T09:48:00.194Z">
+<meta property="og:updated_time" content="2022-09-26T07:17:18.174Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Retrofit多图上传">
-<meta name="twitter:description" content="首先是定义接口部分： 12345public interface MyApi&amp;#123;    @Multipart    @POST(&amp;quot;renovation/uploadImg&amp;quot;)    Observable&amp;lt;HttpResult&amp;gt; upLoadsImg(@PartMap Map&amp;lt;String, RequestBody&amp;gt; params,  @Part(">
+<meta name="twitter:title" content="Android 12 蓝牙权限变更">
+<meta name="twitter:description" content="运行崩溃： Caused by: java.lang.SecurityException: Need android.permission.BLUETOOTH_CONNECTpermission for android.content.AttributionSource@db46d647: enable 37 atandroid.os.Parcel.createExceptionOrNull(Pa">
 
 
 
@@ -159,7 +158,7 @@
 
   
   
-  <link rel="canonical" href="https://hanyechun.github.io/2019/07/30/Retrofit多图上传/">
+  <link rel="canonical" href="https://hanyechun.github.io/2022/09/26/Android-12-蓝牙权限变更/">
 
 
 
@@ -169,7 +168,7 @@
   };
 </script>
 
-  <title>Retrofit多图上传 | hyc's blog</title>
+  <title>Android 12 蓝牙权限变更 | hyc's blog</title>
   
 
 
@@ -445,7 +444,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hanyechun.github.io/2019/07/30/Retrofit多图上传/">
+    <link itemprop="mainEntityOfPage" href="https://hanyechun.github.io/2022/09/26/Android-12-蓝牙权限变更/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="叶寒">
@@ -462,7 +461,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Retrofit多图上传
+          <h1 class="post-title" itemprop="name headline">Android 12 蓝牙权限变更
 
               
             
@@ -488,7 +487,7 @@
                 
               
 
-              <time title="创建时间：2019-07-30 17:36:04 / 修改时间：17:48:00" itemprop="dateCreated datePublished" datetime="2019-07-30T17:36:04+08:00">2019-07-30</time>
+              <time title="创建时间：2022-09-26 15:02:27 / 修改时间：15:17:18" itemprop="dateCreated datePublished" datetime="2022-09-26T15:02:27+08:00">2022-09-26</time>
             </span>
           
 
@@ -525,8 +524,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/07/30/Retrofit多图上传/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/30/Retrofit多图上传/" itemprop="commentCount"></span>
+                <a href="/2022/09/26/Android-12-蓝牙权限变更/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2022/09/26/Android-12-蓝牙权限变更/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -554,7 +553,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2.2k</span>
+              <span title="本文字数">1.8k</span>
             </span>
           
 
@@ -585,27 +584,17 @@
       
 
       
-        <p>首先是定义接口部分：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public interface MyApi&#123;</span><br><span class="line">    @Multipart</span><br><span class="line">    @POST(&quot;renovation/uploadImg&quot;)</span><br><span class="line">    Observable&lt;HttpResult&gt; upLoadsImg(@PartMap Map&lt;String, RequestBody&gt; params,  @Part(&quot;content&quot;)RequestBody content);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong>注意</strong> 这里使用<code>@Multipart</code>注解，参数这里使用<code>@PartMap</code>和<code>@Part</code>，他们是用来上传文件用的。 这里需要注意的是，使用了<code>@Multipart</code>注解，参数的类型都应该是<code>RequestBody</code>，不然上传的图片的时候会报<code>JSON must start with an array or an object</code>错误。上传多张图片就使用<code>@PartMap Map&lt;String, RequestBody&gt;</code></p>
+        <h4 id="运行崩溃："><a href="#运行崩溃：" class="headerlink" title="运行崩溃："></a>运行崩溃：</h4><blockquote>
+<p>Caused by: java.lang.SecurityException: Need android.permission.BLUETOOTH_CONNECT<br>permission for android.content.AttributionSource@db46d647: enable 37 at<br>android.os.Parcel.createExceptionOrNull(Parcel.java:2425) 38 at<br>android.os.Parcel.createException(Parcel.java:2409) 39 at<br>android.os.Parcel.readException(Parcel.java:2392) 40 at<br>android.os.Parcel.readException(Parcel.java:2334) 41 at<br>android.bluetooth.IBluetoothManagerStubProxy.enable(IBluetoothManager.java:611) 42 at<br>android.bluetooth.BluetoothAdapter.enable(BluetoothAdapter.java:1217)</p>
 </blockquote>
+<h4 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h4><p>在target到Android12之后，查找蓝牙设备需要添加 BLUETOOTH_SCAN 权限，与匹配的蓝牙设备传输数据需要获取BLUETOOTH_CONNECT 权限。</p>
+<p>参考<a href="https://developer.android.com/guide/topics/connectivity/bluetooth/permissions" target="_blank" rel="noopener">官方文档</a>权限声明：</p>
 <a id="more"></a>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public interface MyApi&#123;</span><br><span class="line">   @Multipart</span><br><span class="line">   @POST(&quot;renovation/uploadSingleImg&quot;)</span><br><span class="line">   Observable&lt;HttpResult&gt; upLoadsImg(@Part MultipartBody.Part photo);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;manifest&gt;</span><br><span class="line">    &lt;!-- Request legacy Bluetooth permissions on older devices. --&gt;</span><br><span class="line">    &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH&quot;</span><br><span class="line">                     android:maxSdkVersion=&quot;30&quot; /&gt;</span><br><span class="line">    &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_ADMIN&quot;</span><br><span class="line">                     android:maxSdkVersion=&quot;30&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Needed only if your app looks for Bluetooth devices.</span><br><span class="line">         If your app doesn&apos;t use Bluetooth scan results to derive physical</span><br><span class="line">         location information, you can strongly assert that your app</span><br><span class="line">         doesn&apos;t derive physical location. --&gt;</span><br><span class="line">    &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_SCAN&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Needed only if your app makes the device discoverable to Bluetooth</span><br><span class="line">         devices. --&gt;</span><br><span class="line">    &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_ADVERTISE&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Needed only if your app communicates with already-paired Bluetooth</span><br><span class="line">         devices. --&gt;</span><br><span class="line">    &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_CONNECT&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Needed only if your app uses Bluetooth scan results to derive physical location. --&gt;</span><br><span class="line">    &lt;uses-permission android:name=&quot;android.permission.ACCESS_FINE_LOCATION&quot; /&gt;</span><br><span class="line">    ...</span><br><span class="line">&lt;/manifest&gt;</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>单图上传就用 <code>@Part MultipartBody.Part</code></p>
-</blockquote>
-<p>其次就是具体实现部分（以多图上传为例）:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">Observer&lt;HttpResult&gt; observer = new Observer&lt;HttpResult&gt;() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void onCompleted() &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void onError(Throwable e) &#123;</span><br><span class="line">        	progressUtils.dismiss();</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void onNext(HttpResult httpResult) &#123;</span><br><span class="line">        	//处理返回结果</span><br><span class="line">            if (httpResult.isStatus()) &#123;</span><br><span class="line">                Toast.makeText(mContext, &quot;上传成功&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                Toast.makeText(mContext, &quot;上传失败&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">            &#125;</span><br><span class="line">            progressUtils.dismiss();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">private void submitData() &#123;</span><br><span class="line"></span><br><span class="line">        //图片压缩</span><br><span class="line">        compressUtils();</span><br><span class="line"></span><br><span class="line">        Map&lt;String, RequestBody&gt;  photos = new HashMap&lt;&gt;();</span><br><span class="line">        //mPhotoList是选择图片后的返回路径</span><br><span class="line">        if (mPhotoList.size() &gt; 0) &#123;</span><br><span class="line">            for (int i = 0; i &lt; mPhotoList.size(); i++) &#123;</span><br><span class="line">                File  file = new File(mPhotoList.get(i).getPhotoPath());</span><br><span class="line">                RequestBody  requestFile = RequestBody.create(MediaType.parse(&quot;multipart/form-data&quot;), file);</span><br><span class="line">                //RequestBody  requestFile = RequestBody.create(MediaType.parse(&quot;image/jpg&quot;), file);</span><br><span class="line"></span><br><span class="line">             	//这里前面一部分是服务器要求你传的key，加上一个i,就可以动态设置key的长度</span><br><span class="line">                photos.put(&quot;AttachmentKey&quot;+i+&quot;\&quot;; filename=\&quot;&quot;+file.getName(),requestFile);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        subscription  = Network.getMyApi().upLoadsImg(photos,RequestBody.create(null,content))</span><br><span class="line">                .subscribeOn(Schedulers.io())</span><br><span class="line">                .unsubscribeOn(Schedulers.io())</span><br><span class="line">                .observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">                .subscribe(observer);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>这里详细解释已经在代码中有注释说明，我按照这个方法上传是没有问题的。相册选机器我推荐使用 <a href="https://github.com/pengjianbo/GalleryFinal" target="_blank" rel="noopener">GalleryFinal</a>里面的功能很详细，实现了拍照、图片选择（单选/多选）、 裁剪（单/多裁剪）、旋转等功能，具体链接里面有介绍。</p>
-</blockquote>
-<p><strong>MediaType.parse(“multipart/form-data”)传MediaType.parse(“image/jpg”)也可以，原因还不知道。</strong></p>
-
+<h4 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h4><p>在查找和匹配蓝牙设备之前，先动态申请 BLUETOOTH_SCAN 权限以及BLUETOOTH_CONNECT 权限。</p>
+<h4 id="适配-Android12-的一些坑"><a href="#适配-Android12-的一些坑" class="headerlink" title="适配 Android12 的一些坑"></a><a href="https://mp.weixin.qq.com/s/CEsb7BmhNJ8mbqX4FjVS1A" target="_blank" rel="noopener">适配 Android12 的一些坑</a></h4>
       
     </div>
 
@@ -639,7 +628,7 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="https://hanyechun.github.io/2019/07/30/Retrofit多图上传/" title="Retrofit多图上传">https://hanyechun.github.io/2019/07/30/Retrofit多图上传/</a>
+    <a href="https://hanyechun.github.io/2022/09/26/Android-12-蓝牙权限变更/" title="Android 12 蓝牙权限变更">https://hanyechun.github.io/2022/09/26/Android-12-蓝牙权限变更/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -650,15 +639,6 @@
 
     <footer class="post-footer">
       
-        
-          
-        
-        <div class="post-tags">
-          
-            <a href="/tags/retrofit/" rel="tag"># retrofit</a>
-          
-        </div>
-      
 
       
       
@@ -668,8 +648,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/23/时光很长-莫要慌张/" rel="next" title="时光很长 莫要慌张">
-                <i class="fa fa-chevron-left"></i> 时光很长 莫要慌张
+              <a href="/2022/09/03/Android-Room升级和迁移/" rel="next" title="Android Room升级和迁移">
+                <i class="fa fa-chevron-left"></i> Android Room升级和迁移
               </a>
             
           </div>
@@ -677,10 +657,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/14/Mac使用oh-my-zsh-autosuggestions搭建个性化Terminal/" rel="prev" title="Mac使用oh-my-zsh + autosuggestions搭建个性化Terminal">
-                Mac使用oh-my-zsh + autosuggestions搭建个性化Terminal <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -728,8 +704,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -859,6 +844,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#运行崩溃："><span class="nav-number">1.</span> <span class="nav-text">运行崩溃：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题描述："><span class="nav-number">2.</span> <span class="nav-text">问题描述：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决办法："><span class="nav-number">3.</span> <span class="nav-text">解决办法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#适配-Android12-的一些坑"><span class="nav-number">4.</span> <span class="nav-text">适配 Android12 的一些坑</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       

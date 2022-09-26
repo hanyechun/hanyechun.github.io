@@ -444,6 +444,209 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hanyechun.github.io/2022/09/26/Android-12-蓝牙权限变更/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="叶寒">
+      <meta itemprop="description" content="iblog">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hyc's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2022/09/26/Android-12-蓝牙权限变更/" class="post-title-link" itemprop="url">Android 12 蓝牙权限变更</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2022-09-26 15:02:27 / 修改时间：15:17:18" itemprop="dateCreated datePublished" datetime="2022-09-26T15:02:27+08:00">2022-09-26</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2022/09/26/Android-12-蓝牙权限变更/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2022/09/26/Android-12-蓝牙权限变更/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">1.8k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">2 分钟</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="运行崩溃："><a href="#运行崩溃：" class="headerlink" title="运行崩溃："></a>运行崩溃：</h4><blockquote>
+<p>Caused by: java.lang.SecurityException: Need android.permission.BLUETOOTH_CONNECT<br>permission for android.content.AttributionSource@db46d647: enable 37 at<br>android.os.Parcel.createExceptionOrNull(Parcel.java:2425) 38 at<br>android.os.Parcel.createException(Parcel.java:2409) 39 at<br>android.os.Parcel.readException(Parcel.java:2392) 40 at<br>android.os.Parcel.readException(Parcel.java:2334) 41 at<br>android.bluetooth.IBluetoothManagerStubProxy.enable(IBluetoothManager.java:611) 42 at<br>android.bluetooth.BluetoothAdapter.enable(BluetoothAdapter.java:1217)</p>
+</blockquote>
+<h4 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h4><p>在target到Android12之后，查找蓝牙设备需要添加 BLUETOOTH_SCAN 权限，与匹配的蓝牙设备传输数据需要获取BLUETOOTH_CONNECT 权限。</p>
+<p>参考<a href="https://developer.android.com/guide/topics/connectivity/bluetooth/permissions" target="_blank" rel="noopener">官方文档</a>权限声明：</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2022/09/26/Android-12-蓝牙权限变更/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://hanyechun.github.io/2022/09/03/Android-Room升级和迁移/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2222,212 +2425,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hanyechun.github.io/2022/08/22/Hexo部署到github提示TypeError-ERR-INVALID-ARG-TYPE-The-mode-argument-must-be-integer/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="叶寒">
-      <meta itemprop="description" content="iblog">
-      <meta itemprop="image" content="/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hyc's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2022/08/22/Hexo部署到github提示TypeError-ERR-INVALID-ARG-TYPE-The-mode-argument-must-be-integer/" class="post-title-link" itemprop="url">Hexo部署到github提示TypeError [ERR_INVALID_ARG_TYPE]: The 'mode' argument must be integer. </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2022-08-22 19:15:37 / 修改时间：19:38:52" itemprop="dateCreated datePublished" datetime="2022-08-22T19:15:37+08:00">2022-08-22</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2022/08/22/Hexo部署到github提示TypeError-ERR-INVALID-ARG-TYPE-The-mode-argument-must-be-integer/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2022/08/22/Hexo部署到github提示TypeError-ERR-INVALID-ARG-TYPE-The-mode-argument-must-be-integer/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span title="本文字数">944</span>
-            </span>
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span title="阅读时长">1 分钟</span>
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>由于前段时间学习vue，重装了我的node，导致node版本过高。hexo部署到github时出现以下错误：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FATAL Something&apos;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line">TypeError [ERR_INVALID_ARG_TYPE]: The &quot;mode&quot; argument must be integer. Received an instance of Object</span><br><span class="line">    at copyFile (fs.js:1972:10)</span><br><span class="line">    at tryCatcher (/Users/hyc/Documents/iblog/node_modules/bluebird/js/release/util.js:16:23)</span><br><span class="line">    at ret (eval at makeNodePromisifiedEval (/Users/hyc/.nvm/versions/node/v14.15.0/lib/node_modules/hexo-cli/node_modules/bluebird/js/release/promisify.js:184:12), &lt;anonymous&gt;:13:39)</span><br><span class="line">    at /Users/hyc/Documents/iblog/node_modules/hexo-fs/lib/fs.js:144:39</span><br><span class="line">    at tryCatcher (/Users/hyc/Documents/iblog/node_modules/bluebird/js/release/util.js:16:23)</span><br></pre></td></tr></table></figure>
-
-<h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>node14与hexo不兼容导致。</p>
-<p>查看node版本号：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br><span class="line">hexo: 3.9.0</span><br><span class="line">hexo-cli: 4.3.0</span><br><span class="line">os: win32 10.0.19042</span><br><span class="line">node: 14.17.5</span><br></pre></td></tr></table></figure>
-
-<h4 id="解决方案一"><a href="#解决方案一" class="headerlink" title="解决方案一"></a>解决方案一</h4><p>当前node版本是 <code>14.17.5</code>，从14降低到12即可解决此问题。推荐<code>12.17.0</code>。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2022/08/22/Hexo部署到github提示TypeError-ERR-INVALID-ARG-TYPE-The-mode-argument-must-be-integer/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2476,7 +2473,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
